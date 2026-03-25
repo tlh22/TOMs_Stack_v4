@@ -1,0 +1,38 @@
+<dataConfig>
+    <dataSource
+        driver="org.postgresql.Driver"
+        url="jdbc:postgresql://qwc-postgis/threerivers" user="postgres" password="postgis" />
+    <document>
+        <entity name="trdc_postcode" clean="false" query="
+            WITH index_base AS (
+                SELECT
+                    'trdc_postcode'::text AS subclass,
+                    id AS id_in_class,
+                    'id' AS id_name,
+                    'int:n' AS id_type,
+                    CASE
+                        WHEN &#34;SITE_NAME&#34; IS NOT NULL AND trim(&#34;SITE_NAME&#34;) &lt;&gt; ''
+                        THEN postcode || ' - ' || &#34;SITE_NAME&#34; || ', ' || COALESCE(&#34;TOWN&#34;, '')
+                        ELSE postcode
+                    END AS displaytext,
+                    replace(upper(postcode), ' ', '') AS search_part_1,
+                    trim(COALESCE(&#34;SITE_NAME&#34;, '') || ' ' || COALESCE(&#34;TOWN&#34;, '')) AS search_part_2,
+                    geom AS geom
+                FROM local_authority.&#34;CodePoint_Open_TRDC_with_street&#34;
+                WHERE postcode IS NOT NULL AND trim(postcode) &lt;&gt; ''
+            )
+            SELECT
+                (array_to_json(array_append(ARRAY[subclass::text], id_in_class::text)))::text AS id,
+                displaytext AS display,
+                search_part_1 AS search_1_stem,
+                NULLIF(trim(search_part_2), '') AS search_2_stem,
+                displaytext AS sort,
+                subclass AS facet,
+                'trdc' AS tenant,
+                (array_to_json(array_append(ARRAY[id_name::text], id_type::text)))::text AS idfield_meta,
+                (st_asgeojson(st_envelope(geom), 0, 1)::json -> 'bbox')::text AS bbox,
+                st_srid(geom) as srid
+            FROM index_base">
+        </entity>
+    </document>
+</dataConfig>

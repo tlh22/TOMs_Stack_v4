@@ -1,0 +1,1972 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-map-viewer/raw/2024-lts/schemas/qwc-map-viewer.json",
+  "service": "map-viewer",
+  "config": {
+    "qwc2_path": "/qwc2/",
+    "auth_service_url": "/mhtc/auth/",
+    "data_service_url": "/mhtc/api/v1/data/",
+    "#document_service_url": "/mhtc/api/v1/document/",
+    "info_service_url": "/mhtc/api/v1/featureinfo/",
+    "legend_service_url": "/mhtc/api/v1/legend/",
+    "mapinfo_service_url": "/mhtc/api/v1/mapinfo/",
+    "ogc_service_url": "/mhtc/ows/",
+    "permalink_service_url": "/mhtc/api/v1/permalink/",
+    "#print_service_url": "/mhtc/api/v1/print/",
+    "search_service_url": "/mhtc/api/v2/search/",
+    "search_data_service_url": "/mhtc/api/v2/search/geom/"
+  },
+  "resources": {
+    "qwc2_config": {
+      "restricted_viewer_tasks": [],
+      "config": {
+        "assetsPath": "assets/mhtc",
+        "urlPositionFormat": "centerAndZoom",
+        "urlPositionCrs": "",
+        "omitUrlParameterUpdates": false,
+        "preserveExtentOnThemeSwitch": true,
+        "preserveBackgroundOnThemeSwitch": true,
+        "preserveNonThemeLayersOnThemeSwitch": false,
+        "allowReorderingLayers": true,
+        "preventSplittingGroupsWhenReordering": false,
+        "allowLayerTreeSeparators": false,
+        "allowRemovingThemeLayers": true,
+        "globallyDisableDockableDialogs": false,
+        "searchThemes": true,
+        "allowAddingOtherThemes": false,
+        "allowFractionalZoom": false,
+        "localeAwareNumbers": false,
+        "identifyTool": "Identify",
+        "wmsDpi": 96,
+        "wmsHidpi": false,
+        "qgisServerVersion": 3,
+        "defaultFeatureStyle": {
+          "strokeColor": [
+            0,
+            0,
+            255,
+            1
+          ],
+          "strokeWidth": 1,
+          "strokeDash": [
+            4
+          ],
+          "fillColor": [
+            255,
+            0,
+            255,
+            0.33
+          ],
+          "circleRadius": 10,
+          "textFill": "black",
+          "textStroke": "white",
+          "textFont": "11pt sans-serif"
+        },
+        "projections": [
+          {
+            "code": "EPSG:27700",
+            "proj": "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs",
+            "label": "OSGB 1936 / British National Grid"
+          },
+          {
+            "code": "EPSG:3857",
+            "proj": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs",
+            "label": "WGS 84 / Pseudo-Mercator"
+          }
+        ],
+        "plugins": {
+          "mobile": [
+            {
+              "name": "Map",
+              "cfg": {
+                "mapOptions": {
+                  "zoomDuration": 250,
+                  "enableRotation": true
+                },
+                "toolsOptions": {
+                  "OverviewSupport": {
+                    "tipLabel": "Overview"
+                  },
+                  "LocateSupport": {
+                    "keepCurrentZoomLevel": true,
+                    "startupMode": "DISABLED"
+                  },
+                  "ScaleBarSupport": {
+                    "units": "metric"
+                  }
+                }
+              }
+            },
+            {
+              "name": "HomeButton",
+              "cfg": {
+                "position": 2
+              }
+            },
+            {
+              "name": "LocateButton",
+              "cfg": {
+                "position": 1
+              }
+            },
+            {
+              "name": "BackgroundSwitcher",
+              "cfg": {
+                "position": 0
+              }
+            },
+            {
+              "name": "TopBar",
+              "cfg": {
+                "menuItems": [
+                  {
+                    "key": "ThemeSwitcher",
+                    "icon": "themes"
+                  },
+                  {
+                    "key": "LayerTree",
+                    "icon": "layers"
+                  },
+                  {
+                    "key": "MapLegend",
+                    "icon": "list-alt"
+                  },
+                  {
+                    "key": "FeatureSearch",
+                    "icon": "search"
+                  },
+                  {
+                    "key": "Share",
+                    "icon": "share"
+                  },
+                  {
+                    "key": "Tools",
+                    "icon": "tools",
+                    "subitems": [
+                      {
+                        "key": "Measure",
+                        "icon": "measure"
+                      },
+                      {
+                        "key": "FeatureForm",
+                        "icon": "featureform"
+                      },
+                      {
+                        "key": "AttributeTable",
+                        "icon": "editing"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "Print",
+                    "icon": "print"
+                  },
+                  {
+                    "key": "Help",
+                    "icon": "info"
+                  },
+                  {
+                    "key": "Settings",
+                    "icon": "cog"
+                  },
+                  {
+                    "key": "Login",
+                    "icon": "login"
+                  }
+                ],
+                "searchOptions": {
+                  "minScaleDenom": 1000,
+                  "showProviderSelection": true,
+                  "providerSelectionAllowAll": true,
+                  "zoomToLayers": false,
+                  "allowSearchFilters": false,
+                  "showProvidersInPlaceholder": false
+                },
+                "appMenuClearsTask": true,
+                "appMenuFilterField": true,
+                "appMenuVisibleOnStartup": false
+              }
+            },
+            {
+              "name": "ThemeSwitcher",
+              "cfg": {
+                "collapsibleGroups": true
+              }
+            },
+            {
+              "name": "Measure",
+              "cfg": {
+                "showMeasureModeSwitcher": true
+              }
+            },
+            {
+              "name": "BottomBar",
+              "cfg": {
+                "displayCoordinates": false,
+                "displayScales": false
+              }
+            },
+            {
+              "name": "Identify",
+              "cfg": {
+                "params": {
+                  "FI_POINT_TOLERANCE": 32,
+                  "FI_LINE_TOLERANCE": 16,
+                  "FI_POLYGON_TOLERANCE": 8,
+                  "feature_count": 20,
+                  "region_feature_count": 100
+                },
+                "enableExport": true,
+                "longAttributesDisplay": "wrap",
+                "displayResultTree": false,
+                "featureInfoReturnsLayerName": true
+              }
+            },
+            {
+              "name": "Share",
+              "cfg": {
+                "showSocials": true,
+                "showLink": true,
+                "showQRCode": true
+              },
+              "mapClickAction": "identify"
+            },
+            {
+              "name": "Print",
+              "cfg": {
+                "inlinePrintOutput": false,
+                "printExternalLayers": true,
+                "gridInitiallyEnabled": false
+              }
+            },
+            {
+              "name": "Help",
+              "mapClickAction": "identify"
+            },
+            {
+              "name": "MapCopyright"
+            },
+            {
+              "name": "LayerTree",
+              "cfg": {
+                "showLegendIcons": true,
+                "showRootEntry": true,
+                "showQueryableIcon": true,
+                "allowMapTips": true,
+                "allowCompare": true,
+                "allowImport": true,
+                "groupTogglesSublayers": false,
+                "grayUnchecked": false,
+                "layerInfoWindowSize": {
+                  "width": 480,
+                  "height": 400
+                },
+                "bboxDependentLegend": true,
+                "scaleDependentLegend": "theme"
+              },
+              "mapClickAction": "unset"
+            },
+            {
+              "name": "MapLegend",
+              "cfg": {
+                "addLayerTitles": true,
+                "scaleDependentLegend": true,
+                "bboxDependentLegend": true,
+                "extraLegendParameters": "LEGEND_OPTIONS=forceLabels:on;fontAntiAliasing:true",
+                "geometry": {
+                  "initialWidth": 360,
+                  "initialHeight": 420,
+                  "initiallyDocked": true,
+                  "side": "right"
+                }
+              }
+            },
+            {
+              "name": "AttributeTable"
+            },
+            {
+              "name": "MapCompare"
+            },
+            {
+              "name": "MapInfoTooltip",
+              "cfg": {
+                "includeWGS84": false
+              }
+            },
+            {
+              "name": "StartupMarker",
+              "cfg": {
+                "removeMode": "onclickonmarker"
+              }
+            },
+            {
+              "name": "Authentication"
+            },
+            {
+              "name": "FeatureForm"
+            },
+            {
+              "name": "Settings",
+              "cfg": {
+                "languages": [
+                  {
+                    "title": "English",
+                    "value": "en-GB"
+                  },
+                  {
+                    "title": "French",
+                    "value": "fr-FR"
+                  }
+                ],
+                "colorSchemes": [
+                  {
+                    "titleMsgId": "colorschemes.default",
+                    "value": "default"
+                  },
+                  {
+                    "titleMsgId": "colorschemes.highcontrast",
+                    "value": "highcontrast"
+                  },
+                  {
+                    "titleMsgId": "colorschemes.dark",
+                    "value": "dark"
+                  }
+                ]
+              }
+            }
+          ],
+          "desktop": [
+            {
+              "name": "Map",
+              "cfg": {
+                "mapOptions": {
+                  "zoomDuration": 250,
+                  "enableRotation": true
+                },
+                "toolsOptions": {
+                  "OverviewSupport": {
+                    "tipLabel": "Overview"
+                  },
+                  "LocateSupport": {
+                    "keepCurrentZoomLevel": true,
+                    "stopFollowingOnDrag": true,
+                    "startupMode": "DISABLED"
+                  },
+                  "ScaleBarSupport": {
+                    "units": "metric"
+                  }
+                },
+                "swipeGeometryTypeBlacklist": [],
+                "swipeLayerNameBlacklist": []
+              }
+            },
+            {
+              "name": "TaskButton",
+              "cfg": {
+                "position": 5,
+                "task": "LayerTree",
+                "icon": "list-alt"
+              }
+            },
+            {
+              "name": "HomeButton",
+              "cfg": {
+                "position": 4
+              }
+            },
+            {
+              "name": "ZoomIn",
+              "cfg": {
+                "position": 2
+              }
+            },
+            {
+              "name": "ZoomOut",
+              "cfg": {
+                "position": 1
+              }
+            },
+            {
+              "name": "BackgroundSwitcher",
+              "cfg": {
+                "position": 0
+              }
+            },
+            {
+              "name": "TopBar",
+              "cfg": {
+                "menuItems": [
+                  {
+                    "key": "ThemeSwitcher",
+                    "icon": "themes"
+                  },
+                  {
+                    "key": "LayerTree",
+                    "icon": "layers"
+                  },
+                  {
+                    "key": "MapLegend",
+                    "icon": "list-alt"
+                  },
+                  {
+                    "key": "FeatureSearch",
+                    "icon": "search"
+                  },
+                  {
+                    "key": "Share",
+                    "icon": "share"
+                  },
+                  {
+                    "key": "Tools",
+                    "icon": "tools",
+                    "subitems": [
+                      {
+                        "key": "Identify",
+                        "icon": "identify_region",
+                        "mode": "Region"
+                      },
+                      {
+                        "key": "Measure",
+                        "icon": "measure"
+                      },
+                      {
+                        "key": "FeatureForm",
+                        "icon": "featureform"
+                      },
+                      {
+                        "key": "AttributeTable",
+                        "icon": "editing"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "Print",
+                    "icon": "print"
+                  },
+                  {
+                    "key": "Help",
+                    "icon": "info"
+                  },
+                  {
+                    "key": "Settings",
+                    "icon": "cog"
+                  },
+                  {
+                    "key": "Login",
+                    "icon": "login"
+                  }
+                ],
+                "searchOptions": {
+                  "minScaleDenom": 1000,
+                  "showProviderSelection": false,
+                  "providerSelectionAllowAll": true,
+                  "zoomToLayers": false,
+                  "allowSearchFilters": false,
+                  "showProvidersInPlaceholder": true
+                },
+                "appMenuClearsTask": true,
+                "appMenuFilterField": true,
+                "appMenuVisibleOnStartup": false,
+                "logoUrl": "https://www.mhtc.co.uk/"
+              }
+            },
+            {
+              "name": "BottomBar",
+              "cfg": {}
+            },
+            {
+              "name": "Measure",
+              "cfg": {
+                "showMeasureModeSwitcher": true,
+                "snapping": true,
+                "snappingActive": true
+              }
+            },
+            {
+              "name": "ThemeSwitcher",
+              "cfg": {
+                "collapsibleGroups": true
+              }
+            },
+            {
+              "name": "LayerTree",
+              "cfg": {
+                "showLegendIcons": true,
+                "showRootEntry": true,
+                "showQueryableIcon": true,
+                "allowMapTips": true,
+                "allowCompare": true,
+                "allowImport": true,
+                "groupTogglesSublayers": false,
+                "grayUnchecked": false,
+                "layerInfoWindowSize": {
+                  "width": 480,
+                  "height": 400
+                },
+                "bboxDependentLegend": true,
+                "scaleDependentLegend": "theme",
+                "showToggleAllLayersCheckbox": true
+              },
+              "mapClickAction": "identify"
+            },
+            {
+              "name": "MapLegend",
+              "cfg": {
+                "addLayerTitles": true,
+                "scaleDependentLegend": true,
+                "bboxDependentLegend": true,
+                "extraLegendParameters": "LEGEND_OPTIONS=forceLabels:on;fontAntiAliasing:true",
+                "geometry": {
+                  "initialWidth": 360,
+                  "initialHeight": 420,
+                  "initiallyDocked": true,
+                  "side": "right"
+                }
+              }
+            },
+            {
+              "name": "Identify",
+              "cfg": {
+                "params": {
+                  "FI_POINT_TOLERANCE": 16,
+                  "FI_LINE_TOLERANCE": 8,
+                  "FI_POLYGON_TOLERANCE": 4,
+                  "feature_count": 20,
+                  "region_feature_count": 100
+                },
+                "enableExport": true,
+                "longAttributesDisplay": "wrap",
+                "displayResultTree": false,
+                "featureInfoReturnsLayerName": true,
+                "initialWidth": 480,
+                "initialHeight": 550
+              }
+            },
+            {
+              "name": "MapTip"
+            },
+            {
+              "name": "Share",
+              "cfg": {
+                "showSocials": true,
+                "showLink": true,
+                "showQRCode": true
+              },
+              "mapClickAction": "identify"
+            },
+            {
+              "name": "Print",
+              "cfg": {
+                "inlinePrintOutput": true,
+                "printExternalLayers": true,
+                "gridInitiallyEnabled": false
+              }
+            },
+            {
+              "name": "Help",
+              "mapClickAction": "identify",
+              "cfg": {
+                "bodyContentsFragmentUrl": "assets/mhtc/help.html"
+              }
+            },
+            {
+              "name": "MapCopyright",
+              "cfg": {
+                "showThemeCopyrightOnly": true
+              }
+            },
+            {
+              "name": "DxfExport",
+              "cfg": {}
+            },
+            {
+              "name": "RasterExport",
+              "cfg": {
+                "dpis": [
+                  96,
+                  300
+                ],
+                "exportExternalLayers": true
+              }
+            },
+            {
+              "name": "Redlining",
+              "cfg": {
+                "snapping": true,
+                "snappingActive": true
+              }
+            },
+            {
+              "name": "Editing",
+              "cfg": {
+                "snapping": true,
+                "snappingActive": true
+              }
+            },
+            {
+              "name": "MapCompare"
+            },
+            {
+              "name": "HeightProfile",
+              "cfg": {
+                "heighProfilePrecision": 0
+              }
+            },
+            {
+              "name": "MapInfoTooltip",
+              "cfg": {
+                "includeWGS84": false
+              }
+            },
+            {
+              "name": "StartupMarker",
+              "cfg": {
+                "removeMode": "onclickonmarker"
+              }
+            },
+            {
+              "name": "API"
+            },
+            {
+              "name": "ScratchDrawing"
+            },
+            {
+              "name": "LayerCatalog",
+              "cfg": {
+                "catalogUrl": "http://localhost/catalog.json"
+              }
+            },
+            {
+              "name": "Bookmark"
+            },
+            {
+              "name": "AttributeTable"
+            },
+            {
+              "name": "Authentication"
+            },
+            {
+              "name": "FeatureForm"
+            },
+            {
+              "name": "TimeManager",
+              "mapClickAction": "identify"
+            },
+            {
+              "name": "Settings",
+              "cfg": {
+                "languages": [
+                  {
+                    "title": "English",
+                    "value": "en-UK"
+                  },
+                  {
+                    "title": "French",
+                    "value": "fr-FR"
+                  }
+                ],
+                "colorSchemes": [
+                  {
+                    "titleMsgId": "colorschemes.default",
+                    "value": "default"
+                  },
+                  {
+                    "titleMsgId": "colorschemes.highcontrast",
+                    "value": "highcontrast"
+                  },
+                  {
+                    "titleMsgId": "colorschemes.dark",
+                    "value": "dark"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "qwc2_themes": {
+      "themes": {
+        "title": "root",
+        "items": [
+          {
+            "id": "TOMs_Test_v3",
+            "name": "mhtc/scan/TOMs_Test_v3",
+            "title": "Three Rivers District Council Traffic Orders",
+            "description": "",
+            "wmsOnly": false,
+            "wms_name": "mhtc/scan/TOMs_Test_v3",
+            "url": "/mhtc/ows/mhtc/scan/TOMs_Test_v3",
+            "attribution": {
+              "Title": null,
+              "OnlineResource": null
+            },
+            "abstract": "",
+            "keywords": "",
+            "onlineResource": "",
+            "contact": {
+              "person": "th",
+              "organization": "MHTC",
+              "position": "th",
+              "phone": "th",
+              "email": "th"
+            },
+            "mapCrs": "EPSG:27700",
+            "additionalMouseCrs": [],
+            "bbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                -3.198707,
+                55.954231,
+                -3.194526,
+                55.955826
+              ]
+            },
+            "initialBbox": {
+              "crs": "EPSG:4326",
+              "bounds": [
+                -3.198707,
+                55.954231,
+                -3.194526,
+                55.955826
+              ]
+            },
+            "sublayers": [
+              {
+                "name": "Restrictions",
+                "title": "Restrictions",
+                "sublayers": [
+                  {
+                    "name": "Bays",
+                    "title": "Bays",
+                    "visibility": true,
+                    "geometryType": "LineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195851,
+                        55.951984,
+                        -3.195278,
+                        55.952065
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Lines",
+                    "title": "Lines",
+                    "visibility": true,
+                    "geometryType": "LineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195678,
+                        55.951873,
+                        -3.195006,
+                        55.951969
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "RestrictionPolygons",
+                    "title": "RestrictionPolygons",
+                    "visibility": true,
+                    "geometryType": "Polygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.196844,
+                        55.952772,
+                        -3.193787,
+                        55.953348
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Signs",
+                    "title": "Signs",
+                    "visibility": true,
+                    "geometryType": "Point",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "ConstructionLines",
+                    "title": "ConstructionLines",
+                    "visibility": true,
+                    "geometryType": "LineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  }
+                ],
+                "expanded": true,
+                "mutuallyExclusive": false,
+                "visibility": true
+              },
+              {
+                "name": "Zones",
+                "title": "Zones",
+                "sublayers": [
+                  {
+                    "name": "CPZs",
+                    "title": "CPZs",
+                    "visibility": true,
+                    "geometryType": "Polygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198045,
+                        55.952059,
+                        -3.193367,
+                        55.955496
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 45000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "MatchDayEventDayZones",
+                    "title": "MatchDayEventDayZones",
+                    "visibility": true,
+                    "geometryType": "Polygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 45000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "ParkingTariffAreas",
+                    "title": "ParkingTariffAreas",
+                    "visibility": true,
+                    "geometryType": "Polygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.194965,
+                        55.953847,
+                        -3.194099,
+                        55.954119
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 100000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  }
+                ],
+                "expanded": true,
+                "mutuallyExclusive": false,
+                "visibility": true
+              },
+              {
+                "name": "Labels config",
+                "title": "Labels config",
+                "sublayers": [
+                  {
+                    "name": "Bays.label_ldr",
+                    "title": "Bays.label_ldr",
+                    "visibility": true,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.19576,
+                        55.951985,
+                        -3.195398,
+                        55.952056
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Lines.label_ldr",
+                    "title": "Lines.label_ldr",
+                    "visibility": true,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195635,
+                        55.951927,
+                        -3.195008,
+                        55.951941
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Lines.label_loading_ldr",
+                    "title": "Lines.label_loading_ldr",
+                    "visibility": true,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195635,
+                        55.951927,
+                        -3.195008,
+                        55.951941
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "RestrictionPolygons.label_ldr",
+                    "title": "RestrictionPolygons.label_ldr",
+                    "visibility": false,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195534,
+                        55.953023,
+                        -3.194222,
+                        55.953244
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "CPZs.label_ldr",
+                    "title": "CPZs.label_ldr",
+                    "visibility": false,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "ComplianceRoadMarkingsFaded",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.196204,
+                        55.952246,
+                        -3.194177,
+                        55.955075
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "ParkingTariffAreas.label_ldr",
+                    "title": "ParkingTariffAreas.label_ldr",
+                    "visibility": false,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "ComplianceRoadMarkingsFaded",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.194805,
+                        55.95393,
+                        -3.194398,
+                        55.954003
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "MatchDayEventDayZones.label_ldr",
+                    "title": "MatchDayEventDayZones.label_ldr",
+                    "visibility": false,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "ComplianceRoadMarkingsFaded",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Bays.label_pos",
+                    "title": "Bays.label_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.19576,
+                        55.951985,
+                        -3.195398,
+                        55.952056
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Lines.label_pos",
+                    "title": "Lines.label_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195635,
+                        55.951927,
+                        -3.195008,
+                        55.951941
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Lines.label_loading_pos",
+                    "title": "Lines.label_loading_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195635,
+                        55.951927,
+                        -3.195008,
+                        55.951941
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "RestrictionPolygons.label_pos",
+                    "title": "RestrictionPolygons.label_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.195534,
+                        55.953023,
+                        -3.194222,
+                        55.953244
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "CPZs.label_pos",
+                    "title": "CPZs.label_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.196204,
+                        55.952246,
+                        -3.194177,
+                        55.955075
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "ParkingTariffAreas.label_pos",
+                    "title": "ParkingTariffAreas.label_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RoadName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.194805,
+                        55.95393,
+                        -3.194398,
+                        55.954003
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "MatchDayEventDayZones.label_pos",
+                    "title": "MatchDayEventDayZones.label_pos",
+                    "visibility": false,
+                    "geometryType": "MultiPoint",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "ComplianceRoadMarkingsFaded",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  }
+                ],
+                "expanded": true,
+                "mutuallyExclusive": false,
+                "visibility": true
+              },
+              {
+                "name": "Proposal Details",
+                "title": "Proposal Details",
+                "visibility": true,
+                "geometryType": null,
+                "queryable": true,
+                "styles": {},
+                "style": "",
+                "opacity": 255,
+                "bbox": {
+                  "crs": "EPSG:4326",
+                  "bounds": [
+                    -7.55716,
+                    49.766807,
+                    -7.557159,
+                    49.766808
+                  ]
+                },
+                "dimensions": [],
+                "attribution": {
+                  "Title": null,
+                  "OnlineResource": null
+                }
+              },
+              {
+                "name": "Lookup Tables",
+                "title": "Lookup Tables",
+                "visibility": true,
+                "geometryType": null,
+                "queryable": true,
+                "styles": {},
+                "style": "",
+                "opacity": 255,
+                "bbox": {
+                  "crs": "EPSG:4326",
+                  "bounds": [
+                    -7.55716,
+                    49.766807,
+                    -7.557159,
+                    49.766808
+                  ]
+                },
+                "dimensions": [],
+                "attribution": {
+                  "Title": null,
+                  "OnlineResource": null
+                }
+              },
+              {
+                "name": "Map Schedule Grids",
+                "title": "Map Schedule Grids",
+                "sublayers": [
+                  {
+                    "name": "MapGrid",
+                    "title": "MapGrid",
+                    "visibility": true,
+                    "geometryType": "MultiPolygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.201175,
+                        55.950021,
+                        -3.181755,
+                        55.956945
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 35000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  }
+                ],
+                "expanded": true,
+                "mutuallyExclusive": false,
+                "visibility": true
+              },
+              {
+                "name": "Background Mapping",
+                "title": "Background Mapping",
+                "sublayers": [
+                  {
+                    "name": "os_mastermap_topography_text",
+                    "title": "os_mastermap_topography_text",
+                    "visibility": false,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 2500,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "MappingUpdates",
+                    "title": "MappingUpdates",
+                    "visibility": true,
+                    "geometryType": "LineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "DescGroup",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.194784,
+                        55.955386,
+                        -3.194681,
+                        55.955479
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "MappingUpdateMasks",
+                    "title": "MappingUpdateMasks",
+                    "visibility": true,
+                    "geometryType": "Polygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "RestrictionID",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.194814,
+                        55.955385,
+                        -3.194679,
+                        55.95548
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "RoadCasement",
+                    "title": "RoadCasement",
+                    "visibility": true,
+                    "geometryType": "LineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "StreetName",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.199711,
+                        55.951445,
+                        -3.191838,
+                        55.956043
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "StreetGazetteerRecords",
+                    "title": "StreetGazetteerRecords",
+                    "visibility": true,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.199646,
+                        55.951482,
+                        -3.191903,
+                        55.956006
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "RoadCentreLine",
+                    "title": "RoadCentreLine",
+                    "visibility": true,
+                    "geometryType": "MultiLineString",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.199646,
+                        55.951482,
+                        -3.191903,
+                        55.956006
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "SiteArea",
+                    "title": "SiteArea",
+                    "visibility": true,
+                    "geometryType": "MultiPolygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "name",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.20001,
+                        55.951118,
+                        -3.185294,
+                        55.957179
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "os_mastermap_topography_polygons",
+                    "title": "os_mastermap_topography_polygons",
+                    "visibility": false,
+                    "geometryType": "MultiPolygon",
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "displayField": "maptip",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -3.198707,
+                        55.954231,
+                        -3.194526,
+                        55.955826
+                      ]
+                    },
+                    "minScale": 0,
+                    "maxScale": 5000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "OpenStreetMap",
+                    "title": "OpenStreetMap",
+                    "visibility": true,
+                    "geometryType": null,
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -180.0,
+                        -85.051129,
+                        180.0,
+                        85.051129
+                      ]
+                    },
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  },
+                  {
+                    "name": "Google Roads",
+                    "title": "Google Roads",
+                    "visibility": false,
+                    "geometryType": null,
+                    "queryable": true,
+                    "styles": {
+                      "default": "default"
+                    },
+                    "style": "default",
+                    "opacity": 255,
+                    "bbox": {
+                      "crs": "EPSG:4326",
+                      "bounds": [
+                        -180.0,
+                        -85.051129,
+                        180.0,
+                        85.051129
+                      ]
+                    },
+                    "minScale": 5001,
+                    "maxScale": 10000000,
+                    "dimensions": [],
+                    "attribution": {
+                      "Title": null,
+                      "OnlineResource": null
+                    }
+                  }
+                ],
+                "expanded": true,
+                "mutuallyExclusive": false,
+                "visibility": true
+              }
+            ],
+            "expanded": true,
+            "drawingOrder": [
+              "Google Roads",
+              "OpenStreetMap",
+              "os_mastermap_topography_polygons",
+              "SiteArea",
+              "RoadCentreLine",
+              "StreetGazetteerRecords",
+              "RoadCasement",
+              "MappingUpdateMasks",
+              "MappingUpdates",
+              "os_mastermap_topography_text",
+              "MapGrid",
+              "MatchDayEventDayZones.label_pos",
+              "ParkingTariffAreas.label_pos",
+              "CPZs.label_pos",
+              "RestrictionPolygons.label_pos",
+              "Lines.label_loading_pos",
+              "Lines.label_pos",
+              "Bays.label_pos",
+              "MatchDayEventDayZones.label_ldr",
+              "ParkingTariffAreas.label_ldr",
+              "CPZs.label_ldr",
+              "RestrictionPolygons.label_ldr",
+              "Lines.label_loading_ldr",
+              "Lines.label_ldr",
+              "Bays.label_ldr",
+              "ParkingTariffAreas",
+              "MatchDayEventDayZones",
+              "CPZs",
+              "ConstructionLines",
+              "Signs",
+              "RestrictionPolygons",
+              "Lines",
+              "Bays"
+            ],
+            "externalLayers": [],
+            "backgroundLayers": [
+              {
+                "name": "mapnik",
+                "printLayer": "osm_bg"
+              }
+            ],
+            "print": [
+              {
+                "name": "Map Schedules",
+                "map": {
+                  "name": "map0",
+                  "width": 411.0,
+                  "height": 265.15
+                },
+                "atlasCoverageLayer": "MapGrid",
+                "atlas_pk": "id",
+                "labels": [
+                  "printTypeDetails",
+                  "revisionNr",
+                  "effectiveDate",
+                  "proposalStatus"
+                ],
+                "default": false
+              },
+              {
+                "name": "A4_Sketch",
+                "map": {
+                  "name": "map0",
+                  "width": 411.3,
+                  "height": 265.01106443233124
+                },
+                "default": false
+              },
+              {
+                "name": "A3_Sketch",
+                "map": {
+                  "name": "map0",
+                  "width": 411.3,
+                  "height": 265.011
+                },
+                "default": false
+              },
+              {
+                "name": "Legend",
+                "labels": [
+                  "printTypeDetails",
+                  "effectiveDate"
+                ],
+                "default": false
+              }
+            ],
+            "skipEmptyFeatureAttributes": true,
+            "searchProviders": [
+              {
+                "provider": "qgis",
+                "params": {
+                  "title": "mhtc_qgis_search",
+                  "expression": {
+                    "StreetGazetteerRecords": "\"RoadName\" ILIKE '%$ROAD$%' AND coalesce(\"Locality\", '') ILIKE '%$LOCALITY%'"
+                  },
+                  "fields": {
+                    "ROAD": {
+                      "label": "Road name",
+                      "type": "text"
+                    },
+                    "LOCALITY": {
+                      "label": "Locality",
+                      "type": "text"
+                    }
+                  }
+                }
+              },
+              {
+                "provider": "solr",
+                "default": [
+                  "mhtc_road_name"
+                ]
+              }
+            ],
+            "editConfig": {},
+            "thumbnail": "img/genmapthumbs/TOMs_Test_v3.png",
+            "availableFormats": [
+              "image/jpeg",
+              "image/png",
+              "image/png; mode=16bit",
+              "image/png; mode=8bit",
+              "image/png; mode=1bit",
+              "application/dxf"
+            ],
+            "infoFormats": [
+              "text/plain",
+              "text/html",
+              "text/xml",
+              "application/vnd.ogc.gml",
+              "application/vnd.ogc.gml/3.1.1",
+              "application/json",
+              "application/geo+json"
+            ],
+            "printResolutions": [
+              300
+            ]
+          }
+        ],
+        "subdirs": [],
+        "defaultTheme": "TOMs_Test_v3",
+        "externalLayers": [],
+        "backgroundLayers": [
+          {
+            "name": "mapnik",
+            "title": "Open Street Map",
+            "type": "osm",
+            "source": "osm",
+            "attribution": {
+              "Title": "OpenStreetMap contributors",
+              "OnlineResource": "https://www.openstreetmap.org/copyright"
+            },
+            "thumbnail": "img/mapthumbs/default.jpg"
+          }
+        ],
+        "pluginData": {},
+        "themeInfoLinks": [],
+        "defaultMapCrs": "EPSG:27700",
+        "defaultWMSVersion": "1.3.0",
+        "defaultScales": [
+          100000,
+          50000,
+          25000,
+          10000,
+          7500,
+          5000,
+          2500,
+          1000,
+          500,
+          250,
+          100
+        ],
+        "defaultPrintScales": null,
+        "defaultPrintResolutions": null,
+        "defaultPrintGrid": [
+          {
+            "s": 10000000,
+            "x": 1000000,
+            "y": 1000000
+          },
+          {
+            "s": 1000000,
+            "x": 100000,
+            "y": 100000
+          },
+          {
+            "s": 100000,
+            "x": 10000,
+            "y": 10000
+          },
+          {
+            "s": 10000,
+            "x": 1000,
+            "y": 1000
+          },
+          {
+            "s": 1000,
+            "x": 100,
+            "y": 100
+          },
+          {
+            "s": 100,
+            "x": 10,
+            "y": 10
+          }
+        ],
+        "defaultSearchProviders": [
+          "solr",
+          "qgis"
+        ],
+        "defaultBackgroundLayers": []
+      }
+    }
+  }
+}

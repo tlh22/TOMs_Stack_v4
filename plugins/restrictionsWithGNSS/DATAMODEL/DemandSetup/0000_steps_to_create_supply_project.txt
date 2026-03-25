@@ -1,0 +1,168 @@
+Set up of supply project
+
+Create survey area based. For Lambeth, 200m walking distance from the site
+Obtain OS mapping based on site area
+
+1. set up new connections within .pg_service.conf - Office and Field, e.g., 
+
+#
+[CS2509_Strands_Colindale_Office]
+host=localhost
+port={local port}
+dbname=CS2509_Strands_Colindale
+user=postgres
+password={you local postgres password}
+#
+[CS2509_Strands_Colindale_Field]
+host={IP address of field machine}
+port={field machine port}
+dbname=CS2509_Strands_Colindale
+user={your user name on field machine}
+password={your password on field machine}
+#
+
+2. Create database and restore most recent "template", e.g., TOMs_Test_240606.backup
+
+3. Remove any test data - restrictionsWithGNSS\DATAMODEL\DemandSetup\0000_remove_test_data.sql
+
+4. Copy the folder "..\restrictionsWithGNSS\QGIS\Project folder structure" to your working area and then rename the top level folder and project files in Office/Supply/Demand with the project name. Ensure that the OS mapping and the site area files are in the Office folder structure
+
+5. Choose the appropriate TOMs.conf file in Demand
+
+6. Change the connection details within the QGIS project files - Office, Supply, Demand - load and Demand. Open the project files in a text editor and then use Find/Replace to modify the connection details. ** will prepare a script to assist with this **
+
+7. Open Office project and:
+   a. Add relevant layers - from geopackage - TopographicArea, CartographicText; from ShapeFiles - Site Area; from db add RoadLink_2019
+   b. Select features from RoadLink_2019 that intersect with SiteArea - Vector->Research Tools->Select by Location (use intersect as geometric predicate)
+   c. Create new PostGIS connection within QGIS
+   d. Import layers into database with Database->DB Manager then with the relevant PostGIS database connected, use "Import Layer/File" to add the following (tick "Replace destination table" and "Create spatial index"):
+      - TopographicArea - topography/os_mastermap_topography_polygons
+	  - CartographicText - topography/os_mastermap_topography_text
+	  - project_code_SiteArea - local_authority/SiteArea
+	  - RoadLink_2019 - highways_network/roadlink (import only selected features)
+	  
+8. Reopen Office project (without saving). Zoom to SiteArea and details should be showing. Save project at this point
+
+9. In PgAdmin, run queries from restrictionsWithGNSS\DATAMODEL\DemandSetup:
+ - 0001a_create_road_casement.sql (ensure that all required areas are included. Possibly need to use RC_Polygons)
+ - 0001b_setup_roadlink.sql
+ - 0001c1_setup_mapgrid.sql
+ - 0001c2_convert_site_area_to_single_poly.sql
+ - 0001d1_prepare_required_restriction_and_sign_types.sql
+	* Check that all the necessary time periods are present, e.g., CPZs or SKCs
+ - 0001e_permissions.sql
+
+Reopen Office project
+
+10. Within office project:
+   a. add Corner points and SectionBreak points
+   b. modify SiteArea so that it uses Corners/SectionBreaks
+   
+   c. Consider lengths of roads to ensure that they are no longer than 250m
+    - 0001h_check_road_lengths.sql
+   e. Check that the road centreline is within the road area
+   
+   f. add any additional time periods that are in the survey area
+   
+11. In pgAdmin, create sections:
+ - 0002a_create_sections.sql (added sections_merged queries here)
+ - 0002c_project_parameters.sql (consider the vehicle length and corner protection distances)
+ - 0002e_topo_mask.sql
+ - 0002d_permissions.sql
+ 
+12. Check RC_Sections_merged to ensure that breaks match road names
+ - Update symbology in RC_Sections_merged (Delete All / Classify)
+ - Check for breaks and add/move as required
+ - Add/Amend road centrelines as required 
+ 
+13. Backup database - and load into field machine
+
+14. Ensure that CrossingPoint is able to save - 0001f_crossing_points_field_fix.sql
+
+15. Check field project loads correctly - and that it is possible to create all the restriction types - bays, lines, signs and crossing points
+ *** issues with QGIS versions > 3.22
+ 
+--- **** After field survey
+
+1. Backup field database - including crossing points 
+
+2. Rename orginal database
+
+3. Create new database with the same name as previous and restore details from field db. This means that the connection details remain the same.
+
+4.Deal with any time periods that were missed. Add into "TimePeriodsInUse" and then refresh (with data) the materialised view "TimePeriodsInUse_View" 
+
+5a. Use Snap/Trace plugin for Bays/Lines
+  a. Snap. Remove duplicate points; Snap nodes together; Snap vertices to kerbline. Start with tolerance of 0.5. Increase as appropriate - but only use Snap vertices to Kerbline
+  b. Trace kerbline. Should be OK with 0.5m
+
+5b. Use Snap/Trace plugin for CrossingPoints. (Use CrossingPoints in both Bays and Lines)
+  a. Snap. Remove duplicate points; Snap vertices to kerbline. Start with tolerance of 0.5. Increae as appropriate - but only use Snap vertices to Kerbline
+  b. Trace kerbline. Should be OK with 0.5m
+  
+6. Amend site area to include any complete features - specifically CrossingPoints
+   d. Break roads at site boundary and rename to avoid issue with stress preparation
+    - 0001i_break_roads_at_site_boundaries.sql
+	
+7. Run scripts
+  - 0003a1_create_supply_table.sql
+  - 0003a2_populate_supply_table_with_bays_lines.sql (if using restrictions)
+  - 0003b_copy_supply.sql
+  - 0004a1a0_add_corner_and_section_break_points.sql
+  - 0004a1b_break_at_corners.sql (Will need to reopen project to check if issues)
+  - 0004a2_corner_unacceptability.sql
+  - 0004b_break_restrictions_at_crossovers.sql (Will need to reopen project to check if issues)
+  - 0004c_narrow_roads.sql
+  - 0004d_check_overlaps.sql (Will need to reopen project to check if issues)
+  - 0004e_dual_restrictions.sql
+  - 0005a_finalise_supply_details.sql
+  - 0005a1_set_trigger_for_project_parameters.sql
+  - 0005b1_add_survey_areas and populate.sql
+  - 0005e_site.sql
+  - 0005f_amend_labelling_function.sql
+
+8. Reopen project
+
+9. Recalculate AzToRoadCentreLine. Open Supply layer. In edit mode, update AzimmuthToRoadCentreLine using TOMs2 function  getAzimuthToRoadCentreLine() 
+ 
+10. Check Geometry Shape for Crossings
+
+11. Check acceptability on Road width, Bus/Cycle lanes, etc
+
+11a. Check all restrictions have a RoadName
+
+12. Remove any supply that is outside the site area
+
+13. In layer "Site", add the boundary of the site being considered
+
+-- **** Now prepare the demand project ...
+
+14. Run scripts in demandForm
+ - 0007a_demand_lookups_structure.sql
+ - 0007b_demand_lookups_data.sql
+ - 0007c_surveys.sql
+ 
+15. Use 0007d2_CreateSurveyList.xlsx to create Surveys
+
+16. Run scripts
+  - 0007d_surveys_data.sql
+  - 0008a2_generate_count_table.sql (or VRMs if required)
+  - 0008b_RestrictionsInSurveys.sql
+  - 0009_create_unique_fields_for_QGIS_counts.sql
+  
+17. Set up SYL/ZigZag control times using TimePeriodsControlledDuringSurveyHours plugin
+   - Create table - use script in TimePeriodsControlledDuringSurveyHours plugin (..\TimePeriodsControlledDuringSurveyHours\DATAMODEL\0001_controlled_surveys.sql)
+   - Reopen Office project
+   - within Office project, run TimePeriodsControlledDuringSurveyHours plugin
+   - Manually selected true/false 
+  
+18. Open Load project and create geopackages using Processing->Toolbox->Package Layers and add layers as per details in 0008d_next_steps.txt
+
+19. Test demand project ... 
+ 
+  
+
+
+
+
+

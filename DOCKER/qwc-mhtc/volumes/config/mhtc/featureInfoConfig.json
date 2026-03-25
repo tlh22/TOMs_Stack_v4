@@ -1,0 +1,3008 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-feature-info-service/raw/2024-lts/schemas/qwc-feature-info-service.json",
+  "service": "feature-info",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "skip_empty_attributes": false
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "mhtc/scan/TOMs_Test_v3",
+        "root_layer": {
+          "name": "TOMs_Test",
+          "title": "TOMs_Test",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "title": "Restrictions",
+              "layers": [
+                {
+                  "name": "Bays",
+                  "title": "Bays",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "BayOrientation"
+                    },
+                    {
+                      "name": "NrBays"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "PayTypeID"
+                    },
+                    {
+                      "name": "MaxStayID"
+                    },
+                    {
+                      "name": "NoReturnID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "PermitCode"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "PayParkingAreaID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "BayWidth"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "Lines",
+                  "title": "Lines",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "UnacceptableTypeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "labelLoading_Rotation"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "ComplianceLoadingMarkingsFaded"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "label_loading_pos"
+                    },
+                    {
+                      "name": "label_loading_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "RestrictionPolygons",
+                  "title": "RestrictionPolygons",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "Orientation"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "NoWaitingTimeID"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "AreaPermitCode"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "Signs",
+                  "title": "Signs",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "SignType_1"
+                    },
+                    {
+                      "name": "SignType_2"
+                    },
+                    {
+                      "name": "SignType_3"
+                    },
+                    {
+                      "name": "SignType_4"
+                    },
+                    {
+                      "name": "Photos_04"
+                    },
+                    {
+                      "name": "SignOrientationTypeID"
+                    },
+                    {
+                      "name": "Signs_Mount"
+                    },
+                    {
+                      "name": "SignsAttachmentTypeID"
+                    },
+                    {
+                      "name": "Compl_Signs_Faded"
+                    },
+                    {
+                      "name": "Compl_Signs_Obscured"
+                    },
+                    {
+                      "name": "Compl_Sign_Direction"
+                    },
+                    {
+                      "name": "Compl_Signs_Obsolete"
+                    },
+                    {
+                      "name": "Compl_Signs_OtherOptions"
+                    },
+                    {
+                      "name": "Compl_Signs_TicketMachines"
+                    },
+                    {
+                      "name": "TicketMachine_Nr"
+                    },
+                    {
+                      "name": "RingoPresent"
+                    },
+                    {
+                      "name": "SignIlluminationTypeID"
+                    },
+                    {
+                      "name": "SignConditionTypeID"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "SignAddress"
+                    },
+                    {
+                      "name": "original_geom_wkt"
+                    },
+                    {
+                      "name": "AssetReference"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "SideOfStreet"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "ConstructionLines",
+                  "title": "ConstructionLines",
+                  "attributes": [
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                }
+              ]
+            },
+            {
+              "name": "Zones",
+              "title": "Zones",
+              "layers": [
+                {
+                  "name": "CPZs",
+                  "title": "CPZs",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "MatchDayEventDayZones",
+                  "title": "MatchDayEventDayZones",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "EDZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "ParkingTariffAreas",
+                  "title": "ParkingTariffAreas",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "NoReturnID"
+                    },
+                    {
+                      "name": "MaxStayID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                }
+              ]
+            },
+            {
+              "name": "Labels config",
+              "title": "Labels config",
+              "layers": [
+                {
+                  "name": "Bays.label_ldr",
+                  "title": "Bays.label_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "BayOrientation"
+                    },
+                    {
+                      "name": "NrBays"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "PayTypeID"
+                    },
+                    {
+                      "name": "MaxStayID"
+                    },
+                    {
+                      "name": "NoReturnID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "PermitCode"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "PayParkingAreaID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "BayWidth"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "Lines.label_ldr",
+                  "title": "Lines.label_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "UnacceptableTypeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "labelLoading_Rotation"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "ComplianceLoadingMarkingsFaded"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_loading_pos"
+                    },
+                    {
+                      "name": "label_loading_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "Lines.label_loading_ldr",
+                  "title": "Lines.label_loading_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "UnacceptableTypeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "labelLoading_Rotation"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "ComplianceLoadingMarkingsFaded"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "label_loading_pos"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "RestrictionPolygons.label_ldr",
+                  "title": "RestrictionPolygons.label_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "Orientation"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "NoWaitingTimeID"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "AreaPermitCode"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "CPZs.label_ldr",
+                  "title": "CPZs.label_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "ComplianceRoadMarkingsFaded"
+                },
+                {
+                  "name": "ParkingTariffAreas.label_ldr",
+                  "title": "ParkingTariffAreas.label_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "NoReturnID"
+                    },
+                    {
+                      "name": "MaxStayID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "ComplianceRoadMarkingsFaded"
+                },
+                {
+                  "name": "MatchDayEventDayZones.label_ldr",
+                  "title": "MatchDayEventDayZones.label_ldr",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "EDZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "ComplianceRoadMarkingsFaded"
+                },
+                {
+                  "name": "Bays.label_pos",
+                  "title": "Bays.label_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "BayOrientation"
+                    },
+                    {
+                      "name": "NrBays"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "PayTypeID"
+                    },
+                    {
+                      "name": "MaxStayID"
+                    },
+                    {
+                      "name": "NoReturnID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "PermitCode"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "PayParkingAreaID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "BayWidth"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "Lines.label_pos",
+                  "title": "Lines.label_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "UnacceptableTypeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "labelLoading_Rotation"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "ComplianceLoadingMarkingsFaded"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "label_loading_pos"
+                    },
+                    {
+                      "name": "label_loading_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "Lines.label_loading_pos",
+                  "title": "Lines.label_loading_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "UnacceptableTypeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "labelLoading_Rotation"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "ComplianceLoadingMarkingsFaded"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity"
+                    },
+                    {
+                      "name": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "label_loading_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "RestrictionPolygons.label_pos",
+                  "title": "RestrictionPolygons.label_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "Orientation"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "NoWaitingTimeID"
+                    },
+                    {
+                      "name": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "HoursOfControl"
+                    },
+                    {
+                      "name": "AreaPermitCode"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "CPZs.label_pos",
+                  "title": "CPZs.label_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "ParkingTariffAreas.label_pos",
+                  "title": "ParkingTariffAreas.label_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "NoReturnID"
+                    },
+                    {
+                      "name": "MaxStayID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RoadName"
+                },
+                {
+                  "name": "MatchDayEventDayZones.label_pos",
+                  "title": "MatchDayEventDayZones.label_pos",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes"
+                    },
+                    {
+                      "name": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03"
+                    },
+                    {
+                      "name": "label_X"
+                    },
+                    {
+                      "name": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "EDZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "ComplianceRoadMarkingsFaded"
+                }
+              ]
+            },
+            {
+              "name": "Proposal Details",
+              "title": "Proposal Details"
+            },
+            {
+              "name": "Lookup Tables",
+              "title": "Lookup Tables"
+            },
+            {
+              "name": "Map Schedule Grids",
+              "title": "Map Schedule Grids",
+              "layers": [
+                {
+                  "name": "MapGrid",
+                  "title": "MapGrid",
+                  "attributes": [
+                    {
+                      "name": "id"
+                    },
+                    {
+                      "name": "mapsheetname"
+                    },
+                    {
+                      "name": "x_min"
+                    },
+                    {
+                      "name": "x_max"
+                    },
+                    {
+                      "name": "y_min"
+                    },
+                    {
+                      "name": "y_max"
+                    },
+                    {
+                      "name": "CurrRevisionNr"
+                    },
+                    {
+                      "name": "LastRevisionDate"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                }
+              ]
+            },
+            {
+              "name": "Background Mapping",
+              "title": "Background Mapping",
+              "layers": [
+                {
+                  "name": "os_mastermap_topography_text",
+                  "title": "os_mastermap_topography_text",
+                  "attributes": [
+                    {
+                      "name": "gid"
+                    },
+                    {
+                      "name": "toid"
+                    },
+                    {
+                      "name": "featcode"
+                    },
+                    {
+                      "name": "version"
+                    },
+                    {
+                      "name": "verdate"
+                    },
+                    {
+                      "name": "theme"
+                    },
+                    {
+                      "name": "change"
+                    },
+                    {
+                      "name": "descgroup"
+                    },
+                    {
+                      "name": "descterm"
+                    },
+                    {
+                      "name": "make"
+                    },
+                    {
+                      "name": "physlevel"
+                    },
+                    {
+                      "name": "physpres"
+                    },
+                    {
+                      "name": "text_"
+                    },
+                    {
+                      "name": "textfont"
+                    },
+                    {
+                      "name": "textpos"
+                    },
+                    {
+                      "name": "textheight"
+                    },
+                    {
+                      "name": "textangle"
+                    },
+                    {
+                      "name": "loaddate"
+                    },
+                    {
+                      "name": "objectid"
+                    },
+                    {
+                      "name": "shape_leng"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "MappingUpdates",
+                  "title": "MappingUpdates",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "DescGroup"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "ProposalID"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "DescGroup"
+                },
+                {
+                  "name": "MappingUpdateMasks",
+                  "title": "MappingUpdateMasks",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID"
+                    },
+                    {
+                      "name": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson"
+                    },
+                    {
+                      "name": "ProposalID"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "RestrictionID"
+                },
+                {
+                  "name": "RoadCasement",
+                  "title": "RoadCasement",
+                  "attributes": [
+                    {
+                      "name": "id"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "ESUID"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "Locality"
+                    },
+                    {
+                      "name": "Town"
+                    },
+                    {
+                      "name": "Az"
+                    },
+                    {
+                      "name": "StartStreet"
+                    },
+                    {
+                      "name": "EndStreet"
+                    },
+                    {
+                      "name": "SideOfStreet"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "StreetName"
+                },
+                {
+                  "name": "StreetGazetteerRecords",
+                  "title": "StreetGazetteerRecords",
+                  "attributes": [
+                    {
+                      "name": "id"
+                    },
+                    {
+                      "name": "ESUID"
+                    },
+                    {
+                      "name": "USRN"
+                    },
+                    {
+                      "name": "Custodian"
+                    },
+                    {
+                      "name": "RoadName"
+                    },
+                    {
+                      "name": "Locality"
+                    },
+                    {
+                      "name": "Town"
+                    },
+                    {
+                      "name": "Language"
+                    },
+                    {
+                      "name": "StreetLength"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "RoadCentreLine",
+                  "title": "RoadCentreLine",
+                  "attributes": [
+                    {
+                      "name": "gid"
+                    },
+                    {
+                      "name": "toid"
+                    },
+                    {
+                      "name": "version"
+                    },
+                    {
+                      "name": "verdate"
+                    },
+                    {
+                      "name": "theme"
+                    },
+                    {
+                      "name": "descgroup"
+                    },
+                    {
+                      "name": "descterm"
+                    },
+                    {
+                      "name": "change"
+                    },
+                    {
+                      "name": "topoarea"
+                    },
+                    {
+                      "name": "nature"
+                    },
+                    {
+                      "name": "lnklength"
+                    },
+                    {
+                      "name": "node1"
+                    },
+                    {
+                      "name": "node1grade"
+                    },
+                    {
+                      "name": "node1gra_1"
+                    },
+                    {
+                      "name": "node2"
+                    },
+                    {
+                      "name": "node2grade"
+                    },
+                    {
+                      "name": "node2gra_1"
+                    },
+                    {
+                      "name": "loaddate"
+                    },
+                    {
+                      "name": "objectid"
+                    },
+                    {
+                      "name": "shape_leng"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "SiteArea",
+                  "title": "SiteArea",
+                  "attributes": [
+                    {
+                      "name": "id"
+                    },
+                    {
+                      "name": "name"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "name"
+                },
+                {
+                  "name": "os_mastermap_topography_polygons",
+                  "title": "os_mastermap_topography_polygons",
+                  "attributes": [
+                    {
+                      "name": "gid"
+                    },
+                    {
+                      "name": "toid"
+                    },
+                    {
+                      "name": "version"
+                    },
+                    {
+                      "name": "verdate"
+                    },
+                    {
+                      "name": "featcode"
+                    },
+                    {
+                      "name": "theme"
+                    },
+                    {
+                      "name": "calcarea"
+                    },
+                    {
+                      "name": "change"
+                    },
+                    {
+                      "name": "descgroup"
+                    },
+                    {
+                      "name": "descterm"
+                    },
+                    {
+                      "name": "make"
+                    },
+                    {
+                      "name": "physlevel"
+                    },
+                    {
+                      "name": "physpres"
+                    },
+                    {
+                      "name": "broken"
+                    },
+                    {
+                      "name": "loaddate"
+                    },
+                    {
+                      "name": "objectid"
+                    },
+                    {
+                      "name": "shape_leng"
+                    },
+                    {
+                      "name": "shape_area"
+                    },
+                    {
+                      "name": "geometry"
+                    },
+                    {
+                      "name": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "OpenStreetMap",
+                  "title": "OpenStreetMap"
+                },
+                {
+                  "name": "Google Roads",
+                  "title": "Google Roads"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

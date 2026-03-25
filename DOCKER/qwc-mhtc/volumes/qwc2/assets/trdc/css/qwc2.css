@@ -1,0 +1,1440 @@
+/*
+ * Three Rivers District Council – QWC2 client theme
+ * Tokens: primary #006b63, neutral surfaces, 8px spacing grid.
+ * Do not set width/height on #map. Map tool position uses .map-buttons-container only.
+ */
+
+/* ----- Design tokens (QWC2 colour-scheme API + TRDC layout tokens) ----- */
+
+:root {
+    /* Brand */
+    --trdc-primary: #006b63;
+    --trdc-primary-hover: #005550;
+    --trdc-primary-active: #004a45;
+    --trdc-primary-muted: #e6f2f0;
+    --trdc-primary-subtle: rgba(0, 107, 99, 0.12);
+
+    /* Surfaces */
+    --trdc-page: #eef4f3;
+    --trdc-elevated: #ffffff;
+    --trdc-border-strong: #b8c9c6;
+
+    /* Shape & depth */
+    --trdc-radius-sm: 6px;
+    --trdc-radius-md: 10px;
+    --trdc-radius-lg: 14px;
+    --trdc-shadow-bar: 0 2px 12px rgba(0, 43, 40, 0.07);
+    --trdc-shadow-floating: 0 4px 20px rgba(0, 43, 40, 0.14);
+    --trdc-shadow-popover: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+    /* Spacing scale (px) */
+    --trdc-space-1: 4px;
+    --trdc-space-2: 8px;
+    --trdc-space-3: 12px;
+    --trdc-space-4: 16px;
+    --trdc-space-5: 20px;
+    --trdc-space-6: 24px;
+
+    /* Loose map tools (when not in .map-buttons-container) — overrides QWC2 inline right/bottom */
+    --trdc-map-tools-left: 1rem;
+    --trdc-map-tool-btn-size: 2.65rem;
+    --trdc-map-tool-step: 3.35rem;
+    --trdc-map-tool-stack-start: calc(var(--topbar-height, 3.5rem) + 2.65rem);
+    /* Horizontal end of circular tool column (for search row beside tools) */
+    --trdc-map-tool-track-end: calc(
+        var(--trdc-map-tools-left) + var(--trdc-map-tool-btn-size) + var(--trdc-space-3)
+    );
+
+    /* Map to QWC2 theme variables */
+    --text-color: #1e2e2c;
+    --text-color-link: var(--trdc-primary);
+    --text-color-disabled: #8a9a97;
+    --container-bg-color: var(--trdc-page);
+    --input-bg-color: var(--trdc-elevated);
+    --input-bg-color-disabled: #eceeee;
+    --border-color: #c5d4d1;
+    --color-active: var(--trdc-primary);
+    --focus-outline: 2px solid var(--trdc-primary);
+    --tooltip-bg-color: rgba(20, 35, 33, 0.92);
+    --tooltip-text-color: #ffffff;
+    --tooltip-border-color: #0d1f1c;
+    --map-button-bg-color: var(--trdc-primary);
+    --map-button-text-color: #ffffff;
+    --map-button-hover-bg-color: var(--trdc-primary-hover);
+    --map-button-hover-text-color: #ffffff;
+    --map-button-active-bg-color: var(--trdc-primary-active);
+    --map-button-active-text-color: #ffffff;
+    --panel-bg-color: rgba(255, 255, 255, 0.97);
+    --panel-text-color: #1a2624;
+    --titlebar-bg-color: var(--trdc-primary);
+    --titlebar-text-color: #ffffff;
+    --button-bg-color: var(--trdc-elevated);
+    --button-bg-color-hover: var(--trdc-primary-muted);
+    --button-bg-color-active: var(--trdc-primary);
+    --button-bg-color-active-hover: var(--trdc-primary-hover);
+    --button-bg-color-disabled: #f0f3f2;
+    --button-text-color: #1a2624;
+    --button-text-color-hover: #1a2624;
+    --button-text-color-active: #ffffff;
+    --button-text-color-active-hover: #ffffff;
+    --button-text-color-disabled: #9eadaa;
+    --list-bg-color: var(--trdc-elevated);
+    --list-section-bg-color: var(--trdc-primary);
+    --list-section-text-color: #ffffff;
+    --list-item-bg-color-even: #f3f8f7;
+    --list-item-bg-color-hover: var(--trdc-primary-muted);
+    --list-item-bg-color-active: #c5ddd8;
+    --list-item-bg-color-active-hover: #b0d1ca;
+    --list-item-text-color-hover: #1a2624;
+    --list-item-text-color-active: #1a2624;
+    --list-item-text-color-active-hover: #1a2624;
+    --app-menu-bg-color: var(--trdc-elevated);
+    --app-menu-text-color: #1a2624;
+    --app-menu-bg-color-hover: var(--trdc-primary-muted);
+    --app-menu-text-color-hover: #1a2624;
+    --app-submenu-bg-color: #0a4a44;
+    --app-submenu-text-color: #ffffff;
+    --app-submenu-bg-color-hover: var(--trdc-primary);
+    --app-submenu-text-color-hover: #ffffff;
+}
+
+:root.highcontrast {
+    --text-color: black;
+    --text-color-link: #0000ee;
+    --text-color-disabled: #666;
+    --container-bg-color: white;
+    --input-bg-color: white;
+    --input-bg-color-disabled: #eee;
+    --border-color: black;
+    --color-active: #0000ee;
+    --focus-outline: 3px solid black;
+    --tooltip-bg-color: rgba(0, 0, 0, 0.9);
+    --tooltip-text-color: white;
+    --tooltip-border-color: black;
+    --map-button-bg-color: black;
+    --map-button-text-color: white;
+    --map-button-hover-bg-color: #333;
+    --map-button-hover-text-color: white;
+    --map-button-active-bg-color: #000;
+    --map-button-active-text-color: white;
+    --panel-bg-color: #fff;
+    --panel-text-color: black;
+    --titlebar-bg-color: black;
+    --titlebar-text-color: white;
+    --button-bg-color: white;
+    --button-bg-color-hover: #ddd;
+    --button-bg-color-active: black;
+    --button-bg-color-active-hover: #222;
+    --button-bg-color-disabled: #eee;
+    --button-text-color: black;
+    --button-text-color-hover: black;
+    --button-text-color-active: white;
+    --button-text-color-active-hover: white;
+    --button-text-color-disabled: #666;
+    --list-bg-color: white;
+    --list-section-bg-color: black;
+    --list-section-text-color: white;
+    --list-item-bg-color-even: #eee;
+    --list-item-bg-color-hover: #ddd;
+    --list-item-bg-color-active: #ccc;
+    --list-item-bg-color-active-hover: #bbb;
+    --list-item-text-color-hover: black;
+    --list-item-text-color-active: black;
+    --list-item-text-color-active-hover: black;
+    --app-menu-bg-color: white;
+    --app-menu-text-color: black;
+    --app-menu-bg-color-hover: #ddd;
+    --app-menu-text-color-hover: black;
+    --app-submenu-bg-color: #111;
+    --app-submenu-text-color: white;
+    --app-submenu-bg-color-hover: #333;
+    --app-submenu-text-color-hover: white;
+    --trdc-shadow-bar: none;
+    --trdc-shadow-floating: 0 0 0 2px black;
+    --trdc-shadow-popover: 0 0 0 2px black;
+}
+
+:root.dark {
+    --text-color: #e8eeed;
+    --text-color-link: #7dd3c8;
+    --text-color-disabled: #8a9a97;
+    --container-bg-color: #252b2a;
+    --input-bg-color: #2f3836;
+    --input-bg-color-disabled: #252b2a;
+    --border-color: #3d4946;
+    --color-active: #5ec4b6;
+    --focus-outline: 2px solid #5ec4b6;
+    --tooltip-bg-color: rgba(0, 0, 0, 0.85);
+    --tooltip-text-color: #fff;
+    --tooltip-border-color: #1a1f1e;
+    --map-button-bg-color: #3d4946;
+    --map-button-text-color: #fff;
+    --map-button-hover-bg-color: #4a5855;
+    --map-button-hover-text-color: #fff;
+    --map-button-active-bg-color: #2f3836;
+    --map-button-active-text-color: #fff;
+    --panel-bg-color: rgba(38, 44, 43, 0.96);
+    --panel-text-color: #e8eeed;
+    --titlebar-bg-color: #1e2423;
+    --titlebar-text-color: #e8eeed;
+    --button-bg-color: #2f3836;
+    --button-bg-color-hover: #3d4946;
+    --button-bg-color-active: #5ec4b6;
+    --button-bg-color-active-hover: #4db5a8;
+    --button-bg-color-disabled: #252b2a;
+    --button-text-color: #e8eeed;
+    --button-text-color-hover: #e8eeed;
+    --button-text-color-active: #1a1f1e;
+    --button-text-color-active-hover: #1a1f1e;
+    --button-text-color-disabled: #666;
+    --list-bg-color: #2a3230;
+    --list-section-bg-color: #1e2423;
+    --list-section-text-color: #e8eeed;
+    --list-item-bg-color-even: #252b2a;
+    --list-item-bg-color-hover: #333c3a;
+    --list-item-bg-color-active: #3d4946;
+    --list-item-bg-color-active-hover: #4a5855;
+    --list-item-text-color-hover: #e8eeed;
+    --list-item-text-color-active: #e8eeed;
+    --list-item-text-color-active-hover: #e8eeed;
+    --app-menu-bg-color: #2f3836;
+    --app-menu-text-color: #e8eeed;
+    --app-menu-bg-color-hover: #3d4946;
+    --app-menu-text-color-hover: #e8eeed;
+    --app-submenu-bg-color: #1a1f1e;
+    --app-submenu-text-color: #e8eeed;
+    --app-submenu-bg-color-hover: #2f3836;
+    --app-submenu-text-color-hover: #e8eeed;
+    --trdc-page: #252b2a;
+    --trdc-elevated: #2f3836;
+    --trdc-primary: #5ec4b6;
+    --trdc-primary-hover: #4db5a8;
+    --trdc-primary-active: #3da899;
+    --trdc-primary-muted: rgba(94, 196, 182, 0.15);
+    --trdc-primary-subtle: rgba(94, 196, 182, 0.2);
+    --trdc-shadow-bar: 0 2px 12px rgba(0, 0, 0, 0.35);
+    --trdc-shadow-floating: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --trdc-shadow-popover: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ----- Base ----- */
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--container-bg-color);
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+#container {
+    min-height: 100vh;
+}
+
+div#splash {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--container-bg-color);
+    z-index: 99999;
+}
+
+div#splash.trdc-splash-hidden {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 56px;
+    height: 56px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 5px solid var(--trdc-primary);
+    border-color: var(--trdc-primary) transparent var(--trdc-primary) transparent;
+    animation: trdc-spin 1s linear infinite;
+}
+
+@keyframes trdc-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Map surround (no layout dimensions) */
+
+body #map {
+    background-color: var(--container-bg-color) !important;
+}
+
+body #map .ol-viewport {
+    background-color: var(--container-bg-color) !important;
+}
+
+/* ----- Map tools: top-left “compass” cluster (QWC2: .map-buttons-container) ----- */
+
+body .map-buttons-container {
+    left: var(--trdc-space-4) !important;
+    right: auto !important;
+    top: calc(var(--topbar-height, 3.5rem) + var(--trdc-space-3)) !important;
+    bottom: auto !important;
+    height: auto !important;
+    max-height: calc(100vh - var(--topbar-height, 3.5rem) - var(--bottombar-height, 2.75rem) - 1.5rem) !important;
+    padding: var(--trdc-space-3) !important;
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    row-gap: var(--trdc-space-2) !important;
+    /* Frosted compass card */
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(14px) saturate(1.25) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.25) !important;
+    border-radius: var(--trdc-radius-lg) !important;
+    border: 1px solid rgba(0, 107, 99, 0.14) !important;
+    box-shadow: 0 8px 32px rgba(0, 43, 40, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.6) inset !important;
+    z-index: 4 !important;
+}
+
+/* North marker at top of cluster (::after + column-reverse = visual top) */
+body .map-buttons-container::after {
+    content: "N" !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 1.65rem !important;
+    height: 1.65rem !important;
+    margin-bottom: var(--trdc-space-2) !important;
+    border-radius: 50% !important;
+    border: 2px solid var(--trdc-primary) !important;
+    color: var(--trdc-primary) !important;
+    font-size: 0.62rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(180deg, rgba(0, 107, 99, 0.1) 0%, transparent 60%) !important;
+    order: 999 !important;
+}
+
+body .map-buttons-container > * {
+    pointer-events: auto !important;
+}
+
+/* Strip inline positioning inside official container (flex layout) */
+body .map-buttons-container button.map-button {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+}
+
+body .map-buttons-container .map-buttons-spacer {
+    max-height: 0.35rem !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+}
+
+/* Floating map controls — circular “compass pad” buttons */
+
+body button.map-button {
+    background: var(--map-button-bg-color) !important;
+    color: var(--map-button-text-color) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    border-radius: 50% !important;
+    width: 2.65rem !important;
+    height: 2.65rem !important;
+    min-width: 2.65rem !important;
+    min-height: 2.65rem !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 10px rgba(0, 43, 40, 0.18) !important;
+    transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease !important;
+    box-sizing: border-box !important;
+}
+
+body button.map-button:hover {
+    background: var(--map-button-hover-bg-color) !important;
+    color: var(--map-button-hover-text-color) !important;
+    box-shadow: 0 4px 16px rgba(0, 43, 40, 0.28) !important;
+    transform: translateY(-1px) !important;
+}
+
+body button.map-button:active {
+    background: var(--map-button-active-bg-color) !important;
+    transform: translateY(0) scale(0.97) !important;
+}
+
+body button.map-button .icon {
+    font-size: 1.1rem !important;
+}
+
+/*
+ * QWC2 2024+: map tools are often direct siblings of #map under #PluginsContainer
+ * with inline style right/bottom — !important beats non-!important inline.
+ */
+body #PluginsContainer > button.map-button {
+    position: fixed !important;
+    left: var(--trdc-map-tools-left) !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    z-index: 5 !important;
+}
+
+/* “N” compass cue above first tool (expects #map as first child) */
+body #PluginsContainer > button.map-button:nth-child(2)::before {
+    content: "N" !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: -2.2rem !important;
+    width: 1.65rem !important;
+    height: 1.65rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    border: 2px solid var(--trdc-primary) !important;
+    color: var(--trdc-primary) !important;
+    font-size: 0.62rem !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    box-shadow: 0 2px 8px rgba(0, 43, 40, 0.1) !important;
+}
+
+body #PluginsContainer > button.map-button:nth-child(2) {
+    top: var(--trdc-map-tool-stack-start) !important;
+}
+
+body #PluginsContainer > button.map-button:nth-child(3) {
+    top: calc(var(--trdc-map-tool-stack-start) + var(--trdc-map-tool-step)) !important;
+}
+
+body #PluginsContainer > button.map-button:nth-child(4) {
+    top: calc(var(--trdc-map-tool-stack-start) + 2 * var(--trdc-map-tool-step)) !important;
+}
+
+body #PluginsContainer > button.map-button:nth-child(5) {
+    top: calc(var(--trdc-map-tool-stack-start) + 3 * var(--trdc-map-tool-step)) !important;
+}
+
+/* Background layer button + #BackgroundSwitcher wrapper */
+body #PluginsContainer > div:has(> button.map-button) {
+    position: fixed !important;
+    left: var(--trdc-map-tools-left) !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: calc(var(--trdc-map-tool-stack-start) + 4 * var(--trdc-map-tool-step)) !important;
+    z-index: 5 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--trdc-space-2) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: max-content !important;
+    min-width: 0 !important;
+}
+
+body #PluginsContainer > div:has(> button.map-button) button.map-button {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    z-index: 35 !important;
+}
+
+/*
+ * Background layer picker: QWC2 toggles via .background-switcher + .background-switcher-active
+ * (scaleX). Do not force transform:none — that breaks open/close. Dock panel to the RIGHT so it
+ * does not sit over the map button (which would steal the second click). When closed, disable
+ * pointer-events so the button always receives clicks to toggle off.
+ */
+body .map-button-container .background-switcher,
+body #BackgroundSwitcher .background-switcher {
+    position: absolute !important;
+    right: auto !important;
+    left: calc(100% + var(--trdc-space-2)) !important;
+    top: 0 !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform-origin: left center !important;
+    width: max-content !important;
+    max-width: min(20rem, calc(100vw - var(--trdc-map-tools-left) - 5rem)) !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    z-index: 25 !important;
+}
+
+body .map-button-container .background-switcher:not(.background-switcher-active),
+body #BackgroundSwitcher .background-switcher:not(.background-switcher-active) {
+    pointer-events: none !important;
+}
+
+body .map-button-container .background-switcher.background-switcher-active,
+body #BackgroundSwitcher .background-switcher.background-switcher-active {
+    pointer-events: auto !important;
+}
+
+body .map-button-container button.map-button {
+    position: relative !important;
+    z-index: 35 !important;
+}
+
+/* Older / flat DOM: outer #BackgroundSwitcher next to button */
+body #PluginsContainer > div:has(> #BackgroundSwitcher) #BackgroundSwitcher {
+    position: absolute !important;
+    left: calc(100% + var(--trdc-space-2)) !important;
+    right: auto !important;
+    top: 0 !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    z-index: 25 !important;
+    min-width: 10.5rem !important;
+    max-width: min(20rem, calc(100vw - var(--trdc-map-tools-left) - 5rem)) !important;
+}
+
+body #BackgroundSwitcher[hidden],
+body #BackgroundSwitcher[aria-hidden="true"] {
+    pointer-events: none !important;
+}
+
+/* Scale line only — overview map control uses QWC2 / OpenLayers default position & button */
+body #map-scalebar {
+    position: fixed !important;
+    left: calc(var(--trdc-map-tools-left) + 4.5rem) !important;
+    right: auto !important;
+    bottom: calc(var(--bottombar-height, 2.75rem) + 0.5rem) !important;
+    top: auto !important;
+    z-index: 4 !important;
+    margin: 0 !important;
+}
+
+:root.dark body .map-buttons-container,
+:root.highcontrast body .map-buttons-container {
+    background: var(--panel-bg-color) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--trdc-shadow-floating) !important;
+}
+
+/* Top bar — premium app chrome (search stays in bar; map tools styled separately) */
+
+html body #TopBar,
+html body .TopBar {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.99) 0%,
+        rgba(248, 252, 251, 0.97) 48%,
+        rgba(241, 247, 245, 0.96) 100%
+    ) !important;
+    color: var(--panel-text-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    border-top: 3px solid var(--trdc-primary) !important;
+    min-height: 3.45rem !important;
+    padding: var(--trdc-space-2) var(--trdc-space-5) !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 20px rgba(0, 43, 40, 0.07), 0 1px 0 rgba(255, 255, 255, 0.85) inset !important;
+    backdrop-filter: saturate(1.2) blur(12px) !important;
+    -webkit-backdrop-filter: saturate(1.2) blur(12px) !important;
+    gap: var(--trdc-space-4) !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    /* Never wider than viewport (notch / landscape) */
+    width: 100% !important;
+    max-width: 100dvw !important;
+}
+
+/* Logo / link left; council info + app menu + fullscreen grouped on the right */
+html body #TopBar .trdc-topbar-info-wrap,
+html body .TopBar .trdc-topbar-info-wrap {
+    margin-left: auto !important;
+}
+
+html body #TopBar:not(:has(.trdc-topbar-info-wrap)) .AppMenu,
+html body .TopBar:not(:has(.trdc-topbar-info-wrap)) .AppMenu {
+    margin-left: auto !important;
+}
+
+/* Search + toolbar: float over map, immediately RIGHT of map tool column */
+html body #TopBar .center-span,
+html body .TopBar .center-span {
+    position: fixed !important;
+    top: calc(
+        var(--topbar-height, 3.5rem) + var(--trdc-space-2) + env(safe-area-inset-top, 0px)
+    ) !important;
+    left: var(--trdc-map-tool-track-end) !important;
+    right: var(--trdc-space-4) !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: calc(
+        100vw - var(--trdc-map-tool-track-end) - var(--trdc-space-4) -
+            env(safe-area-inset-right, 0px)
+    ) !important;
+    z-index: 6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: var(--trdc-space-2) !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+}
+
+html body #TopBar .center-span .SearchBox,
+html body .TopBar .center-span .SearchBox {
+    flex: 1 1 auto !important;
+    max-width: min(22rem, 100%) !important;
+    min-width: min(8rem, 100%) !important;
+    pointer-events: auto !important;
+    box-sizing: border-box !important;
+}
+
+html body #TopBar .center-span .Toolbar,
+html body .TopBar .center-span .Toolbar {
+    pointer-events: auto !important;
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 900px) {
+    html body #TopBar .center-span .SearchBox,
+    html body .TopBar .center-span .SearchBox {
+        max-width: none !important;
+        min-width: 0 !important;
+    }
+}
+
+@media (max-width: 640px) {
+    html body #TopBar .center-span,
+    html body .TopBar .center-span {
+        left: var(--trdc-map-tool-track-end) !important;
+        right: max(var(--trdc-space-2), env(safe-area-inset-right, 0px)) !important;
+        flex-wrap: wrap !important;
+        gap: var(--trdc-space-2) !important;
+        max-width: calc(
+            100vw - var(--trdc-map-tool-track-end) - max(var(--trdc-space-2), env(safe-area-inset-right, 0px)) -
+                env(safe-area-inset-left, 0px)
+        ) !important;
+    }
+
+    html body #TopBar .center-span .SearchBox,
+    html body .TopBar .center-span .SearchBox {
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    html body #TopBar .center-span .Toolbar,
+    html body .TopBar .center-span .Toolbar {
+        flex: 1 1 100% !important;
+        justify-content: flex-end !important;
+        flex-wrap: wrap !important;
+        gap: var(--trdc-space-1) !important;
+    }
+}
+
+/* Top bar row: tighter on tablets, wrap on phones + safe areas */
+@media (max-width: 1024px) {
+    html body #TopBar,
+    html body .TopBar {
+        padding: var(--trdc-space-2) var(--trdc-space-3) !important;
+        gap: var(--trdc-space-3) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    html body #TopBar,
+    html body .TopBar {
+        flex-wrap: wrap !important;
+        align-content: center !important;
+        row-gap: var(--trdc-space-2) !important;
+        min-height: auto !important;
+        padding-top: max(var(--trdc-space-2), env(safe-area-inset-top, 0px)) !important;
+        padding-right: max(var(--trdc-space-2), env(safe-area-inset-right, 0px)) !important;
+        padding-bottom: var(--trdc-space-2) !important;
+        padding-left: max(var(--trdc-space-2), env(safe-area-inset-left, 0px)) !important;
+    }
+
+    body .AppMenu {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+
+    body .appmenu-button {
+        padding: 4px 8px !important;
+        font-size: 0.75rem !important;
+        max-width: 100% !important;
+    }
+
+    body .appmenu-label {
+        max-width: min(8rem, 30vw) !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        display: inline-block !important;
+        vertical-align: bottom !important;
+    }
+
+    body .appmenu-menu {
+        min-width: min(11.5rem, calc(100vw - 1.25rem)) !important;
+        max-width: min(14rem, calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 0.75rem)) !important;
+        padding: 4px 0 !important;
+        font-size: 0.8125rem !important;
+    }
+
+    body .appmenu-menu .appmenu-leaf,
+    body .appmenu-menu .appmenu-submenu {
+        padding: 6px 10px !important;
+        margin: 0 4px !important;
+        font-size: 0.8125rem !important;
+    }
+
+    body .appmenu-submenu ul li {
+        padding: 5px 10px !important;
+        margin: 0 4px !important;
+        font-size: 0.8125rem !important;
+    }
+
+    body #FullScreenSwitcher {
+        flex-shrink: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --trdc-map-tools-left: 0.5rem;
+    }
+
+    body .appmenu-label {
+        max-width: min(5.5rem, 26vw) !important;
+    }
+
+    body .SearchBox .input-container,
+    body .searchbox-field {
+        min-height: 2rem !important;
+    }
+
+    body .SearchBox .input-container-input,
+    body .SearchBox input.input-container-input {
+        font-size: 0.75rem !important;
+        padding-top: 0.28rem !important;
+        padding-bottom: 0.28rem !important;
+    }
+}
+
+@media (max-width: 420px) {
+    :root {
+        --trdc-map-tool-btn-size: 2.4rem;
+        --trdc-map-tool-step: 3rem;
+    }
+
+    html body #TopBar .center-span,
+    html body .TopBar .center-span {
+        top: calc(var(--topbar-height, 3.25rem) + var(--trdc-space-1)) !important;
+    }
+}
+
+@media (max-width: 380px) {
+    body .appmenu-label {
+        max-width: 3.75rem !important;
+    }
+}
+
+html body #TopBar .logo,
+html body .TopBar .logo {
+    max-height: 2.2rem !important;
+    max-width: min(9.5rem, 34vw) !important;
+    width: auto !important;
+    display: block !important;
+    margin-right: var(--trdc-space-2) !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 43, 40, 0.06)) !important;
+    object-fit: contain !important;
+}
+
+@media (min-width: 1200px) {
+    html body #TopBar .logo,
+    html body .TopBar .logo {
+        max-height: 2.35rem !important;
+        max-width: min(10.5rem, 28vw) !important;
+    }
+
+    html body #TopBar .center-span .SearchBox,
+    html body .TopBar .center-span .SearchBox,
+    body .SearchBox {
+        max-width: min(24rem, 100%) !important;
+    }
+
+    body .SearchBox .input-container,
+    body .searchbox-field {
+        min-height: 2.25rem !important;
+    }
+}
+
+/* Logo scales down on small screens (must follow base .logo above) */
+@media (max-width: 768px) {
+    html body #TopBar .logo,
+    html body .TopBar .logo {
+        max-height: 1.95rem !important;
+        max-width: min(8.5rem, 40vw) !important;
+        margin-right: var(--trdc-space-2) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html body #TopBar .logo,
+    html body .TopBar .logo {
+        max-height: 1.7rem !important;
+        max-width: min(7.25rem, 32vw) !important;
+    }
+}
+
+html body #TopBar .Toolbar,
+html body .TopBar .Toolbar {
+    gap: var(--trdc-space-1) !important;
+    align-items: center !important;
+}
+
+html body #TopBar .Toolbar:empty,
+html body .TopBar .Toolbar:empty {
+    display: none !important;
+}
+
+html body #TopBar .Toolbar .icon-measure_line,
+html body #TopBar .Toolbar .icon-measure,
+html body .TopBar .Toolbar .icon-measure_line,
+html body .TopBar .Toolbar .icon-measure {
+    display: none !important;
+}
+
+html body #TopBar .Toolbar .icon_clickable,
+html body .TopBar .Toolbar .icon_clickable {
+    padding: var(--trdc-space-2) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    transition: background-color 0.15s ease !important;
+}
+
+html body #TopBar .Toolbar .icon_clickable:hover,
+html body .TopBar .Toolbar .icon_clickable:hover {
+    background: var(--trdc-primary-subtle) !important;
+}
+
+/* Search */
+
+body .SearchBox {
+    max-width: min(22rem, 100%) !important;
+}
+
+body .SearchBox .input-container,
+body .searchbox-field {
+    border-radius: var(--trdc-radius-sm) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--input-bg-color) !important;
+    min-height: 2.125rem !important;
+    box-shadow: 0 1px 2px rgba(0, 43, 40, 0.04) inset !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+body .SearchBox .input-container-input,
+body .SearchBox input.input-container-input {
+    font-size: 0.8125rem !important;
+    line-height: 1.3 !important;
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
+}
+
+body .SearchBox .input-container:focus-within,
+body .searchbox-field:focus-within {
+    border-color: var(--trdc-primary) !important;
+    box-shadow: 0 0 0 3px var(--trdc-primary-subtle) !important;
+}
+
+/* Search field on map overlay — readable over basemap */
+html body #TopBar .center-span .SearchBox .input-container,
+html body .TopBar .center-span .SearchBox .input-container {
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(12px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
+    box-shadow: 0 4px 24px rgba(0, 43, 40, 0.14), 0 1px 0 rgba(255, 255, 255, 0.85) inset !important;
+}
+
+/* Filter control hidden via allowSearchFilters:false; keep CSS backup */
+body .searchbox-filter-button {
+    display: none !important;
+}
+
+/* App menu trigger + panel */
+
+body .AppMenu {
+    background: transparent !important;
+    color: var(--panel-text-color) !important;
+}
+
+body .appmenu-button-container {
+    margin-left: var(--trdc-space-2) !important;
+}
+
+/* Injected info icon — immediately before app menu (see index.html) */
+
+body .trdc-topbar-info-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    margin-inline-end: 0.125rem !important;
+    flex-shrink: 0 !important;
+}
+
+/* Tight gap between info icon and menu label */
+body .trdc-topbar-info-wrap + .AppMenu .appmenu-button-container {
+    margin-left: 0.125rem !important;
+}
+
+body #trdc-topbar-info-btn.trdc-topbar-info-button,
+body button.trdc-topbar-info-button {
+    background: var(--button-bg-color) !important;
+    color: var(--button-text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    padding: 0.2rem !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    min-width: 2rem !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    line-height: 0 !important;
+}
+
+body #trdc-topbar-info-btn .trdc-info-icon {
+    display: block !important;
+    width: 1.05rem !important;
+    height: 1.05rem !important;
+    flex-shrink: 0 !important;
+}
+
+body #trdc-topbar-info-btn.trdc-topbar-info-button:hover {
+    background: var(--button-bg-color-hover) !important;
+    border-color: var(--trdc-primary) !important;
+}
+
+body .appmenu-button {
+    padding: 5px 10px !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--button-bg-color) !important;
+    color: var(--button-text-color) !important;
+    font-weight: 600 !important;
+    font-size: 0.8125rem !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+body .appmenu-button:hover {
+    background: var(--button-bg-color-hover) !important;
+    border-color: var(--trdc-primary) !important;
+}
+
+body .appmenu-label {
+    margin-right: 6px !important;
+}
+
+body .appmenu-menu {
+    background: var(--app-menu-bg-color) !important;
+    color: var(--app-menu-text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--trdc-radius-md) !important;
+    box-shadow: var(--trdc-shadow-popover) !important;
+    padding: 5px 0 !important;
+    min-width: min(11.5rem, calc(100vw - 1rem)) !important;
+    max-width: min(14rem, calc(100vw - 1rem)) !important;
+    margin-top: 6px !important;
+    font-size: 0.8125rem !important;
+}
+
+body .appmenu-menu .appmenu-leaf,
+body .appmenu-menu .appmenu-submenu {
+    padding: 6px 10px !important;
+    margin: 0 4px !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    transition: background-color 0.12s ease !important;
+    font-size: 0.8125rem !important;
+}
+
+body .appmenu-leaf:hover,
+body .appmenu-submenu:hover {
+    background: var(--app-menu-bg-color-hover) !important;
+}
+
+body .appmenu-submenu ul {
+    background: var(--app-submenu-bg-color) !important;
+    color: var(--app-submenu-text-color) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    padding: 4px 0 !important;
+    margin-top: 6px !important;
+    box-shadow: var(--trdc-shadow-floating) !important;
+    min-width: 10rem !important;
+    max-width: min(13rem, calc(100vw - 1.5rem)) !important;
+    font-size: 0.8125rem !important;
+}
+
+body .appmenu-submenu ul li {
+    padding: 5px 10px !important;
+    margin: 0 4px !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    font-size: 0.8125rem !important;
+}
+
+body .appmenu-submenu ul li:hover {
+    background: var(--app-submenu-bg-color-hover) !important;
+}
+
+body .appmenu-filter {
+    margin: 6px 8px !important;
+    font-size: 0.8125rem !important;
+}
+
+/* Full screen control */
+
+body #FullScreenSwitcher {
+    margin-left: var(--trdc-space-2) !important;
+    padding: var(--trdc-space-2) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+}
+
+/* No hover styling — keep appearance identical on hover */
+body #FullScreenSwitcher:hover {
+    background: transparent !important;
+}
+
+/* Bottom bar: use QWC2 default styling (no TRDC overrides) */
+
+/* Dark / high-contrast: top bar only (footer stays default) */
+:root.dark html body #TopBar,
+:root.dark html body .TopBar {
+    background: linear-gradient(180deg, #2f3836 0%, #252b2a 100%) !important;
+    border-top-color: var(--trdc-primary) !important;
+    box-shadow: var(--trdc-shadow-bar) !important;
+}
+
+:root.highcontrast html body #TopBar,
+:root.highcontrast html body .TopBar {
+    background: var(--panel-bg-color) !important;
+    border-top-width: 3px !important;
+    border-top-style: solid !important;
+    border-top-color: var(--text-color) !important;
+}
+
+/* Sidebars & windows */
+
+body .sidebar {
+    background: var(--list-bg-color) !important;
+    color: var(--text-color) !important;
+    box-shadow: -6px 0 28px rgba(0, 43, 40, 0.1) !important;
+    border-left: 1px solid var(--border-color) !important;
+}
+
+body .sidebar-titlebar,
+body .resizeable-window-titlebar {
+    background: var(--titlebar-bg-color) !important;
+    color: var(--titlebar-text-color) !important;
+    padding: var(--trdc-space-3) var(--trdc-space-4) !important;
+    min-height: 3rem !important;
+    box-sizing: border-box !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important;
+    letter-spacing: 0.02em !important;
+    gap: var(--trdc-space-2) !important;
+}
+
+body .sidebar-titlebar-icon,
+body .resizeable-window-titlebar-icon {
+    opacity: 0.95 !important;
+}
+
+body .sidebar-body {
+    background: var(--list-bg-color) !important;
+    color: var(--text-color) !important;
+    padding: var(--trdc-space-3) !important;
+}
+
+body .sidebar-resize-handle {
+    background: var(--border-color) !important;
+    opacity: 0.5 !important;
+}
+
+body .sidebar-resize-handle:hover {
+    opacity: 1 !important;
+    background: var(--trdc-primary) !important;
+}
+
+/* Buttons & inputs (global chrome) */
+
+body .button,
+body button.button {
+    background: var(--button-bg-color) !important;
+    color: var(--button-text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    padding: var(--trdc-space-2) var(--trdc-space-3) !important;
+    font-weight: 500 !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+body .button:hover,
+body button.button:hover {
+    background: var(--button-bg-color-hover) !important;
+    border-color: var(--trdc-border-strong) !important;
+}
+
+body .input-container-input,
+body input.input-container-input,
+body select.input-container-input {
+    background: var(--input-bg-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+}
+
+/* Background switcher popover */
+
+body #BackgroundSwitcher {
+    border-radius: var(--trdc-radius-lg) !important;
+    overflow: auto !important;
+    box-shadow: var(--trdc-shadow-popover) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--list-bg-color) !important;
+}
+
+body .background-switcher-item {
+    padding: var(--trdc-space-3) !important;
+    color: var(--text-color) !important;
+    background: var(--list-bg-color) !important;
+    transition: background-color 0.12s ease !important;
+}
+
+body .background-switcher-item:hover {
+    background: var(--list-item-bg-color-hover) !important;
+}
+
+body .background-switcher-item-active {
+    outline: 2px solid var(--color-active) !important;
+    outline-offset: -2px !important;
+    background: var(--trdc-primary-muted) !important;
+}
+
+body .background-layer-title {
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    margin-top: var(--trdc-space-2) !important;
+}
+
+body .background-layer-thumbnail {
+    border-radius: var(--trdc-radius-sm) !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Scale line */
+
+body #map-scalebar .ol-scale-line-inner {
+    color: var(--text-color) !important;
+    background: var(--panel-bg-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    padding: var(--trdc-space-1) var(--trdc-space-2) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+/* Popups / identify / lists */
+
+body .resizeable-window-body,
+body .print-output-window-body {
+    background: var(--list-bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+body .resizeable-window-titlebar {
+    border-radius: var(--trdc-radius-md) var(--trdc-radius-md) 0 0 !important;
+}
+
+body .identify-body,
+body .feature-info-body,
+body .search-result-list,
+body .layer-tree,
+body .layertree-container {
+    background: var(--list-bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* Links */
+
+html body #TopBar a:link,
+html body #TopBar a:visited,
+html body .TopBar a:link,
+html body .TopBar a:visited {
+    color: var(--text-color-link) !important;
+    font-weight: 500 !important;
+}
+
+/* Focus visibility */
+
+body button:focus-visible,
+body .button:focus-visible,
+body input:focus-visible,
+body select:focus-visible {
+    outline: var(--focus-outline) !important;
+    outline-offset: 2px !important;
+}
+
+/* Notifications — QWC2 mounts toasts here; empty container was showing as a small block */
+
+body .windows-notification-container:empty,
+body .windows-notification-container:not(:has(> *)) {
+    display: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+body .windows-notification-container:has(> *) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--trdc-space-2) !important;
+    padding: var(--trdc-space-3) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* TRDC council sidebar — narrow panel from the right, full height (index.html) */
+
+#trdc-welcome-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 100000 !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+}
+
+#trdc-welcome-modal:not([hidden]) {
+    pointer-events: auto !important;
+}
+
+#trdc-welcome-modal[hidden] {
+    display: none !important;
+}
+
+#trdc-welcome-modal .trdc-drawer-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(26, 38, 36, 0.45) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 0 !important;
+    cursor: pointer !important;
+}
+
+#trdc-welcome-modal.trdc-drawer-open .trdc-drawer-backdrop {
+    opacity: 1 !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-dialog {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(22rem, 92vw) !important;
+    max-width: 420px !important;
+    height: 100vh !important;
+    max-height: 100dvh !important;
+    z-index: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--list-bg-color) !important;
+    color: var(--text-color) !important;
+    border-left: 1px solid var(--border-color) !important;
+    box-shadow: -8px 0 32px rgba(0, 43, 40, 0.15) !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+#trdc-welcome-modal.trdc-drawer-open .trdc-welcome-dialog {
+    transform: translateX(0) !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-header-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--trdc-space-3) !important;
+    background: var(--trdc-primary) !important;
+    color: #fff !important;
+    padding: var(--trdc-space-3) var(--trdc-space-4) !important;
+    flex-shrink: 0 !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-header {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    flex: 1 !important;
+}
+
+#trdc-welcome-modal .trdc-drawer-close {
+    flex-shrink: 0 !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    border: none !important;
+    border-radius: var(--trdc-radius-sm) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #fff !important;
+    font-size: 1.35rem !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+
+#trdc-welcome-modal .trdc-drawer-close:hover {
+    background: rgba(255, 255, 255, 0.28) !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body {
+    padding: var(--trdc-space-5) !important;
+    line-height: 1.55 !important;
+    font-size: 0.9375rem !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body a {
+    color: var(--text-color-link) !important;
+    font-weight: 600 !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body h3 {
+    font-size: 0.9375rem !important;
+    font-weight: 700 !important;
+    margin: 1.15rem 0 0.4rem !important;
+    color: var(--trdc-primary) !important;
+    line-height: 1.3 !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body h3:first-of-type {
+    margin-top: 0 !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body .trdc-sidebar-lead {
+    margin: 0 0 0.75rem !important;
+    font-size: 0.875rem !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body ul {
+    margin: 0.35rem 0 0.75rem !important;
+    padding-left: 1.2rem !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body li {
+    margin-bottom: 0.35rem !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-body .trdc-sidebar-muted {
+    font-size: 0.8125rem !important;
+    color: var(--text-color-disabled, #6b7a77) !important;
+    margin-top: 1rem !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-actions {
+    padding: var(--trdc-space-4) var(--trdc-space-5) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: var(--trdc-space-3) !important;
+    flex-shrink: 0 !important;
+    border-top: 1px solid var(--border-color) !important;
+    background: var(--list-bg-color) !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-continue {
+    background: var(--trdc-primary) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: var(--trdc-radius-md) !important;
+    padding: var(--trdc-space-3) var(--trdc-space-5) !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0, 107, 99, 0.35) !important;
+    transition: background-color 0.15s ease, transform 0.1s ease !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-continue:hover {
+    background: var(--map-button-hover-bg-color) !important;
+}
+
+#trdc-welcome-modal .trdc-welcome-continue:active {
+    background: var(--map-button-active-bg-color) !important;
+    transform: translateY(1px) !important;
+}
+
+/* QWC2 floating windows / dialogs — reinforce brand titlebar */
+
+body .resizeable-window {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--trdc-radius-md) !important;
+    box-shadow: var(--trdc-shadow-floating) !important;
+    overflow: hidden !important;
+}
+
+body .resizeable-window-titlebar {
+    background: var(--trdc-primary) !important;
+    color: #fff !important;
+}

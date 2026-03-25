@@ -1,0 +1,87 @@
+# Multi-version QGIS launcher for TOMs.
+# Version is controlled entirely by .env -- no changes needed here.
+#
+# Workflow:
+#   1. Edit .env -- uncomment the version block you want
+#   2. docker compose build --no-cache
+#   3. docker compose up -d
+#
+# Mac/Linux users: set UID=1000 and GID=1000 (or run `id -u` / `id -g`)
+
+services:
+  qgis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - QGIS_VERSION=${QGIS_VERSION:-3.44}
+        - BASE_IMAGE=${BASE_IMAGE:-debian:bookworm-slim}
+        - QGIS_REPO_TYPE=${QGIS_REPO_TYPE:-qgis-org}
+        - QGIS_SUITE=${QGIS_SUITE:-bookworm}
+        - QGIS_QT=${QGIS_QT:-5}
+        - USER_ID=${UID:-1000}
+        - GROUP_ID=${GID:-1000}
+
+    image: toms-qgis:${QGIS_VERSION:-3.44}
+    container_name: toms-qgis-${QGIS_VERSION:-3.44}
+
+    # user is not set here -- it is controlled by the USER directive in
+    # Dockerfile which uses USER_ID/GROUP_ID build args.
+
+    environment:
+      - DISPLAY=${DISPLAY:-:99}
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_INDIRECT=1
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - QT_QUICK_BACKEND=software
+      - QT_XCB_GL_INTEGRATION=none
+      - QTWEBENGINE_DISABLE_SANDBOX=1
+      - PGSERVICEFILE=/home/qgisuser/.pg_service.conf
+      - QGIS_CUSTOM_CONFIG_PATH=/home/qgisuser/qgis_data
+      - TOMs_CONFIG_PATH=/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs/QGIS
+      - TOMs_FORM_PATH=/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs/ui
+      - QGIS_LOGFILE_PATH=/home/qgisuser/log_files
+      # Auth db in /tmp -- always owned by qgisuser, never affected by volume mounts
+      - QGIS_AUTH_DB_DIR_PATH=/tmp/qgis-auth-1000
+      - USE_VNC=${USE_VNC:-1}
+
+    ports:
+      - "6080:6080"
+      - "5900:5900"
+
+    volumes:
+      # Mount only the specific dirs that need to persist on the host.
+      # We do NOT mount the entire qgis_data tree -- that causes root-ownership
+      # permission errors on Windows. Instead we mount only what needs to survive
+      # container restarts. QGIS internal dirs (cache, processing, auth db) are
+      # intentionally left unmounted so they live in /tmp inside the container
+      # where qgisuser always has full write access on every platform.
+
+      # User plugins (persists across restarts)
+      - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/python/plugins:/home/qgisuser/qgis_data/profiles/default/python/plugins
+
+      # User expressions (persists across restarts)
+      - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/python/expressions:/home/qgisuser/qgis_data/profiles/default/python/expressions
+
+      # QGIS project settings and favourites (persists across restarts)
+      - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/QGIS:/home/qgisuser/qgis_data/profiles/default/QGIS
+
+      # TOMs plugin source -- read-only
+      - ../..:/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs:ro
+
+      # TOMs logs -- outside the :ro TOMs mount to avoid the read-only conflict
+      - ./qgis_config/toms_plugin_logs/${QGIS_PROFILE:-qgis_default}:/home/qgisuser/log_files/toms
+
+      - ../../projects:/home/qgisuser/projects
+      - ../pg_service/.pg_service.conf:/home/qgisuser/.pg_service.conf:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
+    # "no" means the container stops when QGIS closes and does not restart.
+    # Use "unless-stopped" only if you want it to survive crashes but NOT
+    # normal exits -- however Docker cannot distinguish the two for GUI apps.
+    restart: "no"
+
+networks:
+  default:
+    name: toms_net
+    external: true

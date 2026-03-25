@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#006b63" />
+        <title>Three Rivers Traffic Orders</title>
+        <!--
+                                          TRDC theme: INLINE FIRST = works even if assets/trdc/css/qwc2.css fails (host/proxy).
+                                          External link below adds dark/high-contrast + extras when load succeeds.
+                                        -->
+        <style id="trdc-inline-theme">
+            :root {
+                --text-color: #1e2e2c !important;
+                --text-color-link: #006b63 !important;
+                --text-color-disabled: #8a9a97 !important;
+                --container-bg-color: #eef4f3 !important;
+                --input-bg-color: #ffffff !important;
+                --input-bg-color-disabled: #ececec !important;
+                --border-color: #c5d4d1 !important;
+                --color-active: #006b63 !important;
+                --focus-outline: 2px solid #006b63 !important;
+                --tooltip-bg-color: rgba(0, 0, 0, 0.82) !important;
+                --tooltip-text-color: #ffffff !important;
+                --tooltip-border-color: #1a1a1a !important;
+                --map-button-bg-color: #006b63 !important;
+                --map-button-text-color: #ffffff !important;
+                --map-button-hover-bg-color: #005550 !important;
+                --map-button-hover-text-color: #ffffff !important;
+                --map-button-active-bg-color: #004a45 !important;
+                --map-button-active-text-color: #ffffff !important;
+                --panel-bg-color: rgba(255, 255, 255, 0.97) !important;
+                --panel-text-color: #1a2624 !important;
+                --titlebar-bg-color: #006b63 !important;
+                --titlebar-text-color: #ffffff !important;
+                --button-bg-color: #ffffff !important;
+                --button-bg-color-hover: #e6f2f0 !important;
+                --button-bg-color-active: #006b63 !important;
+                --button-bg-color-active-hover: #005550 !important;
+                --button-bg-color-disabled: #f0f0f0 !important;
+                --button-text-color: #1a2624 !important;
+                --button-text-color-hover: #1a2624 !important;
+                --button-text-color-active: #ffffff !important;
+                --button-text-color-active-hover: #ffffff !important;
+                --button-text-color-disabled: #999 !important;
+                --list-bg-color: #ffffff !important;
+                --list-section-bg-color: #006b63 !important;
+                --list-section-text-color: #ffffff !important;
+                --list-item-bg-color-even: #f3f8f7 !important;
+                --list-item-bg-color-hover: #e6f2f0 !important;
+                --list-item-bg-color-active: #c5ddd8 !important;
+                --list-item-bg-color-active-hover: #b0d1ca !important;
+                --list-item-text-color-hover: #1a2624 !important;
+                --list-item-text-color-active: #1a2624 !important;
+                --list-item-text-color-active-hover: #1a2624 !important;
+                --app-menu-bg-color: #ffffff !important;
+                --app-menu-text-color: #1a2624 !important;
+                --app-menu-bg-color-hover: #e6f2f0 !important;
+                --app-menu-text-color-hover: #1a2624 !important;
+                --app-submenu-bg-color: #0a4a44 !important;
+                --app-submenu-text-color: #ffffff !important;
+                --app-submenu-bg-color-hover: #006b63 !important;
+                --app-submenu-text-color-hover: #ffffff !important;
+                --trdc-map-tools-left: 1rem;
+                --trdc-map-tool-btn-size: 2.65rem;
+                --trdc-map-tool-step: 3.35rem;
+                --trdc-map-tool-stack-start: calc(var(--topbar-height, 3.5rem) + 2.65rem);
+                --trdc-map-tool-track-end: calc(var(--trdc-map-tools-left) + var(--trdc-map-tool-btn-size) + 12px);
+            }
+        
+            html {
+                height: 100%;
+            }
+        
+            body {
+                margin: 0 !important;
+                min-height: 100% !important;
+                background: #eef4f3 !important;
+                color: #1e2e2c !important;
+                font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
+                -webkit-font-smoothing: antialiased;
+            }
+        
+            #container {
+                min-height: 100vh;
+            }
+        
+            #splash {
+                position: fixed !important;
+                inset: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 99999 !important;
+                background: #eef4f3 !important;
+            }
+        
+            #splash.trdc-splash-hidden {
+                display: none !important;
+                pointer-events: none !important;
+                visibility: hidden !important;
+            }
+        
+            .lds-dual-ring {
+                display: inline-block !important;
+                width: 80px !important;
+                height: 80px !important;
+            }
+        
+            .lds-dual-ring:after {
+                content: " " !important;
+                display: block !important;
+                width: 64px !important;
+                height: 64px !important;
+                margin: 8px !important;
+                border-radius: 50% !important;
+                border: 6px solid #006b63 !important;
+                border-color: #006b63 transparent #006b63 transparent !important;
+                animation: trdc-splash-spin 1.2s linear infinite !important;
+            }
+        
+            @keyframes trdc-splash-spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        
+            body #map {
+                background-color: #eef4f3 !important;
+            }
+        
+            body #map .ol-viewport {
+                background-color: #eef4f3 !important;
+            }
+        
+            body .map-buttons-container {
+                left: 16px !important;
+                right: auto !important;
+                top: calc(var(--topbar-height, 3.5rem) + 10px) !important;
+                bottom: auto !important;
+                padding: 10px !important;
+                flex-direction: column-reverse !important;
+                align-items: center !important;
+                background: rgba(255, 255, 255, 0.94) !important;
+                border-radius: 14px !important;
+                border: 1px solid rgba(0, 107, 99, 0.14) !important;
+                box-shadow: 0 8px 28px rgba(0, 43, 40, 0.12) !important;
+            }
+        
+            body .map-buttons-container button.map-button {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                bottom: auto !important;
+                margin: 0 !important;
+            }
+        
+            body .map-buttons-container::after {
+                content: "N" !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 1.65rem !important;
+                height: 1.65rem !important;
+                margin-bottom: 8px !important;
+                border-radius: 50% !important;
+                border: 2px solid #006b63 !important;
+                color: #006b63 !important;
+                font-size: 0.62rem !important;
+                font-weight: 800 !important;
+                order: 999 !important;
+                box-sizing: border-box !important;
+            }
+        
+            /* QWC2 2024+: siblings of #map with inline right/bottom — force top-left stack */
+            body #PluginsContainer>button.map-button {
+                position: fixed !important;
+                left: var(--trdc-map-tools-left) !important;
+                right: auto !important;
+                bottom: auto !important;
+                margin: 0 !important;
+                z-index: 5 !important;
+            }
+        
+            body #PluginsContainer>button.map-button:nth-child(2)::before {
+                content: "N" !important;
+                position: absolute !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                top: -2.2rem !important;
+                width: 1.65rem !important;
+                height: 1.65rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 50% !important;
+                border: 2px solid #006b63 !important;
+                color: #006b63 !important;
+                font-size: 0.62rem !important;
+                font-weight: 800 !important;
+                pointer-events: none !important;
+                background: rgba(255, 255, 255, 0.94) !important;
+                box-sizing: border-box !important;
+            }
+        
+            body #PluginsContainer>button.map-button:nth-child(2) {
+                top: var(--trdc-map-tool-stack-start) !important;
+            }
+        
+            body #PluginsContainer>button.map-button:nth-child(3) {
+                top: calc(var(--trdc-map-tool-stack-start) + var(--trdc-map-tool-step)) !important;
+            }
+        
+            body #PluginsContainer>button.map-button:nth-child(4) {
+                top: calc(var(--trdc-map-tool-stack-start) + 2 * var(--trdc-map-tool-step)) !important;
+            }
+        
+            body #PluginsContainer>button.map-button:nth-child(5) {
+                top: calc(var(--trdc-map-tool-stack-start) + 3 * var(--trdc-map-tool-step)) !important;
+            }
+        
+            body #PluginsContainer>div:has(> button.map-button) {
+                position: fixed !important;
+                left: var(--trdc-map-tools-left) !important;
+                right: auto !important;
+                bottom: auto !important;
+                top: calc(var(--trdc-map-tool-stack-start) + 4 * var(--trdc-map-tool-step)) !important;
+                z-index: 5 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 8px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+        
+            body #PluginsContainer>div:has(> button.map-button) button.map-button {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                bottom: auto !important;
+            }
+        
+            body button.map-button {
+                background: #006b63 !important;
+                color: #fff !important;
+                border: 1px solid rgba(0, 0, 0, 0.06) !important;
+                border-radius: 50% !important;
+                width: 2.65rem !important;
+                height: 2.65rem !important;
+                box-shadow: 0 2px 10px rgba(0, 43, 40, 0.18) !important;
+            }
+        
+            body button.map-button:hover {
+                background: #005550 !important;
+                color: #fff !important;
+            }
+        
+            body button.map-button:active {
+                background: #004a45 !important;
+                color: #fff !important;
+            }
+        
+            body #TopBar,
+            body .TopBar {
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 252, 251, 0.97) 100%) !important;
+                color: #1a2624 !important;
+                border-bottom: 1px solid #c5d4d1 !important;
+                border-top: 3px solid #006b63 !important;
+                min-height: 3.45rem !important;
+                padding: 8px 20px !important;
+                box-shadow: 0 4px 20px rgba(0, 43, 40, 0.07) !important;
+                box-sizing: border-box !important;
+                justify-content: flex-start !important;
+                width: 100% !important;
+                max-width: 100dvw !important;
+            }
+        
+            html body #TopBar .trdc-topbar-info-wrap,
+            html body .TopBar .trdc-topbar-info-wrap {
+                margin-left: auto !important;
+            }
+        
+            html body #TopBar:not(:has(.trdc-topbar-info-wrap)) .AppMenu,
+            html body .TopBar:not(:has(.trdc-topbar-info-wrap)) .AppMenu {
+                margin-left: auto !important;
+            }
+        
+            html body #TopBar .center-span,
+            html body .TopBar .center-span {
+                position: fixed !important;
+                top: calc(var(--topbar-height, 3.5rem) + 8px + env(safe-area-inset-top, 0px)) !important;
+                left: var(--trdc-map-tool-track-end) !important;
+                right: 16px !important;
+                transform: none !important;
+                width: auto !important;
+                max-width: calc(100vw - var(--trdc-map-tool-track-end) - 16px - env(safe-area-inset-right, 0px)) !important;
+                z-index: 6 !important;
+                margin: 0 !important;
+                pointer-events: none !important;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 8px !important;
+                box-sizing: border-box !important;
+                min-width: 0 !important;
+            }
+        
+            html body #TopBar .center-span .SearchBox,
+            html body .TopBar .center-span .SearchBox {
+                flex: 1 1 auto !important;
+                max-width: min(22rem, 100%) !important;
+                min-width: min(8rem, 100%) !important;
+                pointer-events: auto !important;
+                box-sizing: border-box !important;
+            }
+        
+            html body #TopBar .center-span .Toolbar,
+            html body .TopBar .center-span .Toolbar {
+                pointer-events: auto !important;
+                flex-shrink: 0 !important;
+            }
+        
+            html body #TopBar .center-span .SearchBox .input-container,
+            html body .TopBar .center-span .SearchBox .input-container {
+                background: rgba(255, 255, 255, 0.96) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                box-shadow: 0 4px 24px rgba(0, 43, 40, 0.14) !important;
+                min-height: 2.125rem !important;
+                border-radius: 6px !important;
+            }
+        
+            body .SearchBox .input-container-input,
+            body .SearchBox input.input-container-input {
+                font-size: 0.8125rem !important;
+                line-height: 1.3 !important;
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+            }
+        
+            @media (max-width: 900px) {
+        
+                html body #TopBar .center-span .SearchBox,
+                html body .TopBar .center-span .SearchBox {
+                    max-width: none !important;
+                    min-width: 0 !important;
+                }
+            }
+        
+            @media (min-width: 1200px) {
+        
+                html body #TopBar .center-span .SearchBox,
+                html body .TopBar .center-span .SearchBox,
+                body .SearchBox {
+                    max-width: min(24rem, 100%) !important;
+                }
+        
+                html body #TopBar .center-span .SearchBox .input-container,
+                html body .TopBar .center-span .SearchBox .input-container {
+                    min-height: 2.25rem !important;
+                }
+            }
+        
+            @media (max-width: 1024px) {
+        
+                body #TopBar,
+                body .TopBar {
+                    padding: 8px 12px !important;
+                    gap: 10px !important;
+                }
+            }
+        
+            @media (max-width: 768px) {
+        
+                body #TopBar,
+                body .TopBar {
+                    flex-wrap: wrap !important;
+                    align-content: center !important;
+                    row-gap: 8px !important;
+                    min-height: auto !important;
+                    padding-top: max(8px, env(safe-area-inset-top, 0px)) !important;
+                    padding-right: max(8px, env(safe-area-inset-right, 0px)) !important;
+                    padding-bottom: 8px !important;
+                    padding-left: max(8px, env(safe-area-inset-left, 0px)) !important;
+                }
+        
+                body .AppMenu {
+                    display: flex !important;
+                    justify-content: flex-end !important;
+                    flex: 1 1 auto !important;
+                    min-width: 0 !important;
+                }
+        
+                body .appmenu-button {
+                    padding: 4px 8px !important;
+                    font-size: 0.75rem !important;
+                    max-width: 100% !important;
+                }
+        
+                body .appmenu-label {
+                    max-width: min(8rem, 30vw) !important;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis !important;
+                    white-space: nowrap !important;
+                    display: inline-block !important;
+                    vertical-align: bottom !important;
+                }
+        
+                body .appmenu-menu {
+                    min-width: min(11.5rem, calc(100vw - 1.25rem)) !important;
+                    max-width: min(14rem, calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 0.75rem)) !important;
+                    padding: 4px 0 !important;
+                    font-size: 0.8125rem !important;
+                    border-radius: 10px !important;
+                }
+        
+                body .appmenu-menu .appmenu-leaf,
+                body .appmenu-menu .appmenu-submenu {
+                    padding: 6px 10px !important;
+                    margin: 0 4px !important;
+                    font-size: 0.8125rem !important;
+                }
+        
+                body .appmenu-submenu ul li {
+                    padding: 5px 10px !important;
+                    margin: 0 4px !important;
+                    font-size: 0.8125rem !important;
+                }
+            }
+        
+            @media (max-width: 640px) {
+        
+                html body #TopBar .center-span,
+                html body .TopBar .center-span {
+                    left: var(--trdc-map-tool-track-end) !important;
+                    right: max(8px, env(safe-area-inset-right, 0px)) !important;
+                    flex-wrap: wrap !important;
+                    max-width: calc(100vw - var(--trdc-map-tool-track-end) - max(8px, env(safe-area-inset-right, 0px)) - env(safe-area-inset-left, 0px)) !important;
+                }
+        
+                html body #TopBar .center-span .SearchBox,
+                html body .TopBar .center-span .SearchBox {
+                    flex: 1 1 100% !important;
+                    min-width: 0 !important;
+                    max-width: 100% !important;
+                }
+        
+                html body #TopBar .center-span .Toolbar,
+                html body .TopBar .center-span .Toolbar {
+                    flex: 1 1 100% !important;
+                    justify-content: flex-end !important;
+                    flex-wrap: wrap !important;
+                    gap: 4px !important;
+                }
+            }
+        
+            @media (max-width: 480px) {
+                :root {
+                    --trdc-map-tools-left: 0.5rem !important;
+                }
+        
+                body .appmenu-label {
+                    max-width: min(5.5rem, 26vw) !important;
+                }
+            }
+        
+            @media (max-width: 420px) {
+                :root {
+                    --trdc-map-tool-btn-size: 2.4rem;
+                    --trdc-map-tool-step: 3rem;
+                }
+            }
+        
+            @media (max-width: 380px) {
+                body .appmenu-label {
+                    max-width: 3.75rem !important;
+                }
+            }
+        
+            body .sidebar-titlebar,
+            body .resizeable-window-titlebar {
+                background: #006b63 !important;
+                color: #fff !important;
+                padding: 12px 16px !important;
+                font-weight: 600 !important;
+            }
+        
+            body .sidebar-body {
+                background: #fff !important;
+                color: #1e2e2c !important;
+                padding: 12px !important;
+            }
+        
+            body .sidebar {
+                background: #fff !important;
+                color: #1e2e2c !important;
+                box-shadow: -6px 0 28px rgba(0, 43, 40, 0.1) !important;
+            }
+        
+            body .button,
+            body button.button {
+                background: #fff !important;
+                color: #1a2624 !important;
+                border: 1px solid #c5d4d1 !important;
+                border-radius: 6px !important;
+            }
+        
+            body .button:hover,
+            body button.button:hover {
+                background: #e6f2f0 !important;
+                color: #1a2624 !important;
+            }
+        
+            body .input-container-input,
+            body input.input-container-input,
+            body select.input-container-input {
+                background: #fff !important;
+                color: #1e2e2c !important;
+                border-color: #c5d4d1 !important;
+            }
+        
+            body .AppMenu {
+                background: transparent !important;
+                color: #1a2624 !important;
+            }
+        
+            body .appmenu-button {
+                padding: 5px 10px !important;
+                font-size: 0.8125rem !important;
+            }
+        
+            body .appmenu-menu {
+                background: #fff !important;
+                color: #1a2624 !important;
+                border: 1px solid #c5d4d1 !important;
+                border-radius: 10px !important;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+                padding: 5px 0 !important;
+                min-width: min(11.5rem, calc(100vw - 1rem)) !important;
+                max-width: min(14rem, calc(100vw - 1rem)) !important;
+                font-size: 0.8125rem !important;
+            }
+        
+            body .appmenu-leaf:hover,
+            body .appmenu-submenu:hover {
+                background: #e6f2f0 !important;
+                color: #1a2624 !important;
+            }
+        
+            body .appmenu-submenu ul {
+                background: #0a4a44 !important;
+                color: #fff !important;
+            }
+        
+            body .appmenu-submenu ul li:hover {
+                background: #006b63 !important;
+                color: #fff !important;
+            }
+        
+            body #TopBar a:link,
+            body #TopBar a:visited,
+            body .TopBar a:link,
+            body .TopBar a:visited {
+                color: #006b63 !important;
+            }
+        
+            body #TopBar .logo,
+            body .TopBar .logo {
+                max-height: 2.2rem !important;
+                max-width: min(9.5rem, 34vw) !important;
+                object-fit: contain !important;
+            }
+        
+            @media (min-width: 1200px) {
+        
+                body #TopBar .logo,
+                body .TopBar .logo {
+                    max-height: 2.35rem !important;
+                    max-width: min(10.5rem, 28vw) !important;
+                }
+            }
+        
+            @media (max-width: 768px) {
+        
+                body #TopBar .logo,
+                body .TopBar .logo {
+                    max-height: 1.95rem !important;
+                    max-width: min(8.5rem, 40vw) !important;
+                }
+            }
+        
+            @media (max-width: 480px) {
+        
+                body #TopBar .logo,
+                body .TopBar .logo {
+                    max-height: 1.7rem !important;
+                    max-width: min(7.25rem, 32vw) !important;
+                }
+            }
+        
+            body .background-switcher-item,
+            body .background-layer-title {
+                color: #1e2e2c !important;
+                background: #fff !important;
+            }
+        
+            body .background-switcher-item-active {
+                outline: 2px solid #006b63 !important;
+            }
+        
+            body .resizeable-window-body,
+            body .print-output-window-body {
+                background: #fff !important;
+                color: #1e2e2c !important;
+            }
+        
+            /* Council sidebar fallback if qwc2.css does not load */
+            #trdc-welcome-modal {
+                position: fixed !important;
+                inset: 0 !important;
+                z-index: 100000 !important;
+                box-sizing: border-box !important;
+            }
+        
+            #trdc-welcome-modal[hidden] {
+                display: none !important;
+            }
+        
+            #trdc-welcome-modal .trdc-drawer-backdrop {
+                position: absolute !important;
+                inset: 0 !important;
+                background: rgba(26, 38, 36, 0.45) !important;
+                opacity: 0 !important;
+                transition: opacity 0.3s ease !important;
+                z-index: 0 !important;
+                cursor: pointer !important;
+            }
+        
+            #trdc-welcome-modal.trdc-drawer-open .trdc-drawer-backdrop {
+                opacity: 1 !important;
+            }
+        
+            #trdc-welcome-modal .trdc-welcome-dialog {
+                position: absolute !important;
+                top: 0 !important;
+                right: 0 !important;
+                left: auto !important;
+                width: min(44rem, 94vw) !important;
+                max-width: 660px !important;
+                height: 100vh !important;
+                z-index: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                background: #fff !important;
+                color: #1e2e2c !important;
+                border-left: 1px solid #c5d4d1 !important;
+                box-shadow: -8px 0 32px rgba(0, 43, 40, 0.15) !important;
+                transform: translateX(100%) !important;
+                transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+        
+            #trdc-welcome-modal.trdc-drawer-open .trdc-welcome-dialog {
+                transform: translateX(0) !important;
+            }
+        
+            #trdc-welcome-modal .trdc-welcome-header-row {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 0.75rem !important;
+                background: #006b63 !important;
+                color: #fff !important;
+                padding: 0.65rem 1rem !important;
+                flex-shrink: 0 !important;
+            }
+        
+            #trdc-welcome-modal .trdc-welcome-header {
+                font-size: 1.125rem !important;
+                font-weight: 600 !important;
+                margin: 0 !important;
+                flex: 1 !important;
+            }
+        
+            #trdc-welcome-modal .trdc-drawer-close {
+                width: 2.25rem !important;
+                height: 2.25rem !important;
+                border: none !important;
+                border-radius: 6px !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+                color: #fff !important;
+                font-size: 1.35rem !important;
+                cursor: pointer !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+        
+            #trdc-welcome-modal .trdc-welcome-body {
+                padding: 1.25rem !important;
+                line-height: 1.55 !important;
+                flex: 1 1 auto !important;
+                min-height: 0 !important;
+                overflow-y: auto !important;
+            }
+        
+            #trdc-welcome-modal .trdc-welcome-actions {
+                padding: 1rem 1.25rem !important;
+                display: flex !important;
+                justify-content: flex-end !important;
+                flex-shrink: 0 !important;
+                border-top: 1px solid #c5d4d1 !important;
+                background: #fff !important;
+            }
+        
+            #trdc-welcome-modal .trdc-welcome-continue {
+                background: #006b63 !important;
+                color: #fff !important;
+                border: none !important;
+                border-radius: 8px !important;
+                padding: 0.65rem 1.25rem !important;
+                font-weight: 600 !important;
+                cursor: pointer !important;
+            }
+        
+            body #FullScreenSwitcher:hover {
+                background: transparent !important;
+            }
+        
+            body .trdc-topbar-info-wrap {
+                display: inline-flex !important;
+                align-items: center !important;
+                margin: 0 0.125rem 0 0 !important;
+            }
+        
+            body .trdc-topbar-info-wrap+.AppMenu .appmenu-button-container {
+                margin-left: 0.125rem !important;
+            }
+        
+            body #trdc-topbar-info-btn.trdc-topbar-info-button {
+                background: #fff !important;
+                color: #1a2624 !important;
+                border: 1px solid #c5d4d1 !important;
+                border-radius: 6px !important;
+                padding: 0.2rem !important;
+                width: 2rem !important;
+                height: 2rem !important;
+                min-width: 2rem !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                line-height: 0 !important;
+            }
+        
+            body #trdc-topbar-info-btn .trdc-info-icon {
+                display: block !important;
+                width: 1.05rem !important;
+                height: 1.05rem !important;
+            }
+        </style>
+        <!-- Full design system: spacing, shadows, menus, map chrome, dark/high-contrast -->
+        <link rel="stylesheet" type="text/css" href="assets/trdc/css/qwc2.css?v=trdc-design-v22" />
+        <link rel="apple-touch-icon" href="assets/trdc/img/app_icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/trdc/img/app_icon_72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/trdc/img/app_icon_114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/trdc/img/app_icon_144.png" />
+        <link rel="icon" href="assets/trdc/img/favicon.ico" />
+        <script type="text/javascript">
+            (function () {
+                var drawerTransitionMs = 400;
+
+                function trdcOpenWelcomeDrawer() {
+                    var modal = document.getElementById("trdc-welcome-modal");
+                    if (!modal) return;
+                    modal.removeAttribute("hidden");
+                    modal.setAttribute("aria-hidden", "false");
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            modal.classList.add("trdc-drawer-open");
+                        });
+                    });
+                    var btn = document.getElementById("trdc-welcome-continue");
+                    if (btn) {
+                        try { btn.focus(); } catch (e0) { }
+                    }
+                }
+
+                function trdcDismissWelcome() {
+                    var modal = document.getElementById("trdc-welcome-modal");
+                    if (!modal) return;
+                    modal.classList.remove("trdc-drawer-open");
+                    var dlg = modal.querySelector(".trdc-welcome-dialog");
+                    if (!dlg) {
+                        modal.setAttribute("hidden", "");
+                        modal.setAttribute("aria-hidden", "true");
+                        return;
+                    }
+                    var done = false;
+                    function finish() {
+                        if (done) return;
+                        done = true;
+                        dlg.removeEventListener("transitionend", onEnd);
+                        clearTimeout(fallback);
+                        modal.setAttribute("hidden", "");
+                        modal.setAttribute("aria-hidden", "true");
+                    }
+                    function onEnd(ev) {
+                        if (ev.target !== dlg || ev.propertyName !== "transform") return;
+                        finish();
+                    }
+                    dlg.addEventListener("transitionend", onEnd);
+                    var fallback = setTimeout(finish, drawerTransitionMs + 80);
+                }
+
+                window.trdcDismissWelcome = trdcDismissWelcome;
+                window.trdcOpenWelcomeDrawer = trdcOpenWelcomeDrawer;
+
+                document.addEventListener("keydown", function (ev) {
+                    if (ev.key !== "Escape") return;
+                    var m = document.getElementById("trdc-welcome-modal");
+                    if (!m || m.hasAttribute("hidden")) return;
+                    if (!m.classList.contains("trdc-drawer-open")) return;
+                    trdcDismissWelcome();
+                });
+
+                function trdcEnsureInfoButton() {
+                    if (document.getElementById("trdc-topbar-info-btn")) return true;
+                    var appMenu = document.querySelector(".TopBar .AppMenu") || document.querySelector("#TopBar .AppMenu");
+                    if (!appMenu || !appMenu.parentNode) return false;
+                    var wrap = document.createElement("span");
+                    wrap.className = "trdc-topbar-info-wrap";
+                    var btn = document.createElement("button");
+                    btn.id = "trdc-topbar-info-btn";
+                    btn.type = "button";
+                    btn.className = "button trdc-topbar-info-button";
+                    btn.setAttribute("aria-label", "About and contact — Three Rivers District Council");
+                    btn.setAttribute("title", "About and contact — Three Rivers District Council");
+                    btn.innerHTML = "<svg class=\"trdc-info-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg>";
+                    btn.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        trdcOpenWelcomeDrawer();
+                    });
+                    wrap.appendChild(btn);
+                    appMenu.parentNode.insertBefore(wrap, appMenu);
+                    return true;
+                }
+
+                function trdcSetupTopBarEnhancements() {
+                    var root =
+                        document.getElementById("container") ||
+                        document.body ||
+                        document.documentElement;
+                    if (!root || root.nodeType !== 1) return;
+                    var infoOk = false;
+                    function tick() {
+                        if (!infoOk) infoOk = trdcEnsureInfoButton();
+                    }
+                    var mo = new MutationObserver(tick);
+                    mo.observe(root, { childList: true, subtree: true });
+                    var n = 0;
+                    var iv = setInterval(function () {
+                        tick();
+                        if (infoOk || ++n > 80) {
+                            clearInterval(iv);
+                            mo.disconnect();
+                        }
+                    }, 200);
+                }
+
+                function hideSplash() {
+                    var splash = document.getElementById("splash");
+                    if (!splash) return;
+                    splash.classList.add("trdc-splash-hidden");
+                    splash.setAttribute("aria-hidden", "true");
+                    /* Every visit: open council drawer after splash */
+                    setTimeout(trdcOpenWelcomeDrawer, 80);
+                }
+
+                trdcSetupTopBarEnhancements();
+
+                window.addEventListener("load", function () {
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(hideSplash);
+                    });
+                });
+                setTimeout(hideSplash, 8000);
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="splash">
+            <div class="lds-dual-ring" role="status" aria-label="Loading map"></div>
+        </div>
+        <div id="trdc-welcome-modal" role="dialog" aria-modal="true" aria-labelledby="trdc-welcome-title" hidden>
+            <div class="trdc-drawer-backdrop" aria-hidden="true"
+                onclick="window.trdcDismissWelcome && window.trdcDismissWelcome()"></div>
+            <div class="trdc-welcome-dialog">
+                <div class="trdc-welcome-header-row">
+                    <h2 class="trdc-welcome-header" id="trdc-welcome-title">About &amp; contact</h2>
+                    <button type="button" class="trdc-drawer-close" aria-label="Close"
+                        onclick="window.trdcDismissWelcome && window.trdcDismissWelcome()">&times;</button>
+                </div>
+                <div class="trdc-welcome-body">
+                    <p class="trdc-sidebar-lead"><strong>Traffic orders map.</strong> This viewer is for Three Rivers traffic
+                        orders. Use the top bar to search, switch themes, and open the app menu. For wider council services use
+                        the main website below.</p>
+        
+                    <h3>Main website</h3>
+                    <p>The council site includes <strong>Home</strong>, <strong>News</strong>, <strong>Accessibility
+                            tools</strong>, <strong>Self-service</strong>, and <strong>Council services</strong> (animals,
+                        benefits, planning, waste, parking, licensing, transport and streets, and more).</p>
+                    <p><a href="https://www.threerivers.gov.uk/" target="_blank"
+                            rel="noopener noreferrer">www.threerivers.gov.uk</a></p>
+        
+                    <h3>Search &amp; online services</h3>
+                    <p>Use the main site to search for information, advice and guidance. Typical online tasks include reporting
+                        a missed bin, checking bin collection day, “Pay for it”, and viewing all online services — start from
+                        the homepage and menus above.</p>
+        
+                    <h3>Contact us</h3>
+                    <p>We aim to respond within <strong>10 working days</strong>. Payments, applications, requests and fault
+                        reporting are available through a single sign-on at <a href="https://my.threerivers.gov.uk/"
+                            target="_blank" rel="noopener noreferrer">my.threerivers.gov.uk</a>.</p>
+                    <p>You can contact us online, reach the right team for media, Council Tax, business rates, compliments and
+                        complaints, and <strong>find your local councillor</strong> — all via forms and pages on the main
+                        website.</p>
+                    <p><strong>Call centre:</strong> <a href="tel:01923776611">01923 776611</a><br />
+                        Monday–Thursday 8:30am–5:30pm, Friday 8:30am–5pm (excluding Bank Holidays). Calls may be recorded and
+                        monitored.</p>
+                    <p><strong>Visitor centre:</strong> 9am–4pm Monday–Friday (excluding Bank Holidays) at Three Rivers House,
+                        Northway, Rickmansworth, Herts <strong>WD3 1RL</strong>.</p>
+        
+                    <h3>Emergency contacts</h3>
+                    <p>In an emergency call <a href="tel:01923776611">01923 776611</a>. In working hours you reach Customer
+                        Services; outside those hours calls transfer to an out-of-hours service (Hertfordshire Constabulary) for
+                        <strong>emergency situations only</strong>.
+                    </p>
+        
+                    <h3>News &amp; social media</h3>
+                    <p>For council news and community information, follow <strong>Three Rivers District Council</strong> on
+                        social channels — links are in the footer of <a href="https://www.threerivers.gov.uk/" target="_blank"
+                            rel="noopener noreferrer">www.threerivers.gov.uk</a> (e.g. Twitter / X and Facebook).</p>
+        
+                    <h3>Languages &amp; accessibility</h3>
+                    <p>If English is not your first language and you need help with a letter, document or bill, the council can
+                        assist. For website translations use the online contact options. The main site also offers
+                        <strong>Accessibility tools</strong> in the menu bar to translate pages.
+                    </p>
+        
+                    <h3>Postal address</h3>
+                    <p>Three Rivers District Council<br />
+                        Three Rivers House, Northway<br />
+                        Rickmansworth, Herts WD3 1RL</p>
+                    <p><a href="https://www.threerivers.gov.uk/" target="_blank" rel="noopener noreferrer">Accessibility
+                            statement</a>, copyright, privacy and disclaimer are published on the main website.</p>
+                    <p>For central government services visit <a href="https://www.gov.uk/" target="_blank"
+                            rel="noopener noreferrer">GOV.UK</a>.</p>
+        
+                    <p class="trdc-sidebar-muted">Copyright © Three Rivers District Council. Confirm all service details on <a
+                            href="https://www.threerivers.gov.uk/" target="_blank"
+                            rel="noopener noreferrer">www.threerivers.gov.uk</a>.</p>
+                </div>
+            </div>
+        </div>
+        <div id="container"></div>
+        <script src="dist/QWC2App.js"></script>
+    </body>
+</html>

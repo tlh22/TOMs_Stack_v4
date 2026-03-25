@@ -1,0 +1,150 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-legend-service/raw/2024-lts/schemas/qwc-legend-service.json",
+  "service": "legend",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "legend_images_path": "/legends/"
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "mhtc/scan/TOMs_Test_v3",
+        "root_layer": {
+          "name": "TOMs_Test",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "layers": [
+                {
+                  "name": "Bays"
+                },
+                {
+                  "name": "Lines"
+                },
+                {
+                  "name": "RestrictionPolygons"
+                },
+                {
+                  "name": "Signs"
+                },
+                {
+                  "name": "ConstructionLines"
+                }
+              ]
+            },
+            {
+              "name": "Zones",
+              "layers": [
+                {
+                  "name": "CPZs"
+                },
+                {
+                  "name": "MatchDayEventDayZones"
+                },
+                {
+                  "name": "ParkingTariffAreas"
+                }
+              ]
+            },
+            {
+              "name": "Labels config",
+              "layers": [
+                {
+                  "name": "Bays.label_ldr"
+                },
+                {
+                  "name": "Lines.label_ldr"
+                },
+                {
+                  "name": "Lines.label_loading_ldr"
+                },
+                {
+                  "name": "RestrictionPolygons.label_ldr"
+                },
+                {
+                  "name": "CPZs.label_ldr"
+                },
+                {
+                  "name": "ParkingTariffAreas.label_ldr"
+                },
+                {
+                  "name": "MatchDayEventDayZones.label_ldr"
+                },
+                {
+                  "name": "Bays.label_pos"
+                },
+                {
+                  "name": "Lines.label_pos"
+                },
+                {
+                  "name": "Lines.label_loading_pos"
+                },
+                {
+                  "name": "RestrictionPolygons.label_pos"
+                },
+                {
+                  "name": "CPZs.label_pos"
+                },
+                {
+                  "name": "ParkingTariffAreas.label_pos"
+                },
+                {
+                  "name": "MatchDayEventDayZones.label_pos"
+                }
+              ]
+            },
+            {
+              "name": "Proposal Details"
+            },
+            {
+              "name": "Lookup Tables"
+            },
+            {
+              "name": "Map Schedule Grids",
+              "layers": [
+                {
+                  "name": "MapGrid"
+                }
+              ]
+            },
+            {
+              "name": "Background Mapping",
+              "layers": [
+                {
+                  "name": "os_mastermap_topography_text"
+                },
+                {
+                  "name": "MappingUpdates"
+                },
+                {
+                  "name": "MappingUpdateMasks"
+                },
+                {
+                  "name": "RoadCasement"
+                },
+                {
+                  "name": "StreetGazetteerRecords"
+                },
+                {
+                  "name": "RoadCentreLine"
+                },
+                {
+                  "name": "SiteArea"
+                },
+                {
+                  "name": "os_mastermap_topography_polygons"
+                },
+                {
+                  "name": "OpenStreetMap"
+                },
+                {
+                  "name": "Google Roads"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

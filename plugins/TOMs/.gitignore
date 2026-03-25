@@ -1,0 +1,5 @@
+*.pyc
+.idea
+*.orig
+/venv/
+*.cache-7
