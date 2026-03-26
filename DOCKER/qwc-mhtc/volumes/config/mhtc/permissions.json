@@ -7,14 +7,6 @@
       "roles": [
         "admin"
       ]
-    },
-    {
-      "name": "tim",
-      "groups": [],
-      "roles": [
-        "admin",
-        "public"
-      ]
     }
   ],
   "groups": [],
@@ -1213,9 +1205,7 @@
         "document_templates": [],
         "print_templates": [],
         "solr_facets": [
-          "mhtc_road_name",
-          "trdc_postcode",
-          "trdc_road_name"
+          "mhtc_road_name"
         ],
         "external_links": []
       }
@@ -1233,7 +1223,9 @@
         "dataproducts": [],
         "document_templates": [],
         "print_templates": [],
-        "solr_facets": [],
+        "solr_facets": [
+          "mhtc_road_name"
+        ],
         "external_links": []
       }
     }

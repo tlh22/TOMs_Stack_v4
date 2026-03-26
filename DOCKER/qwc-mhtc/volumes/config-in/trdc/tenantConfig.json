@@ -72,7 +72,7 @@
       "facets": [
         {
           "name": "trdc_road_name",
-          "filter_word": "",
+          "filter_word": "trdc_road_name",
           "table_name": "local_authority.StreetGazetteerRecords_with_postcode",
           "geometry_column": "geom",
           "search_id_col": "gid",

@@ -31,9 +31,7 @@
                     "MaxStayID",
                     "NoReturnID",
                     "AdditionalConditionID",
-                    "Last_MHTC_Check_UpdateDateTime",
-                    "Last_MHTC_Check_UpdatePerson",
-                    "FieldCheckCompleted",
+                    "DisplayLabel",
                     "BayWidth",
                     "geometry",
                     "maptip"
@@ -49,9 +47,7 @@
                     "NoWaitingTimeID",
                     "NoLoadingTimeID",
                     "AdditionalConditionID",
-                    "Last_MHTC_Check_UpdateDateTime",
-                    "Last_MHTC_Check_UpdatePerson",
-                    "FieldCheckCompleted",
+                    "DisplayLabel",
                     "geometry",
                     "maptip"
                   ],
@@ -67,9 +63,7 @@
                     "TimePeriodID",
                     "AreaPermitCode",
                     "AdditionalConditionID",
-                    "Last_MHTC_Check_UpdateDateTime",
-                    "Last_MHTC_Check_UpdatePerson",
-                    "FieldCheckCompleted",
+                    "DisplayLabel",
                     "geometry",
                     "maptip"
                   ],
@@ -101,6 +95,10 @@
                   "title": "MapGrid",
                   "attributes": [
                     "id",
+                    "MapSheet_North",
+                    "MapSheet_East",
+                    "MapSheet_South",
+                    "MapSheet_West",
                     "geometry",
                     "maptip"
                   ]

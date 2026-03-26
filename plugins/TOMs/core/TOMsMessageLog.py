@@ -43,15 +43,17 @@ class TOMsMessageLog(QgsMessageLog):
     def logMessage(*args, **kwargs):
         # check to see if a logging level has been set
         def currentLoggingLevel():
-
-            currLoggingLevel = int(Qgis.MessageLevel.Info)
-
+            default_level = int(Qgis.MessageLevel.Info)
             try:
-                currLoggingLevel = int(QgsExpressionContextUtils.projectScope(QgsProject.instance()).variable('TOMs_Logging_Level'))
-            except Exception as e:
-                QgsMessageLog.logMessage("Error in TOMsMessageLog. TOMs_logging_Level not found ... {}".format(e), tag="TOMs Panel")
-
-            return currLoggingLevel
+                raw_level = QgsExpressionContextUtils.projectScope(
+                    QgsProject.instance()
+                ).variable('TOMs_Logging_Level')
+                if raw_level is None or str(raw_level).strip() == "":
+                    return default_level
+                return int(raw_level)
+            except Exception:
+                # Keep logging resilient when project variable is missing/invalid.
+                return default_level
 
         debug_level = currentLoggingLevel()
 

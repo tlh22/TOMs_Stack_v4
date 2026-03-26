@@ -1,7 +1,7 @@
 <dataConfig>
     <dataSource
         driver="org.postgresql.Driver"
-        url="jdbc:postgresql://toms_postgis/TOMs_Test" user="postgres" password="postgis" />
+        url="jdbc:postgresql://host.docker.internal:5435/TOMs_Test" user="postgres" password="postgis" />
     <document>
         <entity name="mhtc_road_name" query="
             WITH index_base AS (

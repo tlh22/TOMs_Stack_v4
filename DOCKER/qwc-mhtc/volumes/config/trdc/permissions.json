@@ -7,14 +7,6 @@
       "roles": [
         "admin"
       ]
-    },
-    {
-      "name": "tim",
-      "groups": [],
-      "roles": [
-        "admin",
-        "public"
-      ]
     }
   ],
   "groups": [],
@@ -41,9 +33,7 @@
                   "MaxStayID",
                   "NoReturnID",
                   "AdditionalConditionID",
-                  "Last_MHTC_Check_UpdateDateTime",
-                  "Last_MHTC_Check_UpdatePerson",
-                  "FieldCheckCompleted",
+                  "DisplayLabel",
                   "BayWidth",
                   "geometry",
                   "maptip"
@@ -59,9 +49,7 @@
                   "NoWaitingTimeID",
                   "NoLoadingTimeID",
                   "AdditionalConditionID",
-                  "Last_MHTC_Check_UpdateDateTime",
-                  "Last_MHTC_Check_UpdatePerson",
-                  "FieldCheckCompleted",
+                  "DisplayLabel",
                   "geometry",
                   "maptip"
                 ],
@@ -77,9 +65,7 @@
                   "TimePeriodID",
                   "AreaPermitCode",
                   "AdditionalConditionID",
-                  "Last_MHTC_Check_UpdateDateTime",
-                  "Last_MHTC_Check_UpdatePerson",
-                  "FieldCheckCompleted",
+                  "DisplayLabel",
                   "geometry",
                   "maptip"
                 ],
@@ -107,6 +93,10 @@
                 "name": "MapGrid",
                 "attributes": [
                   "id",
+                  "MapSheet_North",
+                  "MapSheet_East",
+                  "MapSheet_South",
+                  "MapSheet_West",
                   "geometry",
                   "maptip"
                 ]
@@ -186,6 +176,7 @@
         "document_templates": [],
         "print_templates": [],
         "solr_facets": [
+          "mhtc_road_name",
           "trdc_postcode",
           "trdc_road_name"
         ],

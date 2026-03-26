@@ -1,1 +1,3 @@
-# This is a test
+#!/bin/sh
+# no-op test init script
+exit 0

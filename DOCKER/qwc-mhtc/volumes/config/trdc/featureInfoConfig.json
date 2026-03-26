@@ -40,13 +40,7 @@
                       "name": "AdditionalConditionID"
                     },
                     {
-                      "name": "Last_MHTC_Check_UpdateDateTime"
-                    },
-                    {
-                      "name": "Last_MHTC_Check_UpdatePerson"
-                    },
-                    {
-                      "name": "FieldCheckCompleted"
+                      "name": "DisplayLabel"
                     },
                     {
                       "name": "BayWidth"
@@ -80,13 +74,7 @@
                       "name": "AdditionalConditionID"
                     },
                     {
-                      "name": "Last_MHTC_Check_UpdateDateTime"
-                    },
-                    {
-                      "name": "Last_MHTC_Check_UpdatePerson"
-                    },
-                    {
-                      "name": "FieldCheckCompleted"
+                      "name": "DisplayLabel"
                     },
                     {
                       "name": "geometry"
@@ -120,13 +108,7 @@
                       "name": "AdditionalConditionID"
                     },
                     {
-                      "name": "Last_MHTC_Check_UpdateDateTime"
-                    },
-                    {
-                      "name": "Last_MHTC_Check_UpdatePerson"
-                    },
-                    {
-                      "name": "FieldCheckCompleted"
+                      "name": "DisplayLabel"
                     },
                     {
                       "name": "geometry"

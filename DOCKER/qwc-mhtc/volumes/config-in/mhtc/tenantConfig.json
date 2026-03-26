@@ -72,7 +72,7 @@
         "facets": [
             {
                 "name": "mhtc_road_name",
-                "filter_word": "",
+                "filter_word": "mhtc_road_name",
                 "table_name": "local_authority.StreetGazetteerRecords",
                 "geometry_column": "geom",
                 "search_id_col": "id",
