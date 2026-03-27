@@ -1,0 +1,5 @@
+volumes/db/
+# Other runtime volumes (add any others you have)
+volumes/solr/data/
+volumes/redis/
+volumes/logs/

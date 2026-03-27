@@ -1,0 +1,246 @@
+20260327:093302[TOMs Panel]: 0 :: Finished init ...
+20260327:093302[TOMs Panel]: 0 :: Registering expression functions ... 
+20260327:093302[TOMs Panel]: 0 :: Considering function generate_display_geometry
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generate_display_geometry
+20260327:093302[TOMs Panel]: 0 :: Considering function generateDisplayGeometry
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generateDisplayGeometry
+20260327:093302[TOMs Panel]: 0 :: Considering function generateCrossoverGeometry
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generateCrossoverGeometry
+20260327:093302[TOMs Panel]: 0 :: Considering function getAzimuthToRoadCentreLine
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getAzimuthToRoadCentreLine
+20260327:093302[TOMs Panel]: 0 :: Considering function getRoadName
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getRoadName
+20260327:093302[TOMs Panel]: 0 :: Considering function getUSRN
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getUSRN
+20260327:093302[TOMs Panel]: 0 :: Considering function generate_ZigZag
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generate_ZigZag
+20260327:093302[TOMs Panel]: 0 :: Considering function getWaitingLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getWaitingLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Considering function getLoadingLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getLoadingLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Considering function getBayLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getBayLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Considering function getPolygonLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getPolygonLabelLeader
+20260327:093302[TOMs Panel]: 0 :: Considering function getWaitingRestrictionLabelText
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getWaitingRestrictionLabelText
+20260327:093302[TOMs Panel]: 0 :: Considering function getLoadingRestrictionLabelText
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getLoadingRestrictionLabelText
+20260327:093302[TOMs Panel]: 0 :: Considering function getBayTimePeriodLabelText
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getBayTimePeriodLabelText
+20260327:093302[TOMs Panel]: 0 :: Considering function getBayMaxStayLabelText
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getBayMaxStayLabelText
+20260327:093302[TOMs Panel]: 0 :: Considering function getBayNoReturnLabelText
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getBayNoReturnLabelText
+20260327:093302[TOMs Panel]: 0 :: Considering function getBayLabelText
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getBayLabelText
+20260327:093302[TOMs Panel]: 0 :: Considering function getCPZ
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getCPZ
+20260327:093302[TOMs Panel]: 0 :: Considering function getPTA
+20260327:093302[TOMs Panel]: 0 :: Registered expression function getPTA
+20260327:093302[TOMs Panel]: 0 :: Considering function prepareSignLine
+20260327:093302[TOMs Panel]: 0 :: Registered expression function prepareSignLine
+20260327:093302[TOMs Panel]: 0 :: Considering function prepareSignIconLocation
+20260327:093302[TOMs Panel]: 0 :: Registered expression function prepareSignIconLocation
+20260327:093302[TOMs Panel]: 0 :: Considering function prepareSignIcon
+20260327:093302[TOMs Panel]: 0 :: Registered expression function prepareSignIcon
+20260327:093302[TOMs Panel]: 0 :: Considering function prepareSignOrientation
+20260327:093302[TOMs Panel]: 0 :: Registered expression function prepareSignOrientation
+20260327:093302[TOMs Panel]: 0 :: Considering function generateDemandPoints
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generateDemandPoints
+20260327:093302[TOMs Panel]: 0 :: Considering function generateDemandShapes
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generateDemandShapes
+20260327:093302[TOMs Panel]: 0 :: Considering function generateAvailableSpacesShapes
+20260327:093302[TOMs Panel]: 0 :: Registered expression function generateAvailableSpacesShapes
+20260327:093302[TOMs Panel]: 0 :: In TOMSLayers.init ...
+20260327:093302[TOMs Panel]: 0 :: In TOMsProposal:init. ... 
+20260327:093302[TOMs Panel]: 0 :: In TOMsProposal:setProposalsLayer. Proposals layer NOT set !!!
+20260327:093302[TOMs Panel]: 0 :: In TOMsProposal:init. ... proposals layer set 
+20260327:093302[TOMs Panel]: 0 :: In manageRestrictionDetails::init
+20260327:093302[TOMs Panel]: 0 :: In searchBar
+20260327:093302[TOMs Panel]: 0 :: In initSearchBox:
+20260327:093302[TOMs Panel]: 0 :: In disableSearchBar
+20260327:093302[TOMs Panel]: 0 :: In disableTOMsToolbarItems
+20260327:093302[TOMs Panel]: 0 :: Finished proposalsPanel init ...
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generate_display_geometry
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generateDisplayGeometry
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generateCrossoverGeometry
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getAzimuthToRoadCentreLine
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getRoadName
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getUSRN
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generate_ZigZag
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getWaitingLabelLeader
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getLoadingLabelLeader
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getBayLabelLeader
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getPolygonLabelLeader
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getWaitingRestrictionLabelText
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getLoadingRestrictionLabelText
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getBayTimePeriodLabelText
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getBayMaxStayLabelText
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getBayNoReturnLabelText
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getBayLabelText
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getCPZ
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function getPTA
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function prepareSignLine
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function prepareSignIconLocation
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function prepareSignIcon
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function prepareSignOrientation
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generateDemandPoints
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generateDemandShapes
+20260327:093328[TOMs Panel]: 0 :: Unregistered expression function generateAvailableSpacesShapes
+20260327:093328[TOMs Panel]: 0 :: Unload comnpleted ... 
+20260327:093329[TOMs Panel]: 0 :: Finished init ...
+20260327:093329[TOMs Panel]: 0 :: Registering expression functions ... 
+20260327:093329[TOMs Panel]: 0 :: Considering function generate_display_geometry
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generate_display_geometry
+20260327:093329[TOMs Panel]: 0 :: Considering function generateDisplayGeometry
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generateDisplayGeometry
+20260327:093329[TOMs Panel]: 0 :: Considering function generateCrossoverGeometry
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generateCrossoverGeometry
+20260327:093329[TOMs Panel]: 0 :: Considering function getAzimuthToRoadCentreLine
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getAzimuthToRoadCentreLine
+20260327:093329[TOMs Panel]: 0 :: Considering function getRoadName
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getRoadName
+20260327:093329[TOMs Panel]: 0 :: Considering function getUSRN
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getUSRN
+20260327:093329[TOMs Panel]: 0 :: Considering function generate_ZigZag
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generate_ZigZag
+20260327:093329[TOMs Panel]: 0 :: Considering function getWaitingLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getWaitingLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Considering function getLoadingLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getLoadingLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Considering function getBayLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getBayLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Considering function getPolygonLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getPolygonLabelLeader
+20260327:093329[TOMs Panel]: 0 :: Considering function getWaitingRestrictionLabelText
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getWaitingRestrictionLabelText
+20260327:093329[TOMs Panel]: 0 :: Considering function getLoadingRestrictionLabelText
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getLoadingRestrictionLabelText
+20260327:093329[TOMs Panel]: 0 :: Considering function getBayTimePeriodLabelText
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getBayTimePeriodLabelText
+20260327:093329[TOMs Panel]: 0 :: Considering function getBayMaxStayLabelText
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getBayMaxStayLabelText
+20260327:093329[TOMs Panel]: 0 :: Considering function getBayNoReturnLabelText
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getBayNoReturnLabelText
+20260327:093329[TOMs Panel]: 0 :: Considering function getBayLabelText
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getBayLabelText
+20260327:093329[TOMs Panel]: 0 :: Considering function getCPZ
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getCPZ
+20260327:093329[TOMs Panel]: 0 :: Considering function getPTA
+20260327:093329[TOMs Panel]: 0 :: Registered expression function getPTA
+20260327:093329[TOMs Panel]: 0 :: Considering function prepareSignLine
+20260327:093329[TOMs Panel]: 0 :: Registered expression function prepareSignLine
+20260327:093329[TOMs Panel]: 0 :: Considering function prepareSignIconLocation
+20260327:093329[TOMs Panel]: 0 :: Registered expression function prepareSignIconLocation
+20260327:093329[TOMs Panel]: 0 :: Considering function prepareSignIcon
+20260327:093329[TOMs Panel]: 0 :: Registered expression function prepareSignIcon
+20260327:093329[TOMs Panel]: 0 :: Considering function prepareSignOrientation
+20260327:093329[TOMs Panel]: 0 :: Registered expression function prepareSignOrientation
+20260327:093329[TOMs Panel]: 0 :: Considering function generateDemandPoints
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generateDemandPoints
+20260327:093329[TOMs Panel]: 0 :: Considering function generateDemandShapes
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generateDemandShapes
+20260327:093329[TOMs Panel]: 0 :: Considering function generateAvailableSpacesShapes
+20260327:093329[TOMs Panel]: 0 :: Registered expression function generateAvailableSpacesShapes
+20260327:093329[TOMs Panel]: 0 :: In TOMSLayers.init ...
+20260327:093329[TOMs Panel]: 0 :: In TOMsProposal:init. ... 
+20260327:093329[TOMs Panel]: 0 :: In TOMsProposal:setProposalsLayer. Proposals layer NOT set !!!
+20260327:093329[TOMs Panel]: 0 :: In TOMsProposal:init. ... proposals layer set 
+20260327:093329[TOMs Panel]: 0 :: In manageRestrictionDetails::init
+20260327:093329[TOMs Panel]: 0 :: In searchBar
+20260327:093329[TOMs Panel]: 0 :: In initSearchBox:
+20260327:093329[TOMs Panel]: 0 :: In disableSearchBar
+20260327:093329[TOMs Panel]: 0 :: In disableTOMsToolbarItems
+20260327:093329[TOMs Panel]: 0 :: Finished proposalsPanel init ...
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generate_display_geometry
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generateDisplayGeometry
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generateCrossoverGeometry
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getAzimuthToRoadCentreLine
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getRoadName
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getUSRN
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generate_ZigZag
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getWaitingLabelLeader
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getLoadingLabelLeader
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getBayLabelLeader
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getPolygonLabelLeader
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getWaitingRestrictionLabelText
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getLoadingRestrictionLabelText
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getBayTimePeriodLabelText
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getBayMaxStayLabelText
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getBayNoReturnLabelText
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getBayLabelText
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getCPZ
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function getPTA
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function prepareSignLine
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function prepareSignIconLocation
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function prepareSignIcon
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function prepareSignOrientation
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generateDemandPoints
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generateDemandShapes
+20260327:093410[TOMs Panel]: 0 :: Unregistered expression function generateAvailableSpacesShapes
+20260327:093410[TOMs Panel]: 0 :: Unload comnpleted ... 
+20260327:093420[TOMs Panel]: 0 :: Finished init ...
+20260327:093420[TOMs Panel]: 0 :: Registering expression functions ... 
+20260327:093420[TOMs Panel]: 0 :: Considering function generate_display_geometry
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generate_display_geometry
+20260327:093420[TOMs Panel]: 0 :: Considering function generateDisplayGeometry
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generateDisplayGeometry
+20260327:093420[TOMs Panel]: 0 :: Considering function generateCrossoverGeometry
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generateCrossoverGeometry
+20260327:093420[TOMs Panel]: 0 :: Considering function getAzimuthToRoadCentreLine
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getAzimuthToRoadCentreLine
+20260327:093420[TOMs Panel]: 0 :: Considering function getRoadName
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getRoadName
+20260327:093420[TOMs Panel]: 0 :: Considering function getUSRN
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getUSRN
+20260327:093420[TOMs Panel]: 0 :: Considering function generate_ZigZag
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generate_ZigZag
+20260327:093420[TOMs Panel]: 0 :: Considering function getWaitingLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getWaitingLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Considering function getLoadingLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getLoadingLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Considering function getBayLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getBayLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Considering function getPolygonLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getPolygonLabelLeader
+20260327:093420[TOMs Panel]: 0 :: Considering function getWaitingRestrictionLabelText
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getWaitingRestrictionLabelText
+20260327:093420[TOMs Panel]: 0 :: Considering function getLoadingRestrictionLabelText
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getLoadingRestrictionLabelText
+20260327:093420[TOMs Panel]: 0 :: Considering function getBayTimePeriodLabelText
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getBayTimePeriodLabelText
+20260327:093420[TOMs Panel]: 0 :: Considering function getBayMaxStayLabelText
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getBayMaxStayLabelText
+20260327:093420[TOMs Panel]: 0 :: Considering function getBayNoReturnLabelText
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getBayNoReturnLabelText
+20260327:093420[TOMs Panel]: 0 :: Considering function getBayLabelText
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getBayLabelText
+20260327:093420[TOMs Panel]: 0 :: Considering function getCPZ
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getCPZ
+20260327:093420[TOMs Panel]: 0 :: Considering function getPTA
+20260327:093420[TOMs Panel]: 0 :: Registered expression function getPTA
+20260327:093420[TOMs Panel]: 0 :: Considering function prepareSignLine
+20260327:093420[TOMs Panel]: 0 :: Registered expression function prepareSignLine
+20260327:093420[TOMs Panel]: 0 :: Considering function prepareSignIconLocation
+20260327:093420[TOMs Panel]: 0 :: Registered expression function prepareSignIconLocation
+20260327:093420[TOMs Panel]: 0 :: Considering function prepareSignIcon
+20260327:093420[TOMs Panel]: 0 :: Registered expression function prepareSignIcon
+20260327:093420[TOMs Panel]: 0 :: Considering function prepareSignOrientation
+20260327:093420[TOMs Panel]: 0 :: Registered expression function prepareSignOrientation
+20260327:093420[TOMs Panel]: 0 :: Considering function generateDemandPoints
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generateDemandPoints
+20260327:093420[TOMs Panel]: 0 :: Considering function generateDemandShapes
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generateDemandShapes
+20260327:093420[TOMs Panel]: 0 :: Considering function generateAvailableSpacesShapes
+20260327:093420[TOMs Panel]: 0 :: Registered expression function generateAvailableSpacesShapes
+20260327:093420[TOMs Panel]: 0 :: In TOMSLayers.init ...
+20260327:093420[TOMs Panel]: 0 :: In TOMsProposal:init. ... 
+20260327:093420[TOMs Panel]: 0 :: In TOMsProposal:setProposalsLayer. Proposals layer NOT set !!!
+20260327:093420[TOMs Panel]: 0 :: In TOMsProposal:init. ... proposals layer set 
+20260327:093420[TOMs Panel]: 0 :: In manageRestrictionDetails::init
+20260327:093420[TOMs Panel]: 0 :: In searchBar
+20260327:093420[TOMs Panel]: 0 :: In initSearchBox:
+20260327:093420[TOMs Panel]: 0 :: In disableSearchBar
+20260327:093420[TOMs Panel]: 0 :: In disableTOMsToolbarItems
+20260327:093420[TOMs Panel]: 0 :: Finished proposalsPanel init ...
