@@ -97,7 +97,7 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
 
         closestFeature, closestLayer = self.findNearestFeatureAtC(event.pos())
 
-        TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent."), level=Qgis.Info)
+        TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent."), level=Qgis.MessageLevel.Info)
 
         # Remove any current selection and add the new ones (if appropriate)
 
@@ -109,26 +109,26 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
         else:
 
             TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. Feature selected from layer: " + closestLayer.name() + " id: " + str(
-                    closestFeature.id())), level=Qgis.Info)
+                    closestFeature.id())), level=Qgis.MessageLevel.Info)
 
             if not closestLayer == self.iface.activeLayer():
                 if self.iface.activeLayer():
                     self.iface.activeLayer().removeSelection()
                 self.iface.setActiveLayer(closestLayer)
 
-            if closestLayer.type() == QgsMapLayer.VectorLayer:
+            if closestLayer.type() == QgsMapLayer.LayerType.VectorLayer:
                 TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. layer type " + str(closestLayer.type())),
-                                         level=Qgis.Info)
+                                         level=Qgis.MessageLevel.Info)
 
-            if closestLayer.geometryType() == QgsWkbTypes.PointGeometry:
-                TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. point layer type "), level=Qgis.Info)
+            if closestLayer.geometryType() == QgsWkbTypes.GeometryType.PointGeometry:
+                TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. point layer type "), level=Qgis.MessageLevel.Info)
 
-            if closestLayer.geometryType() == QgsWkbTypes.LineGeometry:
-                TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. line layer type "), level=Qgis.Info)
+            if closestLayer.geometryType() == QgsWkbTypes.GeometryType.LineGeometry:
+                TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. line layer type "), level=Qgis.MessageLevel.Info)
 
             status = self.changeLayerForFeature(closestLayer, closestFeature)
 
-            TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. status: {}".format(status)), level=Qgis.Info)
+            TOMsMessageLog.logMessage(("In ChangeLayerMapTool.canvasReleaseEvent. status: {}".format(status)), level=Qgis.MessageLevel.Info)
 
 
     def changeLayerForFeature(self, currLayer, currFeature):
@@ -137,7 +137,7 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
 
         sameGeomTypeLayerList = self.getSameGeomTypeLayerList(currLayer, currFeature)
 
-        TOMsMessageLog.logMessage("In setNewLayerForFeature: sameGeomTypeLayerList: {}".format(sameGeomTypeLayerList), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In setNewLayerForFeature: sameGeomTypeLayerList: {}".format(sameGeomTypeLayerList), level=Qgis.MessageLevel.Info)
 
         surveyDialog = QInputDialog()
         surveyDialog.setLabelText("Please confirm new layer for this feature ")
@@ -146,12 +146,12 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
 
         if surveyDialog.exec_() == QDialog.Accepted:
             newLayerName = surveyDialog.textValue()
-            TOMsMessageLog.logMessage("In setNewLayerForFeature: {}".format(newLayerName), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In setNewLayerForFeature: {}".format(newLayerName), level=Qgis.MessageLevel.Info)
 
             if currLayer.name() != newLayerName:
                 newLayer = QgsProject.instance().mapLayersByName(newLayerName)[0]
                 reply = QMessageBox.information(None, "Information", "Setting {} to layer {}".format(currFeature.attribute("GeometryID"), newLayer.name()),
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
 
                 status = self.moveFeatureToNewLayer(currLayer, currFeature, newLayer)
 
@@ -206,10 +206,10 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
         if restrictionDialog is None:
             reply = QMessageBox.information(None, "Error",
                                             "setupMoveRestrictionDialog. Correct form not found. Rolling back",
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             TOMsMessageLog.logMessage(
                 "In setupRestrictionDialog. dialog not found",
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
             self.localTransactionGroup.rollBackTransactionGroup()
             return False
 
@@ -219,10 +219,10 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
         if button_box is None:
             reply = QMessageBox.information(None, "Error",
                                             "setupMoveRestrictionDialog. Problem with form. Rolling back",
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             TOMsMessageLog.logMessage(
                 "In setupRestrictionDialog. button box not found",
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
             self.localTransactionGroup.rollBackTransactionGroup()
             return False
 
@@ -240,7 +240,7 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
         return True
 
     def onSaveMoveRestrictionDetails(self, currFeature, currFeatureLayer, dialog):
-        TOMsMessageLog.logMessage("In onSaveMoveRestrictionDetails: ", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onSaveMoveRestrictionDetails: ", level=Qgis.MessageLevel.Info)
 
         try:
             self.camera1.endCamera()
@@ -263,11 +263,11 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
         status = currFeatureLayer.addFeature(currFeature)
 
         TOMsMessageLog.logMessage("In onSaveMoveRestrictionDetails: feature added: {}: status: {}".format(currFeatureID, status),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         status = dialog.attributeForm().close()
         TOMsMessageLog.logMessage("In onSaveMoveRestrictionDetails: dialog saved: " + str(currFeatureID),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
         # currRestrictionLayer.addFeature(currRestriction)  # TH (added for v3)
         # status = currFeatureLayer.updateFeature(currFeature)  # TH (added for v3)
 
@@ -275,16 +275,16 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
             self.localTransactionGroup.commitTransactionGroup()
         except Exception as e:
             reply = QMessageBox.information(None, "Information", "Problem committing changes: {}".format(e),
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
 
         # currFeatureLayer.blockSignals(False)
 
-        TOMsMessageLog.logMessage("In onSaveDemandDetails: changes committed", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onSaveDemandDetails: changes committed", level=Qgis.MessageLevel.Info)
 
         status = dialog.close()
 
     def onRejectMoveRestrictionDetailsFromForm(self, restrictionDialog, currFeatureLayer):
-        TOMsMessageLog.logMessage("In onRejectFieldRestrictionDetailsFromForm", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onRejectFieldRestrictionDetailsFromForm", level=Qgis.MessageLevel.Info)
 
         try:
             self.camera1.endCamera()
@@ -300,7 +300,7 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
     def copyRestriction(self, currFeature, newFeature):
 
         TOMsMessageLog.logMessage("In TOMsNodeTool:copyRestriction",
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
 
         newFeatureFieldMap = newFeature.fields()
         currFeatureFieldMap = currFeature.fields()
@@ -314,7 +314,7 @@ class ChangeLayerMapTool(GeometryInfoMapTool):
             if idx_currFeature >= 0:
                 if not newFeature.setAttribute(idx_newFeature, currFeature.attribute(idx_currFeature)):
                     reply = QMessageBox.information(None, "Information", "Problem adding: {}".format(field.name()),
-                                                    QMessageBox.Ok)
+                                                    QMessageBox.StandardButton.Ok)
                     return None
         # set new restriction id and geometry id
         newRestrictionID = str(uuid.uuid4())

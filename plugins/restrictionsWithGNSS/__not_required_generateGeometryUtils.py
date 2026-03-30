@@ -172,7 +172,7 @@ class generateGeometryUtils(TOMsGenerateGeometryUtils):
         tolerance_nearby = 5.0  # somehow need to have this (and layer names) as global variables
 
         if geom:
-            if geom.type() == QgsWkbTypes.LineGeometry:
+            if geom.type() == QgsWkbTypes.GeometryType.LineGeometry:
                 QgsMessageLog.logMessage("In setRoadName(helper): considering line", tag="TOMs panel")
                 line = generateGeometryUtils.getLineForAz(feature)
 
@@ -183,13 +183,13 @@ class generateGeometryUtils(TOMsGenerateGeometryUtils):
                 #ptList = feature.geometry().asPolyline()
                 #secondPt = ptList[0]  # choose second point to (try to) move away from any "ends" (may be best to get midPoint ...)
 
-            elif geom.type() == QgsWkbTypes.PointGeometry: # Point
+            elif geom.type() == QgsWkbTypes.GeometryType.PointGeometry: # Point
                 QgsMessageLog.logMessage("In setRoadName(helper): considering point", tag="TOMs panel")
                 testPt = feature.geometry().asPoint()
 
                 #tolerance_nearby = 5.0
 
-            elif feature.geometry().type() == QgsWkbTypes.PolygonGeometry: # Polygon
+            elif feature.geometry().type() == QgsWkbTypes.GeometryType.PolygonGeometry: # Polygon
                 QgsMessageLog.logMessage("In setRoadName(helper): considering polygon", tag="TOMs panel")
                 ptList = feature.geometry().asPolygon()[0]
                 testPt = ptList[
@@ -247,7 +247,7 @@ class generateGeometryUtils(TOMsGenerateGeometryUtils):
         # line = QgsGeometry()
 
         if geom:
-            if geom.type() == QgsWkbTypes.LineGeometry:
+            if geom.type() == QgsWkbTypes.GeometryType.LineGeometry:
                 if geom.isMultipart():
                     lines = geom.asMultiPolyline()
                     nrLines = len(lines)

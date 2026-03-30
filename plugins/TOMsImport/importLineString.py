@@ -91,12 +91,12 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
         line = generateGeometryUtils.getLineForAz(self.currFeature)
 
-        TOMsMessageLog.logMessage("In reduceLineShape:  orig nr of pts = " + str(len(line)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In reduceLineShape:  orig nr of pts = " + str(len(line)), level=Qgis.MessageLevel.Info)
 
         if len(line) < 2:  # need at least two points
             return 0
 
-        TOMsMessageLog.logMessage("In reduceLineShape:  starting nr of pts = " + str(len(line)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In reduceLineShape:  starting nr of pts = " + str(len(line)), level=Qgis.MessageLevel.Info)
         # Now have a valid set of points
 
         ptsList = []
@@ -108,7 +108,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         startPointOnTraceLine, traceLineFeature = generateGeometryUtils.findNearestPointOnLineLayer(line[0], self.traceLineLayer, self.tolerance)
 
         if not startPointOnTraceLine:
-            TOMsMessageLog.logMessage("In reduceLineShape:  Start point not within tolerance. Returning original geometry", level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceLineShape:  Start point not within tolerance. Returning original geometry", level=Qgis.MessageLevel.Info)
             return self.currGeometry
 
         ptsList.append(startPointOnTraceLine.asPoint())
@@ -117,7 +117,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
         TOMsMessageLog.logMessage("In reduceLineShape: start point: {}".format(
                                   startPointOnTraceLine.asPoint().asWkt()),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         initialAzimuth = generateGeometryUtils.checkDegrees(line[0].azimuth(line[1]))
 
@@ -129,14 +129,14 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         traceStartVertex = 1
         for i in range(traceStartVertex, len(line)-1, 1):
 
-            TOMsMessageLog.logMessage("In reduceLineShape: i = " + str(i), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceLineShape: i = " + str(i), level=Qgis.MessageLevel.Info)
             Az = generateGeometryUtils.checkDegrees(line[i].azimuth(line[i + 1]))
 
             if i == traceStartVertex:
                 prevAz = initialAzimuth
                 #Turn = generateGeometryUtils.turnToCL(prevAz, Az)
 
-            TOMsMessageLog.logMessage("In reduceLineShape: geometry: " + str(line[i].x()) + ":" + str(line[i].y()) + " " + str(line[i+1].x()) + ":" + str(line[i+1].y()) + " " + str(Az), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceLineShape: geometry: " + str(line[i].x()) + ":" + str(line[i].y()) + " " + str(line[i+1].x()) + ":" + str(line[i+1].y()) + " " + str(Az), level=Qgis.MessageLevel.Info)
             # get angle at vertex
 
             #angle = self.angleAtVertex( self.currGeometry.vertexAt(i), self.currGeometry.vertexAt(i-1),
@@ -145,13 +145,13 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
             newAz, distWidth = generateGeometryUtils.calcBisector(prevAz, Az, Turn, distanceFromTraceLine)
 
-            TOMsMessageLog.logMessage("In reduceLineShape: newAz: " + str(newAz), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceLineShape: newAz: " + str(newAz), level=Qgis.MessageLevel.Info)
 
             cosa, cosb = generateGeometryUtils.cosdir_azim(newAz + diffEchelonAz)
             ptsList.append(
                 QgsPointXY(line[i].x() + (float(distWidth) * cosa), line[i].y() + (float(distWidth) * cosb)))
             TOMsMessageLog.logMessage("In reduceLineShape: point: {}".format(QgsPointXY(line[i].x() + (float(distWidth) * cosa), line[i].y() + (float(distWidth) * cosb)).asWkt()),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
             prevAz = Az
 
@@ -160,19 +160,19 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         #lastPointOnTraceLine, traceLineFeature = generateGeometryUtils.findNearestPointOnLineLayer(line[i+1], self.traceLineLayer, self.tolerance)  # TODO: need this logic
         lastPointOnTraceLine, traceLineFeature = generateGeometryUtils.findNearestPointOnLineLayer(line[len(line)-1], self.traceLineLayer, self.tolerance)  # issues for multi-line features
         if not lastPointOnTraceLine:
-            TOMsMessageLog.logMessage("In reduceLineShape:  Last point not within tolerance.", level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceLineShape:  Last point not within tolerance.", level=Qgis.MessageLevel.Info)
             lastPointOnTraceLine = QgsGeometry.fromPointXY(line[len(line)-1])
 
         ptsList.append(lastPointOnTraceLine.asPoint())
 
         ptNr = 0
         for thisPt in ptsList:
-            TOMsMessageLog.logMessage("In reduceLineShape: ptsList {}: {}".format(ptNr, thisPt.asWkt()), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceLineShape: ptsList {}: {}".format(ptNr, thisPt.asWkt()), level=Qgis.MessageLevel.Info)
             ptNr = ptNr + 1
 
         newLine = QgsGeometry.fromPolylineXY(ptsList)
 
-        TOMsMessageLog.logMessage("In reduceLineShape:  newLine ********: " + newLine.asWkt(), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In reduceLineShape:  newLine ********: " + newLine.asWkt(), level=Qgis.MessageLevel.Info)
 
         return newLine
 
@@ -228,11 +228,11 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
         origLine = generateGeometryUtils.getLineForAz(self.currFeature)
 
-        TOMsMessageLog.logMessage("In reduceBayShape:  nr of pts = " + str(len(origLine)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In reduceBayShape:  nr of pts = " + str(len(origLine)), level=Qgis.MessageLevel.Info)
 
         if len(origLine) < 4:  # need at least four points
             TOMsMessageLog.logMessage(
-                "In reduceBayShape:  Less than four points. Returning original geometry", level=Qgis.Warning)
+                "In reduceBayShape:  Less than four points. Returning original geometry", level=Qgis.MessageLevel.Warning)
             return self.currGeometry, self.currGeomShapeID
 
         # Now have a valid set of points
@@ -249,11 +249,11 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
         if len(line) < 4:  # need at least four points
             TOMsMessageLog.logMessage(
-                "In reduceBayShape 2:  Less than four points. Returning original geometry", level=Qgis.Warning)
+                "In reduceBayShape 2:  Less than four points. Returning original geometry", level=Qgis.MessageLevel.Warning)
             return self.currGeometry, self.currGeomShapeID
 
         # deal with situations where the start point and end point are the same (or close)
-        TOMsMessageLog.logMessage("In reduceLineShape:  starting nr of pts = " + str(len(line)), level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In reduceLineShape:  starting nr of pts = " + str(len(line)), level=Qgis.MessageLevel.Warning)
 
         # Now "reduce"
         traceStartVertex = 0
@@ -266,7 +266,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
             TOMsMessageLog.logMessage(
                 "In reduceBayShape:  Start point not within tolerance. Returning best possible geometry",
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
 
             if newLine:
                 return newLine, self.currGeomShapeID
@@ -275,11 +275,11 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         ptsList.append(startPointOnTraceLine.asPoint())
         TOMsMessageLog.logMessage("In reduceBayShape: start point: {}".format(
                                   startPointOnTraceLine.asPoint().asWkt()),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         Az = generateGeometryUtils.checkDegrees(line[traceStartVertex].azimuth(line[traceStartVertex+1]))
         initialAzimuth = Az
-        TOMsMessageLog.logMessage("In reduceBayShape: initialAzimuth: " + str(initialAzimuth), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In reduceBayShape: initialAzimuth: " + str(initialAzimuth), level=Qgis.MessageLevel.Info)
         #Turn = generateGeometryUtils.turnToCL(Az, generateGeometryUtils.checkDegrees(line[traceStartVertex+1].azimuth(line[traceStartVertex+2])))
         distanceFromTraceLine = startPointOnTraceLine.distance(QgsGeometry.fromPointXY(QgsPointXY(line[traceStartVertex+1])))
         # find distance from line to "second" point (assuming it is the turn point)
@@ -293,35 +293,35 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
             Az = generateGeometryUtils.checkDegrees(line[i].azimuth(line[i + 1]))
             angle = self.angleAtVertex( line[i], line[i-1], line[i+1])
             checkTurn = 90.0 - angle
-            TOMsMessageLog.logMessage("In reduceBayShape: i = {}; angle: {}; checkTurn: {}".format(i, angle, checkTurn), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceBayShape: i = {}; angle: {}; checkTurn: {}".format(i, angle, checkTurn), level=Qgis.MessageLevel.Info)
 
             if i == traceStartVertex:
                 # assume that first point is already in ptsList
                 prevAz = initialAzimuth
                 Turn = generateGeometryUtils.turnToCL(prevAz, Az)
                 TOMsMessageLog.logMessage("In reduceBayShape: turn: {}; dist: {}".format(Turn, distanceFromTraceLine),
-                                          level=Qgis.Info)
+                                          level=Qgis.MessageLevel.Info)
 
             elif abs(checkTurn) < 5.0:   # TODO: This could be a line at a right angle corner. Need to check ??
                 # this is a turn point and is not to be included in ptsList. Also consider this the end ...
-                TOMsMessageLog.logMessage("In reduceBayShape: turn point. Exiting reduce loop at {}".format(i) , level=Qgis.Info)
+                TOMsMessageLog.logMessage("In reduceBayShape: turn point. Exiting reduce loop at {}".format(i) , level=Qgis.MessageLevel.Info)
                 traceLastVertex = i + 1  # ignore current vertex and use next vertex as last
                 break
 
             else:
 
-                TOMsMessageLog.logMessage("In reduceBayShape: geometry: pt1 {}:{}; pt2 {}:{}; Az: {}".format(line[i].x(), line[i].y(), line[i+1].x(), line[i+1].y(), Az), level=Qgis.Info)
+                TOMsMessageLog.logMessage("In reduceBayShape: geometry: pt1 {}:{}; pt2 {}:{}; Az: {}".format(line[i].x(), line[i].y(), line[i+1].x(), line[i+1].y(), Az), level=Qgis.MessageLevel.Info)
                 # get angle at vertex
 
                 newAz, distWidth = generateGeometryUtils.calcBisector(prevAz, Az, Turn, distanceFromTraceLine)
 
-                TOMsMessageLog.logMessage("In reduceBayShape: newAz: " + str(newAz), level=Qgis.Info)
+                TOMsMessageLog.logMessage("In reduceBayShape: newAz: " + str(newAz), level=Qgis.MessageLevel.Info)
 
                 cosa, cosb = generateGeometryUtils.cosdir_azim(newAz + diffEchelonAz)
                 ptsList.append(
                     QgsPointXY(line[i].x() + (float(distWidth) * cosa), line[i].y() + (float(distWidth) * cosb)))
                 TOMsMessageLog.logMessage("In reduceBayShape: point: {}".format(QgsPointXY(line[i].x() + (float(distWidth) * cosa), line[i].y() + (float(distWidth) * cosb)).asWkt()),
-                                          level=Qgis.Info)
+                                          level=Qgis.MessageLevel.Info)
 
             prevAz = Az
             traceLastVertex = i + 1
@@ -331,19 +331,19 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         lastPointOnTraceLine, traceLineFeature = generateGeometryUtils.findNearestPointOnLineLayer(line[traceLastVertex], self.traceLineLayer, self.tolerance)  # issues for multi-line features
 
         if not lastPointOnTraceLine:
-            TOMsMessageLog.logMessage("In reduceBayShape:  Last point not within tolerance.", level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In reduceBayShape:  Last point not within tolerance.", level=Qgis.MessageLevel.Warning)
             lastPointOnTraceLine = QgsGeometry.fromPointXY(line[traceLastVertex])
 
         ptsList.append(lastPointOnTraceLine.asPoint())
 
         ptNr = 0
         for thisPt in ptsList:
-            TOMsMessageLog.logMessage("In reduceBayShape: ptsList {}: {}".format(ptNr, thisPt.asWkt()), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In reduceBayShape: ptsList {}: {}".format(ptNr, thisPt.asWkt()), level=Qgis.MessageLevel.Info)
             ptNr = ptNr + 1
 
         newLine = QgsGeometry.fromPolylineXY(ptsList)
 
-        TOMsMessageLog.logMessage("In reduceBayShape:  newLine ********: " + newLine.asWkt(), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In reduceBayShape:  newLine ********: " + newLine.asWkt(), level=Qgis.MessageLevel.Info)
 
         return newLine, geomShapeID
 
@@ -356,20 +356,20 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
         # check to see whether or not point C lies within a buffer for A-B
         lineGeom_AB = QgsGeometry.fromPolylineXY([pointA, pointB])
-        TOMsMessageLog.logMessage("In isBetween:  lineGeom ********: " + lineGeom_AB.asWkt(), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In isBetween:  lineGeom ********: " + lineGeom_AB.asWkt(), level=Qgis.MessageLevel.Info)
         buff = lineGeom_AB  .buffer(delta, 0, QgsGeometry.CapFlat, QgsGeometry.JoinStyleBevel, 1.0)
-        #TOMsMessageLog.logMessage("In isBetween:  buff ********: " + buff.asWkt(), level=Qgis.Info)
+        #TOMsMessageLog.logMessage("In isBetween:  buff ********: " + buff.asWkt(), level=Qgis.MessageLevel.Info)
 
         if QgsGeometry.fromPointXY(pointC).intersects(buff):
             # candidate. Now check simple distances
-            TOMsMessageLog.logMessage("In isBetween:  point is within buffer ...", level=Qgis.Info)
+            TOMsMessageLog.logMessage("In isBetween:  point is within buffer ...", level=Qgis.MessageLevel.Info)
             lineGeom_AC = QgsGeometry.fromPolylineXY([pointA, pointC])
             lineGeom_BC = QgsGeometry.fromPolylineXY([pointB, pointC])
             distAB = lineGeom_AB.length()
             distAC = lineGeom_AC.length()
             distBC = lineGeom_BC.length()
 
-            TOMsMessageLog.logMessage("In isBetween:  distances: {}; {}; {}".format(distAB, distAC, distBC), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In isBetween:  distances: {}; {}; {}".format(distAB, distAC, distBC), level=Qgis.MessageLevel.Info)
 
             if abs(distAB - distAC) > (distBC - delta):
                 return True
@@ -414,7 +414,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
             newLine.append(origLine[i])
 
         TOMsMessageLog.logMessage("In removeKickBackVertices:  first: {}; last {}".format(traceStartVertex, traceLastVertex),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         # also check situation where the last point is after end of loop, i.e., sits between points 0 and 1
         """
@@ -435,16 +435,16 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
                 TOMsMessageLog.logMessage(
                     "In removeKickBackVertices: currVertex: {}; i: {}; start: {}; end: {}".format(currVertex, i, origLine[startVertex].asWkt(),
                                                                               origLine[endVertex].asWkt()),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
 
                 if currVertex == startVertex or currVertex == endVertex:
                     if lineSegment.within(QgsGeometry.fromPointXY(origLine[currVertex]).buffer(0.1, 5)):
                         verticesToRemove.add(currVertex)
-                        TOMsMessageLog.logMessage("In removeKickBackVertices: removing vertex {}".format(currVertex), level=Qgis.Info)
+                        TOMsMessageLog.logMessage("In removeKickBackVertices: removing vertex {}".format(currVertex), level=Qgis.MessageLevel.Info)
                 else:
                     if lineSegment.intersects(QgsGeometry.fromPointXY(origLine[currVertex]).buffer(0.1, 5)):
                         verticesToRemove.add(currVertex)
-                        TOMsMessageLog.logMessage("In removeKickBackVertices 2: removing vertex {}".format(currVertex), level=Qgis.Info)
+                        TOMsMessageLog.logMessage("In removeKickBackVertices 2: removing vertex {}".format(currVertex), level=Qgis.MessageLevel.Info)
 
                 i = i + 1
 
@@ -454,7 +454,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
             del newLine[vertex]
         """
         TOMsMessageLog.logMessage("In removeKickBackVertices: len newLine {}".format(len(newLine)),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         return newLine
 
@@ -479,7 +479,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         if not QgsGeometry.fromPointXY(lineA[0]).distance(QgsGeometry.fromPointXY(lineA[len(lineA)-1])) < tolerance:
             return inputLine, geomShapeID
 
-        TOMsMessageLog.logMessage("In prepareSelfClosingBays: we have a loop ... ", level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In prepareSelfClosingBays: we have a loop ... ", level=Qgis.MessageLevel.Warning)
 
         line = lineA
         # we have a loop - find the intersection points on the trace line
@@ -494,7 +494,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
         # Loop through all features in the layer to find the intersecting feature(s)
         for f in traceLayer.getFeatures(request):
-            TOMsMessageLog.logMessage("In prepareSelfClosingBays: traceLayer id: {}".format(f.id()), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In prepareSelfClosingBays: traceLayer id: {}".format(f.id()), level=Qgis.MessageLevel.Info)
 
             # now check to see whether there is an intersection with this feature on the traceLayer and the lineGeom
             intersectingPtsGeom = f.geometry().intersection(lineGeom)
@@ -502,14 +502,14 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
             if intersectingPtsGeom:
                 TOMsMessageLog.logMessage(
                 "In prepareSelfClosingBays: intersecting geom: {}".format(
-                    intersectingPtsGeom.asWkt()), level = Qgis.Info)
+                    intersectingPtsGeom.asWkt()), level = Qgis.MessageLevel.Info)
                 # add them to a list of pts
 
-                if intersectingPtsGeom.type() == QgsWkbTypes.PointGeometry:
+                if intersectingPtsGeom.type() == QgsWkbTypes.GeometryType.PointGeometry:
                     for part in intersectingPtsGeom.parts():
                         intesectingPts.append(QgsPointXY(part))
 
-                elif intersectingPtsGeom.type() == QgsWkbTypes.LineGeometry:
+                elif intersectingPtsGeom.type() == QgsWkbTypes.GeometryType.LineGeometry:
 
                     for part in intersectingPtsGeom.parts():
                         for i in range(len(part) - 1):
@@ -517,9 +517,9 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
                 else:
                     TOMsMessageLog.logMessage(
-                        "In prepareSelfClosingBays: No type found for intersecting geom ... ", level=Qgis.Warning)
+                        "In prepareSelfClosingBays: No type found for intersecting geom ... ", level=Qgis.MessageLevel.Warning)
 
-        TOMsMessageLog.logMessage("In prepareSelfClosingBays: nr of pts intersecting tracelayer: {}".format(len(intesectingPts)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In prepareSelfClosingBays: nr of pts intersecting tracelayer: {}".format(len(intesectingPts)), level=Qgis.MessageLevel.Info)
 
         if len(intesectingPts) == 2:
             # if 2, generate list of points between the two and return.
@@ -532,13 +532,13 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
                 # ptXY = QgsPointXY(pt)
                 TOMsMessageLog.logMessage(
                     "In prepareSelfClosingBays: considering intersection point: {}".format(ptXY.asWkt()),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
 
                 vertexCoord, vertex, prevVertex, nextVertex, distSquared = lineGeom.closestVertex(ptXY)
 
                 TOMsMessageLog.logMessage(
                     "In prepareSelfClosingBays: considering closestVertex: {}; prevVertex: {}; nextVertex: {}".format(vertex, prevVertex, nextVertex),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
 
                 vertex, prevVertex, nextVertex = self.ensureVerticesNumberFromLineStart(len(line)-1, vertex, prevVertex, nextVertex)
 
@@ -548,7 +548,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
                 TOMsMessageLog.logMessage(
                     "In prepareSelfClosingBays: considering closestVertex: {}; distToVertex: {}; distToPt: {}".format(vertex, distToVertex, distToPt),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
 
                 if distToPt < startDistance:
                     startDistance = distToPt
@@ -558,12 +558,12 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
                     else:
                         startVertex = vertex
 
-                    TOMsMessageLog.logMessage("In prepareSelfClosingBays: new startVertex: {}".format(startVertex), level=Qgis.Info)
+                    TOMsMessageLog.logMessage("In prepareSelfClosingBays: new startVertex: {}".format(startVertex), level=Qgis.MessageLevel.Info)
 
                 if vertex == 0:
                     distToVertex = lineGeom.length()
                     TOMsMessageLog.logMessage("In prepareSelfClosingBays: with vertex = 0, changing distToVertex to {}".format(distToVertex),
-                                              level=Qgis.Info)
+                                              level=Qgis.MessageLevel.Info)
                 if distToPt > endDistance:
                     endPt = ptXY
                     endDistance = distToPt
@@ -572,13 +572,13 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
                     else:
                         endVertex = prevVertex
 
-                    TOMsMessageLog.logMessage("In prepareSelfClosingBays: new endVertex: {}".format(endVertex), level=Qgis.Info)
+                    TOMsMessageLog.logMessage("In prepareSelfClosingBays: new endVertex: {}".format(endVertex), level=Qgis.MessageLevel.Info)
 
                 # break
 
             TOMsMessageLog.logMessage(
                 "In prepareSelfClosingBays:two intersecting pts: startVertex: {}; endVertex: {}".format(startVertex, endVertex),
-                level=Qgis.Info)
+                level=Qgis.MessageLevel.Info)
 
             # move along line ...
             #if not QgsGeometry.fromPointXY(QgsPointXY(startPt)).equals(QgsGeometry.fromPointXY(QgsPointXY(lineGeom.vertexAt(startVertex)))):
@@ -607,7 +607,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         else:
             newLine = inputLine, geomShapeID  # return the original geometry
 
-        TOMsMessageLog.logMessage("In prepareSelfClosingBays: len newLine {}".format(len(newLine)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In prepareSelfClosingBays: len newLine {}".format(len(newLine)), level=Qgis.MessageLevel.Info)
 
         return newLine, geomShapeID
 
@@ -623,7 +623,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
 
             lineSegment = QgsGeometry.fromPolylineXY([line[startVertex], line[endVertex]])
             TOMsMessageLog.logMessage("In getDistanceToPoint: i: {}; start: {}; end: {}".format(i, line[startVertex].asWkt(), line[endVertex].asWkt()),
-                level=Qgis.Info)
+                level=Qgis.MessageLevel.Info)
             if lineSegment.intersects(QgsGeometry.fromPointXY(pointOnLine).buffer(0.1, 5)):
                 lineSegmentToPoint = QgsGeometry.fromPolylineXY([line[startVertex], pointOnLine])
                 totalLength += lineSegmentToPoint.length()
@@ -631,7 +631,7 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
             else:
                 totalLength += lineSegment.length()
 
-        TOMsMessageLog.logMessage("In getDistanceToPoint: totalLength: {}; vertex: {}".format(totalLength, startVertex), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getDistanceToPoint: totalLength: {}; vertex: {}".format(totalLength, startVertex), level=Qgis.MessageLevel.Info)
 
         return totalLength, startVertex
 
@@ -728,17 +728,17 @@ class restrictionToImport(QObject, snapTraceUtilsMixin):
         currVertex = 0
         loop = False
         for i in range(len(inputLine)-1, 0, -1):
-            TOMsMessageLog.logMessage("In removeDanglingEndFromLoop: checking for loop. considering vertex 0 and {}".format(i), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In removeDanglingEndFromLoop: checking for loop. considering vertex 0 and {}".format(i), level=Qgis.MessageLevel.Info)
             if QgsGeometry.fromPointXY(inputLine[0]).distance(QgsGeometry.fromPointXY(inputLine[i])) < tolerance:
                 loop = True
                 break
 
         if not loop:
-            TOMsMessageLog.logMessage("In removeDanglingEndFromLoop: no loop found", level=Qgis.Info)
+            TOMsMessageLog.logMessage("In removeDanglingEndFromLoop: no loop found", level=Qgis.MessageLevel.Info)
             return inputLine
 
         # there is a loop forming at vertex i - create a new line from here and process
-        TOMsMessageLog.logMessage("In removeDanglingEndFromLoop: preparing new geom - removing to vertex {}".format(i), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In removeDanglingEndFromLoop: preparing new geom - removing to vertex {}".format(i), level=Qgis.MessageLevel.Info)
         outputLine = []
         for v in range(0, i+1, 1):
             outputLine.append(inputLine[v])

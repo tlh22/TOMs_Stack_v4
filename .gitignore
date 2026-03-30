@@ -1,0 +1,16 @@
+.DS_Store
+**/.DS_Store
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.swp
+**/*~
+
+# QWC runtime/generated data
+DOCKER/qwc-mhtc/volumes/db/
+DOCKER/qwc-mhtc/volumes/solr/data/
+DOCKER/qwc-mhtc/volumes/qgs-resources/**/*.qgs~
+
+# Local logs and transient outputs
+logs/
+*.log

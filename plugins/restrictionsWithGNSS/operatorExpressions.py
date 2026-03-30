@@ -56,7 +56,7 @@ import sys, traceback
 class operatorExpressions(TOMsExpressions):
 
     def __init__(self):
-        QgsMessageLog.logMessage("Starting operatorExpressions ... ", tag='TOMs Panel', level=Qgis.Warning)
+        QgsMessageLog.logMessage("Starting operatorExpressions ... ", tag='TOMs Panel', level=Qgis.MessageLevel.Warning)
 
         self.functions = [
             #self.generateDemandPoints,
@@ -68,7 +68,7 @@ class operatorExpressions(TOMsExpressions):
         # Returns the location of points representing demand
 
         TOMsMessageLog.logMessage('generateDemandPoints: {}'.format(feature.attribute("GeometryID")),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         demand = feature.attribute("Demand")
         if demand == 0:
@@ -83,7 +83,7 @@ class operatorExpressions(TOMsExpressions):
             length = geom.length()
             capacity = math.ceil(length/5.0)
             TOMsMessageLog.logMessage('generateDemandPoints: [{}]capacity set to: {}'.format(feature.attribute("GeometryID"), capacity),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
         """
         
         nrSpaces = capacity - demand
@@ -92,7 +92,7 @@ class operatorExpressions(TOMsExpressions):
             #nrSpaces = demand
 
         TOMsMessageLog.logMessage('generateDemandPoints: capacity: {}; nrSpaces: {}; demand: {}'.format(capacity, nrSpaces, demand),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         # now get geometry for demand locations
 
@@ -112,7 +112,7 @@ class operatorExpressions(TOMsExpressions):
             geomShowingSpaces = ElementGeometryFactory.getElementGeometry(feature)
         except Exception as e:
             TOMsMessageLog.logMessage('generateDemandPoints: error in expression function: {}'.format(e),
-                              level=Qgis.Warning)
+                              level=Qgis.MessageLevel.Warning)
             return None
 
         random.seed(1234)  # need to ramdomise, but it needs to be repeatable?!?, i.e., when you pan, they stay in the same place
@@ -125,37 +125,37 @@ class operatorExpressions(TOMsExpressions):
                 listBaysToDelete.append(i)
 
         TOMsMessageLog.logMessage('generateDemandPoints: bays to delete {}'.format(listBaysToDelete),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         centroidGeomList = []
         counter = 0
         for polygonGeom in geomShowingSpaces.parts():
             TOMsMessageLog.logMessage('generateDemandPoints: considering {} part {}'.format(feature.attribute("GeometryID"), counter),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
             if not counter in listBaysToDelete:
                 TOMsMessageLog.logMessage(
                     'generateDemandPoints: considering polygon: {}'.format(polygonGeom.asWkt()),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
                 centrePt = QgsPointXY(polygonGeom.pointOnSurface())
                 TOMsMessageLog.logMessage(
                     'generateDemandPoints: adding centroid for {}: {}'.format(counter, centrePt.asWkt()),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
                 try:
                     centroidGeomList.append(centrePt)
                 except Exception as e:
                     TOMsMessageLog.logMessage('generateDemandPoints: error adding centroid for counter {}: {}'.format(counter, e),
-                                              level=Qgis.Warning)
+                                              level=Qgis.MessageLevel.Warning)
             counter = counter + 1
 
         TOMsMessageLog.logMessage('generateDemandPoints: nrDemandPoints {}'.format(len(centroidGeomList)),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         try:
             demandPoints = QgsGeometry.fromMultiPointXY(centroidGeomList)
         except Exception as e:
             TOMsMessageLog.logMessage('generateDemandPoints: error creating final geom: {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
 
         return demandPoints
 
@@ -165,7 +165,7 @@ class operatorExpressions(TOMsExpressions):
         concat_fields = []
         mapFrameID = feature.attribute("GeometryID")
         TOMsMessageLog.logMessage('lookupJunctionDetails: mapFrameID {}; field {}'.format(mapFrameID, field),
-                                  level=Qgis.Warning)
+                                  level=Qgis.MessageLevel.Warning)
         junctionsInMapFramesLayer = QgsProject.instance().mapLayersByName("JunctionsWithinMapFrames")[0]
         junctionsLayer = QgsProject.instance().mapLayersByName("HaveringJunctions")[0]
         # get junctions for map frame
@@ -173,16 +173,16 @@ class operatorExpressions(TOMsExpressions):
         request1 = QgsFeatureRequest().setFilterExpression(query1)
 
         for row1 in junctionsInMapFramesLayer.getFeatures(request1):
-            #TOMsMessageLog.logMessage("In getLookupLabelText: found row " + str(row.attribute("LabelText")), level=Qgis.Info)
+            #TOMsMessageLog.logMessage("In getLookupLabelText: found row " + str(row.attribute("LabelText")), level=Qgis.MessageLevel.Info)
             junctionID = row1.attribute("JunctionID") # make assumption that only one row
             TOMsMessageLog.logMessage('lookupJunctionDetails: considering junctionID {}'.format(junctionID),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
             query2 = "\"GeometryID\" = '{}'".format(junctionID)
             request2 = QgsFeatureRequest().setFilterExpression(query2)
             for row2 in junctionsLayer.getFeatures(request2):
                 concat_fields.append(row2.attribute(field))
                 TOMsMessageLog.logMessage('lookupJunctionDetails: details: {}'.format(junctionID),
-                                          level=Qgis.Warning)
+                                          level=Qgis.MessageLevel.Warning)
 
         try:
             result = joinChars.join(filter(None,concat_fields))  # https://stackoverflow.com/questions/8626694/joining-multiple-strings-if-they-are-not-empty-in-python
@@ -190,7 +190,7 @@ class operatorExpressions(TOMsExpressions):
             result = ''
 
         TOMsMessageLog.logMessage('lookupJunctionDetails: concat_fields .{}.'.format(result),
-                                  level=Qgis.Warning)
+                                  level=Qgis.MessageLevel.Warning)
         return result.strip()
 
     # https://gis.stackexchange.com/questions/152257/how-to-refer-to-another-layer-in-the-field-calculator  - see for inspiration
@@ -198,7 +198,7 @@ class operatorExpressions(TOMsExpressions):
     def pointInPoly(layerName, refColumn, defaultValue, geom, feature, parent):
         # attempt to make a generic point in poly function ...
 
-        TOMsMessageLog.logMessage("In pointInPoly", level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In pointInPoly", level=Qgis.MessageLevel.Warning)
 
         # Get the reference layer
         try:
@@ -208,13 +208,13 @@ class operatorExpressions(TOMsExpressions):
 
         if refLayer:
 
-            TOMsMessageLog.logMessage("In pointInPoly. ref layer found ... ", level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In pointInPoly. ref layer found ... ", level=Qgis.MessageLevel.Warning)
             # TODO: ensure refLayer is polygon
             # TODO: deal with different geom types for the incoming geom. For the moment assume a point
 
             for poly in refLayer.getFeatures():
                 if poly.geometry().intersects(geom):   # take the first intersecting poly
-                    #TOMsMessageLog.logMessage("In getPolygonForRestriction. feature found", level=Qgis.Info)
+                    #TOMsMessageLog.logMessage("In getPolygonForRestriction. feature found", level=Qgis.MessageLevel.Info)
                     return poly.attribute(refColumn)
 
         return defaultValue
@@ -241,7 +241,7 @@ class operatorExpressions(TOMsExpressions):
         toms_list = QgsExpression.Functions()
 
         for func in self.functions:
-            TOMsMessageLog.logMessage("Considering function {}".format(func.name()), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Considering function {}".format(func.name()), level=Qgis.MessageLevel.Info)
             try:
                 if func in toms_list:
                     QgsExpression.unregisterFunction(func.name())
@@ -249,13 +249,13 @@ class operatorExpressions(TOMsExpressions):
                 pass
 
             if QgsExpression.registerFunction(func):
-                TOMsMessageLog.logMessage("Registered expression function {}".format(func.name()), level=Qgis.Info)
+                TOMsMessageLog.logMessage("Registered expression function {}".format(func.name()), level=Qgis.MessageLevel.Info)
 
     def unregisterFunctions(self):
         # Unload all the functions that we created.
         for func in self.functions:
             QgsExpression.unregisterFunction(func.name())
-            TOMsMessageLog.logMessage("Unregistered expression function {}".format(func.name()), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Unregistered expression function {}".format(func.name()), level=Qgis.MessageLevel.Info)
 
         #QgsExpression.cleanRegisteredFunctions()  # this seems to crash the reload ...
         """

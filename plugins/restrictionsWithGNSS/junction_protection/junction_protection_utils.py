@@ -52,7 +52,7 @@ class junctionProtectionUtils (QObject):
 
     @staticmethod
     def getHaveringMapscaleLookup(mapScaleID):
-        TOMsMessageLog.logMessage("In getHaveringMapscaleLookup. Checking {}".format(mapScaleID), level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In getHaveringMapscaleLookup. Checking {}".format(mapScaleID), level=Qgis.MessageLevel.Warning)
         HaveringMapFramesAllowableScales = QgsProject.instance().mapLayersByName("HaveringMapFramesAllowableScales")[0]
         mapScale = generateGeometryUtils.getLookupDescription(HaveringMapFramesAllowableScales,
                                                               mapScaleID)

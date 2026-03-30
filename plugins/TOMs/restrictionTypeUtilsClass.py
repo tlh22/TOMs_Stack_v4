@@ -178,6 +178,10 @@ class TOMsConfigFile(QObject):
         if config_path is None:
             config_path = QgsExpressionContextUtils.projectScope(QgsProject.instance()).variable('project_home')
 
+        # Local fallback: use bundled plugin QGIS config folder.
+        if not config_path:
+            config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'QGIS'))
+
         #TOMsMessageLog.logMessage("In getTOMsConfigFile. config_path: {}".format(config_path), level=Qgis.Info)
 
         config_file = os.path.abspath(os.path.join(config_path, 'TOMs.conf'))
@@ -247,7 +251,12 @@ class TOMsLayers(QObject):
             return os.path.abspath(os.path.join(os.path.dirname(config_path), 'ui'))
         # 3) Local: use form_path from TOMs.conf
         form_path = configFileObject.getTOMsConfigElement('TOMsLayers', 'form_path')
-        return form_path.strip() if form_path else ''
+        if form_path:
+            resolved = os.path.abspath(form_path.strip())
+            if os.path.isdir(resolved):
+                return resolved
+        # 4) Last-resort fallback: plugin bundled UI directory.
+        return os.path.abspath(os.path.join(os.path.dirname(__file__), 'ui'))
 
     def getLayers(self, configFileObject):
 
