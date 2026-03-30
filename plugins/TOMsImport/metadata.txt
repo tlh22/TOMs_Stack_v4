@@ -9,6 +9,7 @@
 [general]
 name=TOMsImport
 qgisMinimumVersion=3.0
+qgisMaximumVersion=4.99
 description=cc
 version=0.1
 author=th

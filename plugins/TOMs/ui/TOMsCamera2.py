@@ -16,10 +16,28 @@ import datetime
 import time
 import functools
 #from PyQt5.QtWidgets import QApplication, QMainWindow
-from qgis.PyQt.QtMultimedia import QCamera, QCameraImageCapture, QCameraInfo, QImageEncoderSettings, QCameraViewfinderSettings
-from qgis.PyQt.QtMultimediaWidgets import QCameraViewfinder
+QT_MULTIMEDIA_AVAILABLE = True
+try:
+    from qgis.PyQt.QtMultimedia import (
+        QCamera,
+        QCameraImageCapture,
+        QCameraInfo,
+        QImageEncoderSettings,
+        QCameraViewfinderSettings,
+    )
+    from qgis.PyQt.QtMultimediaWidgets import QCameraViewfinder
+except Exception:
+    # Optional dependency in some QGIS runtimes (e.g. slim/docker images).
+    QT_MULTIMEDIA_AVAILABLE = False
+    QCamera = None
+    QCameraImageCapture = None
+    QCameraInfo = None
+    QImageEncoderSettings = None
+    QCameraViewfinderSettings = None
+    QCameraViewfinder = None
 
 from qgis.PyQt.QtGui import QPixmap
+from qgis.PyQt import QtCore
 
 from qgis.PyQt.QtCore import QSize, pyqtSignal, pyqtSlot
 from qgis.PyQt.QtWidgets import (
@@ -53,6 +71,13 @@ class TOMsCameraWidget(QWidget):
         super(TOMsCameraWidget, self).__init__(parent)
         TOMsMessageLog.logMessage("In TOMsCameraWidget:init ... ", level=Qgis.MessageLevel.Info)
 
+        if not QT_MULTIMEDIA_AVAILABLE:
+            TOMsMessageLog.logMessage(
+                "QtMultimedia not available; camera features disabled.",
+                level=Qgis.MessageLevel.Warning
+            )
+            return
+
         # getting available cameras
         self.available_cameras = QCameraInfo.availableCameras()
 
@@ -77,6 +102,15 @@ class TOMsCameraWidget(QWidget):
 
     def setupWidget(self, imageFile=None):
         TOMsMessageLog.logMessage("In TOMsCameraWidget:setupWidget ...", level=Qgis.MessageLevel.Warning)
+
+        if not QT_MULTIMEDIA_AVAILABLE:
+            QMessageBox.information(
+                None,
+                "Information",
+                "QtMultimedia is not available in this QGIS environment. Camera is disabled.",
+                QMessageBox.StandardButton.Ok,
+            )
+            return
         
         # setting geometry
         self.setGeometry(100, 100,
@@ -236,6 +270,8 @@ class TOMsCameraWidget(QWidget):
 
     # method to select camera
     def select_camera(self, i):
+        if not QT_MULTIMEDIA_AVAILABLE:
+            return
         TOMsMessageLog.logMessage("In TOMsCameraWidget:select_camera ...{}".format(i), level=Qgis.MessageLevel.Warning)
         
         # getting the selected camera
@@ -271,6 +307,8 @@ class TOMsCameraWidget(QWidget):
 
     # open current camera
     def open_camera(self):
+        if not QT_MULTIMEDIA_AVAILABLE:
+            return
         TOMsMessageLog.logMessage("In TOMsCameraWidget:open_camera ...", level=Qgis.MessageLevel.Warning)
         # change to camera widget
         self.switchWidget.setCurrentIndex(self.cameraIndex)
@@ -281,6 +319,8 @@ class TOMsCameraWidget(QWidget):
 
     # open current camera
     def close_camera(self):
+        if not QT_MULTIMEDIA_AVAILABLE:
+            return
         TOMsMessageLog.logMessage("In TOMsCameraWidget:close_camera ...", level=Qgis.MessageLevel.Warning)
         # start the camera
         self.camera.stop()
@@ -291,6 +331,8 @@ class TOMsCameraWidget(QWidget):
 
     # method to take photo
     def click_photo(self):
+        if not QT_MULTIMEDIA_AVAILABLE:
+            return
         TOMsMessageLog.logMessage("In TOMsCameraWidget:click_photo ...", level=Qgis.MessageLevel.Warning)
         # time stamp
 

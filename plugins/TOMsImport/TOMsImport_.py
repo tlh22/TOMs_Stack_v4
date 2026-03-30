@@ -250,29 +250,29 @@ class TOMsImport:
                 tolerance = float(self.dlg.fld_Tolerance.text())
             else:
                 tolerance = 0.5
-            TOMsMessageLog.logMessage("Tolerance = " + str(tolerance), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Tolerance = " + str(tolerance), level=Qgis.MessageLevel.Info)
 
-            TOMsMessageLog.logMessage("importPolygonLayer is ..." + str(importLayer.name()), level=Qgis.Info)
+            TOMsMessageLog.logMessage("importPolygonLayer is ..." + str(importLayer.name()), level=Qgis.MessageLevel.Info)
 
             res = self.generateTOMsRestrictions(importLayer, snapLayer, outputLayer, tolerance)
 
     def generateLinesFromPolygons(self, polygonLayer, snapLineLayer, outputLayer, tolerance):
 
-        TOMsMessageLog.logMessage("In generateLinesFromPolygons", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In generateLinesFromPolygons", level=Qgis.MessageLevel.Info)
 
         editStartStatus = outputLayer.startEditing()
 
         reply = QMessageBox.information(None, "Check",
                                         "SnapNodes: Status for starting edit session on " + outputLayer.name() + " is: " + str(
                                             editStartStatus),
-                                        QMessageBox.Ok)
+                                        QMessageBox.StandardButton.Ok)
 
         if editStartStatus is False:
             # save the active layer
-            TOMsMessageLog.logMessage("Error: snapNodesP: Not able to start transaction on " + outputLayer.name(), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Error: snapNodesP: Not able to start transaction on " + outputLayer.name(), level=Qgis.MessageLevel.Info)
             reply = QMessageBox.information(None, "Error",
                                             "SnapNodes: Not able to start transaction on " + outputLayer.name(),
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             return
         # Snap node to nearest point
 
@@ -296,7 +296,7 @@ class TOMsImport:
         """reply = QMessageBox.information(None, "Check",
                                         "SnapNodes: Status for commit to " + sourceLineLayer.name() + " is: " + str(
                                             editCommitStatus),
-                                        QMessageBox.Ok)"""
+                                        QMessageBox.StandardButton.Ok)"""
 
         if editCommitStatus is False:
             # save the active layer
@@ -305,21 +305,21 @@ class TOMsImport:
             reply = QMessageBox.information(None, "Error",
                                             "SnapNodes: Changes to " + outputLayer.name() + " failed: " + str(
                                                 outputLayer.commitErrors()),
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
 
         return
 
     def generateTOMsRestrictions(self, inputLayer, snapLineLayer, outputLayer, tolerance):
 
-        TOMsMessageLog.logMessage("In generateLinesStringFromLines", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In generateLinesStringFromLines", level=Qgis.MessageLevel.Info)
         editStartStatus = outputLayer.startEditing()
 
         if editStartStatus is False:
             # save the active layer
-            TOMsMessageLog.logMessage("Error: snapNodesP: Not able to start transaction on " + outputLayer.name(), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Error: snapNodesP: Not able to start transaction on " + outputLayer.name(), level=Qgis.MessageLevel.Info)
             reply = QMessageBox.information(None, "Error",
                                             "SnapNodes: Not able to start transaction on " + outputLayer.name(),
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             return
         # Snap node to nearest point
 
@@ -356,7 +356,7 @@ class TOMsImport:
         """reply = QMessageBox.information(None, "Check",
                                         "SnapNodes: Status for commit to " + sourceLineLayer.name() + " is: " + str(
                                             editCommitStatus),
-                                        QMessageBox.Ok)"""
+                                        QMessageBox.StandardButton.Ok)"""
 
         """if editCommitStatus is False:
             # save the active layer
@@ -365,7 +365,7 @@ class TOMsImport:
             reply = QMessageBox.information(None, "Error",
                                             "SnapNodes: Changes to " + outputLayer.name() + " failed: " + str(
                                                 outputLayer.commitErrors()),
-                                            QMessageBox.Ok)"""
+                                            QMessageBox.StandardButton.Ok)"""
 
         return
 
@@ -376,19 +376,19 @@ class TOMsImport:
         """ Loop though each of the fields in the new feature ..."""
         for oldField in oldFields:
 
-            # TOMsMessageLog.logMessage("In copyBayAttributes. field: " + newField.name(), level=Qgis.Info)
+            # TOMsMessageLog.logMessage("In copyBayAttributes. field: " + newField.name(), level=Qgis.MessageLevel.Info)
 
             """ Check to see if the field is to be copied """
             for (oldFieldName, newFieldName) in matchList:
                 if oldField.name() == oldFieldName:
-                    TOMsMessageLog.logMessage("In copyBayAttributes. setting field: {}; {}".format(oldField.name(), newFieldName), level=Qgis.Warning)
+                    TOMsMessageLog.logMessage("In copyBayAttributes. setting field: {}; {}".format(oldField.name(), newFieldName), level=Qgis.MessageLevel.Warning)
                     newFeature.setAttribute(newFieldName, oldFeature.attribute(oldFieldName))
 
     def prepareNewLayer(self, currLayer, newLayerName):
 
         currCrs = currLayer.crs().authid()
         print ('---------- layer CRS: {}'.format(currCrs))
-        TOMsMessageLog.logMessage('---------- layer CRS: {}'.format(currCrs), level=Qgis.Info)
+        TOMsMessageLog.logMessage('---------- layer CRS: {}'.format(currCrs), level=Qgis.MessageLevel.Info)
         #currCrs = 'EPSG:27700'
 
         newLayer = QgsVectorLayer("{type}?crs={crs}".format(type=QgsWkbTypes.displayString(QgsWkbTypes.MultiLineString), crs=currCrs),

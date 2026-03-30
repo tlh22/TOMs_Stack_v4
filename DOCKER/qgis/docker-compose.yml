@@ -21,13 +21,8 @@ services:
         - QGIS_QT=${QGIS_QT:-5}
         - USER_ID=${UID:-1000}
         - GROUP_ID=${GID:-1000}
-
     image: toms-qgis:${QGIS_VERSION:-3.44}
     container_name: toms-qgis-${QGIS_VERSION:-3.44}
-
-    # user is not set here -- it is controlled by the USER directive in
-    # Dockerfile which uses USER_ID/GROUP_ID build args.
-
     environment:
       - DISPLAY=${DISPLAY:-:99}
       - QT_X11_NO_MITSHM=1
@@ -41,44 +36,43 @@ services:
       - TOMs_CONFIG_PATH=/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs/QGIS
       - TOMs_FORM_PATH=/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs/ui
       - QGIS_LOGFILE_PATH=/home/qgisuser/log_files
-      # Auth db in /tmp -- always owned by qgisuser, never affected by volume mounts
       - QGIS_AUTH_DB_DIR_PATH=/tmp/qgis-auth-1000
       - USE_VNC=${USE_VNC:-1}
-
+      - QGIS_PLUGINPATH=/home/qgisuser/plugins
     ports:
       - "6080:6080"
       - "5900:5900"
-
     volumes:
-      # Mount only the specific dirs that need to persist on the host.
-      # We do NOT mount the entire qgis_data tree -- that causes root-ownership
-      # permission errors on Windows. Instead we mount only what needs to survive
-      # container restarts. QGIS internal dirs (cache, processing, auth db) are
-      # intentionally left unmounted so they live in /tmp inside the container
-      # where qgisuser always has full write access on every platform.
+      # ── plugins ────────────────────────────────────────────────────────────
+      # Main plugins folder -- shows up in QGIS plugin manager
+      - ../../plugins/:/home/qgisuser/plugins
 
       # User plugins (persists across restarts)
       - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/python/plugins:/home/qgisuser/qgis_data/profiles/default/python/plugins
 
-      # User expressions (persists across restarts)
-      - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/python/expressions:/home/qgisuser/qgis_data/profiles/default/python/expressions
+      # ── expressions ────────────────────────────────────────────────────────
+      # NOT mounted -- QGIS only writes __init__.py here at startup.
+      # start.sh symlinks this dir to /tmp so it is always writable.
+      # Mounting it causes "Device or resource busy" when start.sh tries
+      # to remove and replace it with a symlink.
 
-      # QGIS project settings and favourites (persists across restarts)
+      # ── QGIS profile settings ───────────────────────────────────────────────
+      # Favourites, recent projects, colour ramps etc. -- needs to persist.
       - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/QGIS:/home/qgisuser/qgis_data/profiles/default/QGIS
 
-      # TOMs plugin source -- read-only
-      - ../..:/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs:ro
+      # ── processing / scripts / cache ───────────────────────────────────────
+      # NOT mounted -- start.sh symlinks these to /tmp so QGIS can always
+      # write to them regardless of platform. Nothing here needs to persist.
 
-      # TOMs logs -- outside the :ro TOMs mount to avoid the read-only conflict
-      - ./qgis_config/toms_plugin_logs/${QGIS_PROFILE:-qgis_default}:/home/qgisuser/log_files/toms
-
+      # ── projects ───────────────────────────────────────────────────────────
       - ../../projects:/home/qgisuser/projects
+
+      # ── database config ────────────────────────────────────────────────────
       - ../pg_service/.pg_service.conf:/home/qgisuser/.pg_service.conf:ro
+
+      # ── display ────────────────────────────────────────────────────────────
       - /tmp/.X11-unix:/tmp/.X11-unix
 
-    # "no" means the container stops when QGIS closes and does not restart.
-    # Use "unless-stopped" only if you want it to survive crashes but NOT
-    # normal exits -- however Docker cannot distinguish the two for GUI apps.
     restart: "no"
 
 networks:

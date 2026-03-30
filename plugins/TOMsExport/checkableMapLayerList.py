@@ -27,7 +27,7 @@ import os.path, math
 import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
-# from PyQt5.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
+# from qgis.PyQt.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from qgis.PyQt.QtGui import (QIcon, QStandardItemModel, QStandardItem
                              )
 from qgis.PyQt.QtWidgets import (
@@ -148,7 +148,7 @@ class checkableMapLayerList(QWidget):
 
     def selectAllCheckChanged(self, select_all_cb, model):
         TOMsMessageLog.logMessage("IN selectAllCheckChanged",
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         for index in range(model.rowCount()):
             item = model.item(index)
             if item.isCheckable():
@@ -160,13 +160,13 @@ class checkableMapLayerList(QWidget):
                     self.selectedLayers.remove(item)
 
         TOMsMessageLog.logMessage("IN selectAllCheckChanged: len list {}".format(len(self.selectedLayers)),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
 
     def listviewCheckChanged(self, model, select_all_cb):
         ''' updates the select all checkbox based on the listview '''
         # model = self.listview.model()
         TOMsMessageLog.logMessage("IN listviewCheckChanged",
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         items = [model.item(index) for index in range(model.rowCount())]
         if all(item.checkState() == QtCore.Qt.Checked for item in items):
             select_all_cb.setTristate(False)
@@ -181,7 +181,7 @@ class checkableMapLayerList(QWidget):
     def updateSelectedLayers(self, index):
         #QMessageBox.information(self.iface.mainWindow(), "debug", "IN updateSelectedLayers: {}".format(self.model.itemFromIndex(index)))
         TOMsMessageLog.logMessage("IN updateSelectedLayers: {}".format(index) ,
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         item = self.model.itemFromIndex(index)
         if item.checkState() == QtCore.Qt.Checked:
             self.selectedLayers.append(item)
