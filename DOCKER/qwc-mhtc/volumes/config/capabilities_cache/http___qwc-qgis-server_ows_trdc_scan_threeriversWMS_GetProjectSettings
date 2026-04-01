@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WMS_Capabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd http://www.qgis.org/wms http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;REQUEST=GetSchemaExtension" xmlns="http://www.opengis.net/wms" xmlns:qgs="http://www.qgis.org/wms" xmlns:sld="http://www.opengis.net/sld" version="1.3.0">
+ <Service>
+  <Name>WMS</Name>
+  <Title>Three Rivers District Council Parking Restrictions</Title>
+  <KeywordList>
+   <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+  </KeywordList>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers" xlink:type="simple"/>
+  <ContactInformation>
+   <ContactPersonPrimary>
+    <ContactPerson>unknown</ContactPerson>
+    <ContactOrganization>Three Rivers District Council</ContactOrganization>
+   </ContactPersonPrimary>
+   <ContactElectronicMailAddress>parking@threerivers.gov.uk</ContactElectronicMailAddress>
+  </ContactInformation>
+  <Fees>conditions unknown</Fees>
+  <AccessConstraints>otherRestrictions</AccessConstraints>
+ </Service>
+ <Capability>
+  <Request>
+   <GetCapabilities>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetCapabilities>
+   <GetMap>
+    <Format>image/jpeg</Format>
+    <Format>image/png</Format>
+    <Format>image/png; mode=16bit</Format>
+    <Format>image/png; mode=8bit</Format>
+    <Format>image/png; mode=1bit</Format>
+    <Format>application/dxf</Format>
+    <Format>application/pdf</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetMap>
+   <GetFeatureInfo>
+    <Format>text/plain</Format>
+    <Format>text/html</Format>
+    <Format>text/xml</Format>
+    <Format>application/vnd.ogc.gml</Format>
+    <Format>application/vnd.ogc.gml/3.1.1</Format>
+    <Format>application/json</Format>
+    <Format>application/geo+json</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetFeatureInfo>
+   <sld:GetLegendGraphic>
+    <Format>image/jpeg</Format>
+    <Format>image/png</Format>
+    <Format>application/json</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </sld:GetLegendGraphic>
+   <sld:DescribeLayer>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </sld:DescribeLayer>
+   <qgs:GetStyles>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </qgs:GetStyles>
+   <GetPrint>
+    <Format>svg</Format>
+    <Format>png</Format>
+    <Format>pdf</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?" xlink:type="simple"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetPrint>
+  </Request>
+  <Exception>
+   <Format>XML</Format>
+  </Exception>
+  <sld:UserDefinedSymbolization RemoteWCS="0" SupportSLD="1" UserLayer="0" UserStyle="1" InlineFeature="0" RemoteWFS="0"/>
+  <ComposerTemplates>
+   <ComposerTemplate name="A4_Sketch" width="420" height="297">
+    <ComposerMap name="map0" itemName="SketchMap" width="411.30000000000001" height="265.01106443255873"/>
+   </ComposerTemplate>
+  </ComposerTemplates>
+  <WFSLayers>
+   <WFSLayer name="RestrictionPolygons"/>
+   <WFSLayer name="StreetGazetteerRecords"/>
+  </WFSLayers>
+  <Layer queryable="1">
+   <Name>ThreeRivers</Name>
+   <Title>Three Rivers District Council Parking Restrictions</Title>
+   <KeywordList>
+    <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+   </KeywordList>
+   <CRS>CRS:84</CRS>
+   <CRS>EPSG:3857</CRS>
+   <CRS>EPSG:27700</CRS>
+   <EX_GeographicBoundingBox>
+    <westBoundLongitude>-1.019659</westBoundLongitude>
+    <eastBoundLongitude>0.122143</eastBoundLongitude>
+    <southBoundLatitude>51.586469</southBoundLatitude>
+    <northBoundLatitude>51.750871</northBoundLatitude>
+   </EX_GeographicBoundingBox>
+   <BoundingBox CRS="EPSG:27700" maxx="546633.647" miny="189631.83" minx="467993.453" maxy="206254.17"/>
+   <BoundingBox CRS="EPSG:3857" maxx="13596.818" miny="6725696.481" minx="-113507.901" maxy="6755204.381"/>
+   <TreeName></TreeName>
+   <Layer visible="1" queryable="1" mutuallyExclusive="0" visibilityChecked="1" expanded="1">
+    <Name>Restrictions</Name>
+    <Title>Restrictions</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-0.537011</westBoundLongitude>
+     <eastBoundLongitude>-0.365158</eastBoundLongitude>
+     <southBoundLatitude>51.609812</southBoundLatitude>
+     <northBoundLatitude>51.727613</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:27700" maxx="513013.063" miny="191367.703" minx="501396.656" maxy="204227.579"/>
+    <BoundingBox CRS="EPSG:3857" maxx="-40649.293" miny="6729879.722" minx="-59779.808" maxy="6751023.45"/>
+    <TreeName>Restrictions</TreeName>
+    <Layer visible="1" opacity="1" queryable="1" visibilityChecked="1" expanded="1" displayField="ComplianceRoadMarkingsFaded" geometryType="NoGeometry">
+     <Name>CPZs</Name>
+     <Title>CPZs</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=CPZs&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <TreeName>CPZs</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="RestrictionID" type="QString" editType="" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="GeometryID" type="QString" editType="" length="12" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="geom" type="qrange" editType="" length="-1" precision="0" comment="" typeName="geometry"/>
+      <Attribute name="RestrictionTypeID" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="Notes" type="QString" editType="" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="Photos_01" type="QString" editType="" length="255" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="Photos_02" type="QString" editType="" length="255" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="Photos_03" type="QString" editType="" length="255" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="label_X" type="double" editType="" length="-1" precision="0" comment="" typeName="float8"/>
+      <Attribute name="label_Y" type="double" editType="" length="-1" precision="0" comment="" typeName="float8"/>
+      <Attribute name="label_Rotation" type="double" editType="" length="-1" precision="0" comment="" typeName="float8"/>
+      <Attribute name="label_TextChanged" type="QString" editType="" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="OpenDate" type="QDate" editType="" length="-1" precision="0" comment="" typeName="date"/>
+      <Attribute name="CloseDate" type="QDate" editType="" length="-1" precision="0" comment="" typeName="date"/>
+      <Attribute name="CPZ" type="QString" editType="" length="40" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="LastUpdateDateTime" type="QDateTime" editType="" length="-1" precision="0" comment="" typeName="timestamp"/>
+      <Attribute name="LastUpdatePerson" type="QString" editType="" length="255" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="LabelText" type="QString" editType="" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="TimePeriodID" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="ComplianceRoadMarkingsFaded" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="ComplianceRestrictionSignIssue" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="ComplianceNotes" type="QString" editType="" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="MHTC_CheckIssueTypeID" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="MHTC_CheckNotes" type="QString" editType="" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="CreateDateTime" type="QDateTime" editType="" length="-1" precision="0" comment="" typeName="timestamp"/>
+      <Attribute name="CreatePerson" type="QString" editType="" length="255" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="label_pos" type="qrange" editType="" length="-1" precision="0" comment="" typeName="geometry"/>
+      <Attribute name="label_ldr" type="qrange" editType="" length="-1" precision="0" comment="" typeName="geometry"/>
+      <Attribute name="DisplayLabel" type="bool" editType="" length="-1" precision="0" comment="" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visible="1" opacity="1" queryable="1" visibilityChecked="1" expanded="0" displayField="RestrictionTypeID" geometryType="LineString">
+     <Name>Bays</Name>
+     <Title>Bays</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-0.527061</westBoundLongitude>
+      <eastBoundLongitude>-0.372909</eastBoundLongitude>
+      <southBoundLatitude>51.611348</southBoundLatitude>
+      <northBoundLatitude>51.723239</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="512488.063" miny="191526.859" minx="502082.718" maxy="203759.813"/>
+     <BoundingBox CRS="EPSG:3857" maxx="-41511.855" miny="6730154.989" minx="-58672.068" maxy="6750245.509"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Bays&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>Bays</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="RestrictionTypeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="RoadName" type="QString" editType="TextEdit" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="TimePeriodID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="MaxStayID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="NoReturnID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="AdditionalConditionID" type="int" editType="Range" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="DisplayLabel" type="bool" editType="" length="-1" precision="0" comment="" typeName="bool"/>
+      <Attribute name="BayWidth" type="double" editType="TextEdit" length="-1" precision="0" comment="" typeName="float8"/>
+     </Attributes>
+    </Layer>
+    <Layer visible="1" opacity="1" queryable="1" visibilityChecked="1" expanded="0" displayField="RestrictionTypeID" geometryType="LineString">
+     <Name>Lines</Name>
+     <Title>Lines</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-0.537011</westBoundLongitude>
+      <eastBoundLongitude>-0.365158</eastBoundLongitude>
+      <southBoundLatitude>51.609812</southBoundLatitude>
+      <northBoundLatitude>51.727613</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="513013.063" miny="191367.703" minx="501396.656" maxy="204227.579"/>
+     <BoundingBox CRS="EPSG:3857" maxx="-40649.293" miny="6729879.722" minx="-59779.808" maxy="6751023.45"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Lines&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>Lines</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="RestrictionTypeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="RoadName" type="QString" editType="TextEdit" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="NoWaitingTimeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="NoLoadingTimeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="AdditionalConditionID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="DisplayLabel" type="bool" editType="" length="-1" precision="0" comment="" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visible="1" opacity="1" queryable="1" visibilityChecked="1" expanded="0" displayField="maptip" geometryType="Polygon">
+     <Name>RestrictionPolygons</Name>
+     <Title>RestrictionPolygons</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-0.535653</westBoundLongitude>
+      <eastBoundLongitude>-0.440441</eastBoundLongitude>
+      <southBoundLatitude>51.621225</southBoundLatitude>
+      <northBoundLatitude>51.71152</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="511450.563" miny="192524.953" minx="501467.531" maxy="202438.5"/>
+     <BoundingBox CRS="EPSG:3857" maxx="-43230.096" miny="6731800.27" minx="-59628.621" maxy="6748131.547"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RestrictionPolygons&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <TreeName>RestrictionPolygons</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="RestrictionTypeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="NoWaitingTimeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="NoLoadingTimeID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="TimePeriodID" type="int" editType="ValueRelation" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="AreaPermitCode" type="QString" editType="TextEdit" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="AdditionalConditionID" type="int" editType="Range" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="DisplayLabel" type="bool" editType="" length="-1" precision="0" comment="" typeName="bool"/>
+     </Attributes>
+    </Layer>
+   </Layer>
+   <Layer visible="1" queryable="0" mutuallyExclusive="0" visibilityChecked="1" expanded="1">
+    <Name>Map Schedule Grids</Name>
+    <Title>Map Schedule Grids</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-0.541717</westBoundLongitude>
+     <eastBoundLongitude>-0.357567</eastBoundLongitude>
+     <southBoundLatitude>51.596522</southBoundLatitude>
+     <northBoundLatitude>51.7427</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:27700" maxx="513500" miny="189900" minx="501100" maxy="205900"/>
+    <BoundingBox CRS="EPSG:3857" maxx="-39804.28" miny="6727497.845" minx="-60303.65" maxy="6753735.176"/>
+    <TreeName>Map Schedule Grids</TreeName>
+    <Layer visible="1" opacity="1" queryable="0" visibilityChecked="1" expanded="1" displayField="maptip" geometryType="MultiPolygon">
+     <Name>MapGrid</Name>
+     <Title>MapGrid</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-0.541717</westBoundLongitude>
+      <eastBoundLongitude>-0.357567</eastBoundLongitude>
+      <southBoundLatitude>51.596522</southBoundLatitude>
+      <northBoundLatitude>51.7427</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="513500" miny="189900" minx="501100" maxy="205900"/>
+     <BoundingBox CRS="EPSG:3857" maxx="-39804.28" miny="6727497.845" minx="-60303.65" maxy="6753735.176"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=MapGrid&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>5000</MinScaleDenominator>
+     <MaxScaleDenominator>35000</MaxScaleDenominator>
+     <TreeName>MapGrid</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="id" type="qlonglong" editType="TextEdit" length="-1" precision="0" comment="" typeName="int8"/>
+      <Attribute name="MapSheet_North" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="MapSheet_East" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="MapSheet_South" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="MapSheet_West" type="int" editType="" length="-1" precision="0" comment="" typeName="int4"/>
+     </Attributes>
+    </Layer>
+   </Layer>
+   <Layer visible="1" queryable="0" mutuallyExclusive="0" visibilityChecked="1" expanded="1">
+    <Name>Background Mapping</Name>
+    <Title>Background Mapping</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-8.819271</westBoundLongitude>
+     <eastBoundLongitude>1.888123</eastBoundLongitude>
+     <southBoundLatitude>49.699119</southBoundLatitude>
+     <northBoundLatitude>51.742355</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:27700" maxx="900000.001" miny="0" minx="-238375.001" maxy="1376256.001"/>
+    <BoundingBox CRS="EPSG:3857" maxx="840634.978" miny="6370662.384" minx="-1573215.469" maxy="8922510.267"/>
+    <TreeName>Background Mapping</TreeName>
+    <Layer visible="1" opacity="1" queryable="0" visibilityChecked="1" expanded="1" displayField="maptip" geometryType="MultiLineString">
+     <Name>StreetGazetteerRecords</Name>
+     <Title>StreetGazetteerRecords</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-0.541688</westBoundLongitude>
+      <eastBoundLongitude>-0.358429</eastBoundLongitude>
+      <southBoundLatitude>51.558505</southBoundLatitude>
+      <northBoundLatitude>51.742355</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="513441.313" miny="185668.843" minx="501186.437" maxy="205863.407"/>
+     <BoundingBox CRS="EPSG:3857" maxx="-39900.182" miny="6720687.824" minx="-60300.41" maxy="6753673.242"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=StreetGazetteerRecords&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>StreetGazetteerRecords</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>gid</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="gid" type="int" editType="TextEdit" length="-1" precision="0" comment="" typeName="int4"/>
+      <Attribute name="ASSET_ID" type="QString" editType="TextEdit" length="20" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="FEATURE_ID" type="QString" editType="TextEdit" length="15" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="SITE_CODE" type="QString" editType="TextEdit" length="10" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="SITE_NAME" type="QString" editType="TextEdit" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="LOCALITY" type="QString" editType="TextEdit" length="35" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="TOWN" type="QString" editType="TextEdit" length="35" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="LOCATION" type="QString" editType="TextEdit" length="254" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="ROADCLASS" type="QString" editType="TextEdit" length="30" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="HIERARCHY" type="QString" editType="TextEdit" length="30" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="CUSTOMER" type="QString" editType="TextEdit" length="30" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="AREA_NAME" type="QString" editType="TextEdit" length="30" precision="0" comment="" typeName="varchar"/>
+      <Attribute name="DISTANCE" type="double" editType="TextEdit" length="-1" precision="0" comment="" typeName="numeric"/>
+      <Attribute name="ROAD_TYPE" type="QString" editType="TextEdit" length="30" precision="0" comment="" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visible="1" opacity="1" queryable="0" visibilityChecked="1" expanded="1" displayField="name" geometryType="MultiPolygon">
+     <Name>TRDC</Name>
+     <Title>Three Rivers District Council</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-0.540483</westBoundLongitude>
+      <eastBoundLongitude>-0.35839</eastBoundLongitude>
+      <southBoundLatitude>51.597681</southBoundLatitude>
+      <northBoundLatitude>51.742311</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="513444.125" miny="190027.593" minx="501183" maxy="205858.407"/>
+     <BoundingBox CRS="EPSG:3857" maxx="-39895.831" miny="6727705.376" minx="-60166.204" maxy="6753665.274"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=TRDC&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <TreeName>Three Rivers District Council</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute name="name" type="QString" editType="TextEdit" length="60" precision="0" comment="" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visible="0" opacity="1" queryable="0" visibilityChecked="0" expanded="1">
+     <Name>OS_Roads</Name>
+     <Title>OS_Roads</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-8.819271</westBoundLongitude>
+      <eastBoundLongitude>1.888123</eastBoundLongitude>
+      <southBoundLatitude>49.699119</southBoundLatitude>
+      <northBoundLatitude>49.900059</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox CRS="EPSG:27700" maxx="900000.001" miny="0" minx="-238375.001" maxy="1376256.001"/>
+     <BoundingBox CRS="EPSG:3857" maxx="840634.978" miny="6370662.384" minx="-1573215.469" maxy="8922510.267"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=OS_Roads&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>5000</MinScaleDenominator>
+     <MaxScaleDenominator>100000000</MaxScaleDenominator>
+     <TreeName>OS_Roads</TreeName>
+     <WMSBackgroundLayer>0</WMSBackgroundLayer>
+    </Layer>
+   </Layer>
+  </Layer>
+  <LayerDrawingOrder>OS_Roads,TRDC,StreetGazetteerRecords,MapGrid,ParkingTariffAreas,MatchDayEventDayZones,RestrictionPolygons,Lines,Bays</LayerDrawingOrder>
+ </Capability>
+</WMS_Capabilities>

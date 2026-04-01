@@ -1,0 +1,1530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WMS_Capabilities xmlns:qgs="http://www.qgis.org/wms" xmlns:sld="http://www.opengis.net/sld" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd http://www.qgis.org/wms http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;REQUEST=GetSchemaExtension" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opengis.net/wms" version="1.3.0">
+ <Service>
+  <Name>WMS</Name>
+  <Title>TOMs Test project</Title>
+  <KeywordList>
+   <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+  </KeywordList>
+  <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+  <ContactInformation>
+   <ContactPersonPrimary>
+    <ContactPerson>TH</ContactPerson>
+    <ContactOrganization>MHTC</ContactOrganization>
+   </ContactPersonPrimary>
+   <ContactPosition>publisher</ContactPosition>
+   <ContactElectronicMailAddress>admin@mhtc.co.uk</ContactElectronicMailAddress>
+  </ContactInformation>
+  <Fees>conditions unknown</Fees>
+  <AccessConstraints>None</AccessConstraints>
+ </Service>
+ <Capability>
+  <Request>
+   <GetCapabilities>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetCapabilities>
+   <GetMap>
+    <Format>image/jpeg</Format>
+    <Format>image/png</Format>
+    <Format>image/png; mode=16bit</Format>
+    <Format>image/png; mode=8bit</Format>
+    <Format>image/png; mode=1bit</Format>
+    <Format>application/dxf</Format>
+    <Format>application/pdf</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetMap>
+   <GetFeatureInfo>
+    <Format>text/plain</Format>
+    <Format>text/html</Format>
+    <Format>text/xml</Format>
+    <Format>application/vnd.ogc.gml</Format>
+    <Format>application/vnd.ogc.gml/3.1.1</Format>
+    <Format>application/json</Format>
+    <Format>application/geo+json</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetFeatureInfo>
+   <sld:GetLegendGraphic>
+    <Format>image/jpeg</Format>
+    <Format>image/png</Format>
+    <Format>application/json</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </sld:GetLegendGraphic>
+   <sld:DescribeLayer>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </sld:DescribeLayer>
+   <qgs:GetStyles>
+    <Format>text/xml</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </qgs:GetStyles>
+   <GetPrint>
+    <Format>svg</Format>
+    <Format>png</Format>
+    <Format>pdf</Format>
+    <DCPType>
+     <HTTP>
+      <Get>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </Get>
+     </HTTP>
+    </DCPType>
+   </GetPrint>
+  </Request>
+  <Exception>
+   <Format>XML</Format>
+  </Exception>
+  <sld:UserDefinedSymbolization SupportSLD="1" InlineFeature="0" UserStyle="1" RemoteWFS="0" RemoteWCS="0" UserLayer="0"/>
+  <ComposerTemplates>
+   <ComposerTemplate height="297" atlasEnabled="1" name="Map Schedules" width="420" atlasCoverageLayer="MapGrid">
+    <ComposerMap height="265.14999999999998" name="map0" width="411" itemName="Map 1"/>
+    <ComposerLabel name="printTypeDetails"/>
+    <ComposerLabel name="revisionNr"/>
+    <ComposerLabel name="effectiveDate"/>
+    <ComposerLabel name="proposalStatus"/>
+   </ComposerTemplate>
+   <ComposerTemplate height="297" name="A4_Sketch" width="420">
+    <ComposerMap height="265.01106443233124" name="map0" width="411.30000000000001" itemName="SketchMap"/>
+   </ComposerTemplate>
+   <ComposerTemplate height="297" name="A3_Sketch" width="420">
+    <ComposerMap height="265.01100000000002" name="map0" width="411.30000000000001" itemName="SketchMap"/>
+   </ComposerTemplate>
+   <ComposerTemplate height="297" name="Legend" width="210">
+    <ComposerLabel name="printTypeDetails"/>
+    <ComposerLabel name="effectiveDate"/>
+   </ComposerTemplate>
+  </ComposerTemplates>
+  <WFSLayers>
+   <WFSLayer name="Bays"/>
+   <WFSLayer name="CPZs"/>
+   <WFSLayer name="Lines"/>
+   <WFSLayer name="MapGrid"/>
+   <WFSLayer name="RestrictionPolygons"/>
+   <WFSLayer name="SiteArea"/>
+  </WFSLayers>
+  <Layer queryable="1">
+   <Name>TOMs_Test</Name>
+   <Title>TOMs Test project</Title>
+   <KeywordList>
+    <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+   </KeywordList>
+   <CRS>CRS:84</CRS>
+   <CRS>EPSG:3857</CRS>
+   <CRS>EPSG:27700</CRS>
+   <EX_GeographicBoundingBox>
+    <westBoundLongitude>-3.203018</westBoundLongitude>
+    <eastBoundLongitude>-3.190792</eastBoundLongitude>
+    <southBoundLatitude>55.953387</southBoundLatitude>
+    <northBoundLatitude>55.955865</northBoundLatitude>
+   </EX_GeographicBoundingBox>
+   <BoundingBox minx="324983.012" maxx="325741.988" miny="674026.734" maxy="674289.402" CRS="EPSG:27700"/>
+   <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7549141.979" maxy="7549634.607" CRS="EPSG:3857"/>
+   <TreeName></TreeName>
+   <Layer visibilityChecked="1" expanded="1" mutuallyExclusive="0" queryable="1" visible="1">
+    <Name>Restrictions</Name>
+    <Title>Restrictions</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-3.203018</westBoundLongitude>
+     <eastBoundLongitude>-3.190792</eastBoundLongitude>
+     <southBoundLatitude>55.951851</southBoundLatitude>
+     <northBoundLatitude>55.955865</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox minx="324983.012" maxx="325741.988" miny="673850.312" maxy="674289.402" CRS="EPSG:27700"/>
+    <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7548836.648" maxy="7549634.607" CRS="EPSG:3857"/>
+    <TreeName>Restrictions</TreeName>
+    <Layer visibilityChecked="1" expanded="0" queryable="1" visible="1" displayField="maptip" geometryType="LineString" opacity="1">
+     <Name>Bays</Name>
+     <Title>Bays</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.197809</westBoundLongitude>
+      <eastBoundLongitude>-3.193783</eastBoundLongitude>
+      <southBoundLatitude>55.951966</southBoundLatitude>
+      <northBoundLatitude>55.955377</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325307.437" maxx="325552.375" miny="673862.937" maxy="674238.313" CRS="EPSG:27700"/>
+     <BoundingBox minx="-355978.418" maxx="-355530.288" miny="7548859.494" maxy="7549537.512" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Bays&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>Bays</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="RestrictionLength" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="int" precision="0" name="RestrictionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="GeomShapeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="double" precision="0" name="AzimuthToRoadCentreLine" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="RoadName" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="USRN" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="label_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="label_TextChanged" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QString" precision="0" name="CPZ" comment="" editType="ValueRelation" length="40" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="BayOrientation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="int" precision="0" name="NrBays" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="HoursOfControl" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="PayTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="MaxStayID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="NoReturnID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ParkingTariffArea" comment="" editType="ValueRelation" length="10" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="AdditionalConditionID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRoadMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="PermitCode" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MatchDayTimePeriodID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="PayParkingAreaID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="Capacity" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="qrange" precision="0" name="label_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="QString" precision="0" name="MatchDayEventDayZone" comment="" editType="TextEdit" length="40" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="BayWidth" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="bool" precision="0" name="DisplayLabel" comment="" editType="TextEdit" length="-1" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="0" queryable="1" visible="1" displayField="maptip" geometryType="LineString" opacity="1">
+     <Name>Lines</Name>
+     <Title>Lines</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.197965</westBoundLongitude>
+      <eastBoundLongitude>-3.193439</eastBoundLongitude>
+      <southBoundLatitude>55.951851</southBoundLatitude>
+      <northBoundLatitude>55.955451</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325297.812" maxx="325573.625" miny="673850.312" maxy="674246.188" CRS="EPSG:27700"/>
+     <BoundingBox minx="-355995.817" maxx="-355492.027" miny="7548836.648" maxy="7549552.234" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Lines&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>Lines</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="RestrictionLength" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="int" precision="0" name="RestrictionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="GeomShapeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="double" precision="0" name="AzimuthToRoadCentreLine" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="RoadName" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="USRN" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="label_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="label_TextChanged" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QString" precision="0" name="CPZ" comment="" editType="ValueRelation" length="40" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="HoursOfControl" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="NoLoadingTimeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="UnacceptableTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="AdditionalConditionID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ParkingTariffArea" comment="" editType="ValueRelation" length="10" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="labelLoading_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="int" precision="0" name="ComplianceRoadMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="ComplianceLoadingMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="MatchDayTimePeriodID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="Capacity" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="qrange" precision="0" name="label_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_loading_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_loading_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="QString" precision="0" name="MatchDayEventDayZone" comment="" editType="TextEdit" length="40" typeName="varchar"/>
+      <Attribute type="bool" precision="0" name="DisplayLabel" comment="" editType="TextEdit" length="-1" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="0" queryable="1" visible="1" displayField="maptip" geometryType="Polygon" opacity="1">
+     <Name>RestrictionPolygons</Name>
+     <Title>RestrictionPolygons</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.203018</westBoundLongitude>
+      <eastBoundLongitude>-3.190792</eastBoundLongitude>
+      <southBoundLatitude>55.953387</southBoundLatitude>
+      <northBoundLatitude>55.955865</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="324983.012" maxx="325741.988" miny="674026.734" maxy="674289.402" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7549141.979" maxy="7549634.607" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RestrictionPolygons&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>RestrictionPolygons</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="RestrictionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="GeomShapeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="RoadName" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="USRN" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="label_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="label_TextChanged" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="Orientation" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="NoWaitingTimeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="NoLoadingTimeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="HoursOfControl" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="AreaPermitCode" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="CPZ" comment="" editType="ValueRelation" length="40" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="ComplianceRoadMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MatchDayTimePeriodID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="AdditionalConditionID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="qrange" precision="0" name="label_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="QString" precision="0" name="MatchDayEventDayZone" comment="" editType="TextEdit" length="40" typeName="varchar"/>
+      <Attribute type="bool" precision="0" name="DisplayLabel" comment="" editType="TextEdit" length="-1" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="0" queryable="1" visible="1" displayField="maptip" geometryType="Point" opacity="1">
+     <Name>Signs</Name>
+     <Title>Signs</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.194693</westBoundLongitude>
+      <eastBoundLongitude>-3.194692</eastBoundLongitude>
+      <southBoundLatitude>55.9549</southBoundLatitude>
+      <northBoundLatitude>55.954901</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325501.125" maxx="325501.157" miny="674186.187" maxy="674186.25" CRS="EPSG:27700"/>
+     <BoundingBox minx="-355631.588" maxx="-355631.529" miny="7549442.827" maxy="7549442.94" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Signs&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>Signs</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="RoadName" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="USRN" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="SignType_1" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="SignType_2" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="SignType_3" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="SignType_4" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Photos_04" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="SignOrientationTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Signs_Mount" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="SignsAttachmentTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Compl_Signs_Faded" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Compl_Signs_Obscured" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Compl_Sign_Direction" comment="" editType="CheckBox" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Compl_Signs_Obsolete" comment="" editType="CheckBox" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Compl_Signs_OtherOptions" comment="" editType="CheckBox" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="Compl_Signs_TicketMachines" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="TicketMachine_Nr" comment="" editType="TextEdit" length="10" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="RingoPresent" comment="" editType="CheckBox" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="SignIlluminationTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="SignConditionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="SignAddress" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="original_geom_wkt" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="AssetReference" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="SideOfStreet" comment="" editType="" length="100" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+   </Layer>
+   <Layer visibilityChecked="1" expanded="1" mutuallyExclusive="0" queryable="1" visible="1">
+    <Name>Zones</Name>
+    <Title>Zones</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-3.203018</westBoundLongitude>
+     <eastBoundLongitude>-3.190792</eastBoundLongitude>
+     <southBoundLatitude>55.952059</southBoundLatitude>
+     <northBoundLatitude>55.955865</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox minx="324983.012" maxx="325741.988" miny="673873.5" maxy="674289.402" CRS="EPSG:27700"/>
+    <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7548877.909" maxy="7549634.607" CRS="EPSG:3857"/>
+    <TreeName>Zones</TreeName>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="maptip" geometryType="Polygon" opacity="1">
+     <Name>CPZs</Name>
+     <Title>CPZs</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.198045</westBoundLongitude>
+      <eastBoundLongitude>-3.193367</eastBoundLongitude>
+      <southBoundLatitude>55.952059</southBoundLatitude>
+      <northBoundLatitude>55.955496</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325292.906" maxx="325578.532" miny="673873.5" maxy="674251.125" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356004.714" maxx="-355483.996" miny="7548877.909" maxy="7549561.204" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=CPZs&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>45000</MaxScaleDenominator>
+     <TreeName>CPZs</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="RestrictionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="label_X" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="label_Y" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="label_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="label_TextChanged" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="TextEdit" length="-1" typeName="date"/>
+      <Attribute type="QString" precision="0" name="CPZ" comment="" editType="TextEdit" length="40" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="TimePeriodID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRoadMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="qrange" precision="0" name="label_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="bool" precision="0" name="DisplayLabel" comment="" editType="TextEdit" length="-1" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="maptip" geometryType="Polygon" opacity="1">
+     <Name>MatchDayEventDayZones</Name>
+     <Title>MatchDayEventDayZones</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.203018</westBoundLongitude>
+      <eastBoundLongitude>-3.190792</eastBoundLongitude>
+      <southBoundLatitude>55.953387</southBoundLatitude>
+      <northBoundLatitude>55.955865</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="324983.012" maxx="325741.988" miny="674026.734" maxy="674289.402" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7549141.979" maxy="7549634.607" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=MatchDayEventDayZones&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>45000</MaxScaleDenominator>
+     <TreeName>MatchDayEventDayZones</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="RestrictionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="label_X" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="label_Y" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="label_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="label_TextChanged" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="TextEdit" length="-1" typeName="date"/>
+      <Attribute type="QString" precision="0" name="EDZ" comment="" editType="TextEdit" length="40" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="TimePeriodID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRoadMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="qrange" precision="0" name="label_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="bool" precision="0" name="DisplayLabel" comment="" editType="" length="-1" typeName="bool"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="maptip" geometryType="Polygon" opacity="1">
+     <Name>ParkingTariffAreas</Name>
+     <Title>ParkingTariffAreas</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.194965</westBoundLongitude>
+      <eastBoundLongitude>-3.194099</eastBoundLongitude>
+      <southBoundLatitude>55.953847</southBoundLatitude>
+      <northBoundLatitude>55.954119</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325482.593" maxx="325536.157" miny="674069.25" maxy="674098.625" CRS="EPSG:27700"/>
+     <BoundingBox minx="-355661.917" maxx="-355565.546" miny="7549233.391" maxy="7549287.512" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=ParkingTariffAreas&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>100000</MaxScaleDenominator>
+     <TreeName>ParkingTariffAreas</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="RestrictionTypeID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Notes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_01" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_02" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Photos_03" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="label_X" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="label_Y" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="label_Rotation" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="label_TextChanged" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="TextEdit" length="-1" typeName="date"/>
+      <Attribute type="QString" precision="0" name="ParkingTariffArea" comment="" editType="TextEdit" length="40" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="TimePeriodID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="NoReturnID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="MaxStayID" comment="" editType="ValueRelation" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRoadMarkingsFaded" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="int" precision="0" name="ComplianceRestrictionSignIssue" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="ComplianceNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="MHTC_CheckIssueTypeID" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="MHTC_CheckNotes" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="qrange" precision="0" name="label_pos" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="qrange" precision="0" name="label_ldr" comment="" editType="TextEdit" length="-1" typeName="geometry"/>
+      <Attribute type="bool" precision="0" name="DisplayLabel" comment="" editType="TextEdit" length="-1" typeName="bool"/>
+     </Attributes>
+    </Layer>
+   </Layer>
+   <Layer visibilityChecked="1" expanded="0" mutuallyExclusive="0" queryable="1" visible="1">
+    <Name>Lookup Tables</Name>
+    <Title>Lookup Tables</Title>
+    <CRS>CRS:84</CRS>
+    <TreeName>Lookup Tables</TreeName>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>ActionOnProposalAcceptanceTypes</Name>
+     <Title>ActionOnProposalAcceptanceTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=ActionOnProposalAcceptanceTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>ActionOnProposalAcceptanceTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>AdditionalConditionTypes</Name>
+     <Title>AdditionalConditionTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=AdditionalConditionTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>AdditionalConditionTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>BayLineTypes</Name>
+     <Title>BayLineTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=BayLineTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>BayLineTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Code" geometryType="NoGeometry" opacity="1">
+     <Name>BayTypesInUse</Name>
+     <Title>BayTypesInUse</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=BayTypesInUse&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>BayTypesInUse</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="GeomShapeGroupType" comment="" editType="ValueRelation" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="StyleDetails" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>BayTypesInUse_View</Name>
+     <Title>BayTypesInUse_View</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=BayTypesInUse_View&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>BayTypesInUse_View</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Code" geometryType="NoGeometry" opacity="1">
+     <Name>GeomShapeGroupType</Name>
+     <Title>GeomShapeGroupType</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=GeomShapeGroupType&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>GeomShapeGroupType</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="Code" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>LengthOfTime</Name>
+     <Title>LengthOfTime</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=LengthOfTime&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>LengthOfTime</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Code" geometryType="NoGeometry" opacity="1">
+     <Name>LineTypesInUse</Name>
+     <Title>LineTypesInUse</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=LineTypesInUse&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>LineTypesInUse</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="GeomShapeGroupType" comment="" editType="ValueRelation" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="StyleDetails" comment="" editType="TextEdit" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>LineTypesInUse_View</Name>
+     <Title>LineTypesInUse_View</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=LineTypesInUse_View&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>LineTypesInUse_View</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>PaymentTypes</Name>
+     <Title>PaymentTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=PaymentTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>PaymentTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>ProposalStatusTypes</Name>
+     <Title>ProposalStatusTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=ProposalStatusTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>ProposalStatusTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>RestrictionGeomShapeTypes</Name>
+     <Title>RestrictionGeomShapeTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RestrictionGeomShapeTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>RestrictionGeomShapeTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Code" geometryType="NoGeometry" opacity="1">
+     <Name>RestrictionPolygonTypesInUse</Name>
+     <Title>RestrictionPolygonTypesInUse</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RestrictionPolygonTypesInUse&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>RestrictionPolygonTypesInUse</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="GeomShapeGroupType" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="StyleDetails" comment="" editType="TextEdit" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>RestrictionPolygonTypesInUse_View</Name>
+     <Title>RestrictionPolygonTypesInUse_View</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RestrictionPolygonTypesInUse_View&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>RestrictionPolygonTypesInUse_View</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>RestrictionPolygonTypes</Name>
+     <Title>RestrictionPolygonTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RestrictionPolygonTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>RestrictionPolygonTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>SignOrientationTypes</Name>
+     <Title>SignOrientationTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=SignOrientationTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>SignOrientationTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>SignTypes</Name>
+     <Title>SignTypes</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=SignTypes&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>SignTypes</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Icon" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Code" geometryType="NoGeometry" opacity="1">
+     <Name>SignTypesInUse</Name>
+     <Title>SignTypesInUse</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=SignTypesInUse&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>SignTypesInUse</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>SignTypesInUse_View</Name>
+     <Title>SignTypesInUse_View</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=SignTypesInUse_View&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>SignTypesInUse_View</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>TimePeriods</Name>
+     <Title>TimePeriods</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=TimePeriods&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>TimePeriods</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Code" geometryType="NoGeometry" opacity="1">
+     <Name>TimePeriodsInUse</Name>
+     <Title>TimePeriodsInUse</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=TimePeriodsInUse&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>TimePeriodsInUse</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="Description" geometryType="NoGeometry" opacity="1">
+     <Name>TimePeriodsInUse_View</Name>
+     <Title>TimePeriodsInUse_View</Title>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=TimePeriodsInUse_View&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>TimePeriodsInUse_View</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>Code</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="Code" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Description" comment="" editType="" length="-1" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="LabelText" comment="" editType="" length="255" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+   </Layer>
+   <Layer visibilityChecked="1" expanded="1" mutuallyExclusive="0" queryable="1" visible="1">
+    <Name>Map Schedule Grids</Name>
+    <Title>Map Schedule Grids</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-3.201175</westBoundLongitude>
+     <eastBoundLongitude>-3.181755</eastBoundLongitude>
+     <southBoundLatitude>55.950021</southBoundLatitude>
+     <northBoundLatitude>55.956945</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox minx="325100" maxx="326300" miny="673650" maxy="674400" CRS="EPSG:27700"/>
+    <BoundingBox minx="-356353.16" maxx="-354191.35" miny="7548472.77" maxy="7549849.268" CRS="EPSG:3857"/>
+    <TreeName>Map Schedule Grids</TreeName>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="maptip" geometryType="MultiPolygon" opacity="1">
+     <Name>MapGrid</Name>
+     <Title>MapGrid</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.201175</westBoundLongitude>
+      <eastBoundLongitude>-3.181755</eastBoundLongitude>
+      <southBoundLatitude>55.950021</southBoundLatitude>
+      <northBoundLatitude>55.956945</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325100" maxx="326300" miny="673650" maxy="674400" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356353.16" maxx="-354191.35" miny="7548472.77" maxy="7549849.268" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=MapGrid&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>35000</MaxScaleDenominator>
+     <TreeName>MapGrid</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="qlonglong" precision="0" name="id" comment="" editType="TextEdit" length="-1" typeName="int8"/>
+      <Attribute type="QString" precision="0" name="mapsheetname" comment="" editType="TextEdit" length="10" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="x_min" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="x_max" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="y_min" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="double" precision="0" name="y_max" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="int" precision="0" name="CurrRevisionNr" comment="" editType="Range" length="-1" typeName="int4"/>
+      <Attribute type="QDate" precision="0" name="LastRevisionDate" comment="" editType="TextEdit" length="-1" typeName="date"/>
+     </Attributes>
+    </Layer>
+   </Layer>
+   <Layer visibilityChecked="1" expanded="1" mutuallyExclusive="0" queryable="1" visible="1">
+    <Name>Background Mapping</Name>
+    <Title>Background Mapping</Title>
+    <CRS>CRS:84</CRS>
+    <CRS>EPSG:3857</CRS>
+    <CRS>EPSG:27700</CRS>
+    <EX_GeographicBoundingBox>
+     <westBoundLongitude>-180</westBoundLongitude>
+     <eastBoundLongitude>180</eastBoundLongitude>
+     <southBoundLatitude>-85.051129</southBoundLatitude>
+     <northBoundLatitude>85.051129</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox minx="-15897228.561" maxx="14778923.375" miny="-24880278.016" maxy="13826150.387" CRS="EPSG:27700"/>
+    <BoundingBox minx="-20037508.343" maxx="20037508.343" miny="-20037508.343" maxy="20037508.343" CRS="EPSG:3857"/>
+    <TreeName>Background Mapping</TreeName>
+    <Layer visibilityChecked="0" expanded="0" queryable="1" visible="0" displayField="maptip" geometryType="MultiLineString" opacity="1">
+     <Name>os_mastermap_topography_text</Name>
+     <Title>os_mastermap_topography_text</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.203018</westBoundLongitude>
+      <eastBoundLongitude>-3.190792</eastBoundLongitude>
+      <southBoundLatitude>55.953387</southBoundLatitude>
+      <northBoundLatitude>55.955865</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="324983.012" maxx="325741.988" miny="674026.734" maxy="674289.402" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7549141.979" maxy="7549634.607" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=os_mastermap_topography_text&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>2500</MaxScaleDenominator>
+     <TreeName>os_mastermap_topography_text</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>gid</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="gid" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="toid" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="featcode" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="version" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="verdate" comment="" editType="TextEdit" length="24" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="theme" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="change" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="descgroup" comment="" editType="TextEdit" length="150" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="descterm" comment="" editType="TextEdit" length="150" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="make" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="physlevel" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="physpres" comment="" editType="TextEdit" length="15" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="text_" comment="" editType="TextEdit" length="250" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="textfont" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="textpos" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="textheight" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="textangle" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="loaddate" comment="" editType="TextEdit" length="24" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="objectid" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="shape_leng" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="DescGroup" geometryType="LineString" opacity="1">
+     <Name>MappingUpdates</Name>
+     <Title>MappingUpdates</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.194784</westBoundLongitude>
+      <eastBoundLongitude>-3.194681</eastBoundLongitude>
+      <southBoundLatitude>55.955386</southBoundLatitude>
+      <northBoundLatitude>55.955479</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325496.593" maxx="325502.813" miny="674240.375" maxy="674250.563" CRS="EPSG:27700"/>
+     <BoundingBox minx="-355641.645" maxx="-355630.246" miny="7549539.473" maxy="7549557.863" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=MappingUpdates&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>MappingUpdates</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>GeometryID</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="QString" precision="0" name="RestrictionID" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="GeometryID" comment="" editType="TextEdit" length="12" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="DescGroup" comment="" editType="TextEdit" length="-1" typeName="varchar"/>
+      <Attribute type="QDate" precision="0" name="OpenDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDate" precision="0" name="CloseDate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QDateTime" precision="0" name="LastUpdateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="LastUpdatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QDateTime" precision="0" name="CreateDateTime" comment="" editType="DateTime" length="-1" typeName="timestamp"/>
+      <Attribute type="QString" precision="0" name="CreatePerson" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="ProposalID" comment="" editType="Range" length="-1" typeName="int4"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="StreetName" geometryType="LineString" opacity="1">
+     <Name>RoadCasement</Name>
+     <Title>RoadCasement</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.199711</westBoundLongitude>
+      <eastBoundLongitude>-3.191838</eastBoundLongitude>
+      <southBoundLatitude>55.951445</southBoundLatitude>
+      <northBoundLatitude>55.956043</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325189.906" maxx="325672.875" miny="673807" maxy="674310.375" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356190.134" maxx="-355313.809" miny="7548755.95" maxy="7549669.943" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RoadCasement&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>RoadCasement</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="id" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="RoadName" comment="" editType="" length="100" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="ESUID" comment="" editType="TextEdit" length="-1" typeName="float8"/>
+      <Attribute type="int" precision="0" name="USRN" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="Locality" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Town" comment="" editType="TextEdit" length="255" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="Az" comment="" editType="" length="-1" typeName="float8"/>
+      <Attribute type="QString" precision="0" name="StartStreet" comment="" editType="" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="EndStreet" comment="" editType="" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="SideOfStreet" comment="" editType="" length="100" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="maptip" geometryType="MultiLineString" opacity="1">
+     <Name>StreetGazetteerRecords</Name>
+     <Title>StreetGazetteerRecords</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.199646</westBoundLongitude>
+      <eastBoundLongitude>-3.191903</eastBoundLongitude>
+      <southBoundLatitude>55.951482</southBoundLatitude>
+      <northBoundLatitude>55.956006</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325193.906" maxx="325668.875" miny="673811" maxy="674306.375" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356182.88" maxx="-355321.061" miny="7548763.218" maxy="7549662.675" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=StreetGazetteerRecords&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>StreetGazetteerRecords</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="id" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="double" precision="0" name="ESUID" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="USRN" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="Custodian" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="RoadName" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Locality" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Town" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="Language" comment="" editType="TextEdit" length="254" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="StreetLength" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="maptip" geometryType="MultiLineString" opacity="1">
+     <Name>RoadCentreLine</Name>
+     <Title>RoadCentreLine</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.199646</westBoundLongitude>
+      <eastBoundLongitude>-3.191903</eastBoundLongitude>
+      <southBoundLatitude>55.951482</southBoundLatitude>
+      <northBoundLatitude>55.956006</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325193.906" maxx="325668.875" miny="673811" maxy="674306.375" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356182.88" maxx="-355321.061" miny="7548763.218" maxy="7549662.675" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=RoadCentreLine&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>RoadCentreLine</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>gid</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="gid" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="toid" comment="" editType="TextEdit" length="16" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="version" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QDate" precision="0" name="verdate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="QString" precision="0" name="theme" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="descgroup" comment="" editType="TextEdit" length="150" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="descterm" comment="" editType="TextEdit" length="150" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="change" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="topoarea" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="nature" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="lnklength" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="node1" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="node1grade" comment="" editType="TextEdit" length="1" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="node1gra_1" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="node2" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="node2grade" comment="" editType="TextEdit" length="1" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="node2gra_1" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QDate" precision="0" name="loaddate" comment="" editType="DateTime" length="-1" typeName="date"/>
+      <Attribute type="double" precision="0" name="objectid" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="shape_leng" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" displayField="name" geometryType="MultiPolygon" opacity="1">
+     <Name>SiteArea</Name>
+     <Title>SiteArea</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.20001</westBoundLongitude>
+      <eastBoundLongitude>-3.185294</eastBoundLongitude>
+      <southBoundLatitude>55.951118</southBoundLatitude>
+      <northBoundLatitude>55.957179</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="325173.312" maxx="326081" miny="673770.75" maxy="674429.875" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356223.409" maxx="-354585.333" miny="7548690.695" maxy="7549895.933" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=SiteArea&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>SiteArea</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="id" comment="" editType="" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="name" comment="" editType="TextEdit" length="32" typeName="varchar"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="0" expanded="0" queryable="1" visible="0" displayField="maptip" geometryType="MultiPolygon" opacity="1">
+     <Name>os_mastermap_topography_polygons</Name>
+     <Title>os_mastermap_topography_polygons</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-3.203018</westBoundLongitude>
+      <eastBoundLongitude>-3.190792</eastBoundLongitude>
+      <southBoundLatitude>55.953387</southBoundLatitude>
+      <northBoundLatitude>55.955865</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="324983.012" maxx="325741.988" miny="674026.734" maxy="674289.402" CRS="EPSG:27700"/>
+     <BoundingBox minx="-356558.253" maxx="-355197.381" miny="7549141.979" maxy="7549634.607" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=os_mastermap_topography_polygons&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>0</MinScaleDenominator>
+     <MaxScaleDenominator>5000</MaxScaleDenominator>
+     <TreeName>os_mastermap_topography_polygons</TreeName>
+     <PrimaryKey>
+      <PrimaryKeyAttribute>gid</PrimaryKeyAttribute>
+     </PrimaryKey>
+     <Attributes>
+      <Attribute type="int" precision="0" name="gid" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="toid" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="version" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="verdate" comment="" editType="TextEdit" length="24" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="featcode" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="theme" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="calcarea" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="change" comment="" editType="TextEdit" length="80" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="descgroup" comment="" editType="TextEdit" length="150" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="descterm" comment="" editType="TextEdit" length="150" typeName="varchar"/>
+      <Attribute type="QString" precision="0" name="make" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="physlevel" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="QString" precision="0" name="physpres" comment="" editType="TextEdit" length="20" typeName="varchar"/>
+      <Attribute type="int" precision="0" name="broken" comment="" editType="TextEdit" length="-1" typeName="int4"/>
+      <Attribute type="QString" precision="0" name="loaddate" comment="" editType="TextEdit" length="24" typeName="varchar"/>
+      <Attribute type="double" precision="0" name="objectid" comment="" editType="TextEdit" length="10" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="shape_leng" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+      <Attribute type="double" precision="0" name="shape_area" comment="" editType="TextEdit" length="-1" typeName="numeric"/>
+     </Attributes>
+    </Layer>
+    <Layer visibilityChecked="1" expanded="1" queryable="1" visible="1" opacity="1">
+     <Name>OpenStreetMap</Name>
+     <Title>OpenStreetMap</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-180</westBoundLongitude>
+      <eastBoundLongitude>180</eastBoundLongitude>
+      <southBoundLatitude>-85.051129</southBoundLatitude>
+      <northBoundLatitude>85.051129</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="-15897228.561" maxx="14778923.375" miny="-24880278.016" maxy="13826150.387" CRS="EPSG:27700"/>
+     <BoundingBox minx="-20037508.343" maxx="20037508.343" miny="-20037508.343" maxy="20037508.343" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=OpenStreetMap&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <TreeName>OpenStreetMap</TreeName>
+     <WMSBackgroundLayer>0</WMSBackgroundLayer>
+    </Layer>
+    <Layer visibilityChecked="0" expanded="1" queryable="1" visible="0" opacity="1">
+     <Name>Google Roads</Name>
+     <Title>Google Roads</Title>
+     <CRS>CRS:84</CRS>
+     <CRS>EPSG:3857</CRS>
+     <CRS>EPSG:27700</CRS>
+     <EX_GeographicBoundingBox>
+      <westBoundLongitude>-180</westBoundLongitude>
+      <eastBoundLongitude>180</eastBoundLongitude>
+      <southBoundLatitude>-85.051129</southBoundLatitude>
+      <northBoundLatitude>85.051129</northBoundLatitude>
+     </EX_GeographicBoundingBox>
+     <BoundingBox minx="-15897228.561" maxx="14778923.375" miny="-24880278.016" maxy="13826150.387" CRS="EPSG:27700"/>
+     <BoundingBox minx="-20037508.343" maxx="20037508.343" miny="-20037508.343" maxy="20037508.343" CRS="EPSG:3857"/>
+     <Style>
+      <Name>default</Name>
+      <Title>default</Title>
+      <LegendURL>
+       <Format>image/png</Format>
+       <OnlineResource xlink:href="http://qwc-qgis-server/ows/mhtc/scan/TOMs_Test_v3?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=Google Roads&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      </LegendURL>
+     </Style>
+     <MinScaleDenominator>5001</MinScaleDenominator>
+     <MaxScaleDenominator>10000000</MaxScaleDenominator>
+     <TreeName>Google Roads</TreeName>
+     <WMSBackgroundLayer>0</WMSBackgroundLayer>
+    </Layer>
+   </Layer>
+  </Layer>
+  <LayerDrawingOrder>Google Roads,OpenStreetMap,os_mastermap_topography_polygons,SiteArea,RoadCentreLine,StreetGazetteerRecords,RoadCasement,MappingUpdates,os_mastermap_topography_text,MapGrid,MatchDayEventDayZones.label_pos,ParkingTariffAreas.label_pos,CPZs.label_pos,RestrictionPolygons.label_pos,Lines.label_loading_pos,Lines.label_pos,Bays.label_pos,MatchDayEventDayZones.label_ldr,ParkingTariffAreas.label_ldr,CPZs.label_ldr,RestrictionPolygons.label_ldr,Lines.label_loading_ldr,Lines.label_ldr,Bays.label_ldr,CPZ_Test,ParkingTariffAreas,MatchDayEventDayZones,CPZs,Signs,RestrictionPolygons,Lines,Bays</LayerDrawingOrder>
+ </Capability>
+</WMS_Capabilities>

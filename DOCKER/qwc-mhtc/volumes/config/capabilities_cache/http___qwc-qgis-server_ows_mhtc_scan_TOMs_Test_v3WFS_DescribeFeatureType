@@ -1,0 +1,221 @@
+<schema elementFormDefault="qualified" xmlns:gml="http://www.opengis.net/gml" xmlns:qgs="http://www.qgis.org/gml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.qgis.org/gml" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ogc="http://www.opengis.net/ogc" version="1.0">
+ <import schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd" namespace="http://www.opengis.net/gml"/>
+ <element type="qgs:BaysType" substitutionGroup="gml:_Feature" name="Bays"/>
+ <complexType name="BaysType">
+  <complexContent>
+   <extension base="gml:AbstractFeatureType">
+    <sequence>
+     <element type="gml:LineStringPropertyType" maxOccurs="1" name="geometry" minOccurs="0"/>
+     <element type="string" name="RestrictionID"/>
+     <element type="string" name="GeometryID"/>
+     <element type="decimal" name="RestrictionLength"/>
+     <element type="int" name="RestrictionTypeID"/>
+     <element type="int" name="GeomShapeID"/>
+     <element type="decimal" name="AzimuthToRoadCentreLine" nillable="true"/>
+     <element type="string" name="Notes" nillable="true"/>
+     <element type="string" name="Photos_01" nillable="true"/>
+     <element type="string" name="Photos_02" nillable="true"/>
+     <element type="string" name="Photos_03" nillable="true"/>
+     <element type="string" name="RoadName" nillable="true"/>
+     <element type="string" name="USRN" nillable="true"/>
+     <element type="decimal" name="label_Rotation" nillable="true"/>
+     <element type="string" name="label_TextChanged" nillable="true"/>
+     <element type="date" name="OpenDate" nillable="true"/>
+     <element type="date" name="CloseDate" nillable="true"/>
+     <element type="string" name="CPZ" nillable="true"/>
+     <element type="dateTime" name="LastUpdateDateTime"/>
+     <element type="string" name="LastUpdatePerson"/>
+     <element type="decimal" name="BayOrientation" nillable="true"/>
+     <element type="int" name="NrBays"/>
+     <element type="int" name="HoursOfControl"/>
+     <element type="int" name="PayTypeID" nillable="true"/>
+     <element type="int" name="MaxStayID" nillable="true"/>
+     <element type="int" name="NoReturnID" nillable="true"/>
+     <element type="string" name="ParkingTariffArea" nillable="true"/>
+     <element type="int" name="AdditionalConditionID" nillable="true"/>
+     <element type="int" name="ComplianceRoadMarkingsFaded" nillable="true"/>
+     <element type="int" name="ComplianceRestrictionSignIssue" nillable="true"/>
+     <element type="string" name="ComplianceNotes" nillable="true"/>
+     <element type="int" name="MHTC_CheckIssueTypeID" nillable="true"/>
+     <element type="string" name="MHTC_CheckNotes" nillable="true"/>
+     <element type="string" name="PermitCode" nillable="true"/>
+     <element type="int" name="MatchDayTimePeriodID" nillable="true"/>
+     <element type="int" name="PayParkingAreaID" nillable="true"/>
+     <element type="dateTime" name="CreateDateTime"/>
+     <element type="string" name="CreatePerson"/>
+     <element type="int" name="Capacity" nillable="true"/>
+     <element type="string" name="label_pos" nillable="true"/>
+     <element type="string" name="label_ldr" nillable="true"/>
+     <element type="string" name="MatchDayEventDayZone" nillable="true"/>
+     <element type="decimal" name="BayWidth" nillable="true"/>
+     <element type="boolean" name="DisplayLabel"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+ <element type="qgs:CPZsType" substitutionGroup="gml:_Feature" name="CPZs"/>
+ <complexType name="CPZsType">
+  <complexContent>
+   <extension base="gml:AbstractFeatureType">
+    <sequence>
+     <element type="gml:PolygonPropertyType" maxOccurs="1" name="geometry" minOccurs="0"/>
+     <element type="string" name="RestrictionID"/>
+     <element type="string" name="GeometryID"/>
+     <element type="int" name="RestrictionTypeID"/>
+     <element type="string" name="Notes" nillable="true"/>
+     <element type="string" name="Photos_01" nillable="true"/>
+     <element type="string" name="Photos_02" nillable="true"/>
+     <element type="string" name="Photos_03" nillable="true"/>
+     <element type="decimal" name="label_X" nillable="true"/>
+     <element type="decimal" name="label_Y" nillable="true"/>
+     <element type="decimal" name="label_Rotation" nillable="true"/>
+     <element type="string" name="label_TextChanged" nillable="true"/>
+     <element type="date" name="OpenDate" nillable="true"/>
+     <element type="date" name="CloseDate" nillable="true"/>
+     <element type="string" name="CPZ"/>
+     <element type="dateTime" name="LastUpdateDateTime"/>
+     <element type="string" name="LastUpdatePerson"/>
+     <element type="string" name="LabelText" nillable="true"/>
+     <element type="int" name="TimePeriodID" nillable="true"/>
+     <element type="int" name="ComplianceRoadMarkingsFaded" nillable="true"/>
+     <element type="int" name="ComplianceRestrictionSignIssue" nillable="true"/>
+     <element type="string" name="ComplianceNotes" nillable="true"/>
+     <element type="int" name="MHTC_CheckIssueTypeID" nillable="true"/>
+     <element type="string" name="MHTC_CheckNotes" nillable="true"/>
+     <element type="dateTime" name="CreateDateTime"/>
+     <element type="string" name="CreatePerson"/>
+     <element type="string" name="label_pos" nillable="true"/>
+     <element type="string" name="label_ldr" nillable="true"/>
+     <element type="boolean" name="DisplayLabel"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+ <element type="qgs:LinesType" substitutionGroup="gml:_Feature" name="Lines"/>
+ <complexType name="LinesType">
+  <complexContent>
+   <extension base="gml:AbstractFeatureType">
+    <sequence>
+     <element type="gml:LineStringPropertyType" maxOccurs="1" name="geometry" minOccurs="0"/>
+     <element type="string" name="RestrictionID"/>
+     <element type="string" name="GeometryID"/>
+     <element type="decimal" name="RestrictionLength"/>
+     <element type="int" name="RestrictionTypeID"/>
+     <element type="int" name="GeomShapeID"/>
+     <element type="decimal" name="AzimuthToRoadCentreLine" nillable="true"/>
+     <element type="string" name="Notes" nillable="true"/>
+     <element type="string" name="Photos_01" nillable="true"/>
+     <element type="string" name="Photos_02" nillable="true"/>
+     <element type="string" name="Photos_03" nillable="true"/>
+     <element type="string" name="RoadName" nillable="true"/>
+     <element type="string" name="USRN" nillable="true"/>
+     <element type="decimal" name="label_Rotation" nillable="true"/>
+     <element type="string" name="label_TextChanged" nillable="true"/>
+     <element type="date" name="OpenDate" nillable="true"/>
+     <element type="date" name="CloseDate" nillable="true"/>
+     <element type="string" name="CPZ" nillable="true"/>
+     <element type="dateTime" name="LastUpdateDateTime"/>
+     <element type="string" name="LastUpdatePerson"/>
+     <element type="int" name="HoursOfControl" nillable="true"/>
+     <element type="int" name="NoLoadingTimeID" nillable="true"/>
+     <element type="int" name="UnacceptableTypeID" nillable="true"/>
+     <element type="int" name="AdditionalConditionID" nillable="true"/>
+     <element type="string" name="ParkingTariffArea" nillable="true"/>
+     <element type="decimal" name="labelLoading_Rotation" nillable="true"/>
+     <element type="int" name="ComplianceRoadMarkingsFaded" nillable="true"/>
+     <element type="int" name="ComplianceRestrictionSignIssue" nillable="true"/>
+     <element type="string" name="ComplianceNotes" nillable="true"/>
+     <element type="int" name="MHTC_CheckIssueTypeID" nillable="true"/>
+     <element type="string" name="MHTC_CheckNotes" nillable="true"/>
+     <element type="int" name="ComplianceLoadingMarkingsFaded" nillable="true"/>
+     <element type="int" name="MatchDayTimePeriodID" nillable="true"/>
+     <element type="dateTime" name="CreateDateTime"/>
+     <element type="string" name="CreatePerson"/>
+     <element type="int" name="Capacity" nillable="true"/>
+     <element type="string" name="label_pos" nillable="true"/>
+     <element type="string" name="label_ldr" nillable="true"/>
+     <element type="string" name="label_loading_pos" nillable="true"/>
+     <element type="string" name="label_loading_ldr" nillable="true"/>
+     <element type="string" name="MatchDayEventDayZone" nillable="true"/>
+     <element type="boolean" name="DisplayLabel"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+ <element type="qgs:MapGridType" substitutionGroup="gml:_Feature" name="MapGrid"/>
+ <complexType name="MapGridType">
+  <complexContent>
+   <extension base="gml:AbstractFeatureType">
+    <sequence>
+     <element type="gml:MultiSurfacePropertyType" maxOccurs="1" name="geometry" minOccurs="0"/>
+     <element type="long" name="id"/>
+     <element type="string" name="mapsheetname" nillable="true"/>
+     <element type="decimal" name="x_min" nillable="true"/>
+     <element type="decimal" name="x_max" nillable="true"/>
+     <element type="decimal" name="y_min" nillable="true"/>
+     <element type="decimal" name="y_max" nillable="true"/>
+     <element type="int" name="CurrRevisionNr" nillable="true"/>
+     <element type="date" name="LastRevisionDate" nillable="true"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+ <element type="qgs:RestrictionPolygonsType" substitutionGroup="gml:_Feature" name="RestrictionPolygons"/>
+ <complexType name="RestrictionPolygonsType">
+  <complexContent>
+   <extension base="gml:AbstractFeatureType">
+    <sequence>
+     <element type="gml:PolygonPropertyType" maxOccurs="1" name="geometry" minOccurs="0"/>
+     <element type="string" name="RestrictionID"/>
+     <element type="string" name="GeometryID"/>
+     <element type="int" name="RestrictionTypeID"/>
+     <element type="int" name="GeomShapeID"/>
+     <element type="string" name="Notes" nillable="true"/>
+     <element type="string" name="Photos_01" nillable="true"/>
+     <element type="string" name="Photos_02" nillable="true"/>
+     <element type="string" name="Photos_03" nillable="true"/>
+     <element type="string" name="RoadName" nillable="true"/>
+     <element type="string" name="USRN" nillable="true"/>
+     <element type="decimal" name="label_Rotation" nillable="true"/>
+     <element type="string" name="label_TextChanged" nillable="true"/>
+     <element type="date" name="OpenDate" nillable="true"/>
+     <element type="date" name="CloseDate" nillable="true"/>
+     <element type="dateTime" name="LastUpdateDateTime"/>
+     <element type="string" name="LastUpdatePerson"/>
+     <element type="int" name="Orientation" nillable="true"/>
+     <element type="string" name="LabelText" nillable="true"/>
+     <element type="int" name="NoWaitingTimeID" nillable="true"/>
+     <element type="int" name="NoLoadingTimeID" nillable="true"/>
+     <element type="int" name="HoursOfControl" nillable="true"/>
+     <element type="string" name="AreaPermitCode" nillable="true"/>
+     <element type="string" name="CPZ" nillable="true"/>
+     <element type="int" name="ComplianceRoadMarkingsFaded" nillable="true"/>
+     <element type="int" name="ComplianceRestrictionSignIssue" nillable="true"/>
+     <element type="string" name="ComplianceNotes" nillable="true"/>
+     <element type="int" name="MHTC_CheckIssueTypeID" nillable="true"/>
+     <element type="string" name="MHTC_CheckNotes" nillable="true"/>
+     <element type="int" name="MatchDayTimePeriodID" nillable="true"/>
+     <element type="dateTime" name="CreateDateTime"/>
+     <element type="string" name="CreatePerson"/>
+     <element type="int" name="AdditionalConditionID" nillable="true"/>
+     <element type="string" name="label_pos" nillable="true"/>
+     <element type="string" name="label_ldr" nillable="true"/>
+     <element type="string" name="MatchDayEventDayZone" nillable="true"/>
+     <element type="boolean" name="DisplayLabel"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+ <element type="qgs:SiteAreaType" substitutionGroup="gml:_Feature" name="SiteArea"/>
+ <complexType name="SiteAreaType">
+  <complexContent>
+   <extension base="gml:AbstractFeatureType">
+    <sequence>
+     <element type="gml:MultiSurfacePropertyType" maxOccurs="1" name="geometry" minOccurs="0"/>
+     <element type="int" name="id"/>
+     <element type="string" name="name" nillable="true"/>
+    </sequence>
+   </extension>
+  </complexContent>
+ </complexType>
+</schema>

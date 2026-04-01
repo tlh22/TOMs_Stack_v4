@@ -1,0 +1,51 @@
+services:
+  qgis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - QGIS_VERSION=${QGIS_VERSION:-3.44}
+        - BASE_IMAGE=${BASE_IMAGE:-debian:bookworm-slim}
+        - QGIS_REPO_TYPE=${QGIS_REPO_TYPE:-qgis-org}
+        - QGIS_SUITE=${QGIS_SUITE:-bookworm}
+        - QGIS_QT=${QGIS_QT:-5}
+        - USER_ID=${UID:-1000}
+        - GROUP_ID=${GID:-1000}
+    image: toms-qgis:${QGIS_VERSION:-3.44}
+    container_name: toms-qgis-${QGIS_VERSION:-3.44}
+    environment:
+      - DISPLAY=${DISPLAY:-:99}
+      - QT_X11_NO_MITSHM=1
+      - LIBGL_ALWAYS_INDIRECT=1
+      - LIBGL_ALWAYS_SOFTWARE=1
+      - QT_QUICK_BACKEND=software
+      - QT_XCB_GL_INTEGRATION=none
+      - QTWEBENGINE_DISABLE_SANDBOX=1
+      - PGSERVICEFILE=/home/qgisuser/.pg_service.conf
+      - QGIS_CUSTOM_CONFIG_PATH=/home/qgisuser/qgis_data
+      - TOMs_CONFIG_PATH=/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs/QGIS
+      - TOMs_FORM_PATH=/home/qgisuser/qgis_data/profiles/default/python/plugins/TOMs/ui
+      - QGIS_LOGFILE_PATH=/home/qgisuser/log_files
+      # QGIS_AUTH_DB_DIR_PATH is set by start.sh at runtime -- do NOT set here
+      # Setting it here causes Docker to pre-create the dir as root
+      - USE_VNC=${USE_VNC:-1}
+      - QGIS_PLUGINPATH=/home/qgisuser/plugins
+      # Pass actual UID/GID so start.sh uses the real user not bash built-in
+      - QGIS_RUN_UID=${UID:-1000}
+      - QGIS_RUN_GID=${GID:-1000}
+    ports:
+      - "6080:6080"
+      - "5900:5900"
+    volumes:
+      - ../../plugins/:/home/qgisuser/plugins
+      - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/python/plugins:/home/qgisuser/qgis_data/profiles/default/python/plugins
+      - ./qgis_config/profiles/${QGIS_PROFILE:-qgis_default}/profiles/default/QGIS:/home/qgisuser/qgis_data/profiles/default/QGIS
+      - ../../projects:/home/qgisuser/projects
+      - ../pg_service/.pg_service.conf:/home/qgisuser/.pg_service.conf:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    restart: "no"
+
+networks:
+  default:
+    name: toms_net
+    external: true

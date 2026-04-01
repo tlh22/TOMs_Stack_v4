@@ -1,0 +1,244 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-ogc-service/raw/master/schemas/qwc-ogc-service.json",
+  "service": "ogc",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "qgis_server_url_tenant_suffix": ""
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "trdc/scan/threerivers",
+        "title": "Three Rivers District Council Traffic Orders",
+        "hidden_in_landing_page": false,
+        "online_resources": {
+          "service": "/ows/trdc/scan/threerivers",
+          "feature_info": "/api/v1/featureinfo/trdc/scan/threerivers",
+          "legend": "/api/v1/legend/trdc/scan/threerivers"
+        },
+        "root_layer": {
+          "name": "ThreeRivers",
+          "title": "Three Rivers District Council Parking Restrictions",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "title": "Restrictions",
+              "layers": [
+                {
+                  "name": "CPZs",
+                  "title": "CPZs",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "geom": "geom",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "label_X": "label_X",
+                    "label_Y": "label_Y",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "CPZ": "CPZ",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "LabelText": "LabelText",
+                    "TimePeriodID": "TimePeriodID",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "Bays",
+                  "title": "Bays",
+                  "attributes": {
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "RoadName": "RoadName",
+                    "TimePeriodID": "TimePeriodID",
+                    "MaxStayID": "MaxStayID",
+                    "NoReturnID": "NoReturnID",
+                    "AdditionalConditionID": "AdditionalConditionID",
+                    "DisplayLabel": "DisplayLabel",
+                    "BayWidth": "BayWidth",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "Lines",
+                  "title": "Lines",
+                  "attributes": {
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "RoadName": "RoadName",
+                    "NoWaitingTimeID": "NoWaitingTimeID",
+                    "NoLoadingTimeID": "NoLoadingTimeID",
+                    "AdditionalConditionID": "AdditionalConditionID",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RestrictionPolygons",
+                  "title": "RestrictionPolygons",
+                  "attributes": {
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "NoWaitingTimeID": "NoWaitingTimeID",
+                    "NoLoadingTimeID": "NoLoadingTimeID",
+                    "TimePeriodID": "TimePeriodID",
+                    "AreaPermitCode": "AreaPermitCode",
+                    "AdditionalConditionID": "AdditionalConditionID",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            },
+            {
+              "name": "Map Schedule Grids",
+              "title": "Map Schedule Grids",
+              "layers": [
+                {
+                  "name": "MapGrid",
+                  "title": "MapGrid",
+                  "attributes": {
+                    "id": "id",
+                    "MapSheet_North": "MapSheet_North",
+                    "MapSheet_East": "MapSheet_East",
+                    "MapSheet_South": "MapSheet_South",
+                    "MapSheet_West": "MapSheet_West",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": false,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            },
+            {
+              "name": "Background Mapping",
+              "title": "Background Mapping",
+              "layers": [
+                {
+                  "name": "StreetGazetteerRecords",
+                  "title": "StreetGazetteerRecords",
+                  "attributes": {
+                    "gid": "gid",
+                    "ASSET_ID": "ASSET_ID",
+                    "FEATURE_ID": "FEATURE_ID",
+                    "SITE_CODE": "SITE_CODE",
+                    "SITE_NAME": "SITE_NAME",
+                    "LOCALITY": "LOCALITY",
+                    "TOWN": "TOWN",
+                    "LOCATION": "LOCATION",
+                    "ROADCLASS": "ROADCLASS",
+                    "HIERARCHY": "HIERARCHY",
+                    "CUSTOMER": "CUSTOMER",
+                    "AREA_NAME": "AREA_NAME",
+                    "DISTANCE": "DISTANCE",
+                    "ROAD_TYPE": "ROAD_TYPE",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": false,
+                  "edit_layers": []
+                },
+                {
+                  "name": "TRDC",
+                  "title": "Three Rivers District Council",
+                  "attributes": {
+                    "name": "name",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": false,
+                  "edit_layers": []
+                },
+                {
+                  "name": "OS_Roads",
+                  "title": "OS_Roads",
+                  "queryable": false,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            }
+          ],
+          "edit_layers": []
+        },
+        "print_templates": [
+          "A4_Sketch"
+        ],
+        "internal_print_layers": [
+          "osm_bg"
+        ]
+      }
+    ],
+    "wfs_services": [
+      {
+        "name": "trdc/scan/threerivers",
+        "title": "Three Rivers District Council Traffic Orders",
+        "hidden_in_landing_page": false,
+        "layers": [
+          {
+            "name": "RestrictionPolygons",
+            "attributes": {
+              "geometry": "geometry",
+              "RestrictionTypeID": "RestrictionTypeID",
+              "NoWaitingTimeID": "NoWaitingTimeID",
+              "NoLoadingTimeID": "NoLoadingTimeID",
+              "TimePeriodID": "TimePeriodID",
+              "AreaPermitCode": "AreaPermitCode",
+              "AdditionalConditionID": "AdditionalConditionID",
+              "DisplayLabel": "DisplayLabel"
+            }
+          },
+          {
+            "name": "StreetGazetteerRecords",
+            "attributes": {
+              "geometry": "geometry",
+              "gid": "gid",
+              "ASSET_ID": "ASSET_ID",
+              "FEATURE_ID": "FEATURE_ID",
+              "SITE_CODE": "SITE_CODE",
+              "SITE_NAME": "SITE_NAME",
+              "LOCALITY": "LOCALITY",
+              "TOWN": "TOWN",
+              "LOCATION": "LOCATION",
+              "ROADCLASS": "ROADCLASS",
+              "HIERARCHY": "HIERARCHY",
+              "CUSTOMER": "CUSTOMER",
+              "AREA_NAME": "AREA_NAME",
+              "DISTANCE": "DISTANCE",
+              "ROAD_TYPE": "ROAD_TYPE"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

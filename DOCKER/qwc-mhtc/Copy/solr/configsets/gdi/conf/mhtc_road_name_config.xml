@@ -1,0 +1,31 @@
+<dataConfig>
+    <dataSource
+        driver="org.postgresql.Driver"
+        url="jdbc:postgresql://toms_postgis/TOMs_Test" user="postgres" password="postgis" />
+    <document>
+        <entity name="mhtc_road_name" query="
+            WITH index_base AS (
+                SELECT
+                    'mhtc_road_name'::text AS subclass,
+                    id AS id_in_class,
+                    'id' AS id_name,
+                    'int:n' AS id_type,
+                    coalesce(&quot;RoadName&quot;, '') || ', ' || coalesce(&quot;Town&quot;, '') AS displaytext,
+                    coalesce(&quot;RoadName&quot;, '') || ' ' || coalesce(&quot;Locality&quot;, '') || ' ' || coalesce(&quot;Town&quot;, '') AS search_part_1,
+                    geom AS geom
+                FROM local_authority.&quot;StreetGazetteerRecords&quot;
+            )
+            SELECT
+                (array_to_json(array_append(ARRAY[subclass::text], id_in_class::text)))::text AS id,
+                displaytext AS display,
+                search_part_1 AS search_1_stem,
+                search_part_1 AS sort,
+                subclass AS facet,
+                'mhtc' AS tenant,
+                (array_to_json(array_append(ARRAY[id_name::text], id_type::text)))::text AS idfield_meta,
+                (st_asgeojson(st_envelope(geom), 0, 1)::json -> 'bbox')::text AS bbox,
+                st_srid(geom) as srid
+            FROM index_base">
+        </entity>
+    </document>
+</dataConfig>

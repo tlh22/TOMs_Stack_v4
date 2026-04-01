@@ -1,0 +1,163 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-legend-service/raw/master/schemas/qwc-legend-service.json",
+  "service": "legend",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "legend_images_path": "/legends/",
+    "qgis_server_url_tenant_suffix": ""
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "mhtc/scan/TOMs_Test_v3",
+        "root_layer": {
+          "name": "TOMs_Test",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "layers": [
+                {
+                  "name": "Bays"
+                },
+                {
+                  "name": "Lines"
+                },
+                {
+                  "name": "RestrictionPolygons"
+                },
+                {
+                  "name": "Signs"
+                }
+              ]
+            },
+            {
+              "name": "Zones",
+              "layers": [
+                {
+                  "name": "CPZs"
+                },
+                {
+                  "name": "MatchDayEventDayZones"
+                },
+                {
+                  "name": "ParkingTariffAreas"
+                }
+              ]
+            },
+            {
+              "name": "Lookup Tables",
+              "layers": [
+                {
+                  "name": "ActionOnProposalAcceptanceTypes"
+                },
+                {
+                  "name": "AdditionalConditionTypes"
+                },
+                {
+                  "name": "BayLineTypes"
+                },
+                {
+                  "name": "BayTypesInUse"
+                },
+                {
+                  "name": "BayTypesInUse_View"
+                },
+                {
+                  "name": "GeomShapeGroupType"
+                },
+                {
+                  "name": "LengthOfTime"
+                },
+                {
+                  "name": "LineTypesInUse"
+                },
+                {
+                  "name": "LineTypesInUse_View"
+                },
+                {
+                  "name": "PaymentTypes"
+                },
+                {
+                  "name": "ProposalStatusTypes"
+                },
+                {
+                  "name": "RestrictionGeomShapeTypes"
+                },
+                {
+                  "name": "RestrictionPolygonTypesInUse"
+                },
+                {
+                  "name": "RestrictionPolygonTypesInUse_View"
+                },
+                {
+                  "name": "RestrictionPolygonTypes"
+                },
+                {
+                  "name": "SignOrientationTypes"
+                },
+                {
+                  "name": "SignTypes"
+                },
+                {
+                  "name": "SignTypesInUse"
+                },
+                {
+                  "name": "SignTypesInUse_View"
+                },
+                {
+                  "name": "TimePeriods"
+                },
+                {
+                  "name": "TimePeriodsInUse"
+                },
+                {
+                  "name": "TimePeriodsInUse_View"
+                }
+              ]
+            },
+            {
+              "name": "Map Schedule Grids",
+              "layers": [
+                {
+                  "name": "MapGrid"
+                }
+              ]
+            },
+            {
+              "name": "Background Mapping",
+              "layers": [
+                {
+                  "name": "os_mastermap_topography_text"
+                },
+                {
+                  "name": "MappingUpdates"
+                },
+                {
+                  "name": "RoadCasement"
+                },
+                {
+                  "name": "StreetGazetteerRecords"
+                },
+                {
+                  "name": "RoadCentreLine"
+                },
+                {
+                  "name": "SiteArea"
+                },
+                {
+                  "name": "os_mastermap_topography_polygons"
+                },
+                {
+                  "name": "OpenStreetMap"
+                },
+                {
+                  "name": "Google Roads"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

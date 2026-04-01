@@ -1,0 +1,2179 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-feature-info-service/raw/master/schemas/qwc-feature-info-service.json",
+  "service": "feature-info",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "skip_empty_attributes": false,
+    "qgis_server_url_tenant_suffix": ""
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "mhtc/scan/TOMs_Test_v3",
+        "root_layer": {
+          "name": "TOMs_Test",
+          "title": "TOMs Test project",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "title": "Restrictions",
+              "layers": [
+                {
+                  "name": "Bays",
+                  "title": "Bays",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionLength",
+                      "alias": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID",
+                      "alias": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine",
+                      "alias": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "USRN",
+                      "alias": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ",
+                      "alias": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "BayOrientation",
+                      "alias": "BayOrientation"
+                    },
+                    {
+                      "name": "NrBays",
+                      "alias": "NrBays"
+                    },
+                    {
+                      "name": "HoursOfControl",
+                      "alias": "HoursOfControl"
+                    },
+                    {
+                      "name": "PayTypeID",
+                      "alias": "PayTypeID"
+                    },
+                    {
+                      "name": "MaxStayID",
+                      "alias": "MaxStayID"
+                    },
+                    {
+                      "name": "NoReturnID",
+                      "alias": "NoReturnID"
+                    },
+                    {
+                      "name": "ParkingTariffArea",
+                      "alias": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "AdditionalConditionID",
+                      "alias": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "PermitCode",
+                      "alias": "PermitCode"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID",
+                      "alias": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "PayParkingAreaID",
+                      "alias": "PayParkingAreaID"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity",
+                      "alias": "Capacity"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone",
+                      "alias": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "BayWidth",
+                      "alias": "BayWidth"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "Lines",
+                  "title": "Lines",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionLength",
+                      "alias": "RestrictionLength"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID",
+                      "alias": "GeomShapeID"
+                    },
+                    {
+                      "name": "AzimuthToRoadCentreLine",
+                      "alias": "AzimuthToRoadCentreLine"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "USRN",
+                      "alias": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ",
+                      "alias": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "HoursOfControl",
+                      "alias": "HoursOfControl"
+                    },
+                    {
+                      "name": "NoLoadingTimeID",
+                      "alias": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "UnacceptableTypeID",
+                      "alias": "UnacceptableTypeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID",
+                      "alias": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "ParkingTariffArea",
+                      "alias": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "labelLoading_Rotation",
+                      "alias": "labelLoading_Rotation"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "ComplianceLoadingMarkingsFaded",
+                      "alias": "ComplianceLoadingMarkingsFaded"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID",
+                      "alias": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "Capacity",
+                      "alias": "Capacity"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "label_loading_pos",
+                      "alias": "label_loading_pos"
+                    },
+                    {
+                      "name": "label_loading_ldr",
+                      "alias": "label_loading_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone",
+                      "alias": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "RestrictionPolygons",
+                  "title": "RestrictionPolygons",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "GeomShapeID",
+                      "alias": "GeomShapeID"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "USRN",
+                      "alias": "USRN"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "Orientation",
+                      "alias": "Orientation"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "NoWaitingTimeID",
+                      "alias": "NoWaitingTimeID"
+                    },
+                    {
+                      "name": "NoLoadingTimeID",
+                      "alias": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "HoursOfControl",
+                      "alias": "HoursOfControl"
+                    },
+                    {
+                      "name": "AreaPermitCode",
+                      "alias": "AreaPermitCode"
+                    },
+                    {
+                      "name": "CPZ",
+                      "alias": "CPZ"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "MatchDayTimePeriodID",
+                      "alias": "MatchDayTimePeriodID"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "AdditionalConditionID",
+                      "alias": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "MatchDayEventDayZone",
+                      "alias": "MatchDayEventDayZone"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "Signs",
+                  "title": "Signs",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "USRN",
+                      "alias": "USRN"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "SignType_1",
+                      "alias": "SignType_1"
+                    },
+                    {
+                      "name": "SignType_2",
+                      "alias": "SignType_2"
+                    },
+                    {
+                      "name": "SignType_3",
+                      "alias": "SignType_3"
+                    },
+                    {
+                      "name": "SignType_4",
+                      "alias": "SignType_4"
+                    },
+                    {
+                      "name": "Photos_04",
+                      "alias": "Photos_04"
+                    },
+                    {
+                      "name": "SignOrientationTypeID",
+                      "alias": "SignOrientationTypeID"
+                    },
+                    {
+                      "name": "Signs_Mount",
+                      "alias": "Signs_Mount"
+                    },
+                    {
+                      "name": "SignsAttachmentTypeID",
+                      "alias": "SignsAttachmentTypeID"
+                    },
+                    {
+                      "name": "Compl_Signs_Faded",
+                      "alias": "Compl_Signs_Faded"
+                    },
+                    {
+                      "name": "Compl_Signs_Obscured",
+                      "alias": "Compl_Signs_Obscured"
+                    },
+                    {
+                      "name": "Compl_Sign_Direction",
+                      "alias": "Compl_Sign_Direction"
+                    },
+                    {
+                      "name": "Compl_Signs_Obsolete",
+                      "alias": "Compl_Signs_Obsolete"
+                    },
+                    {
+                      "name": "Compl_Signs_OtherOptions",
+                      "alias": "Compl_Signs_OtherOptions"
+                    },
+                    {
+                      "name": "Compl_Signs_TicketMachines",
+                      "alias": "Compl_Signs_TicketMachines"
+                    },
+                    {
+                      "name": "TicketMachine_Nr",
+                      "alias": "TicketMachine_Nr"
+                    },
+                    {
+                      "name": "RingoPresent",
+                      "alias": "RingoPresent"
+                    },
+                    {
+                      "name": "SignIlluminationTypeID",
+                      "alias": "SignIlluminationTypeID"
+                    },
+                    {
+                      "name": "SignConditionTypeID",
+                      "alias": "SignConditionTypeID"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "SignAddress",
+                      "alias": "SignAddress"
+                    },
+                    {
+                      "name": "original_geom_wkt",
+                      "alias": "original_geom_wkt"
+                    },
+                    {
+                      "name": "AssetReference",
+                      "alias": "AssetReference"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "SideOfStreet",
+                      "alias": "SideOfStreet"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                }
+              ]
+            },
+            {
+              "name": "Zones",
+              "title": "Zones",
+              "layers": [
+                {
+                  "name": "CPZs",
+                  "title": "CPZs",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "label_X",
+                      "alias": "label_X"
+                    },
+                    {
+                      "name": "label_Y",
+                      "alias": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ",
+                      "alias": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID",
+                      "alias": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "MatchDayEventDayZones",
+                  "title": "MatchDayEventDayZones",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "label_X",
+                      "alias": "label_X"
+                    },
+                    {
+                      "name": "label_Y",
+                      "alias": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "EDZ",
+                      "alias": "EDZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID",
+                      "alias": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "ParkingTariffAreas",
+                  "title": "ParkingTariffAreas",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "label_X",
+                      "alias": "label_X"
+                    },
+                    {
+                      "name": "label_Y",
+                      "alias": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "ParkingTariffArea",
+                      "alias": "ParkingTariffArea"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID",
+                      "alias": "TimePeriodID"
+                    },
+                    {
+                      "name": "NoReturnID",
+                      "alias": "NoReturnID"
+                    },
+                    {
+                      "name": "MaxStayID",
+                      "alias": "MaxStayID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                }
+              ]
+            },
+            {
+              "name": "Lookup Tables",
+              "title": "Lookup Tables",
+              "layers": [
+                {
+                  "name": "ActionOnProposalAcceptanceTypes",
+                  "title": "ActionOnProposalAcceptanceTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "AdditionalConditionTypes",
+                  "title": "AdditionalConditionTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "BayLineTypes",
+                  "title": "BayLineTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "BayTypesInUse",
+                  "title": "BayTypesInUse",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "GeomShapeGroupType",
+                      "alias": "GeomShapeGroupType"
+                    },
+                    {
+                      "name": "StyleDetails",
+                      "alias": "StyleDetails"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Code"
+                },
+                {
+                  "name": "BayTypesInUse_View",
+                  "title": "BayTypesInUse_View",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "GeomShapeGroupType",
+                  "title": "GeomShapeGroupType",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Code"
+                },
+                {
+                  "name": "LengthOfTime",
+                  "title": "LengthOfTime",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "LineTypesInUse",
+                  "title": "LineTypesInUse",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "GeomShapeGroupType",
+                      "alias": "GeomShapeGroupType"
+                    },
+                    {
+                      "name": "StyleDetails",
+                      "alias": "StyleDetails"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Code"
+                },
+                {
+                  "name": "LineTypesInUse_View",
+                  "title": "LineTypesInUse_View",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "PaymentTypes",
+                  "title": "PaymentTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "ProposalStatusTypes",
+                  "title": "ProposalStatusTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "RestrictionGeomShapeTypes",
+                  "title": "RestrictionGeomShapeTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "RestrictionPolygonTypesInUse",
+                  "title": "RestrictionPolygonTypesInUse",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "GeomShapeGroupType",
+                      "alias": "GeomShapeGroupType"
+                    },
+                    {
+                      "name": "StyleDetails",
+                      "alias": "StyleDetails"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Code"
+                },
+                {
+                  "name": "RestrictionPolygonTypesInUse_View",
+                  "title": "RestrictionPolygonTypesInUse_View",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "RestrictionPolygonTypes",
+                  "title": "RestrictionPolygonTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "SignOrientationTypes",
+                  "title": "SignOrientationTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "SignTypes",
+                  "title": "SignTypes",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "Icon",
+                      "alias": "Icon"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "SignTypesInUse",
+                  "title": "SignTypesInUse",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Code"
+                },
+                {
+                  "name": "SignTypesInUse_View",
+                  "title": "SignTypesInUse_View",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "TimePeriods",
+                  "title": "TimePeriods",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                },
+                {
+                  "name": "TimePeriodsInUse",
+                  "title": "TimePeriodsInUse",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Code"
+                },
+                {
+                  "name": "TimePeriodsInUse_View",
+                  "title": "TimePeriodsInUse_View",
+                  "attributes": [
+                    {
+                      "name": "Code",
+                      "alias": "Code"
+                    },
+                    {
+                      "name": "Description",
+                      "alias": "Description"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "Description"
+                }
+              ]
+            },
+            {
+              "name": "Map Schedule Grids",
+              "title": "Map Schedule Grids",
+              "layers": [
+                {
+                  "name": "MapGrid",
+                  "title": "MapGrid",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "alias": "id"
+                    },
+                    {
+                      "name": "mapsheetname",
+                      "alias": "mapsheetname"
+                    },
+                    {
+                      "name": "x_min",
+                      "alias": "x_min"
+                    },
+                    {
+                      "name": "x_max",
+                      "alias": "x_max"
+                    },
+                    {
+                      "name": "y_min",
+                      "alias": "y_min"
+                    },
+                    {
+                      "name": "y_max",
+                      "alias": "y_max"
+                    },
+                    {
+                      "name": "CurrRevisionNr",
+                      "alias": "CurrRevisionNr"
+                    },
+                    {
+                      "name": "LastRevisionDate",
+                      "alias": "LastRevisionDate"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                }
+              ]
+            },
+            {
+              "name": "Background Mapping",
+              "title": "Background Mapping",
+              "layers": [
+                {
+                  "name": "os_mastermap_topography_text",
+                  "title": "os_mastermap_topography_text",
+                  "attributes": [
+                    {
+                      "name": "gid",
+                      "alias": "gid"
+                    },
+                    {
+                      "name": "toid",
+                      "alias": "toid"
+                    },
+                    {
+                      "name": "featcode",
+                      "alias": "featcode"
+                    },
+                    {
+                      "name": "version",
+                      "alias": "version"
+                    },
+                    {
+                      "name": "verdate",
+                      "alias": "verdate"
+                    },
+                    {
+                      "name": "theme",
+                      "alias": "theme"
+                    },
+                    {
+                      "name": "change",
+                      "alias": "change"
+                    },
+                    {
+                      "name": "descgroup",
+                      "alias": "descgroup"
+                    },
+                    {
+                      "name": "descterm",
+                      "alias": "descterm"
+                    },
+                    {
+                      "name": "make",
+                      "alias": "make"
+                    },
+                    {
+                      "name": "physlevel",
+                      "alias": "physlevel"
+                    },
+                    {
+                      "name": "physpres",
+                      "alias": "physpres"
+                    },
+                    {
+                      "name": "text_",
+                      "alias": "text_"
+                    },
+                    {
+                      "name": "textfont",
+                      "alias": "textfont"
+                    },
+                    {
+                      "name": "textpos",
+                      "alias": "textpos"
+                    },
+                    {
+                      "name": "textheight",
+                      "alias": "textheight"
+                    },
+                    {
+                      "name": "textangle",
+                      "alias": "textangle"
+                    },
+                    {
+                      "name": "loaddate",
+                      "alias": "loaddate"
+                    },
+                    {
+                      "name": "objectid",
+                      "alias": "objectid"
+                    },
+                    {
+                      "name": "shape_leng",
+                      "alias": "shape_leng"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "MappingUpdates",
+                  "title": "MappingUpdates",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "DescGroup",
+                      "alias": "DescGroup"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "ProposalID",
+                      "alias": "ProposalID"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "DescGroup"
+                },
+                {
+                  "name": "RoadCasement",
+                  "title": "RoadCasement",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "alias": "id"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "ESUID",
+                      "alias": "ESUID"
+                    },
+                    {
+                      "name": "USRN",
+                      "alias": "USRN"
+                    },
+                    {
+                      "name": "Locality",
+                      "alias": "Locality"
+                    },
+                    {
+                      "name": "Town",
+                      "alias": "Town"
+                    },
+                    {
+                      "name": "Az",
+                      "alias": "Az"
+                    },
+                    {
+                      "name": "StartStreet",
+                      "alias": "StartStreet"
+                    },
+                    {
+                      "name": "EndStreet",
+                      "alias": "EndStreet"
+                    },
+                    {
+                      "name": "SideOfStreet",
+                      "alias": "SideOfStreet"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "StreetName"
+                },
+                {
+                  "name": "StreetGazetteerRecords",
+                  "title": "StreetGazetteerRecords",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "alias": "id"
+                    },
+                    {
+                      "name": "ESUID",
+                      "alias": "ESUID"
+                    },
+                    {
+                      "name": "USRN",
+                      "alias": "USRN"
+                    },
+                    {
+                      "name": "Custodian",
+                      "alias": "Custodian"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "Locality",
+                      "alias": "Locality"
+                    },
+                    {
+                      "name": "Town",
+                      "alias": "Town"
+                    },
+                    {
+                      "name": "Language",
+                      "alias": "Language"
+                    },
+                    {
+                      "name": "StreetLength",
+                      "alias": "StreetLength"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "RoadCentreLine",
+                  "title": "RoadCentreLine",
+                  "attributes": [
+                    {
+                      "name": "gid",
+                      "alias": "gid"
+                    },
+                    {
+                      "name": "toid",
+                      "alias": "toid"
+                    },
+                    {
+                      "name": "version",
+                      "alias": "version"
+                    },
+                    {
+                      "name": "verdate",
+                      "alias": "verdate"
+                    },
+                    {
+                      "name": "theme",
+                      "alias": "theme"
+                    },
+                    {
+                      "name": "descgroup",
+                      "alias": "descgroup"
+                    },
+                    {
+                      "name": "descterm",
+                      "alias": "descterm"
+                    },
+                    {
+                      "name": "change",
+                      "alias": "change"
+                    },
+                    {
+                      "name": "topoarea",
+                      "alias": "topoarea"
+                    },
+                    {
+                      "name": "nature",
+                      "alias": "nature"
+                    },
+                    {
+                      "name": "lnklength",
+                      "alias": "lnklength"
+                    },
+                    {
+                      "name": "node1",
+                      "alias": "node1"
+                    },
+                    {
+                      "name": "node1grade",
+                      "alias": "node1grade"
+                    },
+                    {
+                      "name": "node1gra_1",
+                      "alias": "node1gra_1"
+                    },
+                    {
+                      "name": "node2",
+                      "alias": "node2"
+                    },
+                    {
+                      "name": "node2grade",
+                      "alias": "node2grade"
+                    },
+                    {
+                      "name": "node2gra_1",
+                      "alias": "node2gra_1"
+                    },
+                    {
+                      "name": "loaddate",
+                      "alias": "loaddate"
+                    },
+                    {
+                      "name": "objectid",
+                      "alias": "objectid"
+                    },
+                    {
+                      "name": "shape_leng",
+                      "alias": "shape_leng"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "SiteArea",
+                  "title": "SiteArea",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "alias": "id"
+                    },
+                    {
+                      "name": "name",
+                      "alias": "name"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "name"
+                },
+                {
+                  "name": "os_mastermap_topography_polygons",
+                  "title": "os_mastermap_topography_polygons",
+                  "attributes": [
+                    {
+                      "name": "gid",
+                      "alias": "gid"
+                    },
+                    {
+                      "name": "toid",
+                      "alias": "toid"
+                    },
+                    {
+                      "name": "version",
+                      "alias": "version"
+                    },
+                    {
+                      "name": "verdate",
+                      "alias": "verdate"
+                    },
+                    {
+                      "name": "featcode",
+                      "alias": "featcode"
+                    },
+                    {
+                      "name": "theme",
+                      "alias": "theme"
+                    },
+                    {
+                      "name": "calcarea",
+                      "alias": "calcarea"
+                    },
+                    {
+                      "name": "change",
+                      "alias": "change"
+                    },
+                    {
+                      "name": "descgroup",
+                      "alias": "descgroup"
+                    },
+                    {
+                      "name": "descterm",
+                      "alias": "descterm"
+                    },
+                    {
+                      "name": "make",
+                      "alias": "make"
+                    },
+                    {
+                      "name": "physlevel",
+                      "alias": "physlevel"
+                    },
+                    {
+                      "name": "physpres",
+                      "alias": "physpres"
+                    },
+                    {
+                      "name": "broken",
+                      "alias": "broken"
+                    },
+                    {
+                      "name": "loaddate",
+                      "alias": "loaddate"
+                    },
+                    {
+                      "name": "objectid",
+                      "alias": "objectid"
+                    },
+                    {
+                      "name": "shape_leng",
+                      "alias": "shape_leng"
+                    },
+                    {
+                      "name": "shape_area",
+                      "alias": "shape_area"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip"
+                },
+                {
+                  "name": "OpenStreetMap",
+                  "title": "OpenStreetMap"
+                },
+                {
+                  "name": "Google Roads",
+                  "title": "Google Roads"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

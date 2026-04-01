@@ -1,0 +1,1048 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-ogc-service/raw/master/schemas/qwc-ogc-service.json",
+  "service": "ogc",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "qgis_server_url_tenant_suffix": ""
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "mhtc/scan/TOMs_Test_v3",
+        "title": "MHTC TOMs Test",
+        "hidden_in_landing_page": false,
+        "online_resources": {
+          "service": "/ows/mhtc/scan/TOMs_Test_v3",
+          "feature_info": "/api/v1/featureinfo/mhtc/scan/TOMs_Test_v3",
+          "legend": "/api/v1/legend/mhtc/scan/TOMs_Test_v3"
+        },
+        "root_layer": {
+          "name": "TOMs_Test",
+          "title": "TOMs Test project",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "title": "Restrictions",
+              "layers": [
+                {
+                  "name": "Bays",
+                  "title": "Bays",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "RestrictionLength": "RestrictionLength",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "GeomShapeID": "GeomShapeID",
+                    "AzimuthToRoadCentreLine": "AzimuthToRoadCentreLine",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "RoadName": "RoadName",
+                    "USRN": "USRN",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "CPZ": "CPZ",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "BayOrientation": "BayOrientation",
+                    "NrBays": "NrBays",
+                    "HoursOfControl": "HoursOfControl",
+                    "PayTypeID": "PayTypeID",
+                    "MaxStayID": "MaxStayID",
+                    "NoReturnID": "NoReturnID",
+                    "ParkingTariffArea": "ParkingTariffArea",
+                    "AdditionalConditionID": "AdditionalConditionID",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "PermitCode": "PermitCode",
+                    "MatchDayTimePeriodID": "MatchDayTimePeriodID",
+                    "PayParkingAreaID": "PayParkingAreaID",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "Capacity": "Capacity",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "MatchDayEventDayZone": "MatchDayEventDayZone",
+                    "BayWidth": "BayWidth",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "Lines",
+                  "title": "Lines",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "RestrictionLength": "RestrictionLength",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "GeomShapeID": "GeomShapeID",
+                    "AzimuthToRoadCentreLine": "AzimuthToRoadCentreLine",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "RoadName": "RoadName",
+                    "USRN": "USRN",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "CPZ": "CPZ",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "HoursOfControl": "HoursOfControl",
+                    "NoLoadingTimeID": "NoLoadingTimeID",
+                    "UnacceptableTypeID": "UnacceptableTypeID",
+                    "AdditionalConditionID": "AdditionalConditionID",
+                    "ParkingTariffArea": "ParkingTariffArea",
+                    "labelLoading_Rotation": "labelLoading_Rotation",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "ComplianceLoadingMarkingsFaded": "ComplianceLoadingMarkingsFaded",
+                    "MatchDayTimePeriodID": "MatchDayTimePeriodID",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "Capacity": "Capacity",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "label_loading_pos": "label_loading_pos",
+                    "label_loading_ldr": "label_loading_ldr",
+                    "MatchDayEventDayZone": "MatchDayEventDayZone",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RestrictionPolygons",
+                  "title": "RestrictionPolygons",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "GeomShapeID": "GeomShapeID",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "RoadName": "RoadName",
+                    "USRN": "USRN",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "Orientation": "Orientation",
+                    "LabelText": "LabelText",
+                    "NoWaitingTimeID": "NoWaitingTimeID",
+                    "NoLoadingTimeID": "NoLoadingTimeID",
+                    "HoursOfControl": "HoursOfControl",
+                    "AreaPermitCode": "AreaPermitCode",
+                    "CPZ": "CPZ",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "MatchDayTimePeriodID": "MatchDayTimePeriodID",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "AdditionalConditionID": "AdditionalConditionID",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "MatchDayEventDayZone": "MatchDayEventDayZone",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "Signs",
+                  "title": "Signs",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "Notes": "Notes",
+                    "RoadName": "RoadName",
+                    "USRN": "USRN",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "SignType_1": "SignType_1",
+                    "SignType_2": "SignType_2",
+                    "SignType_3": "SignType_3",
+                    "SignType_4": "SignType_4",
+                    "Photos_04": "Photos_04",
+                    "SignOrientationTypeID": "SignOrientationTypeID",
+                    "Signs_Mount": "Signs_Mount",
+                    "SignsAttachmentTypeID": "SignsAttachmentTypeID",
+                    "Compl_Signs_Faded": "Compl_Signs_Faded",
+                    "Compl_Signs_Obscured": "Compl_Signs_Obscured",
+                    "Compl_Sign_Direction": "Compl_Sign_Direction",
+                    "Compl_Signs_Obsolete": "Compl_Signs_Obsolete",
+                    "Compl_Signs_OtherOptions": "Compl_Signs_OtherOptions",
+                    "Compl_Signs_TicketMachines": "Compl_Signs_TicketMachines",
+                    "TicketMachine_Nr": "TicketMachine_Nr",
+                    "RingoPresent": "RingoPresent",
+                    "SignIlluminationTypeID": "SignIlluminationTypeID",
+                    "SignConditionTypeID": "SignConditionTypeID",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "SignAddress": "SignAddress",
+                    "original_geom_wkt": "original_geom_wkt",
+                    "AssetReference": "AssetReference",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "SideOfStreet": "SideOfStreet",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            },
+            {
+              "name": "Zones",
+              "title": "Zones",
+              "layers": [
+                {
+                  "name": "CPZs",
+                  "title": "CPZs",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "label_X": "label_X",
+                    "label_Y": "label_Y",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "CPZ": "CPZ",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "LabelText": "LabelText",
+                    "TimePeriodID": "TimePeriodID",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "MatchDayEventDayZones",
+                  "title": "MatchDayEventDayZones",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "label_X": "label_X",
+                    "label_Y": "label_Y",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "EDZ": "EDZ",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "LabelText": "LabelText",
+                    "TimePeriodID": "TimePeriodID",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "ParkingTariffAreas",
+                  "title": "ParkingTariffAreas",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "RestrictionTypeID": "RestrictionTypeID",
+                    "Notes": "Notes",
+                    "Photos_01": "Photos_01",
+                    "Photos_02": "Photos_02",
+                    "Photos_03": "Photos_03",
+                    "label_X": "label_X",
+                    "label_Y": "label_Y",
+                    "label_Rotation": "label_Rotation",
+                    "label_TextChanged": "label_TextChanged",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "ParkingTariffArea": "ParkingTariffArea",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "LabelText": "LabelText",
+                    "TimePeriodID": "TimePeriodID",
+                    "NoReturnID": "NoReturnID",
+                    "MaxStayID": "MaxStayID",
+                    "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+                    "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+                    "ComplianceNotes": "ComplianceNotes",
+                    "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+                    "MHTC_CheckNotes": "MHTC_CheckNotes",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "label_pos": "label_pos",
+                    "label_ldr": "label_ldr",
+                    "DisplayLabel": "DisplayLabel",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            },
+            {
+              "name": "Lookup Tables",
+              "title": "Lookup Tables",
+              "layers": [
+                {
+                  "name": "ActionOnProposalAcceptanceTypes",
+                  "title": "ActionOnProposalAcceptanceTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "AdditionalConditionTypes",
+                  "title": "AdditionalConditionTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "BayLineTypes",
+                  "title": "BayLineTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "BayTypesInUse",
+                  "title": "BayTypesInUse",
+                  "attributes": {
+                    "Code": "Code",
+                    "GeomShapeGroupType": "GeomShapeGroupType",
+                    "StyleDetails": "StyleDetails",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "BayTypesInUse_View",
+                  "title": "BayTypesInUse_View",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "GeomShapeGroupType",
+                  "title": "GeomShapeGroupType",
+                  "attributes": {
+                    "Code": "Code",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "LengthOfTime",
+                  "title": "LengthOfTime",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "LabelText": "LabelText",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "LineTypesInUse",
+                  "title": "LineTypesInUse",
+                  "attributes": {
+                    "Code": "Code",
+                    "GeomShapeGroupType": "GeomShapeGroupType",
+                    "StyleDetails": "StyleDetails",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "LineTypesInUse_View",
+                  "title": "LineTypesInUse_View",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "PaymentTypes",
+                  "title": "PaymentTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "ProposalStatusTypes",
+                  "title": "ProposalStatusTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RestrictionGeomShapeTypes",
+                  "title": "RestrictionGeomShapeTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RestrictionPolygonTypesInUse",
+                  "title": "RestrictionPolygonTypesInUse",
+                  "attributes": {
+                    "Code": "Code",
+                    "GeomShapeGroupType": "GeomShapeGroupType",
+                    "StyleDetails": "StyleDetails",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RestrictionPolygonTypesInUse_View",
+                  "title": "RestrictionPolygonTypesInUse_View",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RestrictionPolygonTypes",
+                  "title": "RestrictionPolygonTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "SignOrientationTypes",
+                  "title": "SignOrientationTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "SignTypes",
+                  "title": "SignTypes",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "Icon": "Icon",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "SignTypesInUse",
+                  "title": "SignTypesInUse",
+                  "attributes": {
+                    "Code": "Code",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "SignTypesInUse_View",
+                  "title": "SignTypesInUse_View",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "TimePeriods",
+                  "title": "TimePeriods",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "LabelText": "LabelText",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "TimePeriodsInUse",
+                  "title": "TimePeriodsInUse",
+                  "attributes": {
+                    "Code": "Code",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "TimePeriodsInUse_View",
+                  "title": "TimePeriodsInUse_View",
+                  "attributes": {
+                    "Code": "Code",
+                    "Description": "Description",
+                    "LabelText": "LabelText",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            },
+            {
+              "name": "Map Schedule Grids",
+              "title": "Map Schedule Grids",
+              "layers": [
+                {
+                  "name": "MapGrid",
+                  "title": "MapGrid",
+                  "attributes": {
+                    "id": "id",
+                    "mapsheetname": "mapsheetname",
+                    "x_min": "x_min",
+                    "x_max": "x_max",
+                    "y_min": "y_min",
+                    "y_max": "y_max",
+                    "CurrRevisionNr": "CurrRevisionNr",
+                    "LastRevisionDate": "LastRevisionDate",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            },
+            {
+              "name": "Background Mapping",
+              "title": "Background Mapping",
+              "layers": [
+                {
+                  "name": "os_mastermap_topography_text",
+                  "title": "os_mastermap_topography_text",
+                  "attributes": {
+                    "gid": "gid",
+                    "toid": "toid",
+                    "featcode": "featcode",
+                    "version": "version",
+                    "verdate": "verdate",
+                    "theme": "theme",
+                    "change": "change",
+                    "descgroup": "descgroup",
+                    "descterm": "descterm",
+                    "make": "make",
+                    "physlevel": "physlevel",
+                    "physpres": "physpres",
+                    "text_": "text_",
+                    "textfont": "textfont",
+                    "textpos": "textpos",
+                    "textheight": "textheight",
+                    "textangle": "textangle",
+                    "loaddate": "loaddate",
+                    "objectid": "objectid",
+                    "shape_leng": "shape_leng",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "MappingUpdates",
+                  "title": "MappingUpdates",
+                  "attributes": {
+                    "RestrictionID": "RestrictionID",
+                    "GeometryID": "GeometryID",
+                    "DescGroup": "DescGroup",
+                    "OpenDate": "OpenDate",
+                    "CloseDate": "CloseDate",
+                    "LastUpdateDateTime": "LastUpdateDateTime",
+                    "LastUpdatePerson": "LastUpdatePerson",
+                    "CreateDateTime": "CreateDateTime",
+                    "CreatePerson": "CreatePerson",
+                    "ProposalID": "ProposalID",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RoadCasement",
+                  "title": "RoadCasement",
+                  "attributes": {
+                    "id": "id",
+                    "RoadName": "RoadName",
+                    "ESUID": "ESUID",
+                    "USRN": "USRN",
+                    "Locality": "Locality",
+                    "Town": "Town",
+                    "Az": "Az",
+                    "StartStreet": "StartStreet",
+                    "EndStreet": "EndStreet",
+                    "SideOfStreet": "SideOfStreet",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "StreetGazetteerRecords",
+                  "title": "StreetGazetteerRecords",
+                  "attributes": {
+                    "id": "id",
+                    "ESUID": "ESUID",
+                    "USRN": "USRN",
+                    "Custodian": "Custodian",
+                    "RoadName": "RoadName",
+                    "Locality": "Locality",
+                    "Town": "Town",
+                    "Language": "Language",
+                    "StreetLength": "StreetLength",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "RoadCentreLine",
+                  "title": "RoadCentreLine",
+                  "attributes": {
+                    "gid": "gid",
+                    "toid": "toid",
+                    "version": "version",
+                    "verdate": "verdate",
+                    "theme": "theme",
+                    "descgroup": "descgroup",
+                    "descterm": "descterm",
+                    "change": "change",
+                    "topoarea": "topoarea",
+                    "nature": "nature",
+                    "lnklength": "lnklength",
+                    "node1": "node1",
+                    "node1grade": "node1grade",
+                    "node1gra_1": "node1gra_1",
+                    "node2": "node2",
+                    "node2grade": "node2grade",
+                    "node2gra_1": "node2gra_1",
+                    "loaddate": "loaddate",
+                    "objectid": "objectid",
+                    "shape_leng": "shape_leng",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "SiteArea",
+                  "title": "SiteArea",
+                  "attributes": {
+                    "id": "id",
+                    "name": "name",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "os_mastermap_topography_polygons",
+                  "title": "os_mastermap_topography_polygons",
+                  "attributes": {
+                    "gid": "gid",
+                    "toid": "toid",
+                    "version": "version",
+                    "verdate": "verdate",
+                    "featcode": "featcode",
+                    "theme": "theme",
+                    "calcarea": "calcarea",
+                    "change": "change",
+                    "descgroup": "descgroup",
+                    "descterm": "descterm",
+                    "make": "make",
+                    "physlevel": "physlevel",
+                    "physpres": "physpres",
+                    "broken": "broken",
+                    "loaddate": "loaddate",
+                    "objectid": "objectid",
+                    "shape_leng": "shape_leng",
+                    "shape_area": "shape_area",
+                    "geometry": "geometry",
+                    "maptip": "maptip"
+                  },
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "OpenStreetMap",
+                  "title": "OpenStreetMap",
+                  "queryable": true,
+                  "edit_layers": []
+                },
+                {
+                  "name": "Google Roads",
+                  "title": "Google Roads",
+                  "queryable": true,
+                  "edit_layers": []
+                }
+              ],
+              "edit_layers": []
+            }
+          ],
+          "edit_layers": []
+        },
+        "print_templates": [
+          "Map Schedules",
+          "A4_Sketch",
+          "A3_Sketch"
+        ],
+        "internal_print_layers": [
+          "osm_bg"
+        ]
+      }
+    ],
+    "wfs_services": [
+      {
+        "name": "mhtc/scan/TOMs_Test_v3",
+        "title": "MHTC TOMs Test",
+        "hidden_in_landing_page": false,
+        "layers": [
+          {
+            "name": "Bays",
+            "attributes": {
+              "geometry": "geometry",
+              "RestrictionID": "RestrictionID",
+              "GeometryID": "GeometryID",
+              "RestrictionLength": "RestrictionLength",
+              "RestrictionTypeID": "RestrictionTypeID",
+              "GeomShapeID": "GeomShapeID",
+              "AzimuthToRoadCentreLine": "AzimuthToRoadCentreLine",
+              "Notes": "Notes",
+              "Photos_01": "Photos_01",
+              "Photos_02": "Photos_02",
+              "Photos_03": "Photos_03",
+              "RoadName": "RoadName",
+              "USRN": "USRN",
+              "label_Rotation": "label_Rotation",
+              "label_TextChanged": "label_TextChanged",
+              "OpenDate": "OpenDate",
+              "CloseDate": "CloseDate",
+              "CPZ": "CPZ",
+              "LastUpdateDateTime": "LastUpdateDateTime",
+              "LastUpdatePerson": "LastUpdatePerson",
+              "BayOrientation": "BayOrientation",
+              "NrBays": "NrBays",
+              "HoursOfControl": "HoursOfControl",
+              "PayTypeID": "PayTypeID",
+              "MaxStayID": "MaxStayID",
+              "NoReturnID": "NoReturnID",
+              "ParkingTariffArea": "ParkingTariffArea",
+              "AdditionalConditionID": "AdditionalConditionID",
+              "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+              "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+              "ComplianceNotes": "ComplianceNotes",
+              "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+              "MHTC_CheckNotes": "MHTC_CheckNotes",
+              "PermitCode": "PermitCode",
+              "MatchDayTimePeriodID": "MatchDayTimePeriodID",
+              "PayParkingAreaID": "PayParkingAreaID",
+              "CreateDateTime": "CreateDateTime",
+              "CreatePerson": "CreatePerson",
+              "Capacity": "Capacity",
+              "label_pos": "label_pos",
+              "label_ldr": "label_ldr",
+              "MatchDayEventDayZone": "MatchDayEventDayZone",
+              "BayWidth": "BayWidth",
+              "DisplayLabel": "DisplayLabel"
+            }
+          },
+          {
+            "name": "CPZs",
+            "attributes": {
+              "geometry": "geometry",
+              "RestrictionID": "RestrictionID",
+              "GeometryID": "GeometryID",
+              "RestrictionTypeID": "RestrictionTypeID",
+              "Notes": "Notes",
+              "Photos_01": "Photos_01",
+              "Photos_02": "Photos_02",
+              "Photos_03": "Photos_03",
+              "label_X": "label_X",
+              "label_Y": "label_Y",
+              "label_Rotation": "label_Rotation",
+              "label_TextChanged": "label_TextChanged",
+              "OpenDate": "OpenDate",
+              "CloseDate": "CloseDate",
+              "CPZ": "CPZ",
+              "LastUpdateDateTime": "LastUpdateDateTime",
+              "LastUpdatePerson": "LastUpdatePerson",
+              "LabelText": "LabelText",
+              "TimePeriodID": "TimePeriodID",
+              "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+              "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+              "ComplianceNotes": "ComplianceNotes",
+              "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+              "MHTC_CheckNotes": "MHTC_CheckNotes",
+              "CreateDateTime": "CreateDateTime",
+              "CreatePerson": "CreatePerson",
+              "label_pos": "label_pos",
+              "label_ldr": "label_ldr",
+              "DisplayLabel": "DisplayLabel"
+            }
+          },
+          {
+            "name": "Lines",
+            "attributes": {
+              "geometry": "geometry",
+              "RestrictionID": "RestrictionID",
+              "GeometryID": "GeometryID",
+              "RestrictionLength": "RestrictionLength",
+              "RestrictionTypeID": "RestrictionTypeID",
+              "GeomShapeID": "GeomShapeID",
+              "AzimuthToRoadCentreLine": "AzimuthToRoadCentreLine",
+              "Notes": "Notes",
+              "Photos_01": "Photos_01",
+              "Photos_02": "Photos_02",
+              "Photos_03": "Photos_03",
+              "RoadName": "RoadName",
+              "USRN": "USRN",
+              "label_Rotation": "label_Rotation",
+              "label_TextChanged": "label_TextChanged",
+              "OpenDate": "OpenDate",
+              "CloseDate": "CloseDate",
+              "CPZ": "CPZ",
+              "LastUpdateDateTime": "LastUpdateDateTime",
+              "LastUpdatePerson": "LastUpdatePerson",
+              "HoursOfControl": "HoursOfControl",
+              "NoLoadingTimeID": "NoLoadingTimeID",
+              "UnacceptableTypeID": "UnacceptableTypeID",
+              "AdditionalConditionID": "AdditionalConditionID",
+              "ParkingTariffArea": "ParkingTariffArea",
+              "labelLoading_Rotation": "labelLoading_Rotation",
+              "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+              "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+              "ComplianceNotes": "ComplianceNotes",
+              "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+              "MHTC_CheckNotes": "MHTC_CheckNotes",
+              "ComplianceLoadingMarkingsFaded": "ComplianceLoadingMarkingsFaded",
+              "MatchDayTimePeriodID": "MatchDayTimePeriodID",
+              "CreateDateTime": "CreateDateTime",
+              "CreatePerson": "CreatePerson",
+              "Capacity": "Capacity",
+              "label_pos": "label_pos",
+              "label_ldr": "label_ldr",
+              "label_loading_pos": "label_loading_pos",
+              "label_loading_ldr": "label_loading_ldr",
+              "MatchDayEventDayZone": "MatchDayEventDayZone",
+              "DisplayLabel": "DisplayLabel"
+            }
+          },
+          {
+            "name": "MapGrid",
+            "attributes": {
+              "geometry": "geometry",
+              "id": "id",
+              "mapsheetname": "mapsheetname",
+              "x_min": "x_min",
+              "x_max": "x_max",
+              "y_min": "y_min",
+              "y_max": "y_max",
+              "CurrRevisionNr": "CurrRevisionNr",
+              "LastRevisionDate": "LastRevisionDate"
+            }
+          },
+          {
+            "name": "RestrictionPolygons",
+            "attributes": {
+              "geometry": "geometry",
+              "RestrictionID": "RestrictionID",
+              "GeometryID": "GeometryID",
+              "RestrictionTypeID": "RestrictionTypeID",
+              "GeomShapeID": "GeomShapeID",
+              "Notes": "Notes",
+              "Photos_01": "Photos_01",
+              "Photos_02": "Photos_02",
+              "Photos_03": "Photos_03",
+              "RoadName": "RoadName",
+              "USRN": "USRN",
+              "label_Rotation": "label_Rotation",
+              "label_TextChanged": "label_TextChanged",
+              "OpenDate": "OpenDate",
+              "CloseDate": "CloseDate",
+              "LastUpdateDateTime": "LastUpdateDateTime",
+              "LastUpdatePerson": "LastUpdatePerson",
+              "Orientation": "Orientation",
+              "LabelText": "LabelText",
+              "NoWaitingTimeID": "NoWaitingTimeID",
+              "NoLoadingTimeID": "NoLoadingTimeID",
+              "HoursOfControl": "HoursOfControl",
+              "AreaPermitCode": "AreaPermitCode",
+              "CPZ": "CPZ",
+              "ComplianceRoadMarkingsFaded": "ComplianceRoadMarkingsFaded",
+              "ComplianceRestrictionSignIssue": "ComplianceRestrictionSignIssue",
+              "ComplianceNotes": "ComplianceNotes",
+              "MHTC_CheckIssueTypeID": "MHTC_CheckIssueTypeID",
+              "MHTC_CheckNotes": "MHTC_CheckNotes",
+              "MatchDayTimePeriodID": "MatchDayTimePeriodID",
+              "CreateDateTime": "CreateDateTime",
+              "CreatePerson": "CreatePerson",
+              "AdditionalConditionID": "AdditionalConditionID",
+              "label_pos": "label_pos",
+              "label_ldr": "label_ldr",
+              "MatchDayEventDayZone": "MatchDayEventDayZone",
+              "DisplayLabel": "DisplayLabel"
+            }
+          },
+          {
+            "name": "SiteArea",
+            "attributes": {
+              "geometry": "geometry",
+              "id": "id",
+              "name": "name"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

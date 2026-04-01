@@ -1,0 +1,312 @@
+{
+  "$schema": "https://github.com/qwc-services/qwc-feature-info-service/raw/master/schemas/qwc-feature-info-service.json",
+  "service": "feature-info",
+  "config": {
+    "default_qgis_server_url": "http://qwc-qgis-server/ows/",
+    "skip_empty_attributes": true,
+    "transform_image_urls": true,
+    "info_templates_path": "/info_templates/",
+    "qgis_server_url_tenant_suffix": ""
+  },
+  "resources": {
+    "wms_services": [
+      {
+        "name": "trdc/scan/threerivers",
+        "root_layer": {
+          "name": "ThreeRivers",
+          "title": "Three Rivers District Council Parking Restrictions",
+          "layers": [
+            {
+              "name": "Restrictions",
+              "title": "Restrictions",
+              "layers": [
+                {
+                  "name": "CPZs",
+                  "title": "CPZs",
+                  "attributes": [
+                    {
+                      "name": "RestrictionID",
+                      "alias": "RestrictionID"
+                    },
+                    {
+                      "name": "GeometryID",
+                      "alias": "GeometryID"
+                    },
+                    {
+                      "name": "geom",
+                      "alias": "geom"
+                    },
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "Notes",
+                      "alias": "Notes"
+                    },
+                    {
+                      "name": "Photos_01",
+                      "alias": "Photos_01"
+                    },
+                    {
+                      "name": "Photos_02",
+                      "alias": "Photos_02"
+                    },
+                    {
+                      "name": "Photos_03",
+                      "alias": "Photos_03"
+                    },
+                    {
+                      "name": "label_X",
+                      "alias": "label_X"
+                    },
+                    {
+                      "name": "label_Y",
+                      "alias": "label_Y"
+                    },
+                    {
+                      "name": "label_Rotation",
+                      "alias": "label_Rotation"
+                    },
+                    {
+                      "name": "label_TextChanged",
+                      "alias": "label_TextChanged"
+                    },
+                    {
+                      "name": "OpenDate",
+                      "alias": "OpenDate"
+                    },
+                    {
+                      "name": "CloseDate",
+                      "alias": "CloseDate"
+                    },
+                    {
+                      "name": "CPZ",
+                      "alias": "CPZ"
+                    },
+                    {
+                      "name": "LastUpdateDateTime",
+                      "alias": "LastUpdateDateTime"
+                    },
+                    {
+                      "name": "LastUpdatePerson",
+                      "alias": "LastUpdatePerson"
+                    },
+                    {
+                      "name": "LabelText",
+                      "alias": "LabelText"
+                    },
+                    {
+                      "name": "TimePeriodID",
+                      "alias": "TimePeriodID"
+                    },
+                    {
+                      "name": "ComplianceRoadMarkingsFaded",
+                      "alias": "ComplianceRoadMarkingsFaded"
+                    },
+                    {
+                      "name": "ComplianceRestrictionSignIssue",
+                      "alias": "ComplianceRestrictionSignIssue"
+                    },
+                    {
+                      "name": "ComplianceNotes",
+                      "alias": "ComplianceNotes"
+                    },
+                    {
+                      "name": "MHTC_CheckIssueTypeID",
+                      "alias": "MHTC_CheckIssueTypeID"
+                    },
+                    {
+                      "name": "MHTC_CheckNotes",
+                      "alias": "MHTC_CheckNotes"
+                    },
+                    {
+                      "name": "CreateDateTime",
+                      "alias": "CreateDateTime"
+                    },
+                    {
+                      "name": "CreatePerson",
+                      "alias": "CreatePerson"
+                    },
+                    {
+                      "name": "label_pos",
+                      "alias": "label_pos"
+                    },
+                    {
+                      "name": "label_ldr",
+                      "alias": "label_ldr"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "ComplianceRoadMarkingsFaded"
+                },
+                {
+                  "name": "Bays",
+                  "title": "Bays",
+                  "attributes": [
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "TimePeriodID",
+                      "alias": "TimePeriodID"
+                    },
+                    {
+                      "name": "MaxStayID",
+                      "alias": "MaxStayID"
+                    },
+                    {
+                      "name": "NoReturnID",
+                      "alias": "NoReturnID"
+                    },
+                    {
+                      "name": "AdditionalConditionID",
+                      "alias": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "BayWidth",
+                      "alias": "BayWidth"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "RestrictionTypeID",
+                  "info_template": {
+                    "type": "wms",
+                    "template": "<div><h3>{{ layer }}</h3><table><tr><td>translate(Restriction Type):</td><td>{{ feature.RestrictionTypeID }}</td></tr><tr><td>translate(Road Name):</td><td>{{ feature.RoadName }}</td></tr><tr><td>translate(Time Period):</td><td>{{ feature.TimePeriodID }}</td></tr><tr><td>translate(Max Stay):</td><td>{{ feature.MaxStayID }}</td></tr><tr><td>translate(Notes):</td><td>{{ render_value(feature.AdditionalConditionID) }}</td></tr></table></div>"
+                  }
+                },
+                {
+                  "name": "Lines",
+                  "title": "Lines",
+                  "attributes": [
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "RoadName",
+                      "alias": "RoadName"
+                    },
+                    {
+                      "name": "NoWaitingTimeID",
+                      "alias": "NoWaitingTimeID"
+                    },
+                    {
+                      "name": "NoLoadingTimeID",
+                      "alias": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "AdditionalConditionID",
+                      "alias": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "RestrictionTypeID",
+                  "info_template": {
+                    "type": "wms",
+                    "template": "<div><h3>{{ layer }}</h3><table><tr><td>translate(Restriction Type):</td><td>{{ feature.RestrictionTypeID }}</td></tr><tr><td>translate(Road Name):</td><td>{{ feature.RoadName }}</td></tr><tr><td>translate(No Waiting):</td><td>{{ feature.NoWaitingTimeID }}</td></tr><tr><td>translate(No Loading):</td><td>{{ feature.NoLoadingTimeID }}</td></tr><tr><td>translate(Notes):</td><td>{{ render_value(feature.AdditionalConditionID) }}</td></tr></table></div>"
+                  }
+                },
+                {
+                  "name": "RestrictionPolygons",
+                  "title": "RestrictionPolygons",
+                  "attributes": [
+                    {
+                      "name": "RestrictionTypeID",
+                      "alias": "RestrictionTypeID"
+                    },
+                    {
+                      "name": "NoWaitingTimeID",
+                      "alias": "NoWaitingTimeID"
+                    },
+                    {
+                      "name": "NoLoadingTimeID",
+                      "alias": "NoLoadingTimeID"
+                    },
+                    {
+                      "name": "TimePeriodID",
+                      "alias": "TimePeriodID"
+                    },
+                    {
+                      "name": "AreaPermitCode",
+                      "alias": "AreaPermitCode"
+                    },
+                    {
+                      "name": "AdditionalConditionID",
+                      "alias": "AdditionalConditionID"
+                    },
+                    {
+                      "name": "DisplayLabel",
+                      "alias": "DisplayLabel"
+                    },
+                    {
+                      "name": "geometry",
+                      "alias": "geometry"
+                    },
+                    {
+                      "name": "maptip",
+                      "alias": "maptip"
+                    }
+                  ],
+                  "display_field": "maptip",
+                  "info_template": {
+                    "type": "wms",
+                    "template": "<div><h3>{{ layer }}</h3><table><tr><td>translate(Restriction Type):</td><td>{{ feature.RestrictionTypeID }}</td></tr><tr><td>translate(Area Permit):</td><td>{{ feature.AreaPermitCode }}</td></tr><tr><td>translate(No Waiting):</td><td>{{ feature.NoWaitingTimeID }}</td></tr><tr><td>translate(No Loading):</td><td>{{ feature.NoLoadingTimeID }}</td></tr><tr><td>translate(Map Tip):</td><td>{{ render_value(feature.maptip) }}</td></tr></table></div>"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Map Schedule Grids",
+              "title": "Map Schedule Grids",
+              "layers": []
+            },
+            {
+              "name": "Background Mapping",
+              "title": "Background Mapping",
+              "layers": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
