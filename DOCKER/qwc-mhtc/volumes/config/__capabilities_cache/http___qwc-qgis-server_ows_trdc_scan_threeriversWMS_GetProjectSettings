@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WMS_Capabilities xmlns:qgs="http://www.qgis.org/wms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3.0" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd http://www.qgis.org/wms http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;REQUEST=GetSchemaExtension" xmlns:sld="http://www.opengis.net/sld" xmlns="http://www.opengis.net/wms">
+<WMS_Capabilities xmlns:qgs="http://www.qgis.org/wms" xmlns:sld="http://www.opengis.net/sld" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3.0" xmlns="http://www.opengis.net/wms" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd http://www.qgis.org/wms http://qwc-qgis-server/ows/trdc/scan/threerivers?SERVICE=WMS&amp;REQUEST=GetSchemaExtension">
  <Service>
   <Name>WMS</Name>
   <Title>Three Rivers District Council Parking Restrictions</Title>
@@ -109,10 +109,10 @@
   <Exception>
    <Format>XML</Format>
   </Exception>
-  <sld:UserDefinedSymbolization InlineFeature="0" SupportSLD="1" UserStyle="1" RemoteWFS="0" UserLayer="0" RemoteWCS="0"/>
+  <sld:UserDefinedSymbolization UserLayer="0" SupportSLD="1" RemoteWFS="0" UserStyle="1" InlineFeature="0" RemoteWCS="0"/>
   <ComposerTemplates>
-   <ComposerTemplate name="A4_Sketch" width="420" height="297">
-    <ComposerMap name="map0" itemName="SketchMap" width="411.30000000000001" height="265.01106443255873"/>
+   <ComposerTemplate name="A4_Sketch" height="297" width="420">
+    <ComposerMap itemName="SketchMap" name="map0" height="265.01106443255873" width="411.30000000000001"/>
    </ComposerTemplate>
   </ComposerTemplates>
   <WFSLayers>
@@ -134,10 +134,10 @@
     <southBoundLatitude>51.586469</southBoundLatitude>
     <northBoundLatitude>51.750871</northBoundLatitude>
    </EX_GeographicBoundingBox>
-   <BoundingBox maxx="546633.647" minx="467993.453" miny="189631.83" maxy="206254.17" CRS="EPSG:27700"/>
-   <BoundingBox maxx="13596.818" minx="-113507.901" miny="6725696.481" maxy="6755204.381" CRS="EPSG:3857"/>
+   <BoundingBox CRS="EPSG:27700" minx="467993.453" maxx="546633.647" maxy="206254.17" miny="189631.83"/>
+   <BoundingBox CRS="EPSG:3857" minx="-113507.901" maxx="13596.818" maxy="6755204.381" miny="6725696.481"/>
    <TreeName></TreeName>
-   <Layer visible="1" visibilityChecked="1" mutuallyExclusive="0" expanded="1" queryable="1">
+   <Layer queryable="1" mutuallyExclusive="0" visible="1" visibilityChecked="1" expanded="1">
     <Name>Restrictions</Name>
     <Title>Restrictions</Title>
     <CRS>CRS:84</CRS>
@@ -149,10 +149,10 @@
      <southBoundLatitude>51.609812</southBoundLatitude>
      <northBoundLatitude>51.727613</northBoundLatitude>
     </EX_GeographicBoundingBox>
-    <BoundingBox maxx="513013.063" minx="501396.656" miny="191367.703" maxy="204227.579" CRS="EPSG:27700"/>
-    <BoundingBox maxx="-40649.293" minx="-59779.808" miny="6729879.722" maxy="6751023.45" CRS="EPSG:3857"/>
+    <BoundingBox CRS="EPSG:27700" minx="501396.656" maxx="513013.063" maxy="204227.579" miny="191367.703"/>
+    <BoundingBox CRS="EPSG:3857" minx="-59779.808" maxx="-40649.293" maxy="6751023.45" miny="6729879.722"/>
     <TreeName>Restrictions</TreeName>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="NoGeometry" displayField="ComplianceRoadMarkingsFaded" expanded="1" queryable="1">
+    <Layer displayField="ComplianceRoadMarkingsFaded" queryable="1" visible="1" geometryType="NoGeometry" visibilityChecked="1" opacity="1" expanded="1">
      <Name>CPZs</Name>
      <Title>CPZs</Title>
      <Style>
@@ -168,38 +168,38 @@
       <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="254" name="RestrictionID" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="12" name="GeometryID" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="geom" comment="" type="qrange" editType="" typeName="geometry" precision="0"/>
-      <Attribute length="-1" name="RestrictionTypeID" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="254" name="Notes" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="255" name="Photos_01" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="255" name="Photos_02" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="255" name="Photos_03" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="label_X" comment="" type="double" editType="" typeName="float8" precision="0"/>
-      <Attribute length="-1" name="label_Y" comment="" type="double" editType="" typeName="float8" precision="0"/>
-      <Attribute length="-1" name="label_Rotation" comment="" type="double" editType="" typeName="float8" precision="0"/>
-      <Attribute length="254" name="label_TextChanged" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="OpenDate" comment="" type="QDate" editType="" typeName="date" precision="0"/>
-      <Attribute length="-1" name="CloseDate" comment="" type="QDate" editType="" typeName="date" precision="0"/>
-      <Attribute length="40" name="CPZ" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="LastUpdateDateTime" comment="" type="QDateTime" editType="" typeName="timestamp" precision="0"/>
-      <Attribute length="255" name="LastUpdatePerson" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="254" name="LabelText" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="TimePeriodID" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="ComplianceRoadMarkingsFaded" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="ComplianceRestrictionSignIssue" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="254" name="ComplianceNotes" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="MHTC_CheckIssueTypeID" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="254" name="MHTC_CheckNotes" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="CreateDateTime" comment="" type="QDateTime" editType="" typeName="timestamp" precision="0"/>
-      <Attribute length="255" name="CreatePerson" comment="" type="QString" editType="" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="label_pos" comment="" type="qrange" editType="" typeName="geometry" precision="0"/>
-      <Attribute length="-1" name="label_ldr" comment="" type="qrange" editType="" typeName="geometry" precision="0"/>
-      <Attribute length="-1" name="DisplayLabel" comment="" type="bool" editType="" typeName="bool" precision="0"/>
+      <Attribute editType="" name="RestrictionID" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="" name="GeometryID" precision="0" typeName="varchar" comment="" length="12" type="QString"/>
+      <Attribute editType="" name="geom" precision="0" typeName="geometry" comment="" length="-1" type="qrange"/>
+      <Attribute editType="" name="RestrictionTypeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="Notes" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="" name="Photos_01" precision="0" typeName="varchar" comment="" length="255" type="QString"/>
+      <Attribute editType="" name="Photos_02" precision="0" typeName="varchar" comment="" length="255" type="QString"/>
+      <Attribute editType="" name="Photos_03" precision="0" typeName="varchar" comment="" length="255" type="QString"/>
+      <Attribute editType="" name="label_X" precision="0" typeName="float8" comment="" length="-1" type="double"/>
+      <Attribute editType="" name="label_Y" precision="0" typeName="float8" comment="" length="-1" type="double"/>
+      <Attribute editType="" name="label_Rotation" precision="0" typeName="float8" comment="" length="-1" type="double"/>
+      <Attribute editType="" name="label_TextChanged" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="" name="OpenDate" precision="0" typeName="date" comment="" length="-1" type="QDate"/>
+      <Attribute editType="" name="CloseDate" precision="0" typeName="date" comment="" length="-1" type="QDate"/>
+      <Attribute editType="" name="CPZ" precision="0" typeName="varchar" comment="" length="40" type="QString"/>
+      <Attribute editType="" name="LastUpdateDateTime" precision="0" typeName="timestamp" comment="" length="-1" type="QDateTime"/>
+      <Attribute editType="" name="LastUpdatePerson" precision="0" typeName="varchar" comment="" length="255" type="QString"/>
+      <Attribute editType="" name="LabelText" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="" name="TimePeriodID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="ComplianceRoadMarkingsFaded" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="ComplianceRestrictionSignIssue" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="ComplianceNotes" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="" name="MHTC_CheckIssueTypeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="MHTC_CheckNotes" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="" name="CreateDateTime" precision="0" typeName="timestamp" comment="" length="-1" type="QDateTime"/>
+      <Attribute editType="" name="CreatePerson" precision="0" typeName="varchar" comment="" length="255" type="QString"/>
+      <Attribute editType="" name="label_pos" precision="0" typeName="geometry" comment="" length="-1" type="qrange"/>
+      <Attribute editType="" name="label_ldr" precision="0" typeName="geometry" comment="" length="-1" type="qrange"/>
+      <Attribute editType="" name="DisplayLabel" precision="0" typeName="bool" comment="" length="-1" type="bool"/>
      </Attributes>
     </Layer>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="LineString" displayField="RestrictionTypeID" expanded="0" queryable="1">
+    <Layer displayField="RestrictionTypeID" queryable="1" visible="1" geometryType="LineString" visibilityChecked="1" opacity="1" expanded="0">
      <Name>Bays</Name>
      <Title>Bays</Title>
      <CRS>CRS:84</CRS>
@@ -211,8 +211,8 @@
       <southBoundLatitude>51.611348</southBoundLatitude>
       <northBoundLatitude>51.723239</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="512488.063" minx="502082.718" miny="191526.859" maxy="203759.813" CRS="EPSG:27700"/>
-     <BoundingBox maxx="-41511.855" minx="-58672.068" miny="6730154.989" maxy="6750245.509" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="502082.718" maxx="512488.063" maxy="203759.813" miny="191526.859"/>
+     <BoundingBox CRS="EPSG:3857" minx="-58672.068" maxx="-41511.855" maxy="6750245.509" miny="6730154.989"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>
@@ -228,17 +228,17 @@
       <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="-1" name="RestrictionTypeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="254" name="RoadName" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="TimePeriodID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="MaxStayID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="NoReturnID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="AdditionalConditionID" comment="" type="int" editType="Range" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="DisplayLabel" comment="" type="bool" editType="" typeName="bool" precision="0"/>
-      <Attribute length="-1" name="BayWidth" comment="" type="double" editType="TextEdit" typeName="float8" precision="0"/>
+      <Attribute editType="ValueRelation" name="RestrictionTypeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="TextEdit" name="RoadName" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="ValueRelation" name="TimePeriodID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="MaxStayID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="NoReturnID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="Range" name="AdditionalConditionID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="DisplayLabel" precision="0" typeName="bool" comment="" length="-1" type="bool"/>
+      <Attribute editType="TextEdit" name="BayWidth" precision="0" typeName="float8" comment="" length="-1" type="double"/>
      </Attributes>
     </Layer>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="LineString" displayField="RestrictionTypeID" expanded="0" queryable="1">
+    <Layer displayField="maptip" queryable="1" visible="1" geometryType="LineString" visibilityChecked="1" opacity="1" expanded="1">
      <Name>Lines</Name>
      <Title>Lines</Title>
      <CRS>CRS:84</CRS>
@@ -250,8 +250,8 @@
       <southBoundLatitude>51.609812</southBoundLatitude>
       <northBoundLatitude>51.727613</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="513013.063" minx="501396.656" miny="191367.703" maxy="204227.579" CRS="EPSG:27700"/>
-     <BoundingBox maxx="-40649.293" minx="-59779.808" miny="6729879.722" maxy="6751023.45" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="501396.656" maxx="513013.063" maxy="204227.579" miny="191367.703"/>
+     <BoundingBox CRS="EPSG:3857" minx="-59779.808" maxx="-40649.293" maxy="6751023.45" miny="6729879.722"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>
@@ -267,15 +267,15 @@
       <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="-1" name="RestrictionTypeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="254" name="RoadName" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="NoWaitingTimeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="NoLoadingTimeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="AdditionalConditionID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="DisplayLabel" comment="" type="bool" editType="" typeName="bool" precision="0"/>
+      <Attribute editType="ValueRelation" name="RestrictionTypeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="TextEdit" name="RoadName" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="ValueRelation" name="NoWaitingTimeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="NoLoadingTimeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="AdditionalConditionID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="TextEdit" name="DisplayLabel" precision="0" typeName="bool" comment="" length="-1" type="bool"/>
      </Attributes>
     </Layer>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="Polygon" displayField="maptip" expanded="0" queryable="1">
+    <Layer displayField="maptip" queryable="1" visible="1" geometryType="Polygon" visibilityChecked="1" opacity="1" expanded="0">
      <Name>RestrictionPolygons</Name>
      <Title>RestrictionPolygons</Title>
      <CRS>CRS:84</CRS>
@@ -287,8 +287,8 @@
       <southBoundLatitude>51.621225</southBoundLatitude>
       <northBoundLatitude>51.71152</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="511450.563" minx="501467.531" miny="192524.953" maxy="202438.5" CRS="EPSG:27700"/>
-     <BoundingBox maxx="-43230.096" minx="-59628.621" miny="6731800.27" maxy="6748131.547" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="501467.531" maxx="511450.563" maxy="202438.5" miny="192524.953"/>
+     <BoundingBox CRS="EPSG:3857" minx="-59628.621" maxx="-43230.096" maxy="6748131.547" miny="6731800.27"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>
@@ -302,17 +302,17 @@
       <PrimaryKeyAttribute>RestrictionID</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="-1" name="RestrictionTypeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="NoWaitingTimeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="NoLoadingTimeID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="TimePeriodID" comment="" type="int" editType="ValueRelation" typeName="int4" precision="0"/>
-      <Attribute length="254" name="AreaPermitCode" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="AdditionalConditionID" comment="" type="int" editType="Range" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="DisplayLabel" comment="" type="bool" editType="" typeName="bool" precision="0"/>
+      <Attribute editType="ValueRelation" name="RestrictionTypeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="NoWaitingTimeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="NoLoadingTimeID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="ValueRelation" name="TimePeriodID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="TextEdit" name="AreaPermitCode" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="Range" name="AdditionalConditionID" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="DisplayLabel" precision="0" typeName="bool" comment="" length="-1" type="bool"/>
      </Attributes>
     </Layer>
    </Layer>
-   <Layer visible="1" visibilityChecked="1" mutuallyExclusive="0" expanded="1" queryable="0">
+   <Layer queryable="0" mutuallyExclusive="0" visible="1" visibilityChecked="1" expanded="1">
     <Name>Map Schedule Grids</Name>
     <Title>Map Schedule Grids</Title>
     <CRS>CRS:84</CRS>
@@ -324,10 +324,10 @@
      <southBoundLatitude>51.596522</southBoundLatitude>
      <northBoundLatitude>51.7427</northBoundLatitude>
     </EX_GeographicBoundingBox>
-    <BoundingBox maxx="513500" minx="501100" miny="189900" maxy="205900" CRS="EPSG:27700"/>
-    <BoundingBox maxx="-39804.28" minx="-60303.65" miny="6727497.845" maxy="6753735.176" CRS="EPSG:3857"/>
+    <BoundingBox CRS="EPSG:27700" minx="501100" maxx="513500" maxy="205900" miny="189900"/>
+    <BoundingBox CRS="EPSG:3857" minx="-60303.65" maxx="-39804.28" maxy="6753735.176" miny="6727497.845"/>
     <TreeName>Map Schedule Grids</TreeName>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="MultiPolygon" displayField="maptip" expanded="1" queryable="0">
+    <Layer displayField="maptip" queryable="0" visible="1" geometryType="MultiPolygon" visibilityChecked="1" opacity="1" expanded="1">
      <Name>MapGrid</Name>
      <Title>MapGrid</Title>
      <CRS>CRS:84</CRS>
@@ -339,8 +339,8 @@
       <southBoundLatitude>51.596522</southBoundLatitude>
       <northBoundLatitude>51.7427</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="513500" minx="501100" miny="189900" maxy="205900" CRS="EPSG:27700"/>
-     <BoundingBox maxx="-39804.28" minx="-60303.65" miny="6727497.845" maxy="6753735.176" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="501100" maxx="513500" maxy="205900" miny="189900"/>
+     <BoundingBox CRS="EPSG:3857" minx="-60303.65" maxx="-39804.28" maxy="6753735.176" miny="6727497.845"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>
@@ -356,15 +356,15 @@
       <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="-1" name="id" comment="" type="qlonglong" editType="TextEdit" typeName="int8" precision="0"/>
-      <Attribute length="-1" name="MapSheet_North" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="MapSheet_East" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="MapSheet_South" comment="" type="int" editType="" typeName="int4" precision="0"/>
-      <Attribute length="-1" name="MapSheet_West" comment="" type="int" editType="" typeName="int4" precision="0"/>
+      <Attribute editType="TextEdit" name="id" precision="0" typeName="int8" comment="" length="-1" type="qlonglong"/>
+      <Attribute editType="" name="MapSheet_North" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="MapSheet_East" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="MapSheet_South" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="" name="MapSheet_West" precision="0" typeName="int4" comment="" length="-1" type="int"/>
      </Attributes>
     </Layer>
    </Layer>
-   <Layer visible="1" visibilityChecked="1" mutuallyExclusive="0" expanded="1" queryable="0">
+   <Layer queryable="0" mutuallyExclusive="0" visible="1" visibilityChecked="1" expanded="1">
     <Name>Background Mapping</Name>
     <Title>Background Mapping</Title>
     <CRS>CRS:84</CRS>
@@ -376,10 +376,10 @@
      <southBoundLatitude>49.699119</southBoundLatitude>
      <northBoundLatitude>51.742355</northBoundLatitude>
     </EX_GeographicBoundingBox>
-    <BoundingBox maxx="900000.001" minx="-238375.001" miny="0" maxy="1376256.001" CRS="EPSG:27700"/>
-    <BoundingBox maxx="840634.978" minx="-1573215.469" miny="6370662.384" maxy="8922510.267" CRS="EPSG:3857"/>
+    <BoundingBox CRS="EPSG:27700" minx="-238375.001" maxx="900000.001" maxy="1376256.001" miny="0"/>
+    <BoundingBox CRS="EPSG:3857" minx="-1573215.469" maxx="840634.978" maxy="8922510.267" miny="6370662.384"/>
     <TreeName>Background Mapping</TreeName>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="MultiLineString" displayField="maptip" expanded="1" queryable="0">
+    <Layer displayField="maptip" queryable="0" visible="1" geometryType="MultiLineString" visibilityChecked="1" opacity="1" expanded="1">
      <Name>StreetGazetteerRecords</Name>
      <Title>StreetGazetteerRecords</Title>
      <CRS>CRS:84</CRS>
@@ -391,8 +391,8 @@
       <southBoundLatitude>51.558505</southBoundLatitude>
       <northBoundLatitude>51.742355</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="513441.313" minx="501186.437" miny="185668.843" maxy="205863.407" CRS="EPSG:27700"/>
-     <BoundingBox maxx="-39900.182" minx="-60300.41" miny="6720687.824" maxy="6753673.242" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="501186.437" maxx="513441.313" maxy="205863.407" miny="185668.843"/>
+     <BoundingBox CRS="EPSG:3857" minx="-60300.41" maxx="-39900.182" maxy="6753673.242" miny="6720687.824"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>
@@ -408,23 +408,23 @@
       <PrimaryKeyAttribute>gid</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="-1" name="gid" comment="" type="int" editType="TextEdit" typeName="int4" precision="0"/>
-      <Attribute length="20" name="ASSET_ID" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="15" name="FEATURE_ID" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="10" name="SITE_CODE" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="254" name="SITE_NAME" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="35" name="LOCALITY" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="35" name="TOWN" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="254" name="LOCATION" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="30" name="ROADCLASS" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="30" name="HIERARCHY" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="30" name="CUSTOMER" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="30" name="AREA_NAME" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
-      <Attribute length="-1" name="DISTANCE" comment="" type="double" editType="TextEdit" typeName="numeric" precision="0"/>
-      <Attribute length="30" name="ROAD_TYPE" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
+      <Attribute editType="TextEdit" name="gid" precision="0" typeName="int4" comment="" length="-1" type="int"/>
+      <Attribute editType="TextEdit" name="ASSET_ID" precision="0" typeName="varchar" comment="" length="20" type="QString"/>
+      <Attribute editType="TextEdit" name="FEATURE_ID" precision="0" typeName="varchar" comment="" length="15" type="QString"/>
+      <Attribute editType="TextEdit" name="SITE_CODE" precision="0" typeName="varchar" comment="" length="10" type="QString"/>
+      <Attribute editType="TextEdit" name="SITE_NAME" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="TextEdit" name="LOCALITY" precision="0" typeName="varchar" comment="" length="35" type="QString"/>
+      <Attribute editType="TextEdit" name="TOWN" precision="0" typeName="varchar" comment="" length="35" type="QString"/>
+      <Attribute editType="TextEdit" name="LOCATION" precision="0" typeName="varchar" comment="" length="254" type="QString"/>
+      <Attribute editType="TextEdit" name="ROADCLASS" precision="0" typeName="varchar" comment="" length="30" type="QString"/>
+      <Attribute editType="TextEdit" name="HIERARCHY" precision="0" typeName="varchar" comment="" length="30" type="QString"/>
+      <Attribute editType="TextEdit" name="CUSTOMER" precision="0" typeName="varchar" comment="" length="30" type="QString"/>
+      <Attribute editType="TextEdit" name="AREA_NAME" precision="0" typeName="varchar" comment="" length="30" type="QString"/>
+      <Attribute editType="TextEdit" name="DISTANCE" precision="0" typeName="numeric" comment="" length="-1" type="double"/>
+      <Attribute editType="TextEdit" name="ROAD_TYPE" precision="0" typeName="varchar" comment="" length="30" type="QString"/>
      </Attributes>
     </Layer>
-    <Layer opacity="1" visible="1" visibilityChecked="1" geometryType="MultiPolygon" displayField="name" expanded="1" queryable="0">
+    <Layer displayField="name" queryable="0" visible="1" geometryType="MultiPolygon" visibilityChecked="1" opacity="1" expanded="1">
      <Name>TRDC</Name>
      <Title>Three Rivers District Council</Title>
      <CRS>CRS:84</CRS>
@@ -436,8 +436,8 @@
       <southBoundLatitude>51.597681</southBoundLatitude>
       <northBoundLatitude>51.742311</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="513444.125" minx="501183" miny="190027.593" maxy="205858.407" CRS="EPSG:27700"/>
-     <BoundingBox maxx="-39895.831" minx="-60166.204" miny="6727705.376" maxy="6753665.274" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="501183" maxx="513444.125" maxy="205858.407" miny="190027.593"/>
+     <BoundingBox CRS="EPSG:3857" minx="-60166.204" maxx="-39895.831" maxy="6753665.274" miny="6727705.376"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>
@@ -451,10 +451,10 @@
       <PrimaryKeyAttribute>id</PrimaryKeyAttribute>
      </PrimaryKey>
      <Attributes>
-      <Attribute length="60" name="name" comment="" type="QString" editType="TextEdit" typeName="varchar" precision="0"/>
+      <Attribute editType="TextEdit" name="name" precision="0" typeName="varchar" comment="" length="60" type="QString"/>
      </Attributes>
     </Layer>
-    <Layer opacity="1" visible="0" visibilityChecked="0" expanded="1" queryable="0">
+    <Layer queryable="0" visible="0" visibilityChecked="0" opacity="1" expanded="1">
      <Name>OS_Roads</Name>
      <Title>OS_Roads</Title>
      <CRS>CRS:84</CRS>
@@ -466,8 +466,8 @@
       <southBoundLatitude>49.699119</southBoundLatitude>
       <northBoundLatitude>49.900059</northBoundLatitude>
      </EX_GeographicBoundingBox>
-     <BoundingBox maxx="900000.001" minx="-238375.001" miny="0" maxy="1376256.001" CRS="EPSG:27700"/>
-     <BoundingBox maxx="840634.978" minx="-1573215.469" miny="6370662.384" maxy="8922510.267" CRS="EPSG:3857"/>
+     <BoundingBox CRS="EPSG:27700" minx="-238375.001" maxx="900000.001" maxy="1376256.001" miny="0"/>
+     <BoundingBox CRS="EPSG:3857" minx="-1573215.469" maxx="840634.978" maxy="8922510.267" miny="6370662.384"/>
      <Style>
       <Name>default</Name>
       <Title>default</Title>

@@ -2,9 +2,2595 @@
   "$schema": "https://github.com/qwc-services/qwc-data-service/raw/master/schemas/qwc-data-service.json",
   "service": "data",
   "config": {
-    "geometry_default_allow_null": false
+    "geometry_default_allow_null": false,
+    "db_url": "postgresql:///?service=threerivers"
   },
   "resources": {
-    "datasets": []
+    "datasets": [
+      {
+        "name": "trdc/scan/threerivers.Bays",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "toms",
+        "datasource_filter": "\"OpenDate\" IS NOT NULL AND \"CloseDate\" IS NULL",
+        "table_name": "Bays",
+        "primary_key": "RestrictionID",
+        "fields": [
+          {
+            "name": "RestrictionID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeometryID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 12
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RestrictionLength",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RestrictionTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.BayTypesInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeomShapeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AzimuthToRoadCentreLine",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Notes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_01",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_02",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_03",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RoadName",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "USRN",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_Rotation",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_TextChanged",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "OpenDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CloseDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CPZ",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "BayOrientation",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "NrBays",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "TimePeriodID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "PayTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.PaymentTypes:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MaxStayID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.LengthOfTime:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "NoReturnID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.LengthOfTime:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ParkingTariffArea",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 10
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AdditionalConditionID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRoadMarkingsFaded",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRestrictionSignIssue",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckIssueTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "PermitCode",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MatchDayTimePeriodID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "PayParkingAreaID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Capacity",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_pos",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_ldr",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MatchDayEventDayZone",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "DisplayLabel",
+            "data_type": "boolean",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "BayWidth",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {},
+        "geometry": {
+          "geometry_column": "geom",
+          "geometry_type": "LINESTRING",
+          "srid": 27700
+        }
+      },
+      {
+        "name": "trdc/scan/threerivers.CPZs",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "toms",
+        "datasource_filter": null,
+        "table_name": "ControlledParkingZones",
+        "primary_key": "RestrictionID",
+        "fields": [
+          {
+            "name": "RestrictionID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeometryID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 12
+            },
+            "joinfield": null
+          },
+          {
+            "name": "geom",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RestrictionTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Notes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_01",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_02",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_03",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_X",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_Y",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_Rotation",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_TextChanged",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "OpenDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CloseDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CPZ",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LabelText",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "TimePeriodID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRoadMarkingsFaded",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRestrictionSignIssue",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckIssueTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_pos",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_ldr",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "DisplayLabel",
+            "data_type": "boolean",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {}
+      },
+      {
+        "name": "trdc/scan/threerivers.Lines",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "toms",
+        "datasource_filter": "\"OpenDate\" IS NOT NULL AND \"CloseDate\" IS NULL",
+        "table_name": "Lines",
+        "primary_key": "RestrictionID",
+        "fields": [
+          {
+            "name": "RestrictionID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeometryID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 12
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RestrictionLength",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RestrictionTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.LineTypesInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeomShapeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.RestrictionGeomShapeTypes:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AzimuthToRoadCentreLine",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Notes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_01",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_02",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_03",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RoadName",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "USRN",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_Rotation",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_TextChanged",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "OpenDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CloseDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CPZ",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.CPZs:CPZ:CPZ",
+              "allowMulti": false,
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "NoWaitingTimeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "NoLoadingTimeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "UnacceptableTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AdditionalConditionID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.AdditionalConditionTypes:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ParkingTariffArea",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.ParkingTariffAreas:ParkingTariffArea:ParkingTariffArea",
+              "allowMulti": false,
+              "maxlength": 10
+            },
+            "joinfield": null
+          },
+          {
+            "name": "labelLoading_Rotation",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRoadMarkingsFaded",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRestrictionSignIssue",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckIssueTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceLoadingMarkingsFaded",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MatchDayTimePeriodID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Capacity",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_pos",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_ldr",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_loading_pos",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_loading_ldr",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MatchDayEventDayZone",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "DisplayLabel",
+            "data_type": "boolean",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {},
+        "geometry": {
+          "geometry_column": "geom",
+          "geometry_type": "LINESTRING",
+          "srid": 27700
+        }
+      },
+      {
+        "name": "trdc/scan/threerivers.MapGrid",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "toms",
+        "datasource_filter": null,
+        "table_name": "MapGrid",
+        "primary_key": "id",
+        "fields": [
+          {
+            "name": "id",
+            "data_type": "bigint",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -9223372036854775808,
+              "max": 9223372036854775807
+            },
+            "joinfield": null
+          },
+          {
+            "name": "mapsheetname",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 10
+            },
+            "joinfield": null
+          },
+          {
+            "name": "x_min",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "x_max",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "y_min",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "y_max",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CurrRevisionNr",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastRevisionDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MapSheet_North",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MapSheet_East",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MapSheet_South",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MapSheet_West",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {},
+        "geometry": {
+          "geometry_column": "geom",
+          "geometry_type": "MULTIPOLYGON",
+          "srid": 27700
+        }
+      },
+      {
+        "name": "trdc/scan/threerivers.RestrictionPolygons",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "toms",
+        "datasource_filter": "\"OpenDate\" IS NOT NULL AND \"CloseDate\" IS NULL",
+        "table_name": "RestrictionPolygons",
+        "primary_key": "RestrictionID",
+        "fields": [
+          {
+            "name": "RestrictionID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeometryID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 12
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RestrictionTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.RestrictionPolygonTypesInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "GeomShapeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.RestrictionGeomShapeTypes:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Notes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_01",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_02",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Photos_03",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "RoadName",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "USRN",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_Rotation",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_TextChanged",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "OpenDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CloseDate",
+            "data_type": "date",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LastUpdatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "Orientation",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LabelText",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "NoWaitingTimeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "NoLoadingTimeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "TimePeriodID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+              "allowMulti": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AreaPermitCode",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CPZ",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "keyvalrel": "trdc/scan/threerivers.CPZs:CPZ:CPZ",
+              "allowMulti": false,
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRoadMarkingsFaded",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceRestrictionSignIssue",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ComplianceNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckIssueTypeID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MHTC_CheckNotes",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MatchDayTimePeriodID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreateDateTime",
+            "data_type": "timestamp without time zone",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CreatePerson",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 255
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AdditionalConditionID",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "min": -2147483648,
+              "max": 2147483647,
+              "step": 1,
+              "prec": 0
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_pos",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "label_ldr",
+            "data_type": "USER-DEFINED",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "MatchDayEventDayZone",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 40
+            },
+            "joinfield": null
+          },
+          {
+            "name": "DisplayLabel",
+            "data_type": "boolean",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": ""
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {},
+        "geometry": {
+          "geometry_column": "geom",
+          "geometry_type": "POLYGON",
+          "srid": 27700
+        }
+      },
+      {
+        "name": "trdc/scan/threerivers.StreetGazetteerRecords",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "local_authority",
+        "datasource_filter": null,
+        "table_name": "StreetGazetteerRecords",
+        "primary_key": "gid",
+        "fields": [
+          {
+            "name": "gid",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ASSET_ID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 20
+            },
+            "joinfield": null
+          },
+          {
+            "name": "FEATURE_ID",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 15
+            },
+            "joinfield": null
+          },
+          {
+            "name": "SITE_CODE",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 10
+            },
+            "joinfield": null
+          },
+          {
+            "name": "SITE_NAME",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LOCALITY",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 35
+            },
+            "joinfield": null
+          },
+          {
+            "name": "TOWN",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 35
+            },
+            "joinfield": null
+          },
+          {
+            "name": "LOCATION",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 254
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ROADCLASS",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 30
+            },
+            "joinfield": null
+          },
+          {
+            "name": "HIERARCHY",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 30
+            },
+            "joinfield": null
+          },
+          {
+            "name": "CUSTOMER",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 30
+            },
+            "joinfield": null
+          },
+          {
+            "name": "AREA_NAME",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 30
+            },
+            "joinfield": null
+          },
+          {
+            "name": "DISTANCE",
+            "data_type": "numeric",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "ROAD_TYPE",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 30
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {},
+        "geometry": {
+          "geometry_column": "geom",
+          "geometry_type": "MULTILINESTRING",
+          "srid": 27700
+        }
+      },
+      {
+        "name": "trdc/scan/threerivers.TRDC",
+        "db_url": "postgresql:///?service=threerivers",
+        "schema": "local_authority",
+        "datasource_filter": null,
+        "table_name": "ThreeRiversDistrict",
+        "primary_key": "id",
+        "fields": [
+          {
+            "name": "id",
+            "data_type": "integer",
+            "constraints": {
+              "readOnly": false,
+              "required": true,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "joinfield": null
+          },
+          {
+            "name": "name",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 60
+            },
+            "joinfield": null
+          },
+          {
+            "name": "area_code",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 3
+            },
+            "joinfield": null
+          },
+          {
+            "name": "descriptio",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 50
+            },
+            "joinfield": null
+          },
+          {
+            "name": "file_name",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 50
+            },
+            "joinfield": null
+          },
+          {
+            "name": "number",
+            "data_type": "bigint",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -9223372036854775808,
+              "max": 9223372036854775807
+            },
+            "joinfield": null
+          },
+          {
+            "name": "number0",
+            "data_type": "bigint",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -9223372036854775808,
+              "max": 9223372036854775807
+            },
+            "joinfield": null
+          },
+          {
+            "name": "polygon_id",
+            "data_type": "bigint",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -9223372036854775808,
+              "max": 9223372036854775807
+            },
+            "joinfield": null
+          },
+          {
+            "name": "unit_id",
+            "data_type": "bigint",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "min": -9223372036854775808,
+              "max": 9223372036854775807
+            },
+            "joinfield": null
+          },
+          {
+            "name": "code",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 9
+            },
+            "joinfield": null
+          },
+          {
+            "name": "hectares",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "area",
+            "data_type": "double precision",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false
+            },
+            "joinfield": null
+          },
+          {
+            "name": "type_code",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 2
+            },
+            "joinfield": null
+          },
+          {
+            "name": "descript0",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 25
+            },
+            "joinfield": null
+          },
+          {
+            "name": "type_cod0",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 3
+            },
+            "joinfield": null
+          },
+          {
+            "name": "descript1",
+            "data_type": "character varying",
+            "constraints": {
+              "readOnly": false,
+              "required": false,
+              "expression": "",
+              "placeholder": "",
+              "multiline": false,
+              "maxlength": 36
+            },
+            "joinfield": null
+          }
+        ],
+        "jointables": {},
+        "geometry": {
+          "geometry_column": "geom",
+          "geometry_type": "MULTIPOLYGON",
+          "srid": 27700
+        }
+      }
+    ]
   }
 }

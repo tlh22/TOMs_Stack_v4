@@ -328,7 +328,8 @@
               "name": "Authentication"
             },
             {
-              "name": "FeatureForm"
+              "name": "FeatureForm",
+              "mapClickAction": "identify"
             },
             {
               "name": "Editing",
@@ -697,7 +698,8 @@
               "name": "Authentication"
             },
             {
-              "name": "FeatureForm"
+              "name": "FeatureForm",
+              "mapClickAction": "identify"
             },
             {
               "name": "TimeManager",
@@ -789,7 +791,3354 @@
               "Lines",
               "Bays"
             ],
-            "editConfig": {},
+            "editConfig": {
+              "Bays": {
+                "layerName": "Bays",
+                "layerTitle": "Bays",
+                "displayField": "RestrictionTypeID",
+                "editDataset": "trdc/scan/threerivers.Bays",
+                "geomType": "LineString",
+                "primaryKey": "RestrictionID",
+                "form": ":/forms/autogen/threerivers_Bays.ui?v=1775133232",
+                "reltables": [
+                  "BayTypesInUse_View",
+                  "TimePeriodsInUse_View",
+                  "PaymentTypes",
+                  "LengthOfTime",
+                  "LengthOfTime"
+                ],
+                "fields": [
+                  {
+                    "id": "RestrictionID",
+                    "name": "RestrictionID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "GeometryID",
+                    "name": "GeometryID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 12
+                    }
+                  },
+                  {
+                    "id": "RestrictionLength",
+                    "name": "RestrictionLength",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "RestrictionTypeID",
+                    "name": "RestrictionTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.BayTypesInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "GeomShapeID",
+                    "name": "GeomShapeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "AzimuthToRoadCentreLine",
+                    "name": "AzimuthToRoadCentreLine",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "Notes",
+                    "name": "Notes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "Photos_01",
+                    "name": "Photos_01",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_02",
+                    "name": "Photos_02",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_03",
+                    "name": "Photos_03",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "RoadName",
+                    "name": "RoadName",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "USRN",
+                    "name": "USRN",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "label_Rotation",
+                    "name": "label_Rotation",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_TextChanged",
+                    "name": "label_TextChanged",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "OpenDate",
+                    "name": "OpenDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CloseDate",
+                    "name": "CloseDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CPZ",
+                    "name": "CPZ",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "LastUpdateDateTime",
+                    "name": "LastUpdateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "LastUpdatePerson",
+                    "name": "LastUpdatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "BayOrientation",
+                    "name": "BayOrientation",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "NrBays",
+                    "name": "NrBays",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "TimePeriodID",
+                    "name": "TimePeriodID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "PayTypeID",
+                    "name": "PayTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.PaymentTypes:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "MaxStayID",
+                    "name": "MaxStayID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.LengthOfTime:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "NoReturnID",
+                    "name": "NoReturnID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.LengthOfTime:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "ParkingTariffArea",
+                    "name": "ParkingTariffArea",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 10
+                    }
+                  },
+                  {
+                    "id": "AdditionalConditionID",
+                    "name": "AdditionalConditionID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceRoadMarkingsFaded",
+                    "name": "ComplianceRoadMarkingsFaded",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceRestrictionSignIssue",
+                    "name": "ComplianceRestrictionSignIssue",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceNotes",
+                    "name": "ComplianceNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckIssueTypeID",
+                    "name": "MHTC_CheckIssueTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckNotes",
+                    "name": "MHTC_CheckNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "PermitCode",
+                    "name": "PermitCode",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "MatchDayTimePeriodID",
+                    "name": "MatchDayTimePeriodID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "PayParkingAreaID",
+                    "name": "PayParkingAreaID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "CreateDateTime",
+                    "name": "CreateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CreatePerson",
+                    "name": "CreatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Capacity",
+                    "name": "Capacity",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "label_pos",
+                    "name": "label_pos",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_ldr",
+                    "name": "label_ldr",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "MatchDayEventDayZone",
+                    "name": "MatchDayEventDayZone",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "DisplayLabel",
+                    "name": "DisplayLabel",
+                    "type": "boolean",
+                    "data_type": "boolean",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "BayWidth",
+                    "name": "BayWidth",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  }
+                ]
+              },
+              "CPZs": {
+                "layerName": "CPZs",
+                "layerTitle": "CPZs",
+                "displayField": null,
+                "editDataset": "trdc/scan/threerivers.CPZs",
+                "geomType": null,
+                "primaryKey": "RestrictionID",
+                "form": ":/forms/autogen/threerivers_CPZs.ui?v=1775133232",
+                "reltables": [],
+                "fields": [
+                  {
+                    "id": "RestrictionID",
+                    "name": "RestrictionID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "GeometryID",
+                    "name": "GeometryID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 12
+                    }
+                  },
+                  {
+                    "id": "geom",
+                    "name": "geom",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "RestrictionTypeID",
+                    "name": "RestrictionTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "Notes",
+                    "name": "Notes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "Photos_01",
+                    "name": "Photos_01",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_02",
+                    "name": "Photos_02",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_03",
+                    "name": "Photos_03",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "label_X",
+                    "name": "label_X",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "label_Y",
+                    "name": "label_Y",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "label_Rotation",
+                    "name": "label_Rotation",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "label_TextChanged",
+                    "name": "label_TextChanged",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "OpenDate",
+                    "name": "OpenDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CloseDate",
+                    "name": "CloseDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CPZ",
+                    "name": "CPZ",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "LastUpdateDateTime",
+                    "name": "LastUpdateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "LastUpdatePerson",
+                    "name": "LastUpdatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "LabelText",
+                    "name": "LabelText",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "TimePeriodID",
+                    "name": "TimePeriodID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "ComplianceRoadMarkingsFaded",
+                    "name": "ComplianceRoadMarkingsFaded",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "ComplianceRestrictionSignIssue",
+                    "name": "ComplianceRestrictionSignIssue",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "ComplianceNotes",
+                    "name": "ComplianceNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckIssueTypeID",
+                    "name": "MHTC_CheckIssueTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckNotes",
+                    "name": "MHTC_CheckNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "CreateDateTime",
+                    "name": "CreateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CreatePerson",
+                    "name": "CreatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "label_pos",
+                    "name": "label_pos",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "label_ldr",
+                    "name": "label_ldr",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "DisplayLabel",
+                    "name": "DisplayLabel",
+                    "type": "boolean",
+                    "data_type": "boolean",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  }
+                ]
+              },
+              "Lines": {
+                "layerName": "Lines",
+                "layerTitle": "Lines",
+                "displayField": null,
+                "editDataset": "trdc/scan/threerivers.Lines",
+                "geomType": "LineString",
+                "primaryKey": "RestrictionID",
+                "form": null,
+                "reltables": [
+                  "LineTypesInUse_View",
+                  "RestrictionGeomShapeTypes",
+                  "CPZs",
+                  "TimePeriodsInUse_View",
+                  "TimePeriodsInUse_View",
+                  "AdditionalConditionTypes",
+                  "ParkingTariffAreas"
+                ],
+                "fields": [
+                  {
+                    "id": "RestrictionID",
+                    "name": "RestrictionID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "uuid()",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "GeometryID",
+                    "name": "GeometryID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "'to be created'",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 12
+                    }
+                  },
+                  {
+                    "id": "RestrictionLength",
+                    "name": "RestrictionLength",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": " $length ",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "RestrictionTypeID",
+                    "name": "RestrictionTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "224",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.LineTypesInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "GeomShapeID",
+                    "name": "GeomShapeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.RestrictionGeomShapeTypes:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "AzimuthToRoadCentreLine",
+                    "name": "AzimuthToRoadCentreLine",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": " getAzimuthToRoadCentreLine() ",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "Notes",
+                    "name": "Notes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "Photos_01",
+                    "name": "Photos_01",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_02",
+                    "name": "Photos_02",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_03",
+                    "name": "Photos_03",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "RoadName",
+                    "name": "RoadName",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "USRN",
+                    "name": "USRN",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "label_Rotation",
+                    "name": "label_Rotation",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_TextChanged",
+                    "name": "label_TextChanged",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "OpenDate",
+                    "name": "OpenDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CloseDate",
+                    "name": "CloseDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CPZ",
+                    "name": "CPZ",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.CPZs:CPZ:CPZ",
+                      "allowMulti": false,
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "LastUpdateDateTime",
+                    "name": "LastUpdateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "now()",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "LastUpdatePerson",
+                    "name": "LastUpdatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": " @user_account_name",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "NoWaitingTimeID",
+                    "name": "NoWaitingTimeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "NoLoadingTimeID",
+                    "name": "NoLoadingTimeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "UnacceptableTypeID",
+                    "name": "UnacceptableTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "AdditionalConditionID",
+                    "name": "AdditionalConditionID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.AdditionalConditionTypes:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "ParkingTariffArea",
+                    "name": "ParkingTariffArea",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": "",
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.ParkingTariffAreas:ParkingTariffArea:ParkingTariffArea",
+                      "allowMulti": false,
+                      "maxlength": 10
+                    }
+                  },
+                  {
+                    "id": "labelLoading_Rotation",
+                    "name": "labelLoading_Rotation",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "ComplianceRoadMarkingsFaded",
+                    "name": "ComplianceRoadMarkingsFaded",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceRestrictionSignIssue",
+                    "name": "ComplianceRestrictionSignIssue",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceNotes",
+                    "name": "ComplianceNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckIssueTypeID",
+                    "name": "MHTC_CheckIssueTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckNotes",
+                    "name": "MHTC_CheckNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "ComplianceLoadingMarkingsFaded",
+                    "name": "ComplianceLoadingMarkingsFaded",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "MatchDayTimePeriodID",
+                    "name": "MatchDayTimePeriodID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "CreateDateTime",
+                    "name": "CreateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CreatePerson",
+                    "name": "CreatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Capacity",
+                    "name": "Capacity",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "label_pos",
+                    "name": "label_pos",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_ldr",
+                    "name": "label_ldr",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_loading_pos",
+                    "name": "label_loading_pos",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_loading_ldr",
+                    "name": "label_loading_ldr",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "MatchDayEventDayZone",
+                    "name": "MatchDayEventDayZone",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "DisplayLabel",
+                    "name": "DisplayLabel",
+                    "type": "boolean",
+                    "data_type": "boolean",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  }
+                ]
+              },
+              "MapGrid": {
+                "layerName": "MapGrid",
+                "layerTitle": "MapGrid",
+                "displayField": null,
+                "editDataset": "trdc/scan/threerivers.MapGrid",
+                "geomType": "MultiPolygon",
+                "primaryKey": "id",
+                "form": ":/forms/autogen/threerivers_MapGrid.ui?v=1775133233",
+                "reltables": [],
+                "fields": [
+                  {
+                    "id": "id",
+                    "name": "id",
+                    "type": "number",
+                    "data_type": "bigint",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -9223372036854775808,
+                      "max": 9223372036854775807
+                    }
+                  },
+                  {
+                    "id": "mapsheetname",
+                    "name": "mapsheetname",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 10
+                    }
+                  },
+                  {
+                    "id": "x_min",
+                    "name": "x_min",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "x_max",
+                    "name": "x_max",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "y_min",
+                    "name": "y_min",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "y_max",
+                    "name": "y_max",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "CurrRevisionNr",
+                    "name": "CurrRevisionNr",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "LastRevisionDate",
+                    "name": "LastRevisionDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "MapSheet_North",
+                    "name": "MapSheet_North",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "MapSheet_East",
+                    "name": "MapSheet_East",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "MapSheet_South",
+                    "name": "MapSheet_South",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "MapSheet_West",
+                    "name": "MapSheet_West",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  }
+                ]
+              },
+              "RestrictionPolygons": {
+                "layerName": "RestrictionPolygons",
+                "layerTitle": "RestrictionPolygons",
+                "displayField": null,
+                "editDataset": "trdc/scan/threerivers.RestrictionPolygons",
+                "geomType": "Polygon",
+                "primaryKey": "RestrictionID",
+                "form": null,
+                "reltables": [
+                  "RestrictionPolygonTypesInUse_View",
+                  "RestrictionGeomShapeTypes",
+                  "TimePeriodsInUse_View",
+                  "TimePeriodsInUse_View",
+                  "TimePeriodsInUse_View",
+                  "CPZs"
+                ],
+                "fields": [
+                  {
+                    "id": "RestrictionID",
+                    "name": "RestrictionID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "GeometryID",
+                    "name": "GeometryID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "'to be created'",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 12
+                    }
+                  },
+                  {
+                    "id": "RestrictionTypeID",
+                    "name": "RestrictionTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.RestrictionPolygonTypesInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "GeomShapeID",
+                    "name": "GeomShapeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "50",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.RestrictionGeomShapeTypes:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "Notes",
+                    "name": "Notes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "Photos_01",
+                    "name": "Photos_01",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_02",
+                    "name": "Photos_02",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Photos_03",
+                    "name": "Photos_03",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "RoadName",
+                    "name": "RoadName",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "USRN",
+                    "name": "USRN",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "label_Rotation",
+                    "name": "label_Rotation",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_TextChanged",
+                    "name": "label_TextChanged",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "OpenDate",
+                    "name": "OpenDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CloseDate",
+                    "name": "CloseDate",
+                    "type": "date",
+                    "data_type": "date",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "LastUpdateDateTime",
+                    "name": "LastUpdateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "LastUpdatePerson",
+                    "name": "LastUpdatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "Orientation",
+                    "name": "Orientation",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "LabelText",
+                    "name": "LabelText",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "NoWaitingTimeID",
+                    "name": "NoWaitingTimeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "NoLoadingTimeID",
+                    "name": "NoLoadingTimeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "TimePeriodID",
+                    "name": "TimePeriodID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.TimePeriodsInUse_View:Code:Description",
+                      "allowMulti": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "AreaPermitCode",
+                    "name": "AreaPermitCode",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "CPZ",
+                    "name": "CPZ",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "keyvalrel": "trdc/scan/threerivers.CPZs:CPZ:CPZ",
+                      "allowMulti": false,
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "ComplianceRoadMarkingsFaded",
+                    "name": "ComplianceRoadMarkingsFaded",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceRestrictionSignIssue",
+                    "name": "ComplianceRestrictionSignIssue",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "ComplianceNotes",
+                    "name": "ComplianceNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckIssueTypeID",
+                    "name": "MHTC_CheckIssueTypeID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "MHTC_CheckNotes",
+                    "name": "MHTC_CheckNotes",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "MatchDayTimePeriodID",
+                    "name": "MatchDayTimePeriodID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "CreateDateTime",
+                    "name": "CreateDateTime",
+                    "type": "date",
+                    "data_type": "timestamp without time zone",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  },
+                  {
+                    "id": "CreatePerson",
+                    "name": "CreatePerson",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 255
+                    }
+                  },
+                  {
+                    "id": "AdditionalConditionID",
+                    "name": "AdditionalConditionID",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "min": -2147483648,
+                      "max": 2147483647,
+                      "step": 1,
+                      "prec": 0
+                    }
+                  },
+                  {
+                    "id": "label_pos",
+                    "name": "label_pos",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "label_ldr",
+                    "name": "label_ldr",
+                    "type": "text",
+                    "data_type": "USER-DEFINED",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "MatchDayEventDayZone",
+                    "name": "MatchDayEventDayZone",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 40
+                    }
+                  },
+                  {
+                    "id": "DisplayLabel",
+                    "name": "DisplayLabel",
+                    "type": "boolean",
+                    "data_type": "boolean",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": ""
+                    }
+                  }
+                ]
+              },
+              "TRDC": {
+                "layerName": "TRDC",
+                "layerTitle": "Three Rivers District Council",
+                "displayField": null,
+                "editDataset": "trdc/scan/threerivers.TRDC",
+                "geomType": "MultiPolygon",
+                "primaryKey": "id",
+                "form": ":/forms/autogen/threerivers_TRDC.ui?v=1775133233",
+                "reltables": [],
+                "fields": [
+                  {
+                    "id": "id",
+                    "name": "id",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "name",
+                    "name": "name",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 60
+                    }
+                  },
+                  {
+                    "id": "area_code",
+                    "name": "area_code",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 3
+                    }
+                  },
+                  {
+                    "id": "descriptio",
+                    "name": "descriptio",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 50
+                    }
+                  },
+                  {
+                    "id": "file_name",
+                    "name": "file_name",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 50
+                    }
+                  },
+                  {
+                    "id": "number",
+                    "name": "number",
+                    "type": "number",
+                    "data_type": "bigint",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -9223372036854775808,
+                      "max": 9223372036854775807
+                    }
+                  },
+                  {
+                    "id": "number0",
+                    "name": "number0",
+                    "type": "number",
+                    "data_type": "bigint",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -9223372036854775808,
+                      "max": 9223372036854775807
+                    }
+                  },
+                  {
+                    "id": "polygon_id",
+                    "name": "polygon_id",
+                    "type": "number",
+                    "data_type": "bigint",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -9223372036854775808,
+                      "max": 9223372036854775807
+                    }
+                  },
+                  {
+                    "id": "unit_id",
+                    "name": "unit_id",
+                    "type": "number",
+                    "data_type": "bigint",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -9223372036854775808,
+                      "max": 9223372036854775807
+                    }
+                  },
+                  {
+                    "id": "code",
+                    "name": "code",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 9
+                    }
+                  },
+                  {
+                    "id": "hectares",
+                    "name": "hectares",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "area",
+                    "name": "area",
+                    "type": "number",
+                    "data_type": "double precision",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "type_code",
+                    "name": "type_code",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 2
+                    }
+                  },
+                  {
+                    "id": "descript0",
+                    "name": "descript0",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 25
+                    }
+                  },
+                  {
+                    "id": "type_cod0",
+                    "name": "type_cod0",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 3
+                    }
+                  },
+                  {
+                    "id": "descript1",
+                    "name": "descript1",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 36
+                    }
+                  }
+                ]
+              },
+              "StreetGazetteerRecords": {
+                "layerName": "StreetGazetteerRecords",
+                "layerTitle": "StreetGazetteerRecords",
+                "displayField": null,
+                "editDataset": "trdc/scan/threerivers.StreetGazetteerRecords",
+                "geomType": "MultiLineString",
+                "primaryKey": "gid",
+                "form": ":/forms/autogen/threerivers_StreetGazetteerRecords.ui?v=1775133233",
+                "reltables": [],
+                "fields": [
+                  {
+                    "id": "gid",
+                    "name": "gid",
+                    "type": "number",
+                    "data_type": "integer",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": true,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "min": -2147483648,
+                      "max": 2147483647
+                    }
+                  },
+                  {
+                    "id": "ASSET_ID",
+                    "name": "ASSET_ID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 20
+                    }
+                  },
+                  {
+                    "id": "FEATURE_ID",
+                    "name": "FEATURE_ID",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 15
+                    }
+                  },
+                  {
+                    "id": "SITE_CODE",
+                    "name": "SITE_CODE",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 10
+                    }
+                  },
+                  {
+                    "id": "SITE_NAME",
+                    "name": "SITE_NAME",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "LOCALITY",
+                    "name": "LOCALITY",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 35
+                    }
+                  },
+                  {
+                    "id": "TOWN",
+                    "name": "TOWN",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 35
+                    }
+                  },
+                  {
+                    "id": "LOCATION",
+                    "name": "LOCATION",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 254
+                    }
+                  },
+                  {
+                    "id": "ROADCLASS",
+                    "name": "ROADCLASS",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 30
+                    }
+                  },
+                  {
+                    "id": "HIERARCHY",
+                    "name": "HIERARCHY",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 30
+                    }
+                  },
+                  {
+                    "id": "CUSTOMER",
+                    "name": "CUSTOMER",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 30
+                    }
+                  },
+                  {
+                    "id": "AREA_NAME",
+                    "name": "AREA_NAME",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 30
+                    }
+                  },
+                  {
+                    "id": "DISTANCE",
+                    "name": "DISTANCE",
+                    "type": "number",
+                    "data_type": "numeric",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false
+                    }
+                  },
+                  {
+                    "id": "ROAD_TYPE",
+                    "name": "ROAD_TYPE",
+                    "type": "text",
+                    "data_type": "character varying",
+                    "defaultValue": "",
+                    "filterExpression": null,
+                    "expression": null,
+                    "constraints": {
+                      "readOnly": false,
+                      "required": false,
+                      "expression": "",
+                      "placeholder": "",
+                      "multiline": false,
+                      "maxlength": 30
+                    }
+                  }
+                ]
+              }
+            },
             "expanded": true,
             "externalLayers": [],
             "infoFormats": [
@@ -892,7 +4241,7 @@
                       "default": "default"
                     },
                     "style": "default",
-                    "displayField": "RestrictionTypeID",
+                    "displayField": "maptip",
                     "opacity": 255,
                     "bbox": {
                       "crs": "EPSG:4326",
@@ -1101,20 +4450,20 @@
             ],
             "visibilityPresets": {
               "SketchPrint": {
-                "Restrictions/Bays": "default",
-                "Restrictions/ConstructionLines": "default",
-                "Background Mapping/os_mastermap_topography_text": "default",
+                "Map Schedule Grids/MapGrid": "default",
                 "Background Mapping/TRDC": "default",
+                "Restrictions/RestrictionPolygons": "default",
+                "Restrictions/ConstructionLines": "default",
+                "Restrictions/Bays": "default",
+                "Background Mapping/os_mastermap_topography_polygons": "default",
                 "Restrictions/Lines": "default",
                 "Background Mapping/StreetGazetteerRecords": "default",
-                "Restrictions/RestrictionPolygons": "default",
-                "Map Schedule Grids/MapGrid": "default",
-                "Background Mapping/os_mastermap_topography_polygons": "default",
-                "Proposal Details": "",
+                "Background Mapping/os_mastermap_topography_text": "default",
                 "Map Schedule Grids": "",
-                "Background Mapping": "",
+                "Proposal Details": "",
                 "Restrictions": "",
-                "Lookup Tables": ""
+                "Lookup Tables": "",
+                "Background Mapping": ""
               }
             },
             "additionalMouseCrs": [],

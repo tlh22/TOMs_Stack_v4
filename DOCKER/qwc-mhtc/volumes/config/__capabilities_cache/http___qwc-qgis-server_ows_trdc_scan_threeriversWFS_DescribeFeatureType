@@ -1,17 +1,17 @@
-<schema xmlns:qgs="http://www.qgis.org/gml" version="1.0" targetNamespace="http://www.qgis.org/gml" xmlns:gml="http://www.opengis.net/gml" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ogc="http://www.opengis.net/ogc">
+<schema xmlns:ogc="http://www.opengis.net/ogc" elementFormDefault="qualified" xmlns:gml="http://www.opengis.net/gml" xmlns:qgs="http://www.qgis.org/gml" targetNamespace="http://www.qgis.org/gml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
  <import schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd" namespace="http://www.opengis.net/gml"/>
  <element name="RestrictionPolygons" type="qgs:RestrictionPolygonsType" substitutionGroup="gml:_Feature"/>
  <complexType name="RestrictionPolygonsType">
   <complexContent>
    <extension base="gml:AbstractFeatureType">
     <sequence>
-     <element name="geometry" maxOccurs="1" type="gml:PolygonPropertyType" minOccurs="0"/>
+     <element minOccurs="0" maxOccurs="1" name="geometry" type="gml:PolygonPropertyType"/>
      <element name="RestrictionTypeID" type="int"/>
-     <element name="NoWaitingTimeID" type="int" nillable="true"/>
-     <element name="NoLoadingTimeID" type="int" nillable="true"/>
-     <element name="TimePeriodID" type="int" nillable="true"/>
-     <element name="AreaPermitCode" type="string" nillable="true"/>
-     <element name="AdditionalConditionID" type="int" nillable="true"/>
+     <element name="NoWaitingTimeID" nillable="true" type="int"/>
+     <element name="NoLoadingTimeID" nillable="true" type="int"/>
+     <element name="TimePeriodID" nillable="true" type="int"/>
+     <element name="AreaPermitCode" nillable="true" type="string"/>
+     <element name="AdditionalConditionID" nillable="true" type="int"/>
      <element name="DisplayLabel" type="boolean"/>
     </sequence>
    </extension>
@@ -22,21 +22,21 @@
   <complexContent>
    <extension base="gml:AbstractFeatureType">
     <sequence>
-     <element name="geometry" maxOccurs="1" type="gml:MultiCurvePropertyType" minOccurs="0"/>
+     <element minOccurs="0" maxOccurs="1" name="geometry" type="gml:MultiCurvePropertyType"/>
      <element name="gid" type="int"/>
-     <element name="ASSET_ID" type="string" nillable="true"/>
-     <element name="FEATURE_ID" type="string" nillable="true"/>
-     <element name="SITE_CODE" type="string" nillable="true"/>
-     <element name="SITE_NAME" type="string" nillable="true"/>
-     <element name="LOCALITY" type="string" nillable="true"/>
-     <element name="TOWN" type="string" nillable="true"/>
-     <element name="LOCATION" type="string" nillable="true"/>
-     <element name="ROADCLASS" type="string" nillable="true"/>
-     <element name="HIERARCHY" type="string" nillable="true"/>
-     <element name="CUSTOMER" type="string" nillable="true"/>
-     <element name="AREA_NAME" type="string" nillable="true"/>
-     <element name="DISTANCE" type="decimal" nillable="true"/>
-     <element name="ROAD_TYPE" type="string" nillable="true"/>
+     <element name="ASSET_ID" nillable="true" type="string"/>
+     <element name="FEATURE_ID" nillable="true" type="string"/>
+     <element name="SITE_CODE" nillable="true" type="string"/>
+     <element name="SITE_NAME" nillable="true" type="string"/>
+     <element name="LOCALITY" nillable="true" type="string"/>
+     <element name="TOWN" nillable="true" type="string"/>
+     <element name="LOCATION" nillable="true" type="string"/>
+     <element name="ROADCLASS" nillable="true" type="string"/>
+     <element name="HIERARCHY" nillable="true" type="string"/>
+     <element name="CUSTOMER" nillable="true" type="string"/>
+     <element name="AREA_NAME" nillable="true" type="string"/>
+     <element name="DISTANCE" nillable="true" type="decimal"/>
+     <element name="ROAD_TYPE" nillable="true" type="string"/>
     </sequence>
    </extension>
   </complexContent>
