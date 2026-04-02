@@ -1,11 +1,11 @@
-<schema xmlns:ogc="http://www.opengis.net/ogc" elementFormDefault="qualified" xmlns:gml="http://www.opengis.net/gml" xmlns:qgs="http://www.qgis.org/gml" targetNamespace="http://www.qgis.org/gml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
- <import schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd" namespace="http://www.opengis.net/gml"/>
- <element name="RestrictionPolygons" type="qgs:RestrictionPolygonsType" substitutionGroup="gml:_Feature"/>
+<schema xmlns:gml="http://www.opengis.net/gml" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ogc="http://www.opengis.net/ogc" elementFormDefault="qualified" xmlns:qgs="http://www.qgis.org/gml" targetNamespace="http://www.qgis.org/gml">
+ <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+ <element substitutionGroup="gml:_Feature" name="RestrictionPolygons" type="qgs:RestrictionPolygonsType"/>
  <complexType name="RestrictionPolygonsType">
   <complexContent>
    <extension base="gml:AbstractFeatureType">
     <sequence>
-     <element minOccurs="0" maxOccurs="1" name="geometry" type="gml:PolygonPropertyType"/>
+     <element minOccurs="0" name="geometry" maxOccurs="1" type="gml:PolygonPropertyType"/>
      <element name="RestrictionTypeID" type="int"/>
      <element name="NoWaitingTimeID" nillable="true" type="int"/>
      <element name="NoLoadingTimeID" nillable="true" type="int"/>
@@ -17,12 +17,12 @@
    </extension>
   </complexContent>
  </complexType>
- <element name="StreetGazetteerRecords" type="qgs:StreetGazetteerRecordsType" substitutionGroup="gml:_Feature"/>
+ <element substitutionGroup="gml:_Feature" name="StreetGazetteerRecords" type="qgs:StreetGazetteerRecordsType"/>
  <complexType name="StreetGazetteerRecordsType">
   <complexContent>
    <extension base="gml:AbstractFeatureType">
     <sequence>
-     <element minOccurs="0" maxOccurs="1" name="geometry" type="gml:MultiCurvePropertyType"/>
+     <element minOccurs="0" name="geometry" maxOccurs="1" type="gml:MultiCurvePropertyType"/>
      <element name="gid" type="int"/>
      <element name="ASSET_ID" nillable="true" type="string"/>
      <element name="FEATURE_ID" nillable="true" type="string"/>

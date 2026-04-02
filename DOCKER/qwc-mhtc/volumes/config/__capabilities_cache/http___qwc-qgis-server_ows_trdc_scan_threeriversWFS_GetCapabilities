@@ -1,4 +1,4 @@
-<WFS_Capabilities xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows" version="1.1.0" xmlns="http://www.opengis.net/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd" updateSequence="0">
+<WFS_Capabilities xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml" version="1.1.0" xmlns="http://www.opengis.net/wfs" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ogc="http://www.opengis.net/ogc" updateSequence="0" xmlns:ows="http://www.opengis.net/ows">
  <ows:ServiceIdentification>
   <ows:Title>Three Rivers District Council Parking Restrictions</ows:Title>
   <ows:ServiceType>WFS</ows:ServiceType>
