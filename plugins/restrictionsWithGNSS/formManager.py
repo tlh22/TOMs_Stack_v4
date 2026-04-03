@@ -88,7 +88,7 @@ class mtrForm(MTR_RestrictionDialog):
         if not self.dbConn:
             reply = QMessageBox.information(None, "Information",
                                             "Problem with db connection",
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             return
 
         self.currPointReferenceMapTool = None
@@ -284,7 +284,7 @@ class mtrForm(MTR_RestrictionDialog):
             QgsMessageLog.logMessage("In findLinkContainingLine:: intersectGeom " + intersectGeom.asWkt(),
                                      tag="TOMs panel")
 
-            if intersectGeom.type() == QgsWkbTypes.LineGeometry:
+            if intersectGeom.type() == QgsWkbTypes.GeometryType.LineGeometry:
                 # this is our next feature
                 return feature
 

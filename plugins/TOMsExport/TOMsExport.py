@@ -27,7 +27,7 @@ import os.path, math
 import sys
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 
-# from PyQt5.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
+# from qgis.PyQt.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from qgis.PyQt.QtGui import (QIcon, QStandardItemModel, QStandardItem
                              )
 from qgis.PyQt.QtWidgets import (
@@ -224,13 +224,13 @@ class TOMsExport:
 
             fileName = self.fileNameWidget.filePath()
             # QMessageBox.information(self.iface.mainWindow(), "Message", ("Filename is ..." + str(fileName)))
-            TOMsMessageLog.logMessage("Filename is ..." + str(fileName), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Filename is ..." + str(fileName), level=Qgis.MessageLevel.Info)
 
             # Get list of all the layers that are required within the Geopackage
 
             layerItemsList = self.layerList.getSelectedLayers()
             for currLayerItem in layerItemsList:
-                TOMsMessageLog.logMessage("Processing {} ...".format(currLayerItem.text()), level=Qgis.Warning)
+                TOMsMessageLog.logMessage("Processing {} ...".format(currLayerItem.text()), level=Qgis.MessageLevel.Warning)
 
                 currLayer = QgsProject.instance().mapLayersByName(currLayerItem.text())[0]
 
@@ -244,7 +244,7 @@ class TOMsExport:
                                                   "ogr")
                         QgsProject.instance().addMapLayer(newLayerA)
 
-            TOMsMessageLog.logMessage("******** FINISHED EXPORT ********", level=Qgis.Warning)
+            TOMsMessageLog.logMessage("******** FINISHED EXPORT ********", level=Qgis.MessageLevel.Warning)
 
             #self.dlg.close()
 
@@ -300,7 +300,7 @@ class TOMsExportUtils():
             self.includeLookupValues = True
         TOMsMessageLog.logMessage(
                 "In TOMsExportUtils.init. includeLookupValue is {}".format(self.includeLookupValues),
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
 
     def getTOMsExportLayerList(self):
         layers = self.configFileObject.getTOMsConfigElement('TOMsExport', 'LayersToExport')
@@ -344,14 +344,14 @@ class TOMsExportUtils():
 
     def processLayer(self, currLayer):
 
-        TOMsMessageLog.logMessage("In processLayer - Considering layer: {}".format(currLayer.name()), level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In processLayer - Considering layer: {}".format(currLayer.name()), level=Qgis.MessageLevel.Warning)
 
         # get the fields to include
         listFieldsToInclude = self.getFieldsForExportLayer(currLayer.name())
-        TOMsMessageLog.logMessage("In processLayer - fields are {}".format(listFieldsToInclude), level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In processLayer - fields are {}".format(listFieldsToInclude), level=Qgis.MessageLevel.Warning)
 
         if not listFieldsToInclude:
-            reply = QMessageBox.information(None, "Information", "No fields found for layer {}".format(currLayer.name()), QMessageBox.Ok)
+            reply = QMessageBox.information(None, "Information", "No fields found for layer {}".format(currLayer.name()), QMessageBox.StandardButton.Ok)
             return None  # no details to add
 
         # take string and turn into fields
@@ -362,7 +362,7 @@ class TOMsExportUtils():
         if processDate:
             filterString = '"OpenDate" <= to_date(\'{processDate}\', \'dd-MM-yyyy\') AND ("CloseDate" > to_date(\'{processDate}\', \'dd-MM-yyyy\') OR "CloseDate" IS NULL)'.format(
                 processDate=processDate)
-            TOMsMessageLog.logMessage("In processLayer - filterString {}".format(filterString), level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In processLayer - filterString {}".format(filterString), level=Qgis.MessageLevel.Warning)
 
             exp = QgsExpression(filterString)
             request = QgsFeatureRequest(exp)
@@ -376,7 +376,7 @@ class TOMsExportUtils():
 
         for currRestriction in restrictionIterator:
             TOMsMessageLog.logMessage("In processLayer - geomID: {}".format(currRestriction.attribute("GeometryID")),
-                                     level=Qgis.Warning)
+                                     level=Qgis.MessageLevel.Warning)
 
             # deal with Bays as polygons ...
             if currLayer.name() == "Bays":
@@ -385,7 +385,7 @@ class TOMsExportUtils():
                     if currGeomShapeID < 20:
                         TOMsMessageLog.logMessage(
                             "In processLayer - Changing geomShapeID from {} to {}".format(currGeomShapeID, currGeomShapeID + 20),
-                            level=Qgis.Warning)
+                            level=Qgis.MessageLevel.Warning)
 
                         currRestriction[currRestriction.fields().indexFromName("GeomShapeID")] = currGeomShapeID + 20
                         #currRestriction.setAttribute("GeomShapeID", currGeomShapeID+20)
@@ -408,10 +408,10 @@ class TOMsExportUtils():
 
             result = self.processRestriction(currLayer, currRestriction, outputLayer, lookupDetailsDict)
             if result == False:
-                reply = QMessageBox.information(None, "Information", "failure to write to layer.", QMessageBox.Ok)
+                reply = QMessageBox.information(None, "Information", "failure to write to layer.", QMessageBox.StandardButton.Ok)
                 TOMsMessageLog.logMessage(
                     "In processLayer: failure to write to layer ...",
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
                 break
 
         for newLayerName, newLayer in outputLayersList:
@@ -419,7 +419,7 @@ class TOMsExportUtils():
             newLayer.updateFields()
             newLayer.updateExtents()
             TOMsMessageLog.logMessage("In processLayer: layer: {}, count: {}".format(newLayerName, newLayer.featureCount()),
-                                     level=Qgis.Info)
+                                     level=Qgis.MessageLevel.Info)
             QgsProject.instance().addMapLayer(newLayer)
             #canvas.setLayers([newLayer])
 
@@ -430,7 +430,7 @@ class TOMsExportUtils():
         #for newLayerName, newLayer in outputLayersList:
         write_result = False
 
-        TOMsMessageLog.logMessage("In saveLayerToGpkg - {}, count:{}".format(newLayer.name(), newLayer.featureCount()), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In saveLayerToGpkg - {}, count:{}".format(newLayer.name(), newLayer.featureCount()), level=Qgis.MessageLevel.Info)
         options = QgsVectorFileWriter.SaveVectorOptions()
         options.layerName = newLayer.name()
         options.driverName = "GPKG"
@@ -462,7 +462,7 @@ class TOMsExportUtils():
             options)
 
         if write_result != QgsVectorFileWriter.NoError:
-            TOMsMessageLog.logMessage("Error: {errorNr} on {layer}: {txt}".format(errorNr=write_result, layer=newLayerName, txt=error_message), level=Qgis.Info)
+            TOMsMessageLog.logMessage("Error: {errorNr} on {layer}: {txt}".format(errorNr=write_result, layer=newLayerName, txt=error_message), level=Qgis.MessageLevel.Info)
             #print(currLayer.name(), self.writer)
 
         return write_result
@@ -506,7 +506,7 @@ class TOMsExportUtils():
                 geomShape = currRestriction.attribute("GeomShapeID")
             except KeyError as e:
                 TOMsMessageLog.logMessage("In TOMsGeometryElement.init: GeomShapeID not present {}".format(e),
-                                          level=Qgis.Info)
+                                          level=Qgis.MessageLevel.Info)
                 return layerGeomWkbType
 
             if geomShape > 20:
@@ -526,22 +526,22 @@ class TOMsExportUtils():
         for field in currFields:
             if field.name() in reqFields:
                 TOMsMessageLog.logMessage("In setFieldsForTOMsExportLayer. Adding {} ... ".format(field.name()),
-                                          level=Qgis.Warning)
+                                          level=Qgis.MessageLevel.Warning)
                 # Check whether or not this is a lookup field
                 if self.includeLookupValues:
                     TOMsMessageLog.logMessage("In setFieldsForTOMsExportLayer. checking for lookups ... NrRelations: {}".format(len(relationsForCurrLayer)),
-                                              level=Qgis.Warning)
+                                              level=Qgis.MessageLevel.Warning)
                     fieldType, lookupKeyFieldDict = self.getLookupFieldType(currFields.indexFromName(field.name()), relationsForCurrLayer)
 
                     if fieldType:
                         TOMsMessageLog.logMessage("Setting  {} to {}".format(field.name(), fieldType),
-                                                  level=Qgis.Warning)
+                                                  level=Qgis.MessageLevel.Warning)
                         field.setType(fieldType)
                         lookupDetailsDict[field.name()] = lookupKeyFieldDict
 
                 status = newFields.append(field)
                 if status == False:
-                    TOMsMessageLog.logMessage("Error adding " + field.name(), level=Qgis.Warning)
+                    TOMsMessageLog.logMessage("Error adding " + field.name(), level=Qgis.MessageLevel.Warning)
 
         return newFields, lookupDetailsDict
 
@@ -558,7 +558,7 @@ class TOMsExportUtils():
                     TOMsMessageLog.logMessage(
                         "In getLookupFieldType: checking field details for {} in {}".format(
                             relation.referencingLayer().fields().field(idxField).name(), relation.referencingLayer().name()),
-                        level=Qgis.Warning)
+                        level=Qgis.MessageLevel.Warning)
                     try:
                         lookupField = relation.referencedLayer().fields().field("Description")  # this is the field that we will use for export
                         # change data type for this field
@@ -568,12 +568,12 @@ class TOMsExportUtils():
                         TOMsMessageLog.logMessage(
                             "In getLookupFieldType: ** Found lookup field on {} ...".format(
                                 relation.referencedLayer().name()),
-                            level=Qgis.Warning)
+                            level=Qgis.MessageLevel.Warning)
                     except KeyError as e:
                         TOMsMessageLog.logMessage(
                             "In getLookupFieldType: lookup field not found on {} ...".format(
                                 relation.referencedLayer().name()),
-                            level=Qgis.Warning)
+                            level=Qgis.MessageLevel.Warning)
                         relationsForReferencedLayer = self.getRelationsForCurrLayer(relation.referencedLayer())
 
                         # need to choose the relation for the field we are considering ...
@@ -590,7 +590,7 @@ class TOMsExportUtils():
 
         currCrs = currLayer.crs().authid()
         #print ('---------- layer CRS: {}'.format(currCrs))
-        TOMsMessageLog.logMessage('---------- layer CRS: {}'.format(currCrs), level=Qgis.Info)
+        TOMsMessageLog.logMessage('---------- layer CRS: {}'.format(currCrs), level=Qgis.MessageLevel.Info)
         #currCrs = 'EPSG:27700'
 
         """newLayer = QgsVectorLayer("{type}?={crs}".format(type=geomType,
@@ -613,17 +613,17 @@ class TOMsExportUtils():
         newFeature = QgsFeature(fieldsToInclude)
 
         TOMsMessageLog.logMessage('*** Nr new fields: {}; curr fields {}'.format(len(fieldsToInclude), len(currFields)),
-                                         level=Qgis.Info)
+                                         level=Qgis.MessageLevel.Info)
         geomShapeField = False
 
         #relationsForCurrLayer = self.getRelationsForCurrLayer(currLayer)  # could move this up a level ...
 
         for field in fieldsToInclude:
             TOMsMessageLog.logMessage("Checking field: {}".format(field.name()),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
             # fields for lookups will not match due to differences in data type
             TOMsMessageLog.logMessage("Adding " + field.name() + ":" + str(currRestriction.attribute(field.name())),
-                                         level=Qgis.Info)
+                                         level=Qgis.MessageLevel.Info)
 
             # TODO: deal with lookup values ...
             fieldValue = self.getFieldValues(currRestriction, field, lookupDetailsDict)
@@ -643,7 +643,7 @@ class TOMsExportUtils():
         currGeomWkbType = currRestriction.geometry().type()
 
         if geomShapeField == True:
-            if currGeomWkbType == QgsWkbTypes.LineGeometry:
+            if currGeomWkbType == QgsWkbTypes.GeometryType.LineGeometry:
                 newGeom = ElementGeometryFactory.getElementGeometry(currRestriction)
                 newFeature.setGeometry(newGeom)
             else:
@@ -654,7 +654,7 @@ class TOMsExportUtils():
         result = newLayer.dataProvider().addFeature(newFeature)
         if result == False:
             TOMsMessageLog.logMessage("In processRestriction. Error: {}".format(newLayer.dataProvider().errors()),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
         return result
 
     def getVectorLayers(self, layers):
@@ -683,7 +683,7 @@ class TOMsExportUtils():
 
         TOMsMessageLog.logMessage(
             "In getFieldValues ... ".format(field.name()),
-            level=Qgis.Info)
+            level=Qgis.MessageLevel.Info)
 
         fieldValue = currRestriction.attribute(field.name())
 
@@ -705,7 +705,7 @@ class TOMsExportUtils():
 
         TOMsMessageLog.logMessage("In getLookupDescription (1). Checking {} for field {}. current value: {}".format(relation.referencingLayer().name(), \
             currRestriction.fields().field(relation.referencingFields()[0]).name(), \
-            currRestriction.attribute(relation.referencingFields()[0])), level=Qgis.Info)
+            currRestriction.attribute(relation.referencingFields()[0])), level=Qgis.MessageLevel.Info)
 
         fieldValue = None
 
@@ -714,13 +714,13 @@ class TOMsExportUtils():
         if currRestriction.attribute(relation.referencingFields()[0]) != NULL:
 
             TOMsMessageLog.logMessage("In getLookupDescription (2). Checking {} in {} ... ".format(relation.getReferencedFeature(currRestriction).fields().field(relation.referencedFields()[0]).name(), \
-                                                                      relation.referencedLayer().name()), level=Qgis.Info)
+                                                                      relation.referencedLayer().name()), level=Qgis.MessageLevel.Info)
 
             try:
                 fieldValue = relation.getReferencedFeature(currRestriction).attribute("Description")
             except KeyError as e:
 
-                TOMsMessageLog.logMessage("In getLookupDescription: error on {}. Checking next level ...".format(relation.referencedLayer().name()), level=Qgis.Info)
+                TOMsMessageLog.logMessage("In getLookupDescription: error on {}. Checking next level ...".format(relation.referencedLayer().name()), level=Qgis.MessageLevel.Info)
 
                 # check to see whether or not there are any further relations that might allow the lookup ...
                 relationsForReferencedLayer = self.getRelationsForCurrLayer(relation.referencedLayer())
@@ -736,11 +736,11 @@ class TOMsExportUtils():
                             relation.referencedLayer().name(), \
                             newRelation.getReferencedFeature(checkRestriction).fields().field(newRelation.referencedFields()[0]).name(), \
                             newRelation.referencedLayer().name() \
-                            ), level=Qgis.Info)
+                            ), level=Qgis.MessageLevel.Info)
 
                         if len (checkRestriction.fields()) > 0:
                             TOMsMessageLog.logMessage("In getLookupDescription (4): Checking {}: {}".format(newRelation.referencedLayer().name(), \
-                                                               newRelation.getReferencedFeature(checkRestriction).attribute(relation.referencedFields()[0])), level=Qgis.Info)
+                                                               newRelation.getReferencedFeature(checkRestriction).attribute(relation.referencedFields()[0])), level=Qgis.MessageLevel.Info)
                             fieldValue = self.getLookupDescription(newRelation, checkRestriction)
 
         return fieldValue
@@ -815,7 +815,7 @@ class checkableMapLayerList(QWidget):
 
     def selectAllCheckChanged(self, select_all_cb, model):
         TOMsMessageLog.logMessage("IN selectAllCheckChanged",
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         for index in range(model.rowCount()):
             item = model.item(index)
             if item.isCheckable():
@@ -827,13 +827,13 @@ class checkableMapLayerList(QWidget):
                     self.selectedLayers.remove(item)
 
         TOMsMessageLog.logMessage("IN selectAllCheckChanged: len list {}".format(len(self.selectedLayers)),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
 
     def listviewCheckChanged(self, model, select_all_cb):
         ''' updates the select all checkbox based on the listview '''
         # model = self.listview.model()
         TOMsMessageLog.logMessage("IN listviewCheckChanged",
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         items = [model.item(index) for index in range(model.rowCount())]
         if all(item.checkState() == QtCore.Qt.Checked for item in items):
             select_all_cb.setTristate(False)
@@ -848,7 +848,7 @@ class checkableMapLayerList(QWidget):
     def updateSelectedLayers(self, index):
         #QMessageBox.information(self.iface.mainWindow(), "debug", "IN updateSelectedLayers: {}".format(self.model.itemFromIndex(index)))
         TOMsMessageLog.logMessage("IN updateSelectedLayers: {}".format(index) ,
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         item = self.model.itemFromIndex(index)
         if item.checkState() == QtCore.Qt.Checked:
             self.selectedLayers.append(item)

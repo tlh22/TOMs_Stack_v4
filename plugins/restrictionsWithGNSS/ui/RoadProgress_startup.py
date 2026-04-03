@@ -1,6 +1,6 @@
 # Issues with sizing of forms. This shoudl run at startup and set to sensible values
 
-from PyQt5 import QtWidgets
+from qgis.PyQt import QtWidgets
 
 def my_form_open(dialog, layer, feature):
     dialog.parent().setFixedWidth(320)

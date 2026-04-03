@@ -2,3 +2,4 @@
 ./volumes/solr/data
 ./volumes/qgs-resources/**/*.qgs~
 **/.DS_Store
+Copy/

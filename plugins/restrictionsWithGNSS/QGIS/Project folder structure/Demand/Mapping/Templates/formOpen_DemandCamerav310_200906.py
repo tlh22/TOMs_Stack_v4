@@ -75,11 +75,11 @@ def formOpen_CountDemand(dialog, layer, feature):
     """
 
     if not feature.isValid():
-        #reply = QMessageBox.information(None, "Information", "Invalid feature", QMessageBox.Ok)
+        #reply = QMessageBox.information(None, "Information", "Invalid feature", QMessageBox.StandardButton.Ok)
         return
 
     if layer.startEditing() == False:
-        #reply = QMessageBox.information(None, "Information", "Could not start transaction", QMessageBox.Ok)
+        #reply = QMessageBox.information(None, "Information", "Could not start transaction", QMessageBox.StandardButton.Ok)
         pass
         
     iface = qgis.utils.iface
@@ -118,7 +118,7 @@ class demandFormUtils(FieldRestrictionTypeUtilsMixin):
                 "In setupDemandDialog. button box not found",
                 tag="TOMs panel")
             reply = QMessageBox.information(None, "Information", "Please reset form. There are missing buttons",
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             return
 
         self.demandDialog.disconnectButtonBox()
@@ -155,7 +155,7 @@ class demandFormUtils(FieldRestrictionTypeUtilsMixin):
         if currFeatureLayer.commitChanges() == False:
             reply = QMessageBox.information(None, "Information",
                                             "Problem committing changes" + str(currFeatureLayer.commitErrors()),
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
         else:
             QgsMessageLog.logMessage("In onSaveDemandDetails: changes committed", tag="TOMs panel")
 
@@ -166,7 +166,7 @@ class demandFormUtils(FieldRestrictionTypeUtilsMixin):
         self.closeCameras(self.demandDialog)
 
         if self.currDemandLayer.rollBack() == False:
-            reply = QMessageBox.information(None, "Information", "Problem rolling back changes", QMessageBox.Ok)
+            reply = QMessageBox.information(None, "Information", "Problem rolling back changes", QMessageBox.StandardButton.Ok)
         else:
             QgsMessageLog.logMessage("In onRejectDemandDetailsFromForm: rollBack successful ...", tag="TOMs panel")
 
@@ -188,7 +188,7 @@ class demandFormUtils(FieldRestrictionTypeUtilsMixin):
             reply = QMessageBox.information(None, "Error",
                                             "onAttributeChangedClass2. Update failed for: " + str(
                                                 layer.name()) + " (" + fieldName + "): " + str(value),
-                                            QMessageBox.Ok)  # rollback all changes
+                                            QMessageBox.StandardButton.Ok)  # rollback all changes
         return
 
     @pyqtSlot(str)
@@ -207,4 +207,4 @@ class demandFormUtils(FieldRestrictionTypeUtilsMixin):
                                          tag="TOMs panel")
                 reply = QMessageBox.information(None, "Error",
                                                 "savePhotoTaken. problem changing attrib value",
-                                                QMessageBox.Ok)
+                                                QMessageBox.StandardButton.Ok)

@@ -252,7 +252,7 @@
                 "showLink": true,
                 "showQRCode": true
               },
-              "mapClickAction": "identify"
+              "mapClickAction": "unset"
             },
             {
               "name": "Print",
@@ -328,8 +328,7 @@
               "name": "Authentication"
             },
             {
-              "name": "FeatureForm",
-              "mapClickAction": "identify"
+              "name": "FeatureForm"
             },
             {
               "name": "Editing",
@@ -698,8 +697,7 @@
               "name": "Authentication"
             },
             {
-              "name": "FeatureForm",
-              "mapClickAction": "identify"
+              "name": "FeatureForm"
             },
             {
               "name": "TimeManager",
@@ -799,7 +797,7 @@
                 "editDataset": "trdc/scan/threerivers.Bays",
                 "geomType": "LineString",
                 "primaryKey": "RestrictionID",
-                "form": ":/forms/autogen/threerivers_Bays.ui?v=1775139340",
+                "form": ":/forms/autogen/threerivers_Bays.ui?v=1775142159",
                 "reltables": [
                   "BayTypesInUse_View",
                   "TimePeriodsInUse_View",
@@ -1558,7 +1556,7 @@
                 "editDataset": "trdc/scan/threerivers.CPZs",
                 "geomType": null,
                 "primaryKey": "RestrictionID",
-                "form": ":/forms/autogen/threerivers_CPZs.ui?v=1775139340",
+                "form": ":/forms/autogen/threerivers_CPZs.ui?v=1775142159",
                 "reltables": [],
                 "fields": [
                   {
@@ -2753,7 +2751,7 @@
                 "editDataset": "trdc/scan/threerivers.MapGrid",
                 "geomType": "MultiPolygon",
                 "primaryKey": "id",
-                "form": ":/forms/autogen/threerivers_MapGrid.ui?v=1775139341",
+                "form": ":/forms/autogen/threerivers_MapGrid.ui?v=1775142160",
                 "reltables": [],
                 "fields": [
                   {
@@ -3608,7 +3606,7 @@
                 "editDataset": "trdc/scan/threerivers.TRDC",
                 "geomType": "MultiPolygon",
                 "primaryKey": "id",
-                "form": ":/forms/autogen/threerivers_TRDC.ui?v=1775139341",
+                "form": ":/forms/autogen/threerivers_TRDC.ui?v=1775142160",
                 "reltables": [],
                 "fields": [
                   {
@@ -3895,7 +3893,7 @@
                 "editDataset": "trdc/scan/threerivers.StreetGazetteerRecords",
                 "geomType": "MultiLineString",
                 "primaryKey": "gid",
-                "form": ":/forms/autogen/threerivers_StreetGazetteerRecords.ui?v=1775139341",
+                "form": ":/forms/autogen/threerivers_StreetGazetteerRecords.ui?v=1775142160",
                 "reltables": [],
                 "fields": [
                   {
