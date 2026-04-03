@@ -61,7 +61,9 @@
                     "maptip": "maptip"
                   },
                   "queryable": true,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "CPZs"
+                  ]
                 },
                 {
                   "name": "Bays",
@@ -79,7 +81,9 @@
                     "maptip": "maptip"
                   },
                   "queryable": true,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "Bays"
+                  ]
                 },
                 {
                   "name": "Lines",
@@ -95,7 +99,9 @@
                     "maptip": "maptip"
                   },
                   "queryable": true,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "Lines"
+                  ]
                 },
                 {
                   "name": "RestrictionPolygons",
@@ -112,10 +118,17 @@
                     "maptip": "maptip"
                   },
                   "queryable": true,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "RestrictionPolygons"
+                  ]
                 }
               ],
-              "edit_layers": []
+              "edit_layers": [
+                "CPZs",
+                "Bays",
+                "Lines",
+                "RestrictionPolygons"
+              ]
             },
             {
               "name": "Map Schedule Grids",
@@ -134,10 +147,14 @@
                     "maptip": "maptip"
                   },
                   "queryable": false,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "MapGrid"
+                  ]
                 }
               ],
-              "edit_layers": []
+              "edit_layers": [
+                "MapGrid"
+              ]
             },
             {
               "name": "Background Mapping",
@@ -165,7 +182,9 @@
                     "maptip": "maptip"
                   },
                   "queryable": false,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "StreetGazetteerRecords"
+                  ]
                 },
                 {
                   "name": "TRDC",
@@ -176,7 +195,9 @@
                     "maptip": "maptip"
                   },
                   "queryable": false,
-                  "edit_layers": []
+                  "edit_layers": [
+                    "TRDC"
+                  ]
                 },
                 {
                   "name": "OS_Roads",
@@ -185,10 +206,21 @@
                   "edit_layers": []
                 }
               ],
-              "edit_layers": []
+              "edit_layers": [
+                "StreetGazetteerRecords",
+                "TRDC"
+              ]
             }
           ],
-          "edit_layers": []
+          "edit_layers": [
+            "CPZs",
+            "Bays",
+            "Lines",
+            "RestrictionPolygons",
+            "MapGrid",
+            "StreetGazetteerRecords",
+            "TRDC"
+          ]
         },
         "print_templates": [
           "A4_Sketch"
