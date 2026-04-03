@@ -295,11 +295,6 @@
               ]
             },
             {
-              "name": "Map Schedule Grids",
-              "title": "Map Schedule Grids",
-              "layers": []
-            },
-            {
               "name": "Background Mapping",
               "title": "Background Mapping",
               "layers": []

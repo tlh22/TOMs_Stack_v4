@@ -3,3 +3,4 @@
 ./volumes/qgs-resources/**/*.qgs~
 **/.DS_Store
 Copy/
+./volumes/config/__capabilities_cache/
