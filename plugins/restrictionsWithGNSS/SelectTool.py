@@ -99,7 +99,7 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
 
         closestFeature, closestLayer = self.findNearestFeatureAtC(event.pos())
 
-        TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent."), level=Qgis.Info)
+        TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent."), level=Qgis.MessageLevel.Info)
 
         # Remove any current selection and add the new ones (if appropriate)
 
@@ -111,29 +111,29 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
         else:
 
             TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. Feature selected from layer: " + closestLayer.name() + " id: " + str(
-                    closestFeature.id())), level=Qgis.Info)
+                    closestFeature.id())), level=Qgis.MessageLevel.Info)
 
             if not closestLayer == self.iface.activeLayer():
                 if self.iface.activeLayer():
                     self.iface.activeLayer().removeSelection()
                 self.iface.setActiveLayer(closestLayer)
 
-            if closestLayer.type() == QgsMapLayer.VectorLayer:
+            if closestLayer.type() == QgsMapLayer.LayerType.VectorLayer:
                 TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. layer type " + str(closestLayer.type())),
-                                         level=Qgis.Info)
+                                         level=Qgis.MessageLevel.Info)
 
-            if closestLayer.geometryType() == QgsWkbTypes.PointGeometry:
-                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. point layer type "), level=Qgis.Info)
+            if closestLayer.geometryType() == QgsWkbTypes.GeometryType.PointGeometry:
+                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. point layer type "), level=Qgis.MessageLevel.Info)
 
-            if closestLayer.geometryType() == QgsWkbTypes.LineGeometry:
-                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. line layer type "), level=Qgis.Info)
+            if closestLayer.geometryType() == QgsWkbTypes.GeometryType.LineGeometry:
+                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. line layer type "), level=Qgis.MessageLevel.Info)
 
             #self.notifyFeatureFound.emit(closestLayer, closestFeature)
             self.showRestrictionDetails(closestLayer, closestFeature)
 
             """TOMsMessageLog.logMessage(
                 "In GeometryInfoMapTool - releaseEvent. currRestrictionLayer: " + str(closestLayer.name()),
-                level=Qgis.Info)
+                level=Qgis.MessageLevel.Info)
 
             # TODO: Sort out this for UPDATE
             # self.setDefaultRestrictionDetails(closestFeature, closestLayer)
@@ -186,7 +186,7 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
             featureList.append(f)
             layerList.append(self.currLayer)
 
-        TOMsMessageLog.logMessage("In findNearestFeatureAt: Considering layer: {}; nrFeatures: {}".format(self.currLayer.name(), len(featureList)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In findNearestFeatureAt: Considering layer: {}; nrFeatures: {}".format(self.currLayer.name(), len(featureList)), level=Qgis.MessageLevel.Info)
 
         if len(featureList) == 0:
             return None, None
@@ -195,26 +195,26 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
         else:
             # set up a context menu
             TOMsMessageLog.logMessage("In findNearestFeatureAt: multiple features: " + str(len(featureList)),
-                                     level=Qgis.Info)
+                                     level=Qgis.MessageLevel.Info)
 
             feature, layer = self.getFeatureDetails(featureList, layerList)
             # TODO: Need to pick up primary key(s)
             """TOMsMessageLog.logMessage("In findNearestFeatureAt: feature: " + str(feature.attribute('id')),
-                                     level=Qgis.Info)"""
+                                     level=Qgis.MessageLevel.Info)"""
 
             return feature, layer
 
         pass
 
     def getFeatureDetails(self, featureList, layerList):
-        TOMsMessageLog.logMessage("In getFeatureDetails", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getFeatureDetails", level=Qgis.MessageLevel.Info)
 
         #self.featureList = featureList
         #self.layerList = layerList
 
         actionFeatureList = []
         # Creates the context menu and returns the selected feature and layer
-        TOMsMessageLog.logMessage("In getFeatureDetails: nrFeatures: " + str(len(featureList)), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getFeatureDetails: nrFeatures: " + str(len(featureList)), level=Qgis.MessageLevel.Info)
 
         self.actions = []
         self.menu = QMenu(self.iface.mapCanvas())
@@ -245,7 +245,7 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
                 title = "[{GeometryID}]".format(GeometryID=currGeometryID)
                 #featureList.append(title)
 
-            TOMsMessageLog.logMessage("In featureContextMenu: adding: " + str(title), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In featureContextMenu: adding: " + str(title), level=Qgis.MessageLevel.Info)
 
 
             action = QAction(title, self.menu)
@@ -253,35 +253,35 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
 
             self.menu.addAction(action)
 
-        TOMsMessageLog.logMessage("In getFeatureDetails: showing menu?", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getFeatureDetails: showing menu?", level=Qgis.MessageLevel.Info)
 
         clicked_action = self.menu.exec_(self.iface.mapCanvas().mapToGlobal(self.event.pos()))
-        TOMsMessageLog.logMessage(("In getFeatureDetails:clicked_action: " + str(clicked_action)), level=Qgis.Warning)
+        TOMsMessageLog.logMessage(("In getFeatureDetails:clicked_action: " + str(clicked_action)), level=Qgis.MessageLevel.Warning)
 
         if clicked_action is not None:
 
             TOMsMessageLog.logMessage(("In getFeatureDetails:clicked_action: " + str(clicked_action.text())),
-                                     level=Qgis.Warning)
+                                     level=Qgis.MessageLevel.Warning)
             idxList = self.getIdxFromGeometryID(clicked_action.text(), featureList)
 
-            TOMsMessageLog.logMessage("In getFeatureDetails: idx = " + str(idxList), level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In getFeatureDetails: idx = " + str(idxList), level=Qgis.MessageLevel.Warning)
 
             if idxList >= 0:
                 # TODO: need to be careful here so that we use primary key
                 return featureList[idxList], layerList[idxList]
 
-        TOMsMessageLog.logMessage(("In getFeatureDetails. No action found."), level=Qgis.Warning)
+        TOMsMessageLog.logMessage(("In getFeatureDetails. No action found."), level=Qgis.MessageLevel.Warning)
 
         return None, None
 
 
     def getIdxFromGeometryID(self, clicked_action_text, featureList):
         #
-        TOMsMessageLog.logMessage("In getIdxFromGeometryID", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getIdxFromGeometryID", level=Qgis.MessageLevel.Info)
 
         selectedGeometryID = clicked_action_text[clicked_action_text.find('[') + 1:clicked_action_text.find(']')]
         idx = -1
-        TOMsMessageLog.logMessage("In getFeatureDetails. id = {}".format(selectedGeometryID), level=Qgis.Warning)
+        TOMsMessageLog.logMessage("In getFeatureDetails. id = {}".format(selectedGeometryID), level=Qgis.MessageLevel.Warning)
         for idx in range(len(featureList)):
             if featureList[idx].attribute('GeometryID') == selectedGeometryID:
                 return idx
@@ -292,7 +292,7 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
 
         TOMsMessageLog.logMessage(
             "In showRestrictionDetails ... Layer: " + str(closestLayer.name()),
-            level=Qgis.Info)
+            level=Qgis.MessageLevel.Info)
 
         #self.showRestrictionMapTool.notifyFeatureFound.disconnect(self.showRestrictionDetails)
 
@@ -301,9 +301,9 @@ class GeometryInfoMapTool(FieldRestrictionTypeUtilsMixin, QgsMapToolIdentify):
             if closestLayer.commitChanges() == False:
                 reply = QMessageBox.information(None, "Information",
                                                 "Problem committing changes" + str(closestLayer.commitErrors()),
-                                                QMessageBox.Ok)
+                                                QMessageBox.StandardButton.Ok)
             else:
-                TOMsMessageLog.logMessage("In showRestrictionDetails: changes committed", level=Qgis.Info)
+                TOMsMessageLog.logMessage("In showRestrictionDetails: changes committed", level=Qgis.MessageLevel.Info)
 
         status = self.iface.activeLayer().startEditing()
 
@@ -327,7 +327,7 @@ class RemoveRestrictionTool(GeometryInfoMapTool):
 
         closestFeature, closestLayer = self.findNearestFeatureAtC(event.pos())
 
-        TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent."), level=Qgis.Info)
+        TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent."), level=Qgis.MessageLevel.Info)
 
         # Remove any current selection and add the new ones (if appropriate)
 
@@ -339,22 +339,22 @@ class RemoveRestrictionTool(GeometryInfoMapTool):
         else:
 
             TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. Feature selected from layer: " + closestLayer.name() + " id: " + str(
-                    closestFeature.id())), level=Qgis.Info)
+                    closestFeature.id())), level=Qgis.MessageLevel.Info)
 
             if not closestLayer == self.iface.activeLayer():
                 if self.iface.activeLayer():
                     self.iface.activeLayer().removeSelection()
                 self.iface.setActiveLayer(closestLayer)
 
-            if closestLayer.type() == QgsMapLayer.VectorLayer:
+            if closestLayer.type() == QgsMapLayer.LayerType.VectorLayer:
                 TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. layer type " + str(closestLayer.type())),
-                                         level=Qgis.Info)
+                                         level=Qgis.MessageLevel.Info)
 
-            if closestLayer.geometryType() == QgsWkbTypes.PointGeometry:
-                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. point layer type "), level=Qgis.Info)
+            if closestLayer.geometryType() == QgsWkbTypes.GeometryType.PointGeometry:
+                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. point layer type "), level=Qgis.MessageLevel.Info)
 
-            if closestLayer.geometryType() == QgsWkbTypes.LineGeometry:
-                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. line layer type "), level=Qgis.Info)
+            if closestLayer.geometryType() == QgsWkbTypes.GeometryType.LineGeometry:
+                TOMsMessageLog.logMessage(("In Info - canvasReleaseEvent. line layer type "), level=Qgis.MessageLevel.Info)
 
             self.notifyFeatureFound.emit(closestLayer, closestFeature)
             #self.showRestrictionDetails(closestLayer, closestFeature)

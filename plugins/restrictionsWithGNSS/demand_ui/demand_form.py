@@ -29,7 +29,7 @@ def createConnection():
     if not con.open():
         QMessageBox.critical(None, "Cannot open memory database",
                              "Unable to establish a database connection.\n\n"
-                             "Click Cancel to exit.", QMessageBox.Cancel)
+                             "Click Cancel to exit.", QMessageBox.StandardButton.Cancel)
         return False
     #query = QtSql.QSqlQuery()
     return True

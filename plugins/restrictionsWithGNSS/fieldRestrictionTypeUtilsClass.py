@@ -91,7 +91,7 @@ class gpsLayers(TOMsLayers):
     def __init__(self, iface):
         TOMsLayers.__init__(self, iface)
         self.iface = iface
-        #TOMsMessageLog.logMessage("In gpsLayers.init ...", level=Qgis.Info)
+        #TOMsMessageLog.logMessage("In gpsLayers.init ...", level=Qgis.MessageLevel.Info)
         # TODO: Load these from a local file - or database
         self.TOMsLayerList = [
             "Bays",
@@ -191,7 +191,7 @@ class gpsParams(TOMsParams):
         TOMsParams.__init__(self)
         #self.iface = iface
 
-        #TOMsMessageLog.logMessage("In gpsParams.init ...", level=Qgis.Info)
+        #TOMsMessageLog.logMessage("In gpsParams.init ...", level=Qgis.MessageLevel.Info)
 
         self.TOMsParamsList.extend([
                           "gpsPort",
@@ -211,7 +211,7 @@ class FieldRestrictionTypeUtilsMixin():
         #self.TOMsUtils = RestrictionTypeUtilsMixin(self.iface)
 
     def setDefaultFieldRestrictionDetails(self, currRestriction, currRestrictionLayer, currDate):
-        TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails: {}".format(currRestrictionLayer.name()), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails: {}".format(currRestrictionLayer.name()), level=Qgis.MessageLevel.Info)
 
         # TODO: Need to check whether or not these fields exist. Also need to retain the last values and reuse
         # gis.stackexchange.com/questions/138563/replacing-action-triggered-script-by-one-supplied-through-qgis-plugin
@@ -220,13 +220,13 @@ class FieldRestrictionTypeUtilsMixin():
             currRestriction.setAttribute("LastUpdateDateTime", currDate)
         except Exception as e:
             TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails. Problem with setting LastUpdateDateTime: {}".format(e),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
         try:
             generateGeometryUtils.setRoadName(currRestriction)
         except Exception as e:
             TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails. Problem with setting Road Name: {}".format(e),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
         """if currRestrictionLayer.geometryType() == 1:  # Line or Bay
             generateGeometryUtils.setAzimuthToRoadCentreLine(currRestriction)
@@ -237,13 +237,13 @@ class FieldRestrictionTypeUtilsMixin():
         #currentCPZ, cpzWaitingTimeID, cpzMatchDayTimePeriodID = generateGeometryUtils.getCurrentCPZDetails(currRestriction)
         """TOMsMessageLog.logMessage(
             "In setDefaultFieldRestrictionDetails. CPZ found: {}: control: {}".format(currentCPZ, cpzWaitingTimeID),
-            level=Qgis.Info)"""
+            level=Qgis.MessageLevel.Info)"""
         #currRestriction.setAttribute("CPZ", currentCPZ)
 
         newRestrictionID = str(uuid.uuid4())
         currRestriction.setAttribute("RestrictionID", newRestrictionID)
         TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails. newRestID: {}, {}".format(newRestrictionID, currRestriction[currRestrictionLayer.fields().indexFromName("RestrictionID")]),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         if currRestrictionLayer.name() == "Lines":
             currRestriction.setAttribute("RestrictionTypeID", self.readLastUsedDetails("Lines", "RestrictionTypeID", 201))  # 10 = SYL (Lines)
@@ -292,7 +292,7 @@ class FieldRestrictionTypeUtilsMixin():
             except Exception as e:
                 TOMsMessageLog.logMessage(
                     "In setDefaultFieldRestrictionDetails. issue obtaining PayParkingAreaID: {}".format(e),
-                    level=Qgis.Info)
+                    level=Qgis.MessageLevel.Info)
 
         elif currRestrictionLayer.name() == "Signs":
             currRestriction.setAttribute("SignType_1", self.readLastUsedDetails("Signs", "SignType_1", 28))  # 28 = Permit Holders Only (Signs)
@@ -326,29 +326,29 @@ class FieldRestrictionTypeUtilsMixin():
             currRestriction.setAttribute("ComplianceRoadMarkingsFaded", 1)  # No issue
         except Exception as e:
             TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails. Problem with setting ComplianceRoadMarkingsFaded: {}".format(e),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
         try:
             currRestriction.setAttribute("ComplianceRestrictionSignIssue", 1)  # No issue
         except Exception as e:
             TOMsMessageLog.logMessage("In setDefaultFieldRestrictionDetails. Problem with setting ComplianceRestrictionSignIssue: {}".format(e),
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
         # update feature
         #currRestrictionLayer.updateFeature(currRestriction)
 
     def storeLastUsedDetails(self, layer, field, value):
         entry = '{layer}/{field}'.format(layer=layer, field=field)
-        TOMsMessageLog.logMessage("In storeLastUsedDetails: " + str(entry) + " (" + str(value) + ")", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In storeLastUsedDetails: " + str(entry) + " (" + str(value) + ")", level=Qgis.MessageLevel.Info)
         self.settings.setValue(entry, value)
 
     def readLastUsedDetails(self, layer, field, default):
         entry = '{layer}/{field}'.format(layer=layer, field=field)
-        TOMsMessageLog.logMessage("In readLastUsedDetails: " + str(entry) + " (" + str(default) + ")", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In readLastUsedDetails: " + str(entry) + " (" + str(default) + ")", level=Qgis.MessageLevel.Info)
         return self.settings.value(entry, default)
 
     def setupFieldRestrictionDialog(self, restrictionDialog, currRestrictionLayer, currRestriction):
-        TOMsMessageLog.logMessage("In setupFieldRestrictionDialog {}:{}... ".format(currRestrictionLayer.name(), currRestriction.attribute("RestrictionID")), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In setupFieldRestrictionDialog {}:{}... ".format(currRestrictionLayer.name(), currRestriction.attribute("RestrictionID")), level=Qgis.MessageLevel.Info)
 
         self.params.getParams()
 
@@ -359,10 +359,10 @@ class FieldRestrictionTypeUtilsMixin():
         if restrictionDialog is None:
             reply = QMessageBox.information(None, "Error",
                                             "setupFieldRestrictionDialog. Correct form not found",
-                                            QMessageBox.Ok)
+                                            QMessageBox.StandardButton.Ok)
             TOMsMessageLog.logMessage(
                 "In setupRestrictionDialog. dialog not found",
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
             return
 
         restrictionDialog.attributeForm().disconnectButtonBox()
@@ -371,7 +371,7 @@ class FieldRestrictionTypeUtilsMixin():
         if button_box is None:
             TOMsMessageLog.logMessage(
                 "In setupRestrictionDialog. button box not found",
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
             return
 
         button_box.accepted.connect(functools.partial(self.onSaveFieldRestrictionDetails, currRestriction,
@@ -379,10 +379,10 @@ class FieldRestrictionTypeUtilsMixin():
 
         button_box.rejected.connect(functools.partial(self.onRejectFieldRestrictionDetailsFromForm, restrictionDialog, currRestrictionLayer))
 
-        TOMsMessageLog.logMessage("In setupFieldRestrictionDialog. Entering photoDetails_field ... ", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In setupFieldRestrictionDialog. Entering photoDetails_field ... ", level=Qgis.MessageLevel.Info)
         """reply = QMessageBox.information(None, "Information",
                                         "Entering camera setup ...",
-                                        QMessageBox.Ok)"""
+                                        QMessageBox.StandardButton.Ok)"""
 
         restrictionDialog.attributeForm().attributeChanged.connect(functools.partial(self.onAttributeChangedClass2_local, currRestriction, currRestrictionLayer))
 
@@ -400,7 +400,7 @@ class FieldRestrictionTypeUtilsMixin():
                                       dw, dh)
 
         """def onSaveRestrictionDetailsFromForm(self):
-        TOMsMessageLog.logMessage("In onSaveRestrictionDetailsFromForm", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onSaveRestrictionDetailsFromForm", level=Qgis.MessageLevel.Info)
         self.onSaveRestrictionDetails(self.currRestriction,
                                       self.currRestrictionLayer, self.restrictionDialog, self.restrictionTransaction)"""
 
@@ -409,7 +409,7 @@ class FieldRestrictionTypeUtilsMixin():
         #self.TOMsUtils.onAttributeChangedClass2(currFeature, layer, fieldName, value)
 
         TOMsMessageLog.logMessage(
-            "In field:FormOpen:onAttributeChangedClass 2 - layer: " + str(layer.name()) + " (" + fieldName + "): " + str(value), level=Qgis.Info)
+            "In field:FormOpen:onAttributeChangedClass 2 - layer: " + str(layer.name()) + " (" + fieldName + "): " + str(value), level=Qgis.MessageLevel.Info)
 
 
         # self.currRestriction.setAttribute(fieldName, value)
@@ -422,7 +422,7 @@ class FieldRestrictionTypeUtilsMixin():
 
             reply = QMessageBox.information(None, "Error",
                                                 "onAttributeChangedClass2. Update failed for: " + str(layer.name()) + " (" + fieldName + "): " + str(value),
-                                                QMessageBox.Ok)  # rollback all changes
+                                                QMessageBox.StandardButton.Ok)  # rollback all changes
 
 
         self.storeLastUsedDetails(layer.name(), fieldName, value)
@@ -430,7 +430,7 @@ class FieldRestrictionTypeUtilsMixin():
         return
 
     def onSaveFieldRestrictionDetails(self, currFeature, currFeatureLayer, dialog):
-        TOMsMessageLog.logMessage("In onSaveFieldRestrictionDetails: ", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onSaveFieldRestrictionDetails: ", level=Qgis.MessageLevel.Info)
 
         self.closeCameras(dialog)
         # deal with issue whereby a null field provided by PayParkingAreaID is a 0 length string (rather than integer)
@@ -441,33 +441,33 @@ class FieldRestrictionTypeUtilsMixin():
                     currFeature[currFeatureLayer.fields().indexFromName("PayParkingAreaID")] = None
             except Exception as e:
                 TOMsMessageLog.logMessage('onSaveFieldRestrictionDetails: dealing with PayParkingAreaID {}'.format(e),
-                                          level=Qgis.Warning)
+                                          level=Qgis.MessageLevel.Warning)
                 
         attrs1 = currFeature.attributes()
         TOMsMessageLog.logMessage("In onSaveDemandDetails: currRestriction: " + str(attrs1),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
 
         TOMsMessageLog.logMessage(
             ("In onSaveDemandDetails. geometry: " + str(currFeature.geometry().asWkt())),
-            level=Qgis.Info)
+            level=Qgis.MessageLevel.Info)
 
         currFeatureID = currFeature.id()
         TOMsMessageLog.logMessage("In onSaveDemandDetails: currFeatureID: " + str(currFeatureID),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
 
         status = currFeatureLayer.updateFeature(currFeature)
         TOMsMessageLog.logMessage("In onSaveDemandDetails: feature updated: " + str(currFeatureID),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         """if currFeatureID > 0:   # Not sure what this value should if the feature has not been created ...
 
             # TODO: Sort out this for UPDATE
             self.setDefaultRestrictionDetails(currFeature, currFeatureLayer)
 
             status = currFeatureLayer.updateFeature(currFeature)
-            TOMsMessageLog.logMessage("In onSaveDemandDetails: updated Feature: ", level=Qgis.Info)
+            TOMsMessageLog.logMessage("In onSaveDemandDetails: updated Feature: ", level=Qgis.MessageLevel.Info)
         else:
             status = currFeatureLayer.addFeature(currFeature)
-            TOMsMessageLog.logMessage("In onSaveDemandDetails: added Feature: " + str(status), level=Qgis.Info)"""
+            TOMsMessageLog.logMessage("In onSaveDemandDetails: added Feature: " + str(status), level=Qgis.MessageLevel.Info)"""
 
         """
             save form location for reuse
@@ -477,25 +477,25 @@ class FieldRestrictionTypeUtilsMixin():
 
         status = dialog.attributeForm().close()
         TOMsMessageLog.logMessage("In onSaveDemandDetails: dialog saved: " + str(currFeatureID),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
         #currRestrictionLayer.addFeature(currRestriction)  # TH (added for v3)
         #status = currFeatureLayer.updateFeature(currFeature)  # TH (added for v3)
 
         try:
             currFeatureLayer.commitChanges()
         except Exception as e:
-            reply = QMessageBox.information(None, "Information", "Problem committing changes: {}".format(e), QMessageBox.Ok)
+            reply = QMessageBox.information(None, "Information", "Problem committing changes: {}".format(e), QMessageBox.StandardButton.Ok)
 
         #currFeatureLayer.blockSignals(False)
 
-        TOMsMessageLog.logMessage("In onSaveDemandDetails: changes committed", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onSaveDemandDetails: changes committed", level=Qgis.MessageLevel.Info)
 
         status = dialog.close()
         #self.mapTool = None
         #self.iface.mapCanvas().unsetMapTool(self.iface.mapCanvas().mapTool())
 
     def onRejectFieldRestrictionDetailsFromForm(self, restrictionDialog, currFeatureLayer):
-        TOMsMessageLog.logMessage("In onRejectFieldRestrictionDetailsFromForm", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In onRejectFieldRestrictionDetailsFromForm", level=Qgis.MessageLevel.Info)
 
         self.closeCameras(restrictionDialog)
 
@@ -521,37 +521,37 @@ class FieldRestrictionTypeUtilsMixin():
             self.camera1.photoTaken.connect(functools.partial(self.savePhotoTaken, self.idx1))
         except Exception as e:
             TOMsMessageLog.logMessage('closeCameras: error disconnecting camera 1 {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
 
         try:
             self.camera2.close_camera()
             self.camera2.photoTaken.connect(functools.partial(self.savePhotoTaken, self.idx2))
         except Exception as e:
             TOMsMessageLog.logMessage('closeCameras: error disconnecting camera 2 {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
 
         try:
             self.camera3.close_camera()
             self.camera3.photoTaken.connect(functools.partial(self.savePhotoTaken, self.idx3))
         except Exception as e:
             TOMsMessageLog.logMessage('closeCameras: error disconnecting camera 3 {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
 
         return
 
     def photoDetails_field(self, restrictionDialog, currRestrictionLayer, currRestriction):
 
         try:
-            TOMsMessageLog.logMessage("In photoDetails_field {}:{} ... ".format(currRestrictionLayer.name(), currRestriction.attribute("RestrictionID")), level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In photoDetails_field {}:{} ... ".format(currRestrictionLayer.name(), currRestriction.attribute("RestrictionID")), level=Qgis.MessageLevel.Warning)
         except Exception as e:
             TOMsMessageLog.logMessage('photoDetails_field: print error {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
 
         try:
-            TOMsMessageLog.logMessage("In photoDetails_field {}:{} ... ".format(currRestrictionLayer.name(), currRestriction.attribute("GeometryID")), level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In photoDetails_field {}:{} ... ".format(currRestrictionLayer.name(), currRestriction.attribute("GeometryID")), level=Qgis.MessageLevel.Warning)
         except Exception as e:
             TOMsMessageLog.logMessage('photoDetails_field: print error {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
                                       
         # Function to deal with photo fields
 
@@ -560,7 +560,7 @@ class FieldRestrictionTypeUtilsMixin():
         try:
             cameraNr = int(self.params.setParam("CameraNr"))
         except Exception as e:
-            TOMsMessageLog.logMessage("In photoDetails_field: cameraNr issue: {}".format(e), level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In photoDetails_field: cameraNr issue: {}".format(e), level=Qgis.MessageLevel.Warning)
 
         path_absolute = self.getPhotoPath()
         if path_absolute is None:
@@ -569,16 +569,16 @@ class FieldRestrictionTypeUtilsMixin():
         # get image resolution
 
         frameWidth, frameHeight = self.getCameraResolution()
-        TOMsMessageLog.logMessage("In gnns: In photoDetails_field: ... resolution: {}*{} ".format(frameWidth, frameHeight), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In gnns: In photoDetails_field: ... resolution: {}*{} ".format(frameWidth, frameHeight), level=Qgis.MessageLevel.Info)
 
         rotateCamera = False
         try:
             if int(self.params.setParam("rotateCamera")) > 0:
                 rotateCamera = True
         except Exception as e:
-            TOMsMessageLog.logMessage("In photoDetails_field: rotateCamera issue: {}".format(e), level=Qgis.Warning)
+            TOMsMessageLog.logMessage("In photoDetails_field: rotateCamera issue: {}".format(e), level=Qgis.MessageLevel.Warning)
 
-        TOMsMessageLog.logMessage("In photoDetails_field: cameraNr is: {}; rotate: {}".format(cameraNr, rotateCamera), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In photoDetails_field: cameraNr is: {}; rotate: {}".format(cameraNr, rotateCamera), level=Qgis.MessageLevel.Info)
 
         fileName1 = "Photos_01"
         fileName2 = "Photos_02"
@@ -589,13 +589,13 @@ class FieldRestrictionTypeUtilsMixin():
         self.idx3 = currRestrictionLayer.fields().indexFromName(fileName3)
 
         TOMsMessageLog.logMessage("In photoDetails. idx1: " + str(self.idx1) + "; " + str(self.idx2) + "; " + str(self.idx3),
-                                 level=Qgis.Info)
+                                 level=Qgis.MessageLevel.Info)
 
         if cameraNr is not None:
-            TOMsMessageLog.logMessage("Camera TRUE", level=Qgis.Info)
+            TOMsMessageLog.logMessage("Camera TRUE", level=Qgis.MessageLevel.Info)
             takePhoto = True
         else:
-            TOMsMessageLog.logMessage("Camera FALSE", level=Qgis.Info)
+            TOMsMessageLog.logMessage("Camera FALSE", level=Qgis.MessageLevel.Info)
             takePhoto = False
 
         camera1Tab = restrictionDialog.findChild(QWidget, "Photos_01")
@@ -607,7 +607,7 @@ class FieldRestrictionTypeUtilsMixin():
         if camera1Tab:
 
             TOMsMessageLog.logMessage("In photoDetails. camera1Tab exists",
-                                     level=Qgis.Info)
+                                     level=Qgis.MessageLevel.Info)
 
             self.camera1 = TOMsCameraWidget()
             self.camera1.setupWidget(currRestriction[self.idx1])
@@ -618,7 +618,7 @@ class FieldRestrictionTypeUtilsMixin():
         if camera2Tab:
 
             TOMsMessageLog.logMessage("In photoDetails. camera2Tab exists",
-                                     level=Qgis.Info)
+                                     level=Qgis.MessageLevel.Info)
 
             self.camera2 = TOMsCameraWidget()
             self.camera2.setupWidget(currRestriction[self.idx2])
@@ -629,7 +629,7 @@ class FieldRestrictionTypeUtilsMixin():
         if camera3Tab:
 
             TOMsMessageLog.logMessage("In photoDetails. camera3Tab exists",
-                                     level=Qgis.Info)
+                                     level=Qgis.MessageLevel.Info)
 
             self.camera3 = TOMsCameraWidget()
             self.camera3.setupWidget(currRestriction[self.idx3])
@@ -645,19 +645,19 @@ class FieldRestrictionTypeUtilsMixin():
                 restrictionDialog.finished.connect(functools.partial(self.closeCameras, restrictionDialog))
             except Exception as e:
                 TOMsMessageLog.logMessage('photoDetails: error setting up close cameras: {}'.format(e),
-                                          level=Qgis.Warning)
+                                          level=Qgis.MessageLevel.Warning)
 
             # if coming from Demand
             try:
                 restrictionDialog.destroyed.connect(functools.partial(self.closeCameras, restrictionDialog))
             except Exception as e:
                 TOMsMessageLog.logMessage('photoDetails: error setting up close cameras: {}'.format(e),
-                                          level=Qgis.Warning)
+                                          level=Qgis.MessageLevel.Warning)
         pass
 
     def getPhotoPath(self):
         """ check that photo path exists """
-        TOMsMessageLog.logMessage("In getPhotoPath", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getPhotoPath", level=Qgis.MessageLevel.Info)
 
         photoPath = QgsExpressionContextUtils.projectScope(QgsProject.instance()).variable('PhotoPath')
 
@@ -666,16 +666,16 @@ class FieldRestrictionTypeUtilsMixin():
         path_absolute = os.path.join(projectFolder, photoPath)
 
         if path_absolute == None:
-            reply = QMessageBox.information(None, "Information", "Please set value for PhotoPath.", QMessageBox.Ok)
+            reply = QMessageBox.information(None, "Information", "Please set value for PhotoPath.", QMessageBox.StandardButton.Ok)
             return None
 
         # Check path exists ...
         if os.path.isdir(path_absolute) == False:
             reply = QMessageBox.information(None, "Information", "PhotoPath folder " + str(
-                path_absolute) + " does not exist. Please check value.", QMessageBox.Ok)
+                path_absolute) + " does not exist. Please check value.", QMessageBox.StandardButton.Ok)
             return None
 
-        TOMsMessageLog.logMessage("In getPhotoPath. Returning {}".format(path_absolute), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In getPhotoPath. Returning {}".format(path_absolute), level=Qgis.MessageLevel.Info)
         return path_absolute
 
     def getCameraResolution(self):
@@ -684,13 +684,13 @@ class FieldRestrictionTypeUtilsMixin():
         frameWidth = TOMsConfigFileObject.getTOMsConfigElement('Camera', 'Width')
         frameHeight = TOMsConfigFileObject.getTOMsConfigElement('Camera', 'Height')
         if frameWidth is None or frameHeight is None:
-            res = QMessageBox.information(None, "Information", "Please set value for camera resolution.", QMessageBox.Ok)
+            res = QMessageBox.information(None, "Information", "Please set value for camera resolution.", QMessageBox.StandardButton.Ok)
             return 0, 0
         return int(frameWidth), int(frameHeight)
 
 
     def addScrollBars(self, restrictionDialog):
-        TOMsMessageLog.logMessage("In addScrollBars", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In addScrollBars", level=Qgis.MessageLevel.Info)
 
         # find any combo boxes in the form and add the scroll bar
 
@@ -699,7 +699,7 @@ class FieldRestrictionTypeUtilsMixin():
 
         for formWidget in childWidgetList:
 
-            TOMsMessageLog.logMessage("In addScrollBars: widget type {}".format(type(formWidget)), level=Qgis.Info)
+            TOMsMessageLog.logMessage("In addScrollBars: widget type {}".format(type(formWidget)), level=Qgis.MessageLevel.Info)
 
             if isinstance(formWidget, QComboBox):
                 #print('WidgetName: {}'.format(formWidget.objectName()))
@@ -711,41 +711,41 @@ class FieldRestrictionTypeUtilsMixin():
 
     def getLookupDescription(self, lookupLayer, code):
 
-        #TOMsMessageLog.logMessage("In getLookupDescription", level=Qgis.Info)
+        #TOMsMessageLog.logMessage("In getLookupDescription", level=Qgis.MessageLevel.Info)
 
         query = "\"Code\" = " + str(code)
         request = QgsFeatureRequest().setFilterExpression(query)
 
-        #TOMsMessageLog.logMessage("In getLookupDescription. queryStatus: " + str(query), level=Qgis.Info)
+        #TOMsMessageLog.logMessage("In getLookupDescription. queryStatus: " + str(query), level=Qgis.MessageLevel.Info)
 
         for row in lookupLayer.getFeatures(request):
-            #TOMsMessageLog.logMessage("In getLookupDescription: found row " + str(row.attribute("Description")), level=Qgis.Info)
+            #TOMsMessageLog.logMessage("In getLookupDescription: found row " + str(row.attribute("Description")), level=Qgis.MessageLevel.Info)
             return row.attribute("Description") # make assumption that only one row
 
         return None
 
     @pyqtSlot(QPixmap)
     def displayPixmapUpdated(self, FIELD, pixmap):
-        TOMsMessageLog.logMessage("In utils::displayPixmapUpdated ... ", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In utils::displayPixmapUpdated ... ", level=Qgis.MessageLevel.Info)
         FIELD.setPixmap(pixmap)
         FIELD.setScaledContents(True)
         QApplication.processEvents()  # processes the event queue - https://stackoverflow.com/questions/43094589/opencv-imshow-prevents-qt-python-crashing
 
     def displayImage(self, FIELD, pixmap):
-        TOMsMessageLog.logMessage("In utils::displayImage ... ", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In utils::displayImage ... ", level=Qgis.MessageLevel.Info)
 
         try:
             FIELD.update_image(pixmap.scaled(FIELD.width(), FIELD.height(), QtCore.Qt.KeepAspectRatio,
                                                 transformMode=QtCore.Qt.SmoothTransformation))
         except Exception as e:
             TOMsMessageLog.logMessage('displayImage: error {}'.format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
 
         QApplication.processEvents()  # processes the event queue - https://stackoverflow.com/questions/43094589/opencv-imshow-prevents-qt-python-crashing
 
     """"@pyqtSlot(QPixmap)
     def displayFrame(self, pixmap):
-        TOMsMessageLog.logMessage("In formCamera::displayFrame ... ", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In formCamera::displayFrame ... ", level=Qgis.MessageLevel.Info)
         self.FIELD.setPixmap(pixmap)
         self.FIELD.setScaledContents(True)
         QApplication.processEvents()  # processes the event queue - https://stackoverflow.com/questions/43094589/opencv-imshow-prevents-qt-python-crashing"""
@@ -753,32 +753,32 @@ class FieldRestrictionTypeUtilsMixin():
     @pyqtSlot(str)
     def savePhotoTaken(self, idx, fileName):
         TOMsMessageLog.logMessage("In demandFormUtils::savePhotoTaken ... " + fileName + " idx: " + str(idx),
-                                 level=Qgis.Warning)
+                                 level=Qgis.MessageLevel.Warning)
         if len(fileName) > 0:
             simpleFile = os.path.basename(fileName)
-            TOMsMessageLog.logMessage("In demandFormUtils::savePhotoTaken. Simple file: " + simpleFile, level=Qgis.Info)
+            TOMsMessageLog.logMessage("In demandFormUtils::savePhotoTaken. Simple file: " + simpleFile, level=Qgis.MessageLevel.Info)
 
             try:
                 self.currFeature[idx] = simpleFile
-                TOMsMessageLog.logMessage("In demandFormUtils::savePhotoTaken. attrib value changed", level=Qgis.Info)
+                TOMsMessageLog.logMessage("In demandFormUtils::savePhotoTaken. attrib value changed", level=Qgis.MessageLevel.Info)
             except:
                 TOMsMessageLog.logMessage("In demandFormUtils::savePhotoTaken. problem changing attrib value",
-                                         level=Qgis.Info)
+                                         level=Qgis.MessageLevel.Info)
                 reply = QMessageBox.information(None, "Error",
                                                 "savePhotoTaken. problem changing attrib value",
-                                                QMessageBox.Ok)
+                                                QMessageBox.StandardButton.Ok)
 
     def store_gnss_pts(self, curr_gps_location, curr_gps_info):
 
         TOMsMessageLog.logMessage("In gnssTools.store_gnss_pts ",
-                                     level=Qgis.Info)
+                                     level=Qgis.MessageLevel.Info)
 
         GNSS_Pts_Layer = self.tableNames.setLayer("GNSS_Pts")
         try:
             GNSS_Pts_Layer.startEditing()
         except Exception as e:
-            reply = QMessageBox.information(None, "Information", "Problem starting edit session on GNSS_Pts: {}".format(e), QMessageBox.Ok)
-            TOMsMessageLog.logMessage("Problem starting edit session on GNSS_Pts: {}".format(e), level=Qgis.Warning)
+            reply = QMessageBox.information(None, "Information", "Problem starting edit session on GNSS_Pts: {}".format(e), QMessageBox.StandardButton.Ok)
+            TOMsMessageLog.logMessage("Problem starting edit session on GNSS_Pts: {}".format(e), level=Qgis.MessageLevel.Warning)
             return False
 
         fields = GNSS_Pts_Layer.fields()
@@ -787,11 +787,11 @@ class FieldRestrictionTypeUtilsMixin():
         feature.setGeometry(QgsGeometry.fromPointXY(curr_gps_location))
 
         for gnssField in dir(curr_gps_info):
-            #TOMsMessageLog.logMessage ('Attribute: {}'.format(gnssField), level=Qgis.Warning)
+            #TOMsMessageLog.logMessage ('Attribute: {}'.format(gnssField), level=Qgis.MessageLevel.Warning)
             if gnssField in fields.names():
                 value = getattr(curr_gps_info, gnssField)
 
-                TOMsMessageLog.logMessage ('** Found {}: {}'.format(gnssField, value), level=Qgis.Info)
+                TOMsMessageLog.logMessage ('** Found {}: {}'.format(gnssField, value), level=Qgis.MessageLevel.Info)
 
                 if GNSS_Pts_Layer.fields().field(gnssField).isNumeric():
                     if math.isnan(value):   # https://stackoverflow.com/questions/944700/how-can-i-check-for-nan-values
@@ -799,15 +799,15 @@ class FieldRestrictionTypeUtilsMixin():
                 feature[GNSS_Pts_Layer.fields().indexFromName(gnssField)] = value
 
         #attrs = feature.attributes()
-        #TOMsMessageLog.logMessage('--Attribs {}'.format(attrs), level=Qgis.Warning)
+        #TOMsMessageLog.logMessage('--Attribs {}'.format(attrs), level=Qgis.MessageLevel.Warning)
 
         GNSS_Pts_Layer.addFeatures([feature])
 
         try:
             GNSS_Pts_Layer.commitChanges()
         except Exception as e:
-            reply = QMessageBox.information(None, "Information", "Problem committing changes to GNSS_Pts: {}".format(e), QMessageBox.Ok)
-            TOMsMessageLog.logMessage("Problem committing changes to GNSS_Pts: {}".format(e), level=Qgis.Warning)
+            reply = QMessageBox.information(None, "Information", "Problem committing changes to GNSS_Pts: {}".format(e), QMessageBox.StandardButton.Ok)
+            TOMsMessageLog.logMessage("Problem committing changes to GNSS_Pts: {}".format(e), level=Qgis.MessageLevel.Warning)
 
             return False
 

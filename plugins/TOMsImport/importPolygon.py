@@ -55,7 +55,7 @@ class importPolygon(QObject, snapTraceUtilsMixin):
         if self.currGeometry.isMultipart():
             if len(self.currGeometry.asMultiPolygon()) > 1:
                 reply = QMessageBox.information(None, "Issue",
-                                                "Feature is multipart ... " + self.currFeature.id(), QMessageBox.Ok)
+                                                "Feature is multipart ... " + self.currFeature.id(), QMessageBox.StandardButton.Ok)
 
         QgsMessageLog.logMessage("In getListPointsInPolygonWithinTolerance: " + str(self.currFeature.id()), tag="TOMs panel")
 

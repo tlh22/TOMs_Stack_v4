@@ -131,61 +131,9 @@
               ]
             },
             {
-              "name": "Map Schedule Grids",
-              "title": "Map Schedule Grids",
-              "layers": [
-                {
-                  "name": "MapGrid",
-                  "title": "MapGrid",
-                  "attributes": {
-                    "id": "id",
-                    "MapSheet_North": "MapSheet_North",
-                    "MapSheet_East": "MapSheet_East",
-                    "MapSheet_South": "MapSheet_South",
-                    "MapSheet_West": "MapSheet_West",
-                    "geometry": "geometry",
-                    "maptip": "maptip"
-                  },
-                  "queryable": false,
-                  "edit_layers": [
-                    "MapGrid"
-                  ]
-                }
-              ],
-              "edit_layers": [
-                "MapGrid"
-              ]
-            },
-            {
               "name": "Background Mapping",
               "title": "Background Mapping",
               "layers": [
-                {
-                  "name": "StreetGazetteerRecords",
-                  "title": "StreetGazetteerRecords",
-                  "attributes": {
-                    "gid": "gid",
-                    "ASSET_ID": "ASSET_ID",
-                    "FEATURE_ID": "FEATURE_ID",
-                    "SITE_CODE": "SITE_CODE",
-                    "SITE_NAME": "SITE_NAME",
-                    "LOCALITY": "LOCALITY",
-                    "TOWN": "TOWN",
-                    "LOCATION": "LOCATION",
-                    "ROADCLASS": "ROADCLASS",
-                    "HIERARCHY": "HIERARCHY",
-                    "CUSTOMER": "CUSTOMER",
-                    "AREA_NAME": "AREA_NAME",
-                    "DISTANCE": "DISTANCE",
-                    "ROAD_TYPE": "ROAD_TYPE",
-                    "geometry": "geometry",
-                    "maptip": "maptip"
-                  },
-                  "queryable": false,
-                  "edit_layers": [
-                    "StreetGazetteerRecords"
-                  ]
-                },
                 {
                   "name": "TRDC",
                   "title": "Three Rivers District Council",
@@ -198,16 +146,9 @@
                   "edit_layers": [
                     "TRDC"
                   ]
-                },
-                {
-                  "name": "OS_Roads",
-                  "title": "OS_Roads",
-                  "queryable": false,
-                  "edit_layers": []
                 }
               ],
               "edit_layers": [
-                "StreetGazetteerRecords",
                 "TRDC"
               ]
             }
@@ -217,8 +158,6 @@
             "Bays",
             "Lines",
             "RestrictionPolygons",
-            "MapGrid",
-            "StreetGazetteerRecords",
             "TRDC"
           ]
         },

@@ -124,68 +124,16 @@
             {
               "name": "TopBar",
               "cfg": {
-                "menuItems": [
+                "toolbarItems": [
                   {
-                    "key": "ThemeSwitcher",
-                    "icon": "themes"
+                    "key": "Measure",
+                    "mode": "LineString",
+                    "icon": "measure_line"
                   },
                   {
-                    "key": "LayerTree",
-                    "icon": "layers"
-                  },
-                  {
-                    "key": "MapLegend",
-                    "icon": "list-alt"
-                  },
-                  {
-                    "key": "FeatureSearch",
-                    "icon": "search"
-                  },
-                  {
-                    "key": "Share",
-                    "icon": "share"
-                  },
-                  {
-                    "key": "Tools",
-                    "icon": "tools",
-                    "subitems": [
-                      {
-                        "key": "Identify",
-                        "icon": "identify_region"
-                      },
-                      {
-                        "key": "Measure",
-                        "icon": "measure"
-                      },
-                      {
-                        "key": "Editing",
-                        "icon": "editing"
-                      },
-                      {
-                        "key": "FeatureForm",
-                        "icon": "featureform"
-                      },
-                      {
-                        "key": "AttributeTable",
-                        "icon": "editing"
-                      }
-                    ]
-                  },
-                  {
-                    "key": "Print",
-                    "icon": "print"
-                  },
-                  {
-                    "key": "Help",
-                    "icon": "info"
-                  },
-                  {
-                    "key": "Settings",
-                    "icon": "cog"
-                  },
-                  {
-                    "key": "Login",
-                    "icon": "login"
+                    "key": "Identify",
+                    "mode": "Region",
+                    "icon": "identify_region"
                   }
                 ],
                 "searchOptions": {
@@ -197,7 +145,7 @@
                   "showProvidersInPlaceholder": false
                 },
                 "appMenuClearsTask": true,
-                "appMenuFilterField": true,
+                "appMenuFilterField": false,
                 "appMenuVisibleOnStartup": false
               }
             },
@@ -252,7 +200,7 @@
                 "showLink": true,
                 "showQRCode": true
               },
-              "mapClickAction": "identify"
+              "mapClickAction": "unset"
             },
             {
               "name": "Print",
@@ -284,8 +232,8 @@
                   "width": 480,
                   "height": 400
                 },
-                "bboxDependentLegend": true,
-                "scaleDependentLegend": "theme",
+                "bboxDependentLegend": false,
+                "scaleDependentLegend": false,
                 "enableLegendPrint": true,
                 "extraLegendParameters": "LEGEND_OPTIONS=forceLabels:on;fontAntiAliasing:true"
               },
@@ -294,9 +242,9 @@
             {
               "name": "MapLegend",
               "cfg": {
-                "addLayerTitles": true,
-                "scaleDependentLegend": true,
-                "bboxDependentLegend": true,
+                "addLayerTitles": false,
+                "scaleDependentLegend": false,
+                "bboxDependentLegend": false,
                 "extraLegendParameters": "LEGEND_OPTIONS=forceLabels:on;fontAntiAliasing:true",
                 "geometry": {
                   "initialWidth": 360,
@@ -328,8 +276,7 @@
               "name": "Authentication"
             },
             {
-              "name": "FeatureForm",
-              "mapClickAction": "identify"
+              "name": "FeatureForm"
             },
             {
               "name": "Editing",
@@ -397,7 +344,7 @@
               "name": "TaskButton",
               "cfg": {
                 "position": 5,
-                "task": "LayerTree",
+                "task": "MapLegend",
                 "icon": "list-alt"
               }
             },
@@ -428,73 +375,16 @@
             {
               "name": "TopBar",
               "cfg": {
-                "menuItems": [
+                "toolbarItems": [
                   {
-                    "key": "ThemeSwitcher",
-                    "icon": "themes"
+                    "key": "Measure",
+                    "mode": "LineString",
+                    "icon": "measure_line"
                   },
                   {
-                    "key": "LayerTree",
-                    "icon": "layers"
-                  },
-                  {
-                    "key": "MapLegend",
-                    "icon": "list-alt"
-                  },
-                  {
-                    "key": "FeatureSearch",
-                    "icon": "search"
-                  },
-                  {
-                    "key": "Share",
-                    "icon": "share"
-                  },
-                  {
-                    "key": "Tools",
-                    "icon": "tools",
-                    "subitems": [
-                      {
-                        "key": "Identify",
-                        "icon": "identify_region"
-                      },
-                      {
-                        "key": "Identify",
-                        "icon": "identify_region",
-                        "mode": "Region"
-                      },
-                      {
-                        "key": "Measure",
-                        "icon": "measure"
-                      },
-                      {
-                        "key": "Editing",
-                        "icon": "editing"
-                      },
-                      {
-                        "key": "FeatureForm",
-                        "icon": "featureform"
-                      },
-                      {
-                        "key": "AttributeTable",
-                        "icon": "editing"
-                      }
-                    ]
-                  },
-                  {
-                    "key": "Print",
-                    "icon": "print"
-                  },
-                  {
-                    "key": "Help",
-                    "icon": "info"
-                  },
-                  {
-                    "key": "Settings",
-                    "icon": "cog"
-                  },
-                  {
-                    "key": "Login",
-                    "icon": "login"
+                    "key": "Identify",
+                    "mode": "Region",
+                    "icon": "identify_region"
                   }
                 ],
                 "searchOptions": {
@@ -503,12 +393,11 @@
                   "providerSelectionAllowAll": true,
                   "zoomToLayers": false,
                   "allowSearchFilters": false,
-                  "showProvidersInPlaceholder": true
+                  "showProvidersInPlaceholder": false
                 },
                 "appMenuClearsTask": true,
-                "appMenuFilterField": true,
-                "appMenuVisibleOnStartup": false,
-                "logoUrl": "http://www.threerivers.gov.uk"
+                "appMenuFilterField": false,
+                "appMenuVisibleOnStartup": false
               }
             },
             {
@@ -544,8 +433,8 @@
                   "width": 480,
                   "height": 400
                 },
-                "bboxDependentLegend": true,
-                "scaleDependentLegend": "theme",
+                "bboxDependentLegend": false,
+                "scaleDependentLegend": false,
                 "showToggleAllLayersCheckbox": true,
                 "enableLegendPrint": true,
                 "extraLegendParameters": "LEGEND_OPTIONS=forceLabels:on;fontAntiAliasing:true"
@@ -555,9 +444,9 @@
             {
               "name": "MapLegend",
               "cfg": {
-                "addLayerTitles": true,
-                "scaleDependentLegend": true,
-                "bboxDependentLegend": true,
+                "addLayerTitles": false,
+                "scaleDependentLegend": false,
+                "bboxDependentLegend": false,
                 "extraLegendParameters": "LEGEND_OPTIONS=forceLabels:on;fontAntiAliasing:true",
                 "geometry": {
                   "initialWidth": 360,
@@ -698,8 +587,7 @@
               "name": "Authentication"
             },
             {
-              "name": "FeatureForm",
-              "mapClickAction": "identify"
+              "name": "FeatureForm"
             },
             {
               "name": "TimeManager",
@@ -781,9 +669,7 @@
             },
             "description": "",
             "drawingOrder": [
-              "OS_Roads",
               "TRDC",
-              "StreetGazetteerRecords",
               "MapGrid",
               "ParkingTariffAreas",
               "MatchDayEventDayZones",
@@ -799,7 +685,7 @@
                 "editDataset": "trdc/scan/threerivers.Bays",
                 "geomType": "LineString",
                 "primaryKey": "RestrictionID",
-                "form": ":/forms/autogen/threerivers_Bays.ui?v=1775139340",
+                "form": ":/forms/autogen/threerivers_Bays.ui?v=1775214508",
                 "reltables": [
                   "BayTypesInUse_View",
                   "TimePeriodsInUse_View",
@@ -1558,7 +1444,7 @@
                 "editDataset": "trdc/scan/threerivers.CPZs",
                 "geomType": null,
                 "primaryKey": "RestrictionID",
-                "form": ":/forms/autogen/threerivers_CPZs.ui?v=1775139340",
+                "form": ":/forms/autogen/threerivers_CPZs.ui?v=1775214508",
                 "reltables": [],
                 "fields": [
                   {
@@ -2095,7 +1981,7 @@
                     "type": "number",
                     "data_type": "integer",
                     "defaultValue": "224",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2114,7 +2000,7 @@
                     "type": "number",
                     "data_type": "integer",
                     "defaultValue": "",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2314,7 +2200,7 @@
                     "type": "text",
                     "data_type": "character varying",
                     "defaultValue": "",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2364,7 +2250,7 @@
                     "type": "number",
                     "data_type": "integer",
                     "defaultValue": "",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2383,7 +2269,7 @@
                     "type": "number",
                     "data_type": "integer",
                     "defaultValue": "",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2420,7 +2306,7 @@
                     "type": "number",
                     "data_type": "integer",
                     "defaultValue": "",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2439,7 +2325,7 @@
                     "type": "text",
                     "data_type": "character varying",
                     "defaultValue": "",
-                    "filterExpression": "",
+                    "filterExpression": null,
                     "expression": null,
                     "constraints": {
                       "readOnly": false,
@@ -2748,12 +2634,12 @@
               },
               "MapGrid": {
                 "layerName": "MapGrid",
-                "layerTitle": "MapGrid",
+                "layerTitle": null,
                 "displayField": null,
                 "editDataset": "trdc/scan/threerivers.MapGrid",
                 "geomType": "MultiPolygon",
                 "primaryKey": "id",
-                "form": ":/forms/autogen/threerivers_MapGrid.ui?v=1775139341",
+                "form": ":/forms/autogen/threerivers_MapGrid.ui?v=1775214509",
                 "reltables": [],
                 "fields": [
                   {
@@ -3608,7 +3494,7 @@
                 "editDataset": "trdc/scan/threerivers.TRDC",
                 "geomType": "MultiPolygon",
                 "primaryKey": "id",
-                "form": ":/forms/autogen/threerivers_TRDC.ui?v=1775139341",
+                "form": ":/forms/autogen/threerivers_TRDC.ui?v=1775214510",
                 "reltables": [],
                 "fields": [
                   {
@@ -3890,12 +3776,12 @@
               },
               "StreetGazetteerRecords": {
                 "layerName": "StreetGazetteerRecords",
-                "layerTitle": "StreetGazetteerRecords",
+                "layerTitle": null,
                 "displayField": null,
                 "editDataset": "trdc/scan/threerivers.StreetGazetteerRecords",
                 "geomType": "MultiLineString",
                 "primaryKey": "gid",
-                "form": ":/forms/autogen/threerivers_StreetGazetteerRecords.ui?v=1775139341",
+                "form": ":/forms/autogen/threerivers_StreetGazetteerRecords.ui?v=1775214510",
                 "reltables": [],
                 "fields": [
                   {
@@ -4296,78 +4182,9 @@
                 "visibility": true
               },
               {
-                "name": "Map Schedule Grids",
-                "title": "Map Schedule Grids",
-                "sublayers": [
-                  {
-                    "name": "MapGrid",
-                    "title": "MapGrid",
-                    "visibility": true,
-                    "geometryType": "MultiPolygon",
-                    "category_sublayer": false,
-                    "queryable": false,
-                    "styles": {
-                      "default": "default"
-                    },
-                    "style": "default",
-                    "opacity": 255,
-                    "bbox": {
-                      "crs": "EPSG:4326",
-                      "bounds": [
-                        -0.541717,
-                        51.596522,
-                        -0.357567,
-                        51.7427
-                      ]
-                    },
-                    "minScale": 5000,
-                    "maxScale": 35000,
-                    "dimensions": [],
-                    "attribution": {
-                      "Title": null,
-                      "OnlineResource": null
-                    },
-                    "refreshInterval": 0
-                  }
-                ],
-                "expanded": true,
-                "mutuallyExclusive": false,
-                "visibility": true
-              },
-              {
                 "name": "Background Mapping",
                 "title": "Background Mapping",
                 "sublayers": [
-                  {
-                    "name": "StreetGazetteerRecords",
-                    "title": "StreetGazetteerRecords",
-                    "visibility": true,
-                    "geometryType": "MultiLineString",
-                    "category_sublayer": false,
-                    "queryable": false,
-                    "styles": {
-                      "default": "default"
-                    },
-                    "style": "default",
-                    "opacity": 255,
-                    "bbox": {
-                      "crs": "EPSG:4326",
-                      "bounds": [
-                        -0.541688,
-                        51.558505,
-                        -0.358429,
-                        51.742355
-                      ]
-                    },
-                    "minScale": 0,
-                    "maxScale": 5000,
-                    "dimensions": [],
-                    "attribution": {
-                      "Title": null,
-                      "OnlineResource": null
-                    },
-                    "refreshInterval": 0
-                  },
                   {
                     "name": "TRDC",
                     "title": "Three Rivers District Council",
@@ -4389,36 +4206,6 @@
                         51.742311
                       ]
                     },
-                    "dimensions": [],
-                    "attribution": {
-                      "Title": null,
-                      "OnlineResource": null
-                    },
-                    "refreshInterval": 0
-                  },
-                  {
-                    "name": "OS_Roads",
-                    "title": "OS_Roads",
-                    "visibility": false,
-                    "geometryType": null,
-                    "category_sublayer": false,
-                    "queryable": false,
-                    "styles": {
-                      "default": "default"
-                    },
-                    "style": "default",
-                    "opacity": 255,
-                    "bbox": {
-                      "crs": "EPSG:4326",
-                      "bounds": [
-                        -8.819271,
-                        49.699119,
-                        1.888123,
-                        49.900059
-                      ]
-                    },
-                    "minScale": 5000,
-                    "maxScale": 100000000,
                     "dimensions": [],
                     "attribution": {
                       "Title": null,
@@ -4451,19 +4238,19 @@
             "visibilityPresets": {
               "SketchPrint": {
                 "Map Schedule Grids/MapGrid": "default",
-                "Background Mapping/TRDC": "default",
                 "Restrictions/RestrictionPolygons": "default",
-                "Restrictions/ConstructionLines": "default",
-                "Restrictions/Bays": "default",
                 "Background Mapping/os_mastermap_topography_polygons": "default",
-                "Restrictions/Lines": "default",
-                "Background Mapping/StreetGazetteerRecords": "default",
+                "Background Mapping/TRDC": "default",
                 "Background Mapping/os_mastermap_topography_text": "default",
-                "Map Schedule Grids": "",
-                "Proposal Details": "",
+                "Restrictions/ConstructionLines": "default",
+                "Background Mapping/StreetGazetteerRecords": "default",
+                "Restrictions/Lines": "default",
+                "Restrictions/Bays": "default",
                 "Restrictions": "",
-                "Lookup Tables": "",
-                "Background Mapping": ""
+                "Map Schedule Grids": "",
+                "Background Mapping": "",
+                "Proposal Details": "",
+                "Lookup Tables": ""
               }
             },
             "additionalMouseCrs": [],

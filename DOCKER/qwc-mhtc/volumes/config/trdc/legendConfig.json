@@ -31,24 +31,10 @@
               ]
             },
             {
-              "name": "Map Schedule Grids",
-              "layers": [
-                {
-                  "name": "MapGrid"
-                }
-              ]
-            },
-            {
               "name": "Background Mapping",
               "layers": [
                 {
-                  "name": "StreetGazetteerRecords"
-                },
-                {
                   "name": "TRDC"
-                },
-                {
-                  "name": "OS_Roads"
                 }
               ]
             }

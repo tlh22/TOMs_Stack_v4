@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
         <meta name="HandheldFriendly" content="true" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#006b63" />
+        <meta name="theme-color" content="#006430" />
         <title>Three Rivers Traffic Orders</title>
         <!--
                                           TRDC theme: INLINE FIRST = works even if assets/trdc/css/qwc2.css fails (host/proxy).
@@ -14,18 +14,18 @@
         <style id="trdc-inline-theme">
             :root {
                 --text-color: #1e2e2c !important;
-                --text-color-link: #006b63 !important;
+                --text-color-link: #006430 !important;
                 --text-color-disabled: #8a9a97 !important;
                 --container-bg-color: #eef4f3 !important;
                 --input-bg-color: #ffffff !important;
                 --input-bg-color-disabled: #ececec !important;
                 --border-color: #c5d4d1 !important;
-                --color-active: #006b63 !important;
-                --focus-outline: 2px solid #006b63 !important;
+                --color-active: #006430 !important;
+                --focus-outline: 2px solid #006430 !important;
                 --tooltip-bg-color: rgba(0, 0, 0, 0.82) !important;
                 --tooltip-text-color: #ffffff !important;
                 --tooltip-border-color: #1a1a1a !important;
-                --map-button-bg-color: #006b63 !important;
+                --map-button-bg-color: #006430 !important;
                 --map-button-text-color: #ffffff !important;
                 --map-button-hover-bg-color: #005550 !important;
                 --map-button-hover-text-color: #ffffff !important;
@@ -33,11 +33,11 @@
                 --map-button-active-text-color: #ffffff !important;
                 --panel-bg-color: rgba(255, 255, 255, 0.97) !important;
                 --panel-text-color: #1a2624 !important;
-                --titlebar-bg-color: #006b63 !important;
+                --titlebar-bg-color: #006430 !important;
                 --titlebar-text-color: #ffffff !important;
                 --button-bg-color: #ffffff !important;
                 --button-bg-color-hover: #e6f2f0 !important;
-                --button-bg-color-active: #006b63 !important;
+                --button-bg-color-active: #006430 !important;
                 --button-bg-color-active-hover: #005550 !important;
                 --button-bg-color-disabled: #f0f0f0 !important;
                 --button-text-color: #1a2624 !important;
@@ -46,7 +46,7 @@
                 --button-text-color-active-hover: #ffffff !important;
                 --button-text-color-disabled: #999 !important;
                 --list-bg-color: #ffffff !important;
-                --list-section-bg-color: #006b63 !important;
+                --list-section-bg-color: #006430 !important;
                 --list-section-text-color: #ffffff !important;
                 --list-item-bg-color-even: #f3f8f7 !important;
                 --list-item-bg-color-hover: #e6f2f0 !important;
@@ -61,7 +61,7 @@
                 --app-menu-text-color-hover: #1a2624 !important;
                 --app-submenu-bg-color: #0a4a44 !important;
                 --app-submenu-text-color: #ffffff !important;
-                --app-submenu-bg-color-hover: #006b63 !important;
+                --app-submenu-bg-color-hover: #006430 !important;
                 --app-submenu-text-color-hover: #ffffff !important;
                 --trdc-map-tools-left: 1rem;
                 --trdc-map-tool-btn-size: 2.65rem;
@@ -116,8 +116,8 @@
                 height: 64px !important;
                 margin: 8px !important;
                 border-radius: 50% !important;
-                border: 6px solid #006b63 !important;
-                border-color: #006b63 transparent #006b63 transparent !important;
+                border: 6px solid #006430 !important;
+                border-color: #006430 transparent #006430 transparent !important;
                 animation: trdc-splash-spin 1.2s linear infinite !important;
             }
         
@@ -145,7 +145,7 @@
                 align-items: center !important;
                 background: rgba(255, 255, 255, 0.94) !important;
                 border-radius: 14px !important;
-                border: 1px solid rgba(0, 107, 99, 0.14) !important;
+                border: 1px solid rgba(0, 100, 48, 0.14) !important;
                 box-shadow: 0 8px 28px rgba(0, 43, 40, 0.12) !important;
                 overflow: visible !important;
                 z-index: 1500 !important;
@@ -218,22 +218,6 @@
                 }
             }
         
-            body .map-buttons-container::after {
-                content: "N" !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                width: 1.65rem !important;
-                height: 1.65rem !important;
-                margin-bottom: 8px !important;
-                border-radius: 50% !important;
-                border: 2px solid #006b63 !important;
-                color: #006b63 !important;
-                font-size: 0.62rem !important;
-                font-weight: 800 !important;
-                order: 999 !important;
-                box-sizing: border-box !important;
-            }
         
             /* QWC2 2024+: siblings of #map with inline right/bottom — force top-left stack */
             body #PluginsContainer>button.map-button {
@@ -245,26 +229,6 @@
                 z-index: 5 !important;
             }
         
-            body #PluginsContainer>button.map-button:nth-child(2)::before {
-                content: "N" !important;
-                position: absolute !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                top: -2.2rem !important;
-                width: 1.65rem !important;
-                height: 1.65rem !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                border-radius: 50% !important;
-                border: 2px solid #006b63 !important;
-                color: #006b63 !important;
-                font-size: 0.62rem !important;
-                font-weight: 800 !important;
-                pointer-events: none !important;
-                background: rgba(255, 255, 255, 0.94) !important;
-                box-sizing: border-box !important;
-            }
         
             body #PluginsContainer>button.map-button:nth-child(2) {
                 top: var(--trdc-map-tool-stack-start) !important;
@@ -309,7 +273,7 @@
             }
         
             body button.map-button {
-                background: #006b63 !important;
+                background: #006430 !important;
                 color: #fff !important;
                 border: 1px solid rgba(0, 0, 0, 0.06) !important;
                 border-radius: 50% !important;
@@ -333,7 +297,7 @@
                 background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 252, 251, 0.97) 100%) !important;
                 color: #1a2624 !important;
                 border-bottom: 1px solid #c5d4d1 !important;
-                border-top: 3px solid #006b63 !important;
+                border-top: 3px solid #006430 !important;
                 min-height: 3.45rem !important;
                 padding: 8px 20px !important;
                 box-shadow: 0 4px 20px rgba(0, 43, 40, 0.07) !important;
@@ -370,15 +334,42 @@
                 flex-wrap: nowrap !important;
                 align-items: center !important;
                 justify-content: flex-start !important;
-                gap: 8px !important;
+                gap: 4px !important;
                 box-sizing: border-box !important;
                 min-width: 0 !important;
+            }
+
+            /* QWC topbar classes used in runtime DOM: remove gap between search and toolbar icons */
+            body .TopBar .topbar-center-span {
+                display: flex !important;
+                align-items: center !important;
+                gap: 0 !important;
+            }
+
+            body .TopBar .topbar-search-container,
+            body .TopBar .topbar-center-span .SearchBox {
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+            }
+
+            div.TopBar div.topbar-search-container {
+                flex: 1 0 auto !important;
+                max-width: 44ch !important;
+            }
+
+            body .TopBar .topbar-center-span .Toolbar {
+                margin-left: 0 !important;
+                gap: 0 !important;
+            }
+
+            body .TopBar .topbar-center-span .Toolbar .icon {
+                margin: 0 !important;
             }
         
             html body #TopBar .center-span .SearchBox,
             html body .TopBar .center-span .SearchBox {
                 flex: 1 1 auto !important;
-                max-width: min(22rem, 100%) !important;
+                max-width: min(26rem, 100%) !important;
                 min-width: min(8rem, 100%) !important;
                 pointer-events: auto !important;
                 box-sizing: border-box !important;
@@ -388,6 +379,10 @@
             html body .TopBar .center-span .Toolbar {
                 pointer-events: auto !important;
                 flex-shrink: 0 !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 2px !important;
+                margin-left: 0 !important;
             }
         
             html body #TopBar .center-span .SearchBox .input-container,
@@ -422,7 +417,7 @@
                 html body #TopBar .center-span .SearchBox,
                 html body .TopBar .center-span .SearchBox,
                 body .SearchBox {
-                    max-width: min(24rem, 100%) !important;
+                    max-width: min(28rem, 100%) !important;
                 }
         
                 html body #TopBar .center-span .SearchBox .input-container,
@@ -462,9 +457,7 @@
                 }
         
                 body .appmenu-button {
-                    padding: 4px 8px !important;
-                    font-size: 0.75rem !important;
-                    max-width: 100% !important;
+                    display: none !important;
                 }
         
                 body .appmenu-label {
@@ -549,7 +542,7 @@
         
             body .sidebar-titlebar,
             body .resizeable-window-titlebar {
-                background: #006b63 !important;
+                background: #006430 !important;
                 color: #fff !important;
                 padding: 12px 16px !important;
                 font-weight: 600 !important;
@@ -593,11 +586,27 @@
                 background: transparent !important;
                 color: #1a2624 !important;
             }
-        
-            body .appmenu-button {
-                padding: 5px 10px !important;
-                font-size: 0.8125rem !important;
+
+            /* Hide Map & Tools menu completely in TRDC viewer */
+            body .TopBar .AppMenu,
+            body .TopBar .appmenu-button-container,
+            body .TopBar .appmenu-button,
+            body .TopBar .appmenu-label,
+            body .TopBar .appmenu-icon,
+            body .TopBar .appmenu-menu-container,
+            body .TopBar .appmenu-menu {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                width: 0 !important;
+                min-width: 0 !important;
+                max-width: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: 0 !important;
             }
+        
         
             body .appmenu-menu {
                 background: #fff !important;
@@ -623,7 +632,7 @@
             }
         
             body .appmenu-submenu ul li:hover {
-                background: #006b63 !important;
+                background: #006430 !important;
                 color: #fff !important;
             }
         
@@ -631,7 +640,7 @@
             body #TopBar a:visited,
             body .TopBar a:link,
             body .TopBar a:visited {
-                color: #006b63 !important;
+                color: #006430 !important;
             }
         
             body #TopBar .logo,
@@ -675,7 +684,7 @@
             }
         
             body .background-switcher-item-active {
-                outline: 2px solid #006b63 !important;
+                outline: 2px solid #006430 !important;
             }
         
             body .resizeable-window-body,
@@ -715,8 +724,8 @@
                 top: 0 !important;
                 right: 0 !important;
                 left: auto !important;
-                width: min(44rem, 94vw) !important;
-                max-width: 660px !important;
+                width: min(34rem, 90vw) !important;
+                max-width: 520px !important;
                 height: 100vh !important;
                 z-index: 1 !important;
                 display: flex !important;
@@ -740,7 +749,7 @@
                 align-items: center !important;
                 justify-content: space-between !important;
                 gap: 0.75rem !important;
-                background: #006b63 !important;
+                background: #006430 !important;
                 color: #fff !important;
                 padding: 0.65rem 1rem !important;
                 flex-shrink: 0 !important;
@@ -786,7 +795,7 @@
             }
         
             #trdc-welcome-modal .trdc-welcome-continue {
-                background: #006b63 !important;
+                background: #006430 !important;
                 color: #fff !important;
                 border: none !important;
                 border-radius: 8px !important;
@@ -802,22 +811,19 @@
             body .trdc-topbar-info-wrap {
                 display: inline-flex !important;
                 align-items: center !important;
-                margin: 0 0.125rem 0 0 !important;
+                margin: 0 0.6rem 0 0 !important;
             }
         
-            body .trdc-topbar-info-wrap+.AppMenu .appmenu-button-container {
-                margin-left: 0.125rem !important;
-            }
         
             body #trdc-topbar-info-btn.trdc-topbar-info-button {
                 background: #fff !important;
                 color: #1a2624 !important;
                 border: 1px solid #c5d4d1 !important;
                 border-radius: 6px !important;
-                padding: 0.2rem !important;
-                width: 2rem !important;
-                height: 2rem !important;
-                min-width: 2rem !important;
+                padding: 0.3rem !important;
+                width: 2.2rem !important;
+                height: 2.2rem !important;
+                min-width: 2.2rem !important;
                 display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -841,8 +847,13 @@
         <script type="text/javascript">
             (function () {
                 var drawerTransitionMs = 400;
+                var trdcWelcomeDismissed = false;
+                var trdcWelcomeAutoOpened = false;
+                var trdcSplashHandled = false;
+                var trdcSplashFallbackTimer = null;
 
-                function trdcOpenWelcomeDrawer() {
+                function trdcOpenWelcomeDrawer(forceOpen) {
+                    if (trdcWelcomeDismissed && !forceOpen) return;
                     var modal = document.getElementById("trdc-welcome-modal");
                     if (!modal) return;
                     modal.removeAttribute("hidden");
@@ -859,6 +870,7 @@
                 }
 
                 function trdcDismissWelcome() {
+                    trdcWelcomeDismissed = true;
                     var modal = document.getElementById("trdc-welcome-modal");
                     if (!modal) return;
                     modal.classList.remove("trdc-drawer-open");
@@ -929,7 +941,7 @@
                         if (modal && !modal.hasAttribute("hidden") && modal.classList.contains("trdc-drawer-open")) {
                             trdcDismissWelcome();
                         } else {
-                            trdcOpenWelcomeDrawer();
+                            trdcOpenWelcomeDrawer(true);
                         }
                     });
                 }
@@ -981,12 +993,21 @@
                 }
 
                 function hideSplash() {
+                    if (trdcSplashHandled) return;
+                    trdcSplashHandled = true;
+                    if (trdcSplashFallbackTimer) {
+                        clearTimeout(trdcSplashFallbackTimer);
+                        trdcSplashFallbackTimer = null;
+                    }
                     var splash = document.getElementById("splash");
                     if (!splash) return;
                     splash.classList.add("trdc-splash-hidden");
                     splash.setAttribute("aria-hidden", "true");
-                    /* Every visit: open council drawer after splash */
-                    setTimeout(trdcOpenWelcomeDrawer, 80);
+                    /* Auto-open only once and never after first dismissal */
+                    if (!trdcWelcomeAutoOpened && !trdcWelcomeDismissed) {
+                        trdcWelcomeAutoOpened = true;
+                        setTimeout(trdcOpenWelcomeDrawer, 80);
+                    }
                 }
 
                 trdcBindWelcomeHandlers();
@@ -997,7 +1018,7 @@
                         requestAnimationFrame(hideSplash);
                     });
                 });
-                setTimeout(hideSplash, 8000);
+                trdcSplashFallbackTimer = setTimeout(hideSplash, 8000);
             })();
         </script>
     </head>

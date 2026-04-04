@@ -60,7 +60,7 @@ class gnss_tool(QObject):
 
     def __init__(self, iface, params):
         super().__init__()
-        TOMsMessageLog.logMessage("In gnss_tool::init", level=Qgis.Info)
+        TOMsMessageLog.logMessage("In gnss_tool::init", level=Qgis.MessageLevel.Info)
 
 
         # Save reference to the QGIS interface
@@ -70,7 +70,7 @@ class gnss_tool(QObject):
         self.prj = QgsProject().instance()
         self.dest_crs = self.prj.crs()
         TOMsMessageLog.logMessage("In gnss_tool::init project CRS is " + self.dest_crs.description(),
-                                  level=Qgis.Warning)
+                                  level=Qgis.MessageLevel.Warning)
         self.transformation = QgsCoordinateTransform(QgsCoordinateReferenceSystem("EPSG:4326"), self.dest_crs,
                                                      self.prj)
 
@@ -85,25 +85,25 @@ class gnss_tool(QObject):
             self.gpsPort = self.params.setParam("gpsPort")
         except Exception as e:
             TOMsMessageLog.logMessage("In enableFeaturesWithGPSToolbarItems:init: gpsPort issue: {}".format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
             self.gpsPort = None
 
-        TOMsMessageLog.logMessage("In gnss_tool: GPS port is: {}".format(self.gpsPort), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In gnss_tool: GPS port is: {}".format(self.gpsPort), level=Qgis.MessageLevel.Info)
 
     def setRoamDistance(self):
         try:
             self.roamDistance = float(self.params.setParam("roamDistance"))
         except Exception as e:
             TOMsMessageLog.logMessage("In enableFeaturesWithGPSToolbarItems:init: roamDistance issue: {}".format(e),
-                                      level=Qgis.Warning)
+                                      level=Qgis.MessageLevel.Warning)
             self.roamDistance = 5.0
 
-        TOMsMessageLog.logMessage("In gnss_tool: roamDistance is: {}".format(self.roamDistance), level=Qgis.Info)
+        TOMsMessageLog.logMessage("In gnss_tool: roamDistance is: {}".format(self.roamDistance), level=Qgis.MessageLevel.Info)
 
     def start_gnss(self):
 
         TOMsMessageLog.logMessage("In gnss_tool:start_gnss - GPS port is specified ",
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         if self.gpsPort:
             self.gpsAvailable = True
@@ -145,7 +145,7 @@ class gnss_tool(QObject):
             self.thread = thread
 
             TOMsMessageLog.logMessage("In enableFeaturesWithGPSToolbarItems - attempting connection ",
-                                      level=Qgis.Info)
+                                      level=Qgis.MessageLevel.Info)
 
             #time.sleep(1.0)
 
@@ -156,7 +156,7 @@ class gnss_tool(QObject):
     # @pyqtSlot(QgsGpsConnection)
     def gpsStarted(self, connection):
         TOMsMessageLog.logMessage("In enableTools - GPS connection found ",
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         self.gpsConnection = connection
 
@@ -170,14 +170,14 @@ class gnss_tool(QObject):
         #self.enableGnssToolbarItem()
         reply = QMessageBox.information(None, "Information",
                                         "Connection found",
-                                        QMessageBox.Ok)
+                                        QMessageBox.StandardButton.Ok)
 
         self.gnssStarted.emit()
 
     # @pyqtSlot()
     def gpsStopped(self):
         TOMsMessageLog.logMessage("In enableTools - GPS connection stopped ",
-                                  level=Qgis.Warning)
+                                  level=Qgis.MessageLevel.Warning)
 
         self.gps_thread.deleteLater()
         self.thread.quit()
@@ -203,9 +203,9 @@ class gnss_tool(QObject):
     def gpsPositionProvided(self, mapPointXY, gpsInfo):
         """reply = QMessageBox.information(None, "Information",
                                             "Position provided",
-                                            QMessageBox.Ok)"""
+                                            QMessageBox.StandardButton.Ok)"""
         TOMsMessageLog.logMessage("In enableTools - ******** initial GPS location provided " + mapPointXY.asWkt(),
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
 
         self.curr_gps_location = mapPointXY
         self.curr_gps_info = gpsInfo
@@ -220,7 +220,7 @@ class gnss_tool(QObject):
         TOMsMessageLog.logMessage(
             "In enableTools - ******** transformed GPS location provided " + str(gpsInfo.longitude) + ":" + str(
                 gpsInfo.latitude) + "; " + new_mapPointXY.asWkt(),
-            level=Qgis.Info)
+            level=Qgis.MessageLevel.Info)
 
         if gpsInfo.pdop >= 1:  # gps ok
             self.marker.setColor(QColor(0, 200, 0))
@@ -231,13 +231,13 @@ class gnss_tool(QObject):
         # self.canvas.setCenter(mapPointXY)
 
         """TOMsMessageLog.logMessage("In enableTools: distance from last fix: {}".format(self.lastCentre.distance(mapPointXY)),
-                                     level=Qgis.Info)"""
+                                     level=Qgis.MessageLevel.Info)"""
         if self.lastCentre.distance(mapPointXY) > self.roamDistance:
             self.lastCentre = mapPointXY
             self.canvas.setCenter(mapPointXY)
             TOMsMessageLog.logMessage(
                 "In enableTools: distance from last fix: {}".format(self.lastCentre.distance(mapPointXY)),
-                level=Qgis.Warning)
+                level=Qgis.MessageLevel.Warning)
             self.canvas.refresh()
 
         # TODO: populate message bar with details about satellites, etc
@@ -251,7 +251,7 @@ class gnss_tool(QObject):
     # @pyqtSlot(Exception, str)
     def gpsErrorEncountered(self, e):
         TOMsMessageLog.logMessage("In enableTools - GPS connection has error ",
-                                  level=Qgis.Info)
+                                  level=Qgis.MessageLevel.Info)
         QMessageBox.information(self.iface.mainWindow(), "ERROR", ("Error encountered with GNSS. Closing tools ..."))
 
         self.gnssStopped.emit()
