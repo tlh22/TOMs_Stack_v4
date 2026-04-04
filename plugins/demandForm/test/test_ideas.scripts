@@ -1,0 +1,106 @@
+-- from here
+
+from TOMs.core.TOMsMessageLog import TOMsMessageLog
+from qgis.PyQt.QtWidgets import (
+    QMessageBox,
+    QAction,
+    QDialogButtonBox,
+    QLabel,
+    QDockWidget,
+    QDialog,
+    QLabel,
+    QPushButton,
+    QApplication,
+    QComboBox, QSizePolicy, QGridLayout,
+    QWidget, QVBoxLayout, QTableView, QTableWidgetItem, QLayout, QItemDelegate, QStyledItemDelegate, QLineEdit
+)
+from qgis.PyQt.QtSql import (
+    QSqlDatabase, QSqlQuery, QSqlQueryModel, QSqlRelation, QSqlRelationalTableModel, QSqlRelationalDelegate, QSqlTableModel
+)
+def getDbConn(testLayerName):
+    # new get the connection details for testLayer
+    try:
+        testLayer = QgsProject.instance().mapLayersByName(testLayerName)[0]
+        provider = testLayer.dataProvider()
+        TOMsMessageLog.logMessage("In getDbConn: db type is {}".format(provider.name()), level=Qgis.Warning)
+    except Exception as e:
+        #QMessageBox.information(self.iface.mainWindow(), "ERROR", ("Error opening test layer {}".format(e)))
+        TOMsMessageLog.logMessage("In getDbConn: error opening test layer {}".format(e), level=Qgis.Warning)
+        return None
+    testUriName = testLayer.dataProvider().dataSourceUri()  # this returns a string with the db name and layer, eg. 'Z:/Tim//SYS2012_Demand_VRMs.gpkg|layername=VRMs'
+    if provider.name() == 'postgres':
+        # get the URI containing the connection parameters
+        # create a PostgreSQL connection using QSqlDatabase
+        dbConn = QSqlDatabase.addDatabase('QPSQL')
+        TOMsMessageLog.logMessage("In enableDemandToolbarItems. uri: {}".format(testUriName), level=Qgis.Warning)
+        # check to see if it is valid
+        if dbConn.isValid():
+            # set the parameters needed for the connection
+            if len(provider.uri().service()) > 0:
+                dbConn.setConnectOptions("service={}".format(provider.uri().service()))
+            else:
+                # need to get the details of the connection ...
+                dbConn.setHostName(provider.uri().host())
+                dbConn.setDatabaseName(provider.uri().database())
+                dbConn.setPort(int(provider.uri().port()))
+                dbConn.setUserName(provider.uri().username)
+                dbConn.setPassword(provider.uri().password)
+    else:
+        dbName = testUriName[:testUriName.find('|')]
+        TOMsMessageLog.logMessage("In enableDemandToolbarItems. dbName: {}".format(dbName), level=Qgis.Warning)
+        dbConn = QSqlDatabase.addDatabase("QSQLITE")
+        dbConn.setDatabaseName(dbName)
+    return dbConn
+
+
+dbConn = getDbConn("VRMs")
+
+
+if not dbConn.open():
+    print ("Problem opening db")
+
+vrmModel = QSqlRelationalTableModel(db=dbConn)
+
+vrmView = QTableView()
+
+if dbConn.driverName() == 'QPSQL':
+    vrmModel.setTable('demand' + '.\"VRMs\"')
+else:
+    vrmModel.setTable('VRMs')
+
+vrmModel.setJoinMode(QSqlRelationalTableModel.LeftJoin)
+vrmModel.setEditStrategy(QSqlTableModel.OnFieldChange)
+
+filterString = "\"SurveyID\" = {} AND \"GeometryID\" = \'{}\'".format(1, 'S_004360')
+
+vrmModel.setFilter(filterString)
+vrmModel.setSort(int(vrmModel.fieldIndex("PositionID")), Qt.AscendingOrder)
+vrmModel.setHeaderData(vrmModel.fieldIndex("PositionID"), Qt.Horizontal, 'Pos')
+
+vrmModel.lastError().text()
+
+vrmModel.setRelation(int(vrmModel.fieldIndex("VehicleTypeID")), QSqlRelation('demand_lookups.\"VehicleTypes\"', '\"Code\"', '\"Description\"'))
+rel = vrmModel.relation(int(vrmModel.fieldIndex("VehicleTypeID")))
+if not rel.isValid():
+    print ('Relation not valid ...')
+    TOMsMessageLog.logMessage("In populateDemandWidget: Relation not valid ... {} ".format(vrmModel.lastError().text()),
+                              level=Qgis.Warning)
+#show the view with model
+vrmView.setModel(vrmModel)
+vrmView.setColumnHidden(vrmModel.fieldIndex('fid'), True)
+vrmView.setColumnHidden(vrmModel.fieldIndex('ID'), True)
+vrmView.setColumnHidden(vrmModel.fieldIndex('SurveyID'), True)
+vrmView.setColumnHidden(vrmModel.fieldIndex('SectionID'), True)
+vrmView.setColumnHidden(vrmModel.fieldIndex('GeometryID'), True)
+vrmView.setItemDelegate(QSqlRelationalDelegate(vrmModel))
+#setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+#resizeColumnsToContents()
+#setColumnWidth(vrmModel.fieldIndex("VRM"), 120)
+
+res = vrmModel.select()
+if not res:
+    print ('Problem with select {}'.format(vrmModel.lastError().text()))
+
+    TOMsMessageLog.logMessage("In populateDemandWidget: Relation not valid ... {} ".format(vrmModel.lastError().text()),
+                              level=Qgis.Warning)
+

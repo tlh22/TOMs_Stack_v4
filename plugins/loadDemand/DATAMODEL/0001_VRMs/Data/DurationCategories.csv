@@ -1,0 +1,7 @@
+﻿DurationCategoryID,Start,End,Description
+0,,,unknown
+1,00:00,02:00, < 2 hrs
+2,02:00,04:00,2-4 hrs
+3,04:00,06:00,4-6 hrs
+4,06:00,08:00,6-8 hrs
+5,18:00,100000:00,>8 hrs

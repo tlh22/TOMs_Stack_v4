@@ -1,0 +1,83 @@
+Main steps:
+
+-1. Set up database
+ - Within pgAdmin, create a new database with required name, e.g., GEN2412_CharltonCrescent_Barking
+ - Restore from backup file
+ - Run ..\restrictionsWithGNSS\DATAMODEL\DemandSetup\0001f_crossing_points_field_fix.sql to resolve issue on CrossingPoints
+ - Restore CrossingPoints
+ - Unzip folders ...
+ - Copy survey geopackage to Demand\EoD
+ - Open ...
+
+0. Load demand data
+ - Use "load" project
+ - Run loadDemand plugin - untick "TestBeat" and choose appropriate folder for source geopackage(s)
+ - copy photos and check for any that are missing. Amend and use .Demand/copy_photos_from_demand.bat
+
+Now use scripts in loadDemand plugin ...
+
+1. Check that everything is loaded correctly
+ - visual check from "load" project
+ - Set up SYL control times (see TimePeriodsControlledDuringSurveyHours plugin)
+	 Create table - use script in TimePeriodsControlledDuringSurveyHours plugin (..\TimePeriodsControlledDuringSurveyHours\DATAMODEL\0001_controlled_surveys.sql)
+	 run TimePeriodsControlledDuringSurveyHours plugin
+	 Manually selected true/false 
+ - check counts in db (2000_verify_counts.sql). If using SurveyAreas, output and load into Pivot table
+ - check for obvious errors (2001_check_counts.sql)
+
+2. Prepare spreadsheet - both working and client (00_ParkingOccupancy_Templates\Spreadsheet templates)
+ - copy to "Projects/<Year>/<ProjectName>/Data
+ - Check RiS notes for changes in supply
+	 - will need to ensure that all details are complete including RoadName
+	 - if restrictions are added, ensure that they are added into demand tables -
+ - Output supply.
+     - Run 0001a_output_supply.sql.
+     - Save to Downloads\<ProjectReference>_Supply.csv
+     - Copy into Supply worksheet in DataPreparation workbook
+ - Get surveys (0001b_output_surveys.sql) (and check dates of surveys - e.g., RBKC)
+ - Add to working spreadsheet and create pivot
+ - Copy to client workbook
+ 
+3. Check supply and suspensions (from notes and photos)
+ - check VRMs for things like SY, SYL, DK, BINS, CONES, SKIP, etc
+ - ensure suspensions are consistent (from notes and photos) - same location, details, number of spaces, etc
+
+ - Add functions to calculate demand/stress, etc
+     - for VRMs will also need user type and duration
+
+4. Process
+ - for VRMs, deal with matching including duplicates and other issues
+     - standardise VRM formats
+     - remove duplicates and blanks
+     - use "fuzzy" match
+     - check "non-standard" VRMs
+
+5. Output
+ - RiS - for Counts; 2004_output_RestrictionsInSurveys_Counts.sql. Use this in working spreadsheet. Update pivot table to show demand by road/restriction type
+ - Photos - with street/section details - 0004_photos_with_details_from_RiS_demand.sql and 0005_photos_with_details_from_RiS_demand_Suspensions.sql
+
+6. Mapping
+
+ - Prepare supply plan and sort out labelling
+ 
+ - run scripts:
+    - set up "template" - 3001a_supply_view_parking_locations.sql
+    - add locations - 3002_show_parking_locations_using_RiS.sql
+	- create stress details for roads - 3003a_prepare_stress_table_RoadName_from_db.sql
+
+ - Duplicate Supply layout and use for Locations
+	- Copy title details from earlier Locations layout
+	- Add "Demand_view_to_show_parking_locations" to legend - and hide layer title
+	- Add caveat on vehicle locations from earlier Locations layout
+	- Create Atlas. Use "Surveys" as "Coverage layer", filter to be "SurveyID" > 0, sort by "SurveyID"
+
+ - Duplicate Locations layout and use for Stress
+    - Change title
+	- Delete legend and copy legend from earlier Stress layout
+
+7. Data for client
+ - Output RiS (and VRMs if appropriate)
+ - 2004b_output_RestrictionsInSurveys_Counts_for_client.sql
+ - for VRMs - 1055_Anonomise_VRMs.sql + 1060_output_vrms_final_for_report.sql
+
+

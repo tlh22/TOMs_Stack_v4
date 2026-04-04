@@ -1,0 +1,7 @@
+.settings/org.eclipse.core.resources.prefs
+.idea/loadOcc.iml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/modules.xml
+.idea/loadDemand.iml
+*.pyc

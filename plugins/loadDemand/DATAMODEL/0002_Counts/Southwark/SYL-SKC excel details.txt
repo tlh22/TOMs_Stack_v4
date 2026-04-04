@@ -1,0 +1,8 @@
+-- SYLs
+
+=IF(SUMIF('Table 1c1 - SYLs'!$B$7:$B$78,$B24, 'Table 1c1 - SYLs'!D$7:D$78)-'Table 1b - Suspensions (Rest)'!D24>0, SUMIF('Table 1c1 - SYLs'!$B$7:$B$78,$B24, 'Table 1c1 - SYLs'!D$7:D$78)-'Table 1b - Suspensions (Rest)'!D24, 0)
+
+
+-- SKCs
+
+=IF(SUMIF('Table 1c2 - SKCs'!$B$7:$B$78,$B31, 'Table 1c2 - SKCs'!D$7:D$78)-'Table 1b - Suspensions (Rest)'!D31>0, SUMIF('Table 1c2 - SKCs'!$B$7:$B$78,$B31, 'Table 1c2 - SKCs'!D$7:D$78)-'Table 1b - Suspensions (Rest)'!D31, 0)
